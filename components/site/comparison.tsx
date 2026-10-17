@@ -1,6 +1,11 @@
-import { Check, Minus, Sparkles, X } from 'lucide-react'
-import { SectionHeading } from './primitives'
+'use client'
+
+import { Check, Sparkles, X } from 'lucide-react'
+import type { CSSProperties } from 'react'
+import { cn } from '@/lib/utils'
+import { useInView } from '@/lib/hooks'
 import { Reveal } from './reveal'
+import styles from './comparison.module.css'
 
 const rows = [
   {
@@ -14,7 +19,7 @@ const rows = [
     feature: 'Store Manager WhatsApp Escalations',
     desc: 'Instant WhatsApp alerts to store managers for 1-star reviews or safety issues.',
     traditional: false,
-    agencies: false,
+    agencies: false as const,
     wtl: 'Dispatched in < 45s with resolution SOP',
   },
   {
@@ -45,82 +50,94 @@ const rows = [
     agencies: 'Manual CSV export sent next day',
     wtl: 'Instant Geo-routing to branch rep',
   },
-]
+] as const
+
+/* boolean cells mark "not offered" in this product space; keep X for false,
+   Check for true (parity with the original cells) */
+function Cell({ v }: { v: string | boolean }) {
+  if (typeof v === 'boolean') {
+    return (
+      <span className={styles.cellNo} aria-hidden="true">
+        {v ? <Check /> : <X />}
+      </span>
+    )
+  }
+  return <span>{v}</span>
+}
 
 export function Comparison() {
+  const { ref, inView } = useInView<HTMLDivElement>({ threshold: 0.22 })
+
   return (
-    <section id="comparison" aria-labelledby="comparison-title" className="border-t border-line bg-card/40 py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
+    <section id="comparison" aria-labelledby="comparison-title" className={styles.cmp}>
+      <div className={styles.wrap}>
         <Reveal>
-          <SectionHeading
-            id="comparison-title"
-            eyebrow="The Difference"
-            title="Why leading multi-outlet brands switch to What The Local."
-            description="Spreadsheets miss rogue profile changes. Agencies run generic national ads. What The Local unites your presence, reviews, and growth in one living workspace."
-          />
+          <span className={styles.eyebrowChip}>
+            <span className={styles.eyebrowDot} aria-hidden="true" />
+            The Difference
+          </span>
+          <h2 id="comparison-title" className={styles.sTitle}>
+            Why leading multi-outlet brands <span className={styles.sAccent}>switch to What The Local.</span>
+          </h2>
+          <p className={styles.sDesc}>
+            Spreadsheets miss rogue profile changes. Agencies run generic national ads. What The Local
+            unites your presence, reviews, and growth in one living workspace.
+          </p>
         </Reveal>
 
-        <div className="mt-12 overflow-x-auto">
-          <div className="min-w-[700px] overflow-hidden rounded-card border border-line bg-card shadow-card">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="border-b border-line bg-sunken/60 text-xs font-semibold uppercase tracking-wider text-ink-3">
-                  <th scope="col" className="p-4 md:p-5 w-[36%]">
-                    Capability
-                  </th>
-                  <th scope="col" className="p-4 md:p-5 w-[20%]">
-                    Spreadsheets & In-house
-                  </th>
-                  <th scope="col" className="p-4 md:p-5 w-[20%]">
-                    Traditional Agencies
-                  </th>
-                  <th scope="col" className="p-4 md:p-5 w-[24%] bg-brand-subtle text-ink font-bold">
-                    <span className="flex items-center gap-1.5">
-                      <Sparkles className="size-3.5 text-brand" />
-                      What The Local
-                    </span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-line text-sm">
-                {rows.map((r, i) => (
-                  <tr key={r.feature} className="transition-colors hover:bg-hover/50">
-                    <td className="p-4 md:p-5">
-                      <p className="font-semibold text-ink">{r.feature}</p>
-                      <p className="mt-1 text-xs text-ink-3 leading-relaxed">{r.desc}</p>
-                    </td>
-                    <td className="p-4 md:p-5 text-ink-2 align-middle">
-                      {typeof r.traditional === 'boolean' ? (
-                        r.traditional ? (
-                          <Check className="size-4 text-success" />
-                        ) : (
-                          <X className="size-4 text-ink-disabled" />
-                        )
-                      ) : (
-                        <span className="text-xs text-ink-3">{r.traditional}</span>
-                      )}
-                    </td>
-                    <td className="p-4 md:p-5 text-ink-2 align-middle">
-                      {typeof r.agencies === 'boolean' ? (
-                        r.agencies ? (
-                          <Check className="size-4 text-success" />
-                        ) : (
-                          <X className="size-4 text-ink-disabled" />
-                        )
-                      ) : (
-                        <span className="text-xs text-ink-3">{r.agencies}</span>
-                      )}
-                    </td>
-                    <td className="p-4 md:p-5 bg-brand-subtle/40 align-middle">
-                      <span className="flex items-center gap-2 font-medium text-ink text-xs md:text-sm">
-                        <Check className="size-4 text-brand shrink-0" />
-                        {r.wtl}
+        <div
+          ref={ref}
+          data-in={inView ? 'true' : 'false'}
+          className={styles.cmpWrap}
+        >
+          <div className={styles.cmpCard}>
+            <div className={styles.cmpScroll}>
+              <table className={styles.cmpTable}>
+                <thead>
+                  <tr>
+                    <th scope="col" className={styles.thC1}>
+                      Capability
+                    </th>
+                    <th scope="col" className={styles.thW}>
+                      Spreadsheets &amp; In-house
+                    </th>
+                    <th scope="col" className={styles.thA}>
+                      Traditional Agencies
+                    </th>
+                    <th scope="col" className={cn(styles.wtlCol, styles.thWtl)}>
+                      <span className={styles.wtlHead}>
+                        <Sparkles aria-hidden="true" />
+                        What The Local
                       </span>
-                    </td>
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {rows.map((r, i) => (
+                    <tr key={r.feature} style={{ '--rd': `${i * 70}ms` } as CSSProperties}>
+                      <td className={styles.c1}>
+                        <b>{r.feature}</b>
+                        <i>{r.desc}</i>
+                      </td>
+                      <td>
+                        <Cell v={r.traditional} />
+                      </td>
+                      <td>
+                        <Cell v={r.agencies} />
+                      </td>
+                      <td className={cn(styles.wtlCol, styles.wtlTd)}>
+                        <span className={styles.chk}>
+                          <span className={styles.chkIc} aria-hidden="true">
+                            <Check />
+                          </span>
+                          <span className={styles.chkTxt}>{r.wtl}</span>
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>

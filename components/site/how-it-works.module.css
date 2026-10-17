@@ -1,0 +1,490 @@
+/* WTL How it works — approved proposal 2, ported. Tokens from globals (both
+   themes). Entrance states gated under html.js (same philosophy as .reveal);
+   light-only lifts scoped under :global(html:not(.dark)) — bare tag selectors
+   get HASHED by CSS modules. All oklch in full L C H / α form. */
+
+/* ── Section + ambient ─────────────────────────────── */
+.hiw {
+  position: relative;
+  padding: 84px 0 44px;
+  overflow: clip;
+}
+:global(html:not(.dark)) .hiw::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 34% 44% at 88% 16%, oklch(0.88 0.06 330 / 0.4) 0%, transparent 70%),
+    radial-gradient(ellipse 30% 40% at 6% 70%, oklch(0.90 0.06 262 / 0.35) 0%, transparent 70%),
+    radial-gradient(color-mix(in oklch, var(--ink-primary) 4%, transparent) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 26px 26px;
+}
+[data-theme='dark'] .hiw::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 34% 44% at 88% 16%, oklch(0.28 0.05 330 / 0.4) 0%, transparent 70%),
+    radial-gradient(ellipse 30% 40% at 6% 70%, oklch(0.26 0.05 262 / 0.38) 0%, transparent 70%);
+}
+
+.wrap {
+  position: relative;
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Eyebrow chip + heading ─────────────────────────────── */
+.eyebrowChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border: 1px solid var(--brand-border);
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--brand-subtle) 66%, transparent);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+}
+:global(html:not(.dark)) .eyebrowChip {
+  background: linear-gradient(
+    120deg,
+    oklch(0.90 0.08 262 / 0.6) 0%,
+    oklch(0.92 0.06 330 / 0.5) 55%,
+    oklch(0.95 0.06 72 / 0.45) 100%
+  );
+  border-color: color-mix(in oklch, var(--brand-primary) 40%, transparent);
+  color: var(--brand-hover);
+  box-shadow: 0 2px 12px -2px oklch(0.52 0.12 265 / 0.14);
+}
+.eyebrowDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--brand-primary);
+  flex-shrink: 0;
+  animation: brandPulse 2.4s ease-out infinite;
+}
+@keyframes brandPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklch, var(--brand-primary) 45%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 6px color-mix(in oklch, var(--brand-primary) 0%, transparent);
+  }
+}
+
+.sTitle {
+  margin: 16px 0 0;
+  max-width: 640px;
+  font-size: clamp(30px, 3.6vw, 44px);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  color: var(--ink-primary);
+}
+.sAccent {
+  color: var(--ink-primary);
+}
+@supports (background: oklch(1 0 0 / 0)) {
+  .sAccent {
+    background-image: var(--grad-head);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+.sDesc {
+  margin: 16px 0 0;
+  max-width: 56ch;
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--ink-secondary);
+  text-wrap: pretty;
+}
+
+/* ── Living loop rail ─────────────────────────────── */
+.stepsWrap {
+  position: relative;
+  margin-top: 52px;
+}
+.steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (max-width: 1080px) {
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}
+.rail {
+  position: absolute;
+  top: 21px;
+  left: 21px;
+  right: 21px;
+  height: 1.5px;
+  background: var(--line-default);
+}
+:global(html:not(.dark)) .rail {
+  background: linear-gradient(90deg, var(--line-default), var(--line-strong));
+}
+@media (max-width: 1080px) {
+  .rail {
+    display: none;
+  }
+}
+:global(html.js) .railFill {
+  position: absolute;
+  inset: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--brand-primary), oklch(0.55 0.15 330) 55%, oklch(0.65 0.13 72));
+  transition: transform 1400ms cubic-bezier(0.2, 0.7, 0.2, 1) 300ms;
+}
+:global(html.js) .stepsWrap[data-in='true'] .railFill {
+  transform: scaleX(1);
+}
+
+/* one step */
+.step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+:global(html.js) .step {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 560ms ease var(--d, 0ms),
+    transform 560ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0ms);
+}
+:global(html.js) .stepsWrap[data-in='true'] .step {
+  opacity: 1;
+  transform: none;
+}
+.step::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1.5px solid color-mix(in oklch, var(--brand-primary) 40%, transparent);
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+}
+:global(html.js) .stepsWrap[data-in='true'] .step::after {
+  animation: stepHalo 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(300ms + 1400ms * var(--hiwP, 0) - 700ms);
+}
+@keyframes stepHalo {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  35% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+}
+
+.stepNode {
+  position: relative;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--brand-border);
+  border-radius: 12px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklch, var(--brand-subtle) 78%, transparent),
+    color-mix(in oklch, var(--brand-subtle) 40%, transparent)
+  );
+  color: var(--brand-primary);
+  box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.55), 0 3px 10px -5px oklch(0.52 0.12 265 / 0.4);
+}
+.stepNode svg {
+  width: 18px;
+  height: 18px;
+}
+
+.stepIdx {
+  margin: 20px 0 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+.stepIdx b {
+  color: var(--brand-primary);
+  font-weight: 600;
+}
+.stepTitle {
+  margin: 6px 0 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink-primary);
+}
+.stepBody {
+  margin: 8px 0 0;
+  max-width: 34ch;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-secondary);
+}
+
+/* ── Wells (mini-replays) ─────────────────────────────── */
+.stepWell {
+  margin-top: 18px;
+  border: 1px solid var(--line-default);
+  border-radius: 12px;
+  background: var(--surface-sunken);
+  min-height: 118px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 11px 12px;
+  overflow: hidden;
+  position: relative;
+}
+:global(html:not(.dark)) .stepWell {
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklch, var(--surface-raised) 46%, var(--surface-sunken)),
+    var(--surface-sunken)
+  );
+  box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.7);
+}
+
+/* well 1 — sources flow into one workspace */
+.connRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.srcChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border: 1px solid var(--line-default);
+  border-radius: 999px;
+  background: var(--surface-raised);
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--ink-secondary);
+  white-space: nowrap;
+}
+.srcDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+}
+.connSvg {
+  display: block;
+  width: 100%;
+  height: 30px;
+}
+.wire {
+  fill: none;
+  stroke: var(--viz-1-soft);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 4;
+}
+.trav {
+  fill: var(--brand-primary);
+}
+:global(html:not(.dark)) .trav {
+  filter: drop-shadow(0 0 4px oklch(0.52 0.12 265 / 0.6));
+}
+.wsChip {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 9px;
+  border-radius: 10px;
+  border: 1px solid var(--brand-border);
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklch, var(--brand-subtle) 80%, transparent),
+    color-mix(in oklch, var(--brand-subtle) 45%, transparent)
+  );
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--brand-primary);
+  font-weight: 600;
+}
+
+/* well 2 — listening stream (hidden only when JS present) */
+.stream {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.streamRow {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+:global(html.js) .streamRow {
+  opacity: 0;
+  transform: translateY(7px);
+  transition:
+    opacity 380ms ease,
+    transform 380ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+/* must carry the html.js prefix to out-specific the hidden rule above */
+:global(html.js) .streamRow.streamRowOn {
+  opacity: 1;
+  transform: none;
+}
+.tDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+.tMeta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+.tTopic {
+  font-size: 11.5px;
+  color: var(--ink-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+.tagPill {
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-size: 9.5px;
+  font-weight: 600;
+  border: 1px solid var(--line-default);
+  background: var(--surface-raised);
+  color: var(--ink-secondary);
+  flex-shrink: 0;
+}
+.tagOk {
+  border-color: var(--success-border);
+  background: color-mix(in oklch, var(--success-subtle) 80%, transparent);
+  color: var(--success-solid);
+}
+.tagWarn {
+  border-color: var(--warning-border);
+  background: color-mix(in oklch, var(--warning-subtle) 80%, transparent);
+  color: var(--warning-solid);
+}
+.tagBad {
+  border-color: var(--danger-border);
+  background: color-mix(in oklch, var(--danger-subtle) 80%, transparent);
+  color: var(--danger-solid);
+}
+
+/* well 3 — action ticker (hidden only when JS present) */
+.actTicker {
+  position: relative;
+  height: 46px;
+  width: 100%;
+  overflow: hidden;
+}
+.actItem {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--ink-secondary);
+  font-weight: 500;
+}
+.actItem b {
+  color: var(--ink-primary);
+  font-weight: 600;
+}
+:global(html.js) .actItem {
+  opacity: 0;
+  transform: translateY(9px);
+  transition:
+    opacity 480ms ease,
+    transform 480ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+:global(html.js) .actItem.actItemOn {
+  opacity: 1;
+  transform: none;
+}
+.actFill {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.actIc {
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+}
+.actDanger {
+  border: 1px solid var(--danger-border);
+  background: color-mix(in oklch, var(--danger-subtle) 80%, transparent);
+  color: var(--danger-solid);
+}
+.actBrand {
+  border: 1px solid var(--brand-border);
+  background: color-mix(in oklch, var(--brand-subtle) 75%, transparent);
+  color: var(--brand-primary);
+}
+.actWarn {
+  border: 1px solid var(--warning-border);
+  background: color-mix(in oklch, var(--warning-subtle) 80%, transparent);
+  color: var(--warning-solid);
+}
+
+/* ── Reduced motion ─────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .eyebrowDot,
+  .step::after {
+    animation: none !important;
+  }
+  .railFill,
+  .step,
+  .streamRow,
+  .actItem {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,547 @@
+/* WTL Use Cases — approved proposal 4 (S10) "verticals rail": full-width editorial
+   ledger of industries + cursor-following glass preview dock w/ sample-data product
+   artifacts. Port rules: :global(html.js) gating (hidden AND on rules), full oklch,
+   var(--font-mono) for mono text, reduced-motion kills all motion. */
+
+.uc {
+  position: relative;
+  padding: 84px 0 44px;
+  overflow: clip;
+}
+:global(html:not(.dark)) .uc::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    color-mix(in oklch, var(--ink-primary) 4%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 26px 26px;
+}
+[data-theme='dark'] .uc::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* static radar rings in the corner (hero motif, no loop) */
+.rings {
+  position: absolute;
+  top: 20px;
+  right: -50px;
+  width: 330px;
+  height: 330px;
+  pointer-events: none;
+  opacity: 0.9;
+}
+.rings > i {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: 999px;
+  border: 1px dashed var(--line-strong);
+}
+.rings > i:nth-child(1) {
+  width: 100%;
+  height: 100%;
+}
+.rings > i:nth-child(2) {
+  width: 66%;
+  height: 66%;
+  border-style: solid;
+  border-color: var(--line-default);
+}
+.rings > i:nth-child(3) {
+  width: 33%;
+  height: 33%;
+  border-style: solid;
+  border-color: var(--line-strong);
+}
+:global(html:not(.dark)) .rings {
+  opacity: 0.8;
+}
+
+.wrap {
+  position: relative;
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Eyebrow chip + heading (shared grammar) ────────────── */
+.eyebrowChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border: 1px solid var(--brand-border);
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--brand-subtle) 66%, transparent);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+}
+:global(html:not(.dark)) .eyebrowChip {
+  background: linear-gradient(
+    120deg,
+    oklch(0.90 0.08 262 / 0.6) 0%,
+    oklch(0.92 0.06 330 / 0.5) 55%,
+    oklch(0.95 0.06 72 / 0.45) 100%
+  );
+  border-color: color-mix(in oklch, var(--brand-primary) 40%, transparent);
+  color: var(--brand-hover);
+  box-shadow: 0 2px 12px -2px oklch(0.52 0.12 265 / 0.14);
+}
+.eyebrowDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--brand-primary);
+  flex-shrink: 0;
+  animation: brandPulse 2.4s ease-out infinite;
+}
+@keyframes brandPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklch, var(--brand-primary) 45%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 6px color-mix(in oklch, var(--brand-primary) 0%, transparent);
+  }
+}
+.sTitle {
+  margin: 16px 0 0;
+  max-width: 640px;
+  font-size: clamp(30px, 3.6vw, 44px);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  color: var(--ink-primary);
+}
+.sAccent {
+  color: var(--ink-primary);
+}
+@supports (background: oklch(1 0 0 / 0)) {
+  .sAccent {
+    background-image: var(--grad-head);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+.sDesc {
+  margin: 16px 0 0;
+  max-width: 56ch;
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--ink-secondary);
+  text-wrap: pretty;
+}
+
+/* ── Stage: industry rows left, floating preview dock right ── */
+.stage {
+  position: relative;
+  z-index: 2;
+  margin-top: 46px;
+  display: grid;
+  grid-template-columns: minmax(0, 660px) minmax(280px, 1fr);
+  gap: 56px;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line-default);
+}
+.row {
+  position: relative;
+  border-bottom: 1px solid var(--line-default);
+}
+.row::before {
+  /* brand inset bar for the active row */
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--brand-primary), oklch(0.55 0.15 330));
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 320ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.rowOn::before {
+  transform: scaleY(1);
+}
+.rowBtn {
+  display: grid;
+  grid-template-columns: 30px 40px minmax(0, 1fr) 20px;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 17px 8px 17px 10px;
+  border-radius: 10px;
+  color: inherit;
+  transition: background-color 160ms ease;
+}
+.rowBtn:hover {
+  background: var(--surface-hover);
+}
+.rowBtn:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: -2px;
+}
+/* entrance: rows slide in staggered (JS only) */
+:global(html.js) .rowBtn {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+/* the "on" rule MUST repeat the :global(html.js) prefix (specificity trap) */
+:global(html.js) .stage[data-in='true'] .rowBtn {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 480ms ease var(--rd, 0ms),
+    transform 480ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--rd, 0ms),
+    background-color 160ms ease;
+}
+.idx {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+  transition: color 200ms ease;
+}
+.rowOn .idx {
+  color: var(--brand-primary);
+}
+.ic {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  flex-shrink: 0;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--brand-border);
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklch, var(--brand-subtle) 78%, transparent),
+    color-mix(in oklch, var(--brand-subtle) 40%, transparent)
+  );
+  color: var(--brand-primary);
+  box-shadow:
+    inset 0 1px 0 0 oklch(1 0 0 / 0.55),
+    0 3px 10px -5px oklch(0.52 0.12 265 / 0.35);
+  transition: transform 240ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.ic svg {
+  width: 18px;
+  height: 18px;
+}
+.ic::after {
+  /* one-time halo ring on activation */
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 11px;
+  border: 1.5px solid color-mix(in oklch, var(--brand-primary) 40%, transparent);
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+}
+.rowOn .ic {
+  transform: scale(1.06);
+}
+.rowOn .ic::after {
+  animation: stepHalo 760ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes stepHalo {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  35% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+}
+.tx {
+  min-width: 0;
+}
+.name {
+  display: block;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--ink-primary);
+}
+.rowOn .name {
+  color: var(--ink-primary);
+}
+@supports (background: oklch(1 0 0 / 0)) {
+  .rowOn .name {
+    background-image: var(--grad-head);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+.rb {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-secondary);
+}
+.go {
+  width: 18px;
+  height: 18px;
+  justify-self: end;
+  color: var(--ink-muted);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition:
+    opacity 240ms ease,
+    transform 240ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    color 200ms ease;
+}
+.rowOn .go {
+  opacity: 1;
+  transform: none;
+  color: var(--brand-primary);
+}
+
+/* mobile: active row expands inline (dock hidden) */
+.exp {
+  display: none;
+}
+
+/* floating preview dock */
+.dock {
+  position: relative;
+  align-self: stretch;
+  justify-self: end;
+  width: min(360px, 100%);
+  min-height: 320px;
+}
+.dockCard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--surface-raised);
+  box-shadow: var(--shadow-raised);
+}
+[data-theme='dark'] .dockCard {
+  background: var(--surface-card);
+}
+:global(html.js) .dockCard {
+  opacity: 0;
+  transition: opacity 520ms ease 260ms;
+}
+:global(html.js) .stage[data-in='true'] .dockCard {
+  opacity: 1;
+}
+.glare {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    oklch(1 0 0 / 0.42) 44%,
+    oklch(1 0 0 / 0.22) 50%,
+    transparent 62%
+  );
+  transform: translateX(-130%);
+}
+.glareGo {
+  animation: glareRun 850ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes glareRun {
+  0% {
+    transform: translateX(-130%);
+    opacity: 1;
+  }
+  88%,
+  100% {
+    transform: translateX(130%);
+    opacity: 0;
+  }
+}
+.dockHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line-default);
+  background: color-mix(in oklch, var(--brand-subtle) 45%, transparent);
+}
+.dockTag {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+}
+.badge {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  color: var(--ink-muted);
+  border: 1px solid var(--line-default);
+  border-radius: 999px;
+  padding: 3px 8px;
+  background: var(--surface-card);
+}
+.pvHost {
+  padding: 14px 14px 16px;
+}
+.pvSw {
+  animation: pvIn 260ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes pvIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* mini product artifact (all sample data) */
+.pv {
+  display: flex;
+  flex-direction: column;
+}
+.pvRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 7px 0;
+  border-bottom: 1px dashed var(--line-default);
+  font-size: 12.5px;
+}
+.pvRow:last-of-type {
+  border-bottom: none;
+}
+.pvRow b {
+  font-weight: 600;
+  color: var(--ink-primary);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.pvRow span {
+  color: var(--ink-muted);
+  text-align: right;
+}
+.pvBtn {
+  margin-top: 10px;
+  align-self: flex-start;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--brand-primary);
+  border: 1px solid var(--brand-border);
+  border-radius: 8px;
+  padding: 6px 11px;
+  background: color-mix(in oklch, var(--brand-subtle) 64%, transparent);
+}
+.hint {
+  margin: 16px 0 0;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+@media (max-width: 980px) {
+  .stage {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .dock {
+    display: none;
+  }
+  .exp {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 320ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .rowOn .exp {
+    grid-template-rows: 1fr;
+  }
+  .expIn {
+    overflow: hidden;
+    min-height: 0;
+  }
+  .expPad {
+    padding: 2px 12px 16px;
+  }
+  .rowBtn .go {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eyebrowDot,
+  .ic::after,
+  .glareGo,
+  .pvSw {
+    animation: none !important;
+  }
+  .row::before,
+  .rowBtn,
+  .ic,
+  .go,
+  .exp {
+    transition: none !important;
+  }
+  :global(html.js) .rowBtn {
+    opacity: 1;
+    transform: none;
+  }
+  :global(html.js) .dockCard {
+    opacity: 1;
+  }
+  .dockCard {
+    position: sticky;
+    top: 88px;
+    transform: none !important;
+  }
+}

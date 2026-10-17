@@ -2,20 +2,22 @@
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:is(.dark *, [data-theme="dark"] *));
 
-/* WTL Design Language v1.0 — tokens mirrored from the reference */
+/* WTL Design Language v1.0 — tokens aligned strictly from the reference */
 :root {
+  --font-figtree: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif;
+  --font-geist-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   color-scheme: light;
-  --surface-page: oklch(0.95 0.008 270);
+  --surface-page: oklch(0.950 0.008 270);
   --surface-card: oklch(0.988 0.002 85);
   --surface-raised: oklch(1 0 0);
-  --surface-sunken: oklch(0.94 0.008 270);
-  --surface-hover: oklch(0.96 0.006 270);
+  --surface-sunken: oklch(0.940 0.008 270);
+  --surface-hover: oklch(0.960 0.006 270);
   --surface-selected: oklch(0.951 0.021 265);
   --ink-primary: oklch(0.203 0.014 265);
   --ink-secondary: oklch(0.462 0.011 265);
-  --ink-muted: oklch(0.56 0.01 265);
+  --ink-muted: oklch(0.617 0.010 265);
   --ink-disabled: oklch(0.752 0.008 265);
   --ink-inverse: oklch(0.985 0.001 85);
   --line-default: oklch(0.902 0.004 85);
@@ -23,37 +25,42 @@
   --line-focus: oklch(0.52 0.12 265);
   --brand-primary: oklch(0.52 0.12 265);
   --brand-hover: oklch(0.45 0.12 265);
-  --brand-active: oklch(0.4 0.11 265);
+  --brand-active: oklch(0.40 0.11 265);
   --brand-subtle: oklch(0.951 0.021 265);
-  --brand-border: oklch(0.868 0.05 265);
+  --brand-border: oklch(0.868 0.050 265);
   --brand-ink: oklch(0.203 0.014 265);
   --success-solid: oklch(0.55 0.14 150);
-  --success-subtle: oklch(0.955 0.03 150);
+  --success-subtle: oklch(0.955 0.030 150);
   --success-border: oklch(0.872 0.068 150);
-  --warning-solid: oklch(0.58 0.13 70);
-  --warning-subtle: oklch(0.96 0.042 70);
-  --warning-border: oklch(0.874 0.08 70);
+  --warning-solid: oklch(0.62 0.13 70);
+  --warning-subtle: oklch(0.960 0.042 70);
+  --warning-border: oklch(0.874 0.080 70);
   --danger-solid: oklch(0.52 0.15 25);
   --danger-subtle: oklch(0.955 0.032 25);
-  --danger-border: oklch(0.872 0.07 25);
+  --danger-border: oklch(0.872 0.070 25);
   --info-solid: oklch(0.53 0.11 240);
   --info-subtle: oklch(0.953 0.026 240);
-  --info-border: oklch(0.87 0.058 240);
+  --info-border: oklch(0.870 0.058 240);
   --viz-1: oklch(0.58 0.14 265);
-  --viz-1-soft: oklch(0.78 0.1 265);
+  --viz-1-soft: oklch(0.78 0.10 265);
+  --viz-2: oklch(0.66 0.12 230);
   --viz-3: oklch(0.62 0.14 150);
+  --viz-4: oklch(0.72 0.13 120);
   --viz-5: oklch(0.75 0.13 75);
   --viz-6: oklch(0.65 0.15 25);
+  --viz-7: oklch(0.66 0.14 350);
+  --viz-8: oklch(0.56 0.15 300);
   --viz-grid: oklch(0.912 0.004 85);
+  --viz-axis: oklch(0.617 0.010 265);
   --map-land: oklch(0.972 0.004 270);
   --map-water: oklch(0.935 0.018 245);
   --map-road: oklch(0.885 0.006 270);
-  --insight-bg: linear-gradient(135deg, oklch(0.8 0.1 262) 0%, oklch(0.84 0.09 330) 48%, oklch(0.9 0.1 72) 100%);
+  --insight-bg: linear-gradient(135deg, oklch(0.80 0.10 262) 0%, oklch(0.84 0.09 330) 48%, oklch(0.90 0.10 72) 100%);
   --insight-ink: oklch(0.203 0.014 265);
-  --shadow-card-v: 0 1px 2px oklch(0.2 0.02 265 / 0.04);
-  --shadow-pill-v: 0 2px 6px oklch(0.2 0.03 265 / 0.1), 0 0 0 1px oklch(0.2 0.03 265 / 0.04);
-  --shadow-raised-v: 0 6px 18px -6px oklch(0.2 0.02 265 / 0.1), 0 1px 2px oklch(0.2 0.02 265 / 0.04);
-  --shadow-overlay-v: 0 24px 56px -16px oklch(0.2 0.02 265 / 0.22), 0 2px 8px oklch(0.2 0.02 265 / 0.06);
+  --shadow-card-v: 0 1px 2px oklch(0.20 0.02 265 / .04);
+  --shadow-pill-v: 0 2px 6px oklch(0.20 0.03 265 / .10), 0 0 0 1px oklch(0.20 0.03 265 / .04);
+  --shadow-raised-v: 0 6px 18px -6px oklch(0.20 0.02 265 / .10), 0 1px 2px oklch(0.20 0.02 265 / .04);
+  --shadow-overlay-v: 0 24px 56px -16px oklch(0.20 0.02 265 / .22), 0 2px 8px oklch(0.20 0.02 265 / .06);
 
   /* shadcn compatibility */
   --background: var(--surface-page);
@@ -75,57 +82,94 @@
   --input: var(--line-strong);
   --ring: var(--line-focus);
   --radius: 0.75rem;
+
+  /* Hero signature sweeps (approved proposal v2) */
+  --grad-head: linear-gradient(
+    98deg,
+    oklch(0.30 0.06 262) 0%,
+    oklch(0.50 0.18 280) 36%,
+    oklch(0.55 0.17 330) 66%,
+    oklch(0.60 0.15 72) 100%
+  );
+  --grad-frame: linear-gradient(
+    135deg,
+    oklch(0.80 0.10 262 / 0.85) 0%,
+    oklch(0.84 0.09 330 / 0.70) 48%,
+    oklch(0.90 0.10 72 / 0.85) 100%
+  );
+  --spec: oklch(1 0 0 / 0.55);
 }
 
-.dark {
+.dark, [data-theme="dark"] {
   color-scheme: dark;
-  --surface-page: oklch(0.145 0.007 265);
-  --surface-card: oklch(0.195 0.008 265);
-  --surface-raised: oklch(0.255 0.012 265);
-  --surface-sunken: oklch(0.118 0.006 265);
-  --surface-hover: oklch(0.24 0.01 265);
-  --surface-selected: oklch(0.28 0.045 265);
-  --ink-primary: oklch(0.97 0.002 85);
-  --ink-secondary: oklch(0.78 0.009 265);
-  --ink-muted: oklch(0.66 0.011 265);
-  --ink-disabled: oklch(0.45 0.01 265);
-  --ink-inverse: oklch(0.14 0.01 265);
-  --line-default: oklch(0.29 0.01 265);
-  --line-strong: oklch(0.39 0.012 265);
+  --surface-page: oklch(0.171 0.007 265);
+  --surface-card: oklch(0.212 0.008 265);
+  --surface-raised: oklch(0.246 0.009 265);
+  --surface-sunken: oklch(0.145 0.006 265);
+  --surface-hover: oklch(0.258 0.009 265);
+  --surface-selected: oklch(0.282 0.042 265);
+  --ink-primary: oklch(0.962 0.002 85);
+  --ink-secondary: oklch(0.742 0.009 265);
+  --ink-muted: oklch(0.596 0.011 265);
+  --ink-disabled: oklch(0.436 0.010 265);
+  --ink-inverse: oklch(0.185 0.010 265);
+  --line-default: oklch(0.286 0.009 265);
+  --line-strong: oklch(0.375 0.011 265);
   --line-focus: oklch(0.72 0.13 265);
   --brand-primary: oklch(0.72 0.13 265);
   --brand-hover: oklch(0.79 0.11 265);
   --brand-active: oklch(0.84 0.09 265);
-  --brand-subtle: oklch(0.28 0.055 265);
-  --brand-border: oklch(0.42 0.08 265);
-  --brand-ink: oklch(0.97 0.002 85);
+  --brand-subtle: oklch(0.288 0.055 265);
+  --brand-border: oklch(0.402 0.080 265);
+  --brand-ink: oklch(0.962 0.002 85);
   --success-solid: oklch(0.74 0.15 150);
-  --success-subtle: oklch(0.25 0.05 150);
-  --success-border: oklch(0.4 0.072 150);
-  --warning-solid: oklch(0.8 0.14 70);
-  --warning-subtle: oklch(0.26 0.052 70);
-  --warning-border: oklch(0.42 0.074 70);
-  --danger-solid: oklch(0.74 0.16 25);
-  --danger-subtle: oklch(0.26 0.058 25);
-  --danger-border: oklch(0.42 0.086 25);
+  --success-subtle: oklch(0.278 0.050 150);
+  --success-border: oklch(0.388 0.072 150);
+  --warning-solid: oklch(0.80 0.14 70);
+  --warning-subtle: oklch(0.288 0.052 70);
+  --warning-border: oklch(0.402 0.074 70);
+  --danger-solid: oklch(0.72 0.16 25);
+  --danger-subtle: oklch(0.288 0.058 25);
+  --danger-border: oklch(0.402 0.086 25);
   --info-solid: oklch(0.74 0.12 240);
-  --info-subtle: oklch(0.26 0.048 240);
-  --info-border: oklch(0.4 0.068 240);
+  --info-subtle: oklch(0.278 0.048 240);
+  --info-border: oklch(0.392 0.068 240);
   --viz-1: oklch(0.72 0.13 265);
-  --viz-1-soft: oklch(0.55 0.1 265);
+  --viz-1-soft: oklch(0.55 0.10 265);
+  --viz-2: oklch(0.78 0.11 230);
   --viz-3: oklch(0.76 0.14 150);
+  --viz-4: oklch(0.83 0.13 120);
   --viz-5: oklch(0.85 0.13 75);
   --viz-6: oklch(0.74 0.15 25);
-  --viz-grid: oklch(0.26 0.008 265);
+  --viz-7: oklch(0.76 0.13 350);
+  --viz-8: oklch(0.70 0.15 300);
+  --viz-grid: oklch(0.262 0.008 265);
+  --viz-axis: oklch(0.596 0.011 265);
   --map-land: oklch(0.16 0.008 265);
   --map-water: oklch(0.21 0.03 250);
   --map-road: oklch(0.28 0.01 265);
-  --insight-bg: linear-gradient(135deg, oklch(0.44 0.14 262) 0%, oklch(0.42 0.13 330) 48%, oklch(0.54 0.14 60) 100%);
-  --insight-ink: oklch(0.99 0.002 85);
-  --shadow-card-v: 0 1px 3px oklch(0 0 0 / 0.35);
-  --shadow-pill-v: 0 2px 8px oklch(0 0 0 / 0.45), 0 0 0 1px oklch(1 0 0 / 0.08);
-  --shadow-raised-v: 0 10px 28px -6px oklch(0 0 0 / 0.6), 0 2px 4px oklch(0 0 0 / 0.35);
-  --shadow-overlay-v: 0 24px 64px -16px oklch(0 0 0 / 0.75), 0 2px 8px oklch(0 0 0 / 0.5);
+  --insight-bg: linear-gradient(135deg, oklch(0.42 0.13 262) 0%, oklch(0.40 0.12 330) 48%, oklch(0.52 0.13 60) 100%);
+  --insight-ink: oklch(0.985 0.002 85);
+  --shadow-card-v: 0 1px 2px oklch(0 0 0 / .28);
+  --shadow-pill-v: 0 2px 6px oklch(0 0 0 / .40), 0 0 0 1px oklch(1 0 0 / .06);
+  --shadow-raised-v: 0 6px 18px -6px oklch(0 0 0 / .45), 0 1px 2px oklch(0 0 0 / .30);
+  --shadow-overlay-v: 0 24px 56px -16px oklch(0 0 0 / .60), 0 2px 8px oklch(0 0 0 / .40);
+
+  /* Hero signature sweeps (approved proposal v2) */
+  --grad-head: linear-gradient(
+    98deg,
+    oklch(0.92 0.02 85) 0%,
+    oklch(0.72 0.16 280) 38%,
+    oklch(0.70 0.16 330) 68%,
+    oklch(0.82 0.14 55) 100%
+  );
+  --grad-frame: linear-gradient(
+    135deg,
+    oklch(0.42 0.13 262 / 0.9) 0%,
+    oklch(0.40 0.12 330 / 0.8) 48%,
+    oklch(0.52 0.13 60 / 0.9) 100%
+  );
+  --spec: oklch(1 0 0 / 0.28);
 }
 
 @theme inline {
@@ -148,6 +192,7 @@
   --color-focus: var(--line-focus);
   --color-brand: var(--brand-primary);
   --color-brand-hover: var(--brand-hover);
+  --color-brand-active: var(--brand-active);
   --color-brand-subtle: var(--brand-subtle);
   --color-brand-border: var(--brand-border);
   --color-brand-ink: var(--brand-ink);
@@ -255,6 +300,63 @@
   -webkit-backdrop-filter: blur(20px);
 }
 
+/* Two-theme Hero Canvas (light = approved 4-hue pastel mesh + dot grid) */
+.hero-canvas {
+  background-color: var(--surface-page);
+  background-image:
+    radial-gradient(ellipse 46% 36% at 80% 6%, oklch(0.86 0.075 262 / 0.80) 0%, transparent 70%),
+    radial-gradient(ellipse 38% 32% at 97% 44%, oklch(0.88 0.065 330 / 0.65) 0%, transparent 70%),
+    radial-gradient(ellipse 42% 34% at 58% 104%, oklch(0.90 0.075 72 / 0.60) 0%, transparent 70%),
+    radial-gradient(ellipse 36% 32% at 4% 66%, oklch(0.90 0.06 200 / 0.55) 0%, transparent 68%),
+    radial-gradient(color-mix(in oklch, var(--ink-primary) 6%, transparent) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 26px 26px;
+}
+
+.dark .hero-canvas,
+[data-theme="dark"] .hero-canvas {
+  background-color: #07090e;
+  background-image:
+    radial-gradient(ellipse 65% 55% at 20% 25%, rgba(37, 99, 235, 0.22) 0px, transparent 65%),
+    radial-gradient(ellipse 75% 60% at 80% 20%, rgba(56, 189, 248, 0.14) 0px, transparent 65%),
+    radial-gradient(ellipse 60% 50% at 50% 90%, rgba(37, 99, 235, 0.10) 0px, transparent 70%),
+    radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 28px 28px;
+}
+
+/* Command surface (outer shell): clean structured dashboard in Light, dark command center in Dark */
+.command-surface {
+  background: var(--surface-card);
+  border: 1px solid var(--line-default);
+  box-shadow: 0 16px 40px -12px oklch(0.20 0.02 265 / .12), 0 1px 2px oklch(0.20 0.02 265 / .04);
+}
+
+.dark .command-surface,
+[data-theme="dark"] .command-surface {
+  background: rgba(13, 16, 26, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 32px 100px -20px rgba(0, 0, 0, 0.9),
+    0 1px 0 0 rgba(255, 255, 255, 0.12) inset;
+}
+
+/* Command card (overlay panels): structured elevation in Light, frosted deep glass in Dark */
+.command-card {
+  background: var(--surface-raised);
+  border: 1px solid var(--line-default);
+  box-shadow: 0 12px 32px -8px oklch(0.20 0.02 265 / .14), 0 1px 3px oklch(0.20 0.02 265 / .06);
+}
+
+.dark .command-card,
+[data-theme="dark"] .command-card {
+  background: rgba(18, 22, 36, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.75);
+}
+
 .tnum {
   font-variant-numeric: tabular-nums;
 }
@@ -313,6 +415,25 @@
   }
 }
 
+@keyframes wtl-signal-stream {
+  0% {
+    stroke-dashoffset: 36;
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.95;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.35;
+  }
+}
+
+.signal-conduit {
+  stroke-dasharray: 6 4;
+  animation: wtl-signal-stream 1.6s linear infinite;
+}
+
 .pulse-ring {
   transform-box: fill-box;
   transform-origin: center;
@@ -355,6 +476,9 @@
   }
   .pulse-ring {
     display: none;
+  }
+  .signal-conduit {
+    animation: none;
   }
   .js .reveal {
     opacity: 1;

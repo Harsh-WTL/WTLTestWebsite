@@ -1,10 +1,11 @@
 'use client'
 
+import { useEffect, useState, type CSSProperties } from 'react'
 import { Link2, Radar, Zap } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { useInView } from '@/lib/hooks'
-import { SectionHeading } from './primitives'
+import { useInView, usePrefersReducedMotion } from '@/lib/hooks'
 import { Reveal } from './reveal'
+import styles from './how-it-works.module.css'
 
 const steps = [
   {
@@ -27,49 +28,163 @@ const steps = [
   },
 ]
 
-export function HowItWorks() {
-  const { ref, inView } = useInView<HTMLOListElement>({ threshold: 0.3 })
+/* Decorative mini-replays (sample data only, aria-hidden) — one per step. */
+const LISTEN_ROWS = [
+  { time: '09:41 · Thane', tone: 'var(--success-solid)', tag: '✓ positive', tagCls: 'tagOk', topic: 'wait times' },
+  { time: '09:38 · Powai', tone: 'var(--warning-solid)', tag: '▼ mixed', tagCls: 'tagWarn', topic: 'hours' },
+  { time: '09:35 · Vashi', tone: 'var(--danger-solid)', tag: '✕ negative', tagCls: 'tagBad', topic: 'reply due' },
+]
+
+const ACTIONS = [
+  { ic: 'WA', tone: 'actDanger', content: <>WhatsApp alert · <b>Vashi</b> · 45s</> },
+  { ic: 'RA', tone: 'actBrand', content: <>Draft ready · <b>Thane</b> · 1★ reply</> },
+  { ic: 'SP', tone: 'actWarn', content: <>Radius shifted · <b>Powai</b> · 3 → 5 km</> },
+]
+
+const CONNECT_PATHS = ['M18 1 L18 28', 'M118 1 C118 13, 20 15, 18 28', 'M240 1 C240 17, 26 16, 18 28']
+
+function ConnectWell({ run, reduced }: { run: boolean; reduced: boolean }) {
+  void run
   return (
-    <section id="how-it-works" aria-labelledby="how-title" className="border-t border-line py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
+    <div className={styles.stepWell} aria-hidden="true">
+      <div className={styles.connRow}>
+        <span className={styles.srcChip}>
+          <span className={styles.srcDot} style={{ background: 'var(--success-solid)' }} />
+          Google
+        </span>
+        <span className={styles.srcChip}>
+          <span className={styles.srcDot} style={{ background: 'var(--viz-2)' }} />
+          Meta
+        </span>
+        <span className={styles.srcChip}>
+          <span className={styles.srcDot} style={{ background: 'var(--warning-solid)' }} />
+          Ad accounts
+        </span>
+      </div>
+      <svg className={styles.connSvg} viewBox="0 0 280 30" preserveAspectRatio="none" aria-hidden="true">
+        {CONNECT_PATHS.map((d) => (
+          <path key={d} className={styles.wire} d={d} />
+        ))}
+        {!reduced && (
+          <>
+            <circle className={styles.trav} r="2.4">
+              <animateMotion dur="2.2s" begin="0.2s" repeatCount="indefinite" path={CONNECT_PATHS[0]} />
+            </circle>
+            <circle className={styles.trav} r="2.4">
+              <animateMotion dur="2.8s" begin="0.9s" repeatCount="indefinite" path={CONNECT_PATHS[1]} />
+            </circle>
+            <circle className={styles.trav} r="2.4">
+              <animateMotion dur="3.4s" begin="1.6s" repeatCount="indefinite" path={CONNECT_PATHS[2]} />
+            </circle>
+          </>
+        )}
+      </svg>
+      <span className={styles.wsChip}>12 locations · one workspace</span>
+    </div>
+  )
+}
+
+function ListenWell({ run, reduced }: { run: boolean; reduced: boolean }) {
+  const [head, setHead] = useState(0)
+  useEffect(() => {
+    if (reduced || !run) return
+    const id = setInterval(() => setHead((h) => (h + 1) % LISTEN_ROWS.length), 1400)
+    return () => clearInterval(id)
+  }, [run, reduced])
+
+  return (
+    <div className={styles.stepWell} aria-hidden="true">
+      <div className={styles.stream}>
+        {LISTEN_ROWS.map((r, i) => {
+          const on = reduced || !run || i === head || i === (head + 1) % LISTEN_ROWS.length
+          return (
+            <div key={r.time} className={cn(styles.streamRow, on && styles.streamRowOn)}>
+              <span className={styles.tDot} style={{ background: r.tone }} />
+              <span className={styles.tMeta}>{r.time}</span>
+              <span className={cn(styles.tagPill, styles[r.tagCls])}>{r.tag}</span>
+              <span className={styles.tTopic}>{r.topic}</span>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+function ActWell({ run, reduced }: { run: boolean; reduced: boolean }) {
+  const [idx, setIdx] = useState(0)
+  useEffect(() => {
+    if (reduced || !run) return
+    const id = setInterval(() => setIdx((a) => (a + 1) % ACTIONS.length), 2200)
+    return () => clearInterval(id)
+  }, [run, reduced])
+
+  return (
+    <div className={styles.stepWell} aria-hidden="true">
+      <div className={styles.actFill}>
+        <div className={styles.actTicker}>
+          {ACTIONS.map((a, i) => {
+            const on = reduced || !run || i === idx
+            return (
+              <div key={i} className={cn(styles.actItem, on && styles.actItemOn)}>
+                <span className={cn(styles.actIc, styles[a.tone])}>{a.ic}</span>
+                {a.content}
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function HowItWorks() {
+  const reduced = usePrefersReducedMotion()
+  const { ref, inView } = useInView<HTMLDivElement>({ threshold: 0.3 })
+  const run = inView || reduced
+
+  return (
+    <section id="how-it-works" aria-labelledby="how-title" className={styles.hiw}>
+      <div className={styles.wrap}>
         <Reveal>
-          <SectionHeading
-            id="how-title"
-            eyebrow="How it works"
-            title="From signal to local action in one place."
-            description="Each product handles one part of the loop, and they share the same locations, data, and context."
-          />
+          <span className={styles.eyebrowChip}>
+            <span className={styles.eyebrowDot} aria-hidden="true" />
+            How it works
+          </span>
+          <h2 id="how-title" className={styles.sTitle}>
+            From signal to local action <span className={styles.sAccent}>in one place.</span>
+          </h2>
+          <p className={styles.sDesc}>
+            Each product handles one part of the loop, and they share the same locations, data, and context.
+          </p>
         </Reveal>
 
-        <ol ref={ref} className="relative mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
-          <span aria-hidden="true" className="absolute left-5 right-[16%] top-5 hidden h-px bg-line md:block">
-            <span
-              className={cn(
-                'block h-full origin-left bg-brand transition-transform duration-[1400ms] ease-[cubic-bezier(.2,.7,.2,1)]',
-                inView ? 'scale-x-100' : 'scale-x-0',
-              )}
-            />
+        <div ref={ref} data-in={inView ? 'true' : 'false'} className={styles.stepsWrap}>
+          <span aria-hidden="true" className={styles.rail}>
+            <span className={styles.railFill} />
           </span>
-          {steps.map((s, i) => (
-            <li
-              key={s.title}
-              className={cn(
-                'relative transition-[opacity,transform] duration-500',
-                !inView && '[.js_&]:translate-y-3 [.js_&]:opacity-0 motion-reduce:translate-y-0! motion-reduce:opacity-100!',
-              )}
-              style={{ transitionDelay: `${i * 220}ms` }}
-            >
-              <span className="relative z-10 flex size-10 items-center justify-center rounded-full border border-brand-border bg-brand-subtle text-ink">
-                <s.icon aria-hidden="true" className="size-[18px]" />
-              </span>
-              <p className="mt-6 font-mono text-xs text-ink-3">
-                0{i + 1} · {s.product}
-              </p>
-              <h3 className="mt-2 text-xl font-semibold tracking-[-0.02em]">{s.title}</h3>
-              <p className="mt-2 max-w-sm text-[15px] leading-relaxed text-ink-2">{s.body}</p>
-            </li>
-          ))}
-        </ol>
+          <ol className={styles.steps}>
+            {steps.map((s, i) => (
+              <li
+                key={s.title}
+                className={styles.step}
+                style={{ '--hiwP': `${i / 2}`, '--d': `${i * 140}ms` } as CSSProperties}
+              >
+                <span className={styles.stepNode}>
+                  <s.icon aria-hidden="true" />
+                </span>
+                <p className={styles.stepIdx}>
+                  <b>0{i + 1}</b> · {s.product}
+                </p>
+                <h3 className={styles.stepTitle}>{s.title}</h3>
+                <p className={styles.stepBody}>{s.body}</p>
+                {i === 0 && <ConnectWell run={run} reduced={reduced} />}
+                {i === 1 && <ListenWell run={run} reduced={reduced} />}
+                {i === 2 && <ActWell run={run} reduced={reduced} />}
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
     </section>
   )

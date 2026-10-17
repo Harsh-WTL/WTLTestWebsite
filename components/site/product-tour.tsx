@@ -1,18 +1,21 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Check } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { Panel, SampleBadge, SectionHeading } from './primitives'
+import { usePrefersReducedMotion } from '@/lib/hooks'
+import { SampleBadge } from './primitives'
 import { Reveal } from './reveal'
 import { LocationsView } from './views/locations-view'
 import { EngageView } from './views/engage-view'
 import { SynapseView } from './views/synapse-view'
+import styles from './product-tour.module.css'
 
 const products = [
   {
     id: 'locations',
     name: 'Locations',
+    mono: 'LD',
     tagline: 'LOC-D // Listing & SEO Atlas',
     title: 'Every storefront indexed, protected, and ranking #1.',
     body: 'Monitor the health of every outlet on one map. 24/7 Profile Guard catches unauthorized edits to hours, numbers, and categories before customers encounter a closed door.',
@@ -23,6 +26,7 @@ const products = [
   {
     id: 'engage',
     name: 'Engage',
+    mono: 'RA',
     tagline: 'REP-A // Reputation Core & Patrol',
     title: 'One inbox for every review, comment, and message.',
     body: 'Autonomous AI patrol across Google, Instagram, Facebook, and App Store reviews. AI drafts on-brand replies with approval guardrails, while 1-star complaints trigger instant WhatsApp alerts to store managers.',
@@ -33,6 +37,7 @@ const products = [
   {
     id: 'synapse',
     name: 'Synapse',
+    mono: 'HΣ',
     tagline: 'HYP-Σ // Hyperlocal Ad Network',
     title: 'Spend where each store can actually serve.',
     body: 'Run Performance Max and Meta Lead Ads per location, with a targeting radius around each store and leads routed directly to the nearest branch rep.',
@@ -44,8 +49,28 @@ const products = [
 
 export function ProductTour() {
   const [active, setActive] = useState(0)
+  const [glare, setGlare] = useState(0)
+  const [ind, setInd] = useState<{ left: number; width: number } | null>(null)
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
   const product = products[active]
+
+  useEffect(() => {
+    const measure = () => {
+      const el = tabRefs.current[active]
+      if (el) setInd({ left: el.offsetLeft - 3, width: el.offsetWidth })
+    }
+    measure()
+    window.addEventListener('resize', measure)
+    // tab labels can shift width when the display font swaps in
+    document.fonts?.ready.then(measure).catch(() => {})
+    return () => window.removeEventListener('resize', measure)
+  }, [active])
+
+  const pick = (i: number) => {
+    if (i === active) return
+    setActive(i)
+    setGlare((g) => g + 1)
+  }
 
   const onKeyDown = (e: React.KeyboardEvent) => {
     const last = products.length - 1
@@ -56,88 +81,104 @@ export function ProductTour() {
     else if (e.key === 'End') next = last
     if (next === null) return
     e.preventDefault()
-    setActive(next)
+    pick(next)
     tabRefs.current[next]?.focus()
   }
 
   return (
-    <section id="products" aria-labelledby="products-title" className="border-t border-line bg-card/50 py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <Reveal className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
-          <SectionHeading
-            id="products-title"
-            eyebrow="The products"
-            title="Three products. One set of locations."
-            description="Try each one below. Everything here is sample data you can click through."
-          />
-          <div
-            role="tablist"
-            aria-label="Products"
-            onKeyDown={onKeyDown}
-            className="inline-flex shrink-0 self-start rounded-full border border-line bg-sunken p-1 md:self-auto"
-          >
-            {products.map((p, i) => (
-              <button
-                key={p.id}
-                ref={(el) => {
-                  tabRefs.current[i] = el
-                }}
-                id={`tab-${p.id}`}
-                role="tab"
-                type="button"
-                aria-selected={active === i}
-                aria-controls={`panel-${p.id}`}
-                tabIndex={active === i ? 0 : -1}
-                onClick={() => setActive(i)}
-                className={cn(
-                  'rounded-full px-4 py-2 text-sm font-semibold transition-[background-color,color,box-shadow] duration-200',
-                  active === i ? 'bg-card text-ink shadow-pill' : 'text-ink-2 hover:text-ink',
-                )}
-              >
-                {p.name}
-              </button>
-            ))}
-          </div>
-        </Reveal>
+    <section id="products" aria-labelledby="products-title" className={styles.tour}>
+      <div className={styles.wrap}>
+        <div className={styles.tourGrid}>
+          <Reveal className={styles.tourLeft}>
+            <span className={styles.eyebrowChip}>
+              <span className={styles.eyebrowDot} aria-hidden="true" />
+              The products
+            </span>
+            <h2 id="products-title" className={styles.sTitle}>
+              Three products. One set of locations.
+            </h2>
+            <p className={styles.sDesc}>Try each one below. Everything here is sample data you can click through.</p>
 
-        <div
-          key={product.id}
-          id={`panel-${product.id}`}
-          role="tabpanel"
-          aria-labelledby={`tab-${product.id}`}
-          className="enter-rise mt-12 grid gap-8 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-10"
-        >
-          <div className="lg:pt-2">
-            <p className="font-mono text-xs uppercase tracking-[0.09em] text-brand">{product.tagline}</p>
-            <h3 className="mt-3 text-balance text-2xl font-semibold tracking-[-0.025em] md:text-[28px] md:leading-tight">
-              {product.title}
-            </h3>
-            <p className="mt-3 text-pretty text-[15px] leading-relaxed text-ink-2">{product.body}</p>
-            <ul className="mt-6 grid gap-3">
-              {product.points.map((pt) => (
-                <li key={pt} className="flex items-start gap-2.5 text-[15px]">
-                  <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-brand-subtle">
-                    <Check aria-hidden="true" className="size-3 text-brand" />
-                  </span>
-                  {pt}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-8 rounded-ctl border border-dashed border-line-strong px-3.5 py-3 text-[13px] text-ink-2">
-              <span className="font-semibold text-ink">Try it: </span>
-              {product.hint}
-            </p>
-          </div>
-
-          <Panel className="overflow-hidden shadow-raised">
-            <div className="flex items-center justify-between gap-3 border-b border-line px-4 py-3">
-              <p className="text-sm font-semibold">
-                {product.name} <span className="font-normal text-ink-3">· Mumbai region</span>
+            <div className={styles.tourRail}>
+              <p className={styles.tagTagline}>{product.tagline}</p>
+              <h3 className={styles.tPointTitle}>{product.title}</h3>
+              <p className={styles.tPointBody}>{product.body}</p>
+              <ul className={styles.points}>
+                {product.points.map((pt) => (
+                  <li key={pt} className={styles.point}>
+                    <span className={styles.pointChk} aria-hidden="true">
+                      <Check />
+                    </span>
+                    {pt}
+                  </li>
+                ))}
+              </ul>
+              <p className={styles.tryNote}>
+                <b>Try it:</b> {product.hint}
+                <span className={styles.tryArrow} aria-hidden="true">
+                  →
+                </span>
               </p>
-              <SampleBadge />
             </div>
-            <product.View />
-          </Panel>
+          </Reveal>
+
+          {/* right: tabs + artifact rise to the section top */}
+          <Reveal delay={160} className={styles.tourRight}>
+            <div className={styles.tabWrap} role="tablist" aria-label="Products" onKeyDown={onKeyDown}>
+              <span
+                aria-hidden="true"
+                className={styles.tabIndicator}
+                style={{
+                  width: ind?.width,
+                  transform: `translateX(${ind ? ind.left : 0}px)`,
+                  opacity: ind ? 1 : 0,
+                }}
+              />
+              {products.map((p, i) => (
+                <button
+                  key={p.id}
+                  ref={(el) => {
+                    tabRefs.current[i] = el
+                  }}
+                  id={`tab-${p.id}`}
+                  role="tab"
+                  type="button"
+                  aria-selected={active === i}
+                  aria-controls={`panel-${p.id}`}
+                  tabIndex={active === i ? 0 : -1}
+                  onClick={() => pick(i)}
+                  className={styles.tabBtn}
+                >
+                  {p.name}
+                </button>
+              ))}
+            </div>
+
+            <div
+              id={`panel-${product.id}`}
+              role="tabpanel"
+              aria-labelledby={`tab-${product.id}`}
+              className={styles.pframe}
+            >
+              <div className={styles.ptop}>
+                <p className={styles.ptName}>
+                  <span className={styles.ptMonogram} aria-hidden="true">
+                    {product.mono}
+                  </span>
+                  {product.name} <i>· Mumbai region</i>
+                </p>
+                <SampleBadge />
+              </div>
+              <div key={product.id} className={styles.swap}>
+                <product.View />
+              </div>
+              <span
+                key={glare}
+                aria-hidden="true"
+                className={cn(styles.pframeGlare, glare > 0 && styles.glareRun)}
+              />
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

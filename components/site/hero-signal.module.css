@@ -1,0 +1,770 @@
+/* WTL Hero — approved proposal v2, ported into the site.
+   Scoped CSS module; design tokens come from app/globals.css (both themes).
+   Base rules follow the canon tokens; light-only lifts are scoped under
+   html:not(.dark), matching the approved mock. */
+
+/* ── Headline metal type ─────────────────────────────── */
+/* Fallback first: readable ink text if the engine lacks oklch support. */
+.metal {
+  color: var(--ink-primary);
+}
+@supports (background: oklch(1 0 0 / 0)) {
+  .metal {
+    background-image:
+      linear-gradient(180deg, var(--spec) 0%, oklch(1 0 0 / 0) 46%),
+      var(--grad-head);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+
+/* Underline highlight inside supporting copy */
+.uw {
+  color: var(--ink-primary);
+  background: linear-gradient(120deg, var(--brand-primary), oklch(0.55 0.15 330) 60%, oklch(0.65 0.13 72)) bottom / 100% 2px no-repeat;
+  box-decoration-break: slice;
+  -webkit-box-decoration-break: slice;
+}
+
+/* ── Eyebrow pill ─────────────────────────────── */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border: 1px solid var(--brand-border);
+  border-radius: 999px;
+  background: var(--brand-subtle);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+}
+:global(html:not(.dark)) .eyebrow {
+  background: linear-gradient(
+    120deg,
+    oklch(0.90 0.08 262 / 0.60) 0%,
+    oklch(0.92 0.06 330 / 0.50) 55%,
+    oklch(0.95 0.06 72 / 0.45) 100%
+  );
+  border-color: color-mix(in oklch, var(--brand-primary) 40%, transparent);
+  color: var(--brand-hover);
+  box-shadow: 0 2px 12px -2px oklch(0.52 0.12 265 / 0.14);
+}
+
+/* ── Live drift sting ─────────────────────────────── */
+.sting {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid var(--line-default);
+  border-radius: 10px;
+  background: var(--surface-card);
+  font-size: 13px;
+  color: var(--ink-secondary);
+  width: fit-content;
+}
+.stingB {
+  color: var(--ink-primary);
+  font-weight: 600;
+}
+:global(html:not(.dark)) .sting {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--surface-card), var(--surface-card)) padding-box,
+    linear-gradient(120deg, var(--warning-solid), var(--brand-primary) 55%, var(--warning-solid)) border-box;
+  box-shadow: 0 8px 20px -8px oklch(0.62 0.13 70 / 0.20);
+}
+.driftBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--warning-subtle);
+  border: 1px solid var(--warning-border);
+  color: var(--warning-solid);
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+:global(html:not(.dark)) .driftBadge {
+  background: linear-gradient(120deg, var(--warning-subtle), oklch(0.958 0.042 70 / 0.8));
+}
+
+/* ── CTA buttons (glossy fills, canon 10px radius) ─────────────────────────────── */
+.btnP {
+  border-radius: 10px;
+  background: linear-gradient(180deg, oklch(0.30 0.055 262) 0%, oklch(0.21 0.035 262) 100%);
+  color: var(--ink-inverse);
+  box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.18), 0 8px 18px -9px oklch(0.30 0.08 262 / 0.55);
+}
+.btnP:hover {
+  box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.20), 0 14px 34px -12px oklch(0.30 0.08 262 / 0.60);
+}
+[data-theme='dark'] .btnP {
+  background: linear-gradient(180deg, oklch(0.99 0.002 85) 0%, oklch(0.955 0.003 85) 100%);
+  color: var(--ink-inverse);
+  box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.5), 0 8px 22px -10px oklch(1 0 0 / 0.14);
+}
+.btnS {
+  border-radius: 10px;
+  background: linear-gradient(180deg, var(--surface-raised), color-mix(in oklch, var(--surface-raised) 90%, var(--brand-subtle)));
+  color: var(--ink-primary);
+  border: 1px solid var(--line-strong);
+  box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.80), 0 4px 12px -6px oklch(0.50 0.11 265 / 0.20);
+}
+
+/* ── Logo rail + marquee ─────────────────────────────── */
+.rail {
+  margin-top: 40px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line-default);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.railLabel {
+  flex-shrink: 0;
+  font-size: 11px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+.marquee {
+  overflow: hidden;
+  flex: 1;
+  min-width: 0;
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+.track {
+  display: inline-flex;
+  animation: heroMarquee 26s linear infinite;
+}
+@keyframes heroMarquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.setName {
+  display: inline-flex;
+  gap: 44px;
+  padding-right: 44px;
+}
+.logoItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  white-space: nowrap;
+  opacity: 0.85;
+}
+.logoDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* ── Ribbon ─────────────────────────────── */
+.ribbon {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  font-size: 11.5px;
+  color: var(--ink-muted);
+}
+.ribbonSep {
+  opacity: 0.35;
+}
+.ribbonKey {
+  color: var(--brand-hover);
+  font-weight: 600;
+}
+.ribbonKey::before {
+  content: '●';
+  font-size: 7px;
+  margin-right: 6px;
+  vertical-align: 2px;
+  color: var(--success-solid);
+}
+[data-theme='dark'] .ribbonKey {
+  color: var(--ink-muted);
+  font-weight: 400;
+}
+[data-theme='dark'] .ribbonKey::before {
+  content: none;
+}
+
+/* ── Right column: living montage ─────────────────────────────── */
+.montage {
+  position: relative;
+}
+.scenarios {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  background: var(--surface-sunken);
+  border: 1px solid var(--line-default);
+  border-radius: 999px;
+  width: fit-content;
+  margin-bottom: 12px;
+}
+.scBtn {
+  cursor: pointer;
+  height: 28px;
+  padding: 0 13px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  transition:
+    background-color 120ms ease,
+    color 120ms ease;
+}
+.scBtn[aria-pressed='true'] {
+  background: var(--surface-raised);
+  color: var(--ink-primary);
+  font-weight: 600;
+  box-shadow: var(--shadow-card);
+}
+
+/* App frame with signature insight-gradient hairline */
+.frame {
+  position: relative;
+  border: 1.5px solid transparent;
+  border-radius: 20px;
+  background:
+    linear-gradient(var(--surface-card), var(--surface-card)) padding-box,
+    var(--grad-frame) border-box;
+  box-shadow:
+    0 28px 64px -20px oklch(0.50 0.11 265 / 0.28),
+    0 4px 14px -6px oklch(0.84 0.09 330 / 0.16),
+    0 1px 3px oklch(0.20 0.02 265 / 0.05);
+  overflow: hidden;
+}
+.frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    color-mix(in oklch, var(--surface-raised) 36%, transparent) 44%,
+    color-mix(in oklch, var(--surface-raised) 18%, transparent) 50%,
+    transparent 62%
+  );
+  transform: translateX(-130%);
+  animation: heroGlare 8.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+@keyframes heroGlare {
+  0% {
+    transform: translateX(-130%);
+  }
+  30% {
+    transform: translateX(130%);
+  }
+  100% {
+    transform: translateX(130%);
+  }
+}
+
+/* App topbar */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 46px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--line-default);
+  background: var(--surface-card);
+}
+.brandSq {
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  background: var(--ink-primary);
+  flex-shrink: 0;
+}
+.brandTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-primary);
+  white-space: nowrap;
+}
+.brandCount {
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+.searchChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 28px;
+  padding: 0 11px;
+  border: 1px solid var(--line-default);
+  border-radius: 999px;
+  background: var(--surface-raised);
+  color: var(--ink-muted);
+  font-size: 12px;
+  flex: 1;
+  max-width: 210px;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.kbd {
+  margin-left: auto;
+  padding: 1px 6px;
+  border-radius: 5px;
+  background: var(--surface-sunken);
+  font-size: 10.5px;
+  color: var(--ink-muted);
+  flex-shrink: 0;
+}
+.ahanaPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, oklch(0.62 0.13 280), oklch(0.48 0.12 265));
+  color: oklch(0.985 0.001 85);
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+  box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.28), 0 3px 10px -5px oklch(0.52 0.12 265 / 0.45);
+}
+[data-theme='dark'] .ahanaPill {
+  background: var(--brand-ink);
+  color: var(--ink-inverse);
+  box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.12), 0 3px 10px -5px oklch(0 0 0 / 0.5);
+}
+
+/* Map card */
+.mapCard {
+  position: relative;
+  height: 330px;
+  background: var(--surface-sunken);
+  border-bottom: 1px solid var(--line-default);
+  overflow: hidden;
+}
+:global(html:not(.dark)) .mapCard {
+  background-image:
+    radial-gradient(ellipse 64% 76% at 20% 16%, oklch(0.93 0.045 200 / 0.65) 0%, transparent 72%),
+    radial-gradient(ellipse 56% 64% at 88% 78%, oklch(0.92 0.055 330 / 0.55) 0%, transparent 72%),
+    radial-gradient(ellipse 46% 52% at 55% 50%, oklch(0.90 0.06 262 / 0.35) 0%, transparent 70%);
+}
+.net {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.conduit {
+  stroke: var(--viz-1-soft);
+  stroke-width: 1.5;
+  fill: none;
+  stroke-dasharray: 6 5;
+  animation: heroConduit 1.8s linear infinite;
+}
+@keyframes heroConduit {
+  to {
+    stroke-dashoffset: -33;
+  }
+}
+.radar {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: heroRadar 14s linear infinite;
+}
+@keyframes heroRadar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.hubRing {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: heroHub 2.6s cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+}
+@keyframes heroHub {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+.nodeRing {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: heroNode 3.2s cubic-bezier(0.2, 0.7, 0.2, 1) infinite both;
+  animation-delay: var(--d, 0s);
+}
+@keyframes heroNode {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  14% {
+    opacity: 0.55;
+  }
+  55% {
+    transform: scale(2.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.9);
+    opacity: 0;
+  }
+}
+.nLabel {
+  font: 500 10px var(--font-geist-mono), ui-monospace, monospace;
+  fill: var(--ink-primary);
+  letter-spacing: 0.02em;
+}
+.nMeta {
+  font: 400 8.5px var(--font-geist-mono), ui-monospace, monospace;
+  fill: var(--ink-muted);
+  letter-spacing: 0.02em;
+}
+.nDot {
+  stroke: var(--surface-card);
+  stroke-width: 2;
+}
+.nOk {
+  fill: var(--success-solid);
+}
+.nWarn {
+  fill: var(--warning-solid);
+}
+.nBad {
+  fill: var(--danger-solid);
+}
+.nHub {
+  fill: var(--brand-primary);
+}
+/* Light-mode halos per the approved mock (dark stays quiet) */
+:global(html:not(.dark)) .nWarn {
+  filter: drop-shadow(0 0 6px oklch(0.62 0.13 70 / 0.55));
+}
+:global(html:not(.dark)) .nBad {
+  filter: drop-shadow(0 0 6px oklch(0.52 0.15 25 / 0.55));
+}
+:global(html:not(.dark)) .nOk {
+  filter: drop-shadow(0 0 6px oklch(0.55 0.14 150 / 0.50));
+}
+:global(html:not(.dark)) .nHub {
+  filter: drop-shadow(0 0 12px oklch(0.52 0.12 265 / 0.65));
+}
+:global(html:not(.dark)) .trav {
+  filter: drop-shadow(0 0 7px color-mix(in oklch, var(--brand-primary) 70%, transparent));
+}
+
+/* Glass chips over the map (both themes, per approved gloss pass) */
+.ahanaChip {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklch, var(--surface-raised) 94%, transparent) 0%,
+    color-mix(in oklch, var(--surface-raised) 72%, transparent) 100%
+  );
+  backdrop-filter: blur(10px) saturate(1.3);
+  -webkit-backdrop-filter: blur(10px) saturate(1.3);
+  border: 1px solid var(--line-default);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink-primary);
+  box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.65), 0 4px 14px -7px oklch(0.50 0.11 265 / 0.25);
+}
+.ahanaMono {
+  color: var(--brand-primary);
+}
+.liveStats {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 9px 13px;
+  border-radius: 12px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklch, var(--surface-raised) 96%, oklch(0.93 0.045 262 / 0.5)) 0%,
+    color-mix(in oklch, var(--surface-raised) 76%, oklch(0.93 0.045 262 / 0.9)) 100%
+  );
+  backdrop-filter: blur(12px) saturate(1.25);
+  -webkit-backdrop-filter: blur(12px) saturate(1.25);
+  border: 1px solid color-mix(in oklch, var(--brand-border) 60%, var(--line-default));
+  box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.75), 0 12px 30px -14px oklch(0.50 0.11 265 / 0.32);
+}
+.liveStat {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  font-size: 12.5px;
+  color: var(--ink-secondary);
+}
+.liveStatB {
+  font: 600 13px var(--font-geist-mono), ui-monospace, monospace;
+  color: var(--ink-primary);
+}
+.statSep {
+  width: 1px;
+  height: 16px;
+  background: var(--line-default);
+}
+.pop {
+  display: inline-block;
+  animation: heroPopn 320ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes heroPopn {
+  from {
+    transform: translateY(6px);
+    opacity: 0.2;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+/* Needs-attention table */
+.tWrap {
+  background: var(--surface-raised);
+}
+.tTitle {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line-default);
+  background: var(--surface-sunken);
+}
+.tTitleB {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-primary);
+}
+.tTitleMeta {
+  margin-left: auto;
+  font-size: 10.5px;
+  color: var(--ink-muted);
+}
+.pRow {
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) 96px 86px 96px;
+  gap: 12px;
+  align-items: center;
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--line-default);
+  transition: background-color 120ms ease;
+}
+.pRow:last-child {
+  border-bottom: none;
+}
+.pRow:hover {
+  background: var(--surface-hover);
+}
+.pRowHot {
+  background: var(--surface-selected);
+  box-shadow: inset 3px 0 0 var(--brand-primary);
+}
+.pRowHot:hover {
+  background: var(--surface-selected);
+}
+.locRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.locTitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-primary);
+}
+.locMeta {
+  font-size: 11.5px;
+  color: var(--ink-muted);
+  margin-top: 1px;
+}
+.monoId {
+  font-size: 11.5px;
+  color: var(--ink-secondary);
+}
+.monoNum {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--ink-primary);
+  text-align: right;
+}
+.monoDim {
+  color: var(--ink-muted);
+  font-weight: 400;
+  font-size: 11.5px;
+}
+.hp {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1.5px 7px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.hpOk {
+  background: var(--success-subtle);
+  color: var(--success-solid);
+  border: 1px solid var(--success-border);
+}
+.hpWarn {
+  background: var(--warning-subtle);
+  color: var(--warning-solid);
+  border: 1px solid var(--warning-border);
+}
+.hpBad {
+  background: var(--danger-subtle);
+  color: var(--danger-solid);
+  border: 1px solid var(--danger-border);
+}
+
+/* Rotating catch chips */
+.chipStack {
+  position: absolute;
+  right: -14px;
+  top: -18px;
+  width: min(236px, 26vw);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.chipIn {
+  animation: heroRise 480ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.chip {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--line-default);
+  border-radius: 12px;
+  background: linear-gradient(180deg, var(--surface-card), color-mix(in oklch, var(--surface-card) 90%, var(--brand-subtle)));
+  box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.70), 0 12px 26px -13px oklch(0.50 0.11 265 / 0.32);
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--ink-secondary);
+  line-height: 1.45;
+}
+.chipB {
+  color: var(--ink-primary);
+  font-weight: 600;
+}
+.dotWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.dotBad {
+  background: var(--danger-subtle);
+  border: 1px solid var(--danger-border);
+  color: var(--danger-solid);
+}
+.dotWarn {
+  background: var(--warning-subtle);
+  border: 1px solid var(--warning-border);
+  color: var(--warning-solid);
+}
+.dotBrand {
+  background: var(--brand-subtle);
+  border: 1px solid var(--brand-border);
+  color: var(--brand-primary);
+}
+
+/* Catch note with signature gradient hairline (both themes) */
+.catchNote {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 12px 14px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background:
+    linear-gradient(var(--surface-card), var(--surface-card)) padding-box,
+    linear-gradient(120deg, var(--brand-primary), oklch(0.55 0.15 330) 60%, oklch(0.65 0.13 72)) border-box;
+  box-shadow: 0 10px 26px -12px oklch(0.52 0.12 265 / 0.28);
+  font-size: 13px;
+  color: var(--ink-secondary);
+}
+.catchNoteB {
+  color: var(--ink-primary);
+  font-weight: 600;
+}
+.catchArrow {
+  margin-left: auto;
+  font-weight: 600;
+  color: var(--brand-primary);
+  flex-shrink: 0;
+}
+
+/* Reduced motion: stop every CSS-driven animation (SMIL pulses are
+   conditionally rendered out in the TSX under the same preference) */
+@media (prefers-reduced-motion: reduce) {
+  .track,
+  .conduit,
+  .radar,
+  .hubRing,
+  .nodeRing,
+  .pop,
+  .chipIn {
+    animation: none !important;
+  }
+  .frame::after {
+    animation: none !important;
+  }
+}

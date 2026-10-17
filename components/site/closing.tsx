@@ -1,134 +1,262 @@
-import { Check, ShieldCheck, Sparkles, MessageSquare, MapPin } from 'lucide-react'
+'use client'
+
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
+import { ArrowUp, Check } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { useInView, usePrefersReducedMotion } from '@/lib/hooks'
 import { DemoButton } from './demo-dialog'
 import { Logo } from './logo'
-import { Reveal } from './reveal'
+import styles from './closing.module.css'
+
+const demoSteps = [
+  {
+    title: 'Live Profile Health Scan',
+    cap: 'Audit rogue hours, unreviewed user edits, and phone drifts across your branches.',
+  },
+  {
+    title: 'WhatsApp Alert Dispatch Test',
+    cap: 'Simulate a 1-star review and receive the exact store manager WhatsApp alert on your phone.',
+  },
+  {
+    title: 'Radius Ad & Lead Routing Blueprint',
+    cap: 'Calculate catchment household reach and nearest-showroom lead delivery for your stores.',
+  },
+] as const
+
+const checks = ['Zero upfront migration fee', 'Official Meta & Google APIs', 'Cancel or pause anytime'] as const
 
 export function FinalCta() {
-  return (
-    <section aria-labelledby="cta-title" className="border-t border-line py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <Reveal>
-          <div className="bg-insight relative overflow-hidden rounded-panel p-8 text-insight-ink shadow-raised md:p-14 lg:p-16 border border-white/20 dark:border-white/10">
-            <div className="grid gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-center">
-              <div>
-                <p className="font-mono text-xs uppercase tracking-[0.1em] opacity-80">
-                  Ready in under 48 hours
-                </p>
-                <h2 id="cta-title" className="mt-3 text-balance text-3xl font-bold tracking-tight md:text-5xl md:leading-[1.08]">
-                  See your own locations in What The Local.
-                </h2>
-                <p className="mt-4 max-w-xl text-pretty text-base leading-relaxed opacity-90 md:text-lg">
-                  Book a tailored 20-minute walkthrough. We&apos;ll load your actual Google Business Profiles, run a live Profile Guard drift scan, and simulate instant WhatsApp escalation alerts for your store managers.
-                </p>
-                <div className="mt-8 flex flex-wrap items-center gap-4">
-                  <DemoButton size="lg" withArrow className="bg-ink text-ink-inverse shadow-raised hover:opacity-90" />
-                  <a
-                    href="#how-it-works"
-                    className="inline-flex h-12 items-center justify-center rounded-full border border-current/20 px-6 text-sm font-semibold transition-colors hover:bg-white/10"
-                  >
-                    How rollout works
-                  </a>
-                </div>
-                <div className="mt-8 flex flex-wrap items-center gap-6 text-xs font-medium opacity-85">
-                  <span className="flex items-center gap-1.5">
-                    <Check className="size-3.5 stroke-[2.5]" /> Zero upfront migration fee
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <Check className="size-3.5 stroke-[2.5]" /> Official Meta & Google APIs
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <Check className="size-3.5 stroke-[2.5]" /> Cancel or pause anytime
-                  </span>
-                </div>
-              </div>
+  const reduced = usePrefersReducedMotion()
+  const { ref: panelRef, inView } = useInView<HTMLDivElement>({ threshold: 0.35 })
+  const [glare, setGlare] = useState(0)
 
-              <div className="rounded-card border border-white/30 bg-white/20 dark:bg-black/20 p-6 backdrop-blur-md">
-                <p className="text-xs font-mono uppercase tracking-wider opacity-80">What you will see in your demo</p>
-                <ul className="mt-4 space-y-3.5 text-sm">
-                  <li className="flex items-start gap-3">
-                    <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-white/40 dark:bg-white/10 text-xs font-bold">1</span>
-                    <div>
-                      <strong className="block font-semibold">Live Profile Health Scan</strong>
-                      <span className="text-xs opacity-85">Audit rogue hours, unreviewed user edits, and phone drifts across your branches.</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-white/40 dark:bg-white/10 text-xs font-bold">2</span>
-                    <div>
-                      <strong className="block font-semibold">WhatsApp Alert Dispatch Test</strong>
-                      <span className="text-xs opacity-85">Simulate a 1-star review and receive the exact store manager WhatsApp alert on your phone.</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-white/40 dark:bg-white/10 text-xs font-bold">3</span>
-                    <div>
-                      <strong className="block font-semibold">Radius Ad & Lead Routing Blueprint</strong>
-                      <span className="text-xs opacity-85">Calculate catchment household reach and nearest-showroom lead delivery for your stores.</span>
-                    </div>
-                  </li>
-                </ul>
+  useEffect(() => {
+    if (!inView || reduced) return
+    setGlare((g) => g + 1)
+  }, [inView, reduced])
+
+  return (
+    <section aria-labelledby="cta-title" className={styles.ctaSec}>
+      <div className={styles.wrap}>
+        <div
+          ref={panelRef}
+          data-in={inView ? 'true' : 'false'}
+          className={cn(styles.panel, 'bg-insight text-insight-ink shadow-raised rounded-[20px]')}
+        >
+          <span
+            aria-hidden="true"
+            key={glare}
+            className={cn(styles.glare, glare > 0 && styles.glareGo)}
+          />
+          <div className={styles.grid}>
+            <div>
+              <p className={styles.ctaEye}>Ready in under 48 hours</p>
+              <h2 id="cta-title" className={styles.ctaTitle}>
+                See your own locations in What The Local.
+              </h2>
+              <p className={styles.ctaDesc}>
+                Book a tailored 20-minute walkthrough. We&apos;ll load your actual Google Business
+                Profiles, run a live Profile Guard drift scan, and simulate instant WhatsApp
+                escalation alerts for your store managers.
+              </p>
+              <div className={styles.acts}>
+                <DemoButton
+                  size="lg"
+                  withArrow
+                  className="rounded-[10px] bg-ink text-ink-inverse shadow-raised"
+                />
+                <a href="#how-it-works" className={styles.btnHow}>
+                  How rollout works
+                </a>
+              </div>
+              <div className={styles.checks}>
+                {checks.map((c) => (
+                  <span key={c}>
+                    <Check aria-hidden="true" className="stroke-[2.5]" /> {c}
+                  </span>
+                ))}
               </div>
             </div>
+
+            <div className={styles.card}>
+              <p className={styles.cardEye}>What you will see in your demo</p>
+              <ul className={styles.steps}>
+                {demoSteps.map((s, i) => (
+                  <li key={s.title} className={styles.step}>
+                    <span className={styles.stepNum} aria-hidden="true">
+                      {i + 1}
+                    </span>
+                    <div>
+                      <strong className={styles.stepTitle}>{s.title}</strong>
+                      <span className={styles.stepCap}>{s.cap}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   )
 }
 
+const WORD = 'What The Local'
+
 export function SiteFooter() {
+  const reduced = usePrefersReducedMotion()
+  const wordRef = useRef<HTMLParagraphElement>(null)
+  const wordRowRef = useRef<HTMLDivElement>(null)
+  const { inView: wordIn } = useInView<HTMLDivElement>({ threshold: 0.35 })
+  const waveTimer = useRef(0)
+  const [metrics, setMetrics] = useState<{ w: number; xs: number[] }>({ w: 0, xs: [] })
+
+  /* continuous gradient slices across the per-letter spans */
+  const measure = useCallback(() => {
+    const el = wordRef.current
+    if (!el) return
+    const spans = el.querySelectorAll<HTMLElement>('[data-wl]')
+    setMetrics({ w: Math.ceil(el.offsetWidth), xs: Array.from(spans, (s) => Math.round(s.offsetLeft)) })
+  }, [])
+
+  useEffect(() => {
+    measure()
+    document.fonts?.ready.then(measure).catch(() => {})
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [measure])
+
+  const wave = useCallback(() => {
+    if (reduced) return
+    const el = wordRef.current
+    if (!el) return
+    el.classList.remove(styles.run)
+    void el.offsetWidth
+    el.classList.add(styles.run)
+    window.clearTimeout(waveTimer.current)
+    waveTimer.current = window.setTimeout(() => el.classList.remove(styles.run), 1500)
+  }, [reduced])
+
+  useEffect(() => {
+    if (!wordIn) return
+    waveTimer.current = window.setTimeout(wave, 450)
+    return () => window.clearTimeout(waveTimer.current)
+  }, [wordIn, wave])
+
+  useEffect(() => () => window.clearTimeout(waveTimer.current), [])
+
+  /* per-letter index for the staggered wave */
+  const letters = useMemo(() => {
+    let i = 0
+    return WORD.split(' ').map((w) => Array.from(w).map((ch) => ({ ch, i: i++ })))
+  }, [])
+
+  const [clock, setClock] = useState('--:--:--')
+  useEffect(() => {
+    const fmt = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Asia/Kolkata',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false,
+    })
+    const tick = () => setClock(fmt.format(new Date()))
+    tick()
+    const t = window.setInterval(tick, 1000)
+    return () => window.clearInterval(t)
+  }, [])
+
   return (
-    <footer className="border-t border-line bg-card/40">
-      <div className="mx-auto max-w-6xl px-5 py-14 md:px-8">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
-          <div className="lg:col-span-2">
+    <footer className={styles.footer}>
+      <div className={styles.fwrap}>
+        <div className={styles.fgrid}>
+          <div>
             <Logo />
-            <p className="mt-3 max-w-sm text-sm leading-relaxed text-ink-2">
-              The connected marketing, presence, and reputation operating system built for multi-location brands. Run every store like your best one.
+            <p className={styles.fdesc}>
+              The connected marketing, presence, and reputation operating system built for
+              multi-location brands. Run every store like your best one.
             </p>
-            <div className="mt-4 flex items-center gap-2 text-xs text-ink-3">
-              <span className="size-2 rounded-full bg-success" />
-              <span>All platform systems operational · Meta & Google API connected</span>
-            </div>
+            <p className={styles.flive}>
+              <span className={cn(styles.fliveDot, 'bg-success')} aria-hidden="true" />
+              All platform systems operational · Meta &amp; Google API connected
+            </p>
           </div>
 
-          <div>
-            <h4 className="text-xs font-mono uppercase tracking-wider text-ink-3">Platform</h4>
-            <ul className="mt-3 space-y-2 text-sm text-ink-2">
-              <li><a href="#products" className="hover:text-ink">Locations & Guard</a></li>
-              <li><a href="#products" className="hover:text-ink">Engage Inbox</a></li>
-              <li><a href="#products" className="hover:text-ink">WhatsApp Escalations</a></li>
-              <li><a href="#products" className="hover:text-ink">Synapse Local Ads</a></li>
+          <div className={styles.fcol}>
+            <h4>Platform</h4>
+            <ul>
+              <li><a href="#products">Locations &amp; Guard</a></li>
+              <li><a href="#products">Engage Inbox</a></li>
+              <li><a href="#products">WhatsApp Escalations</a></li>
+              <li><a href="#products">Synapse Local Ads</a></li>
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-xs font-mono uppercase tracking-wider text-ink-3">Industries</h4>
-            <ul className="mt-3 space-y-2 text-sm text-ink-2">
-              <li><a href="#use-cases" className="hover:text-ink">Automotive Showrooms</a></li>
-              <li><a href="#use-cases" className="hover:text-ink">Healthcare & Clinics</a></li>
-              <li><a href="#use-cases" className="hover:text-ink">Retail Chains</a></li>
-              <li><a href="#use-cases" className="hover:text-ink">Restaurants & QSR</a></li>
-              <li><a href="#use-cases" className="hover:text-ink">Banks & Branches</a></li>
+          <div className={styles.fcol}>
+            <h4>Industries</h4>
+            <ul>
+              <li><a href="#use-cases">Automotive Showrooms</a></li>
+              <li><a href="#use-cases">Healthcare &amp; Clinics</a></li>
+              <li><a href="#use-cases">Retail Chains</a></li>
+              <li><a href="#use-cases">Restaurants &amp; QSR</a></li>
+              <li><a href="#use-cases">Banks &amp; Branches</a></li>
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-xs font-mono uppercase tracking-wider text-ink-3">Navigation</h4>
-            <ul className="mt-3 space-y-2 text-sm text-ink-2">
-              <li><a href="#how-it-works" className="hover:text-ink">How it works</a></li>
-              <li><a href="#products" className="hover:text-ink">Products</a></li>
-              <li><a href="#roi-calculator" className="hover:text-ink">ROI Calculator</a></li>
-              <li><a href="#comparison" className="hover:text-ink">Comparison</a></li>
-              <li><a href="#faq" className="hover:text-ink">FAQs</a></li>
-              <li><a href="#top" className="hover:text-ink">Back to top</a></li>
+          <div className={styles.fcol}>
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="#how-it-works">How it works</a></li>
+              <li><a href="#products">Products</a></li>
+              <li><a href="#roi-calculator">ROI Calculator</a></li>
+              <li><a href="#comparison">Comparison</a></li>
+              <li><a href="#faq">FAQs</a></li>
+              <li><a href="#top">Back to top</a></li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-line pt-6 text-xs text-ink-3 sm:flex-row sm:items-center sm:justify-between">
+        <div ref={wordRowRef} className={styles.fwordRow}>
+          <p
+            ref={wordRef}
+            aria-label={WORD}
+            onPointerEnter={wave}
+            className={cn(styles.word, metrics.w > 0 && styles.wordGrad)}
+            style={{ '--wordW': metrics.w || 900 } as CSSProperties}
+          >
+            {letters.map((word, wi) => (
+              <span key={wi} aria-hidden="true">
+                {wi > 0 && ' '}
+                {word.map((l) => (
+                  <span
+                    key={l.i}
+                    data-wl=""
+                    className={styles.wl}
+                    style={{ '--i': l.i, '--x': metrics.xs[l.i] ?? 0 } as CSSProperties}
+                  >
+                    {l.ch}
+                  </span>
+                ))}
+              </span>
+            ))}
+          </p>
+          <div className={styles.fmeta}>
+            <p className={styles.fclock}>
+              <b>{clock}</b> IST
+            </p>
+            <p className={styles.fmetaSub}>Mumbai · sample-data region</p>
+          </div>
+        </div>
+
+        <div className={styles.flegal}>
           <p>© {new Date().getFullYear()} What The Local Technologies. All rights reserved.</p>
           <p>Product previews on this page use sample data from Mumbai region.</p>
+          <a className={styles.fTop} href="#top">
+            <span className={styles.fTopIc} aria-hidden="true">
+              <ArrowUp />
+            </span>
+            Top
+          </a>
         </div>
       </div>
     </footer>

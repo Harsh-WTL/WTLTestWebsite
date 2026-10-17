@@ -1,0 +1,630 @@
+/* WTL Problem — approved proposal v2, ported into the site.
+   Scoped CSS module; tokens from app/globals.css (both themes).
+   Entrance states gated under html.js (same as .reveal); light-only lifts
+   scoped under :global(html:not(.dark)) — bare tag selectors get HASHED by
+   CSS modules, the :global() wrapper is mandatory. All oklch in full form. */
+
+/* ── Section + tension washes ─────────────────────────────── */
+.problem {
+  position: relative;
+  padding: 74px 0 90px;
+  overflow: clip;
+}
+:global(html:not(.dark)) .problem::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 38% 42% at 92% 8%, oklch(0.90 0.075 72 / 0.5) 0%, transparent 70%),
+    radial-gradient(ellipse 34% 38% at 4% 88%, oklch(0.88 0.07 262 / 0.42) 0%, transparent 70%),
+    radial-gradient(color-mix(in oklch, var(--ink-primary) 5%, transparent) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 26px 26px;
+}
+[data-theme='dark'] .problem::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 38% 42% at 92% 8%, oklch(0.28 0.05 72 / 0.55) 0%, transparent 70%),
+    radial-gradient(ellipse 34% 38% at 4% 88%, oklch(0.26 0.05 262 / 0.45) 0%, transparent 70%);
+}
+
+.pWrap {
+  position: relative;
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Heading block: eyebrow chip + word-by-word blur-rise ── */
+.sh {
+  max-width: 680px;
+}
+.shEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border: 1px solid var(--warning-border);
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--warning-subtle) 66%, transparent);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--warning-solid);
+}
+:global(html:not(.dark)) .shEyebrow {
+  background: linear-gradient(
+    120deg,
+    oklch(0.90 0.08 262 / 0.5) 0%,
+    oklch(0.94 0.05 330 / 0.42) 55%,
+    oklch(0.95 0.08 72 / 0.5) 100%
+  );
+  border-color: color-mix(in oklch, var(--warning-solid) 45%, transparent);
+  box-shadow: 0 2px 12px -2px oklch(0.62 0.13 70 / 0.18);
+}
+.shEyebrowDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--warning-solid);
+  flex-shrink: 0;
+  animation: warnPulse 2.2s ease-out infinite;
+}
+@keyframes warnPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklch, var(--warning-solid) 50%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 6px color-mix(in oklch, var(--warning-solid) 0%, transparent);
+  }
+}
+
+.shTitle {
+  margin: 16px 0 0;
+  font-size: clamp(30px, 3.6vw, 44px);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  color: var(--ink-primary);
+}
+/* Word spans are inline-blocks: spacing comes from margin (a trailing space
+   inside an inline-block would collapse) */
+.w,
+.wAccent {
+  margin-right: 0.24em;
+}
+:global(html.js) .w {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(16px) scale(0.98);
+  filter: blur(6px);
+  transition:
+    opacity 560ms ease var(--d, 0ms),
+    transform 560ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0ms),
+    filter 560ms ease var(--d, 0ms);
+}
+/* Accent phrase rides the signature headline gradient.
+   Ink fallback first; clip only under oklch support (the invisible-headline bug rule). */
+.wAccent {
+  color: var(--ink-primary);
+}
+@supports (background: oklch(1 0 0 / 0)) {
+  .wAccent {
+    background-image: var(--grad-head);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+:global(html.js) .wAccent {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(16px);
+  filter: blur(6px);
+  transition:
+    opacity 560ms ease var(--d, 0ms),
+    transform 560ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0ms),
+    filter 560ms ease var(--d, 0ms);
+}
+:global(html.js) .sh[data-in='true'] .w,
+:global(html.js) .sh[data-in='true'] .wAccent {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+.shDesc {
+  margin: 16px 0 0;
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--ink-secondary);
+  text-wrap: pretty;
+  max-width: 56ch;
+}
+:global(html.js) .shDesc {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 600ms ease 480ms,
+    transform 600ms ease 480ms;
+}
+:global(html.js) .sh[data-in='true'] .shDesc {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Pain cards: tone-tinted spotlights ─────────────────── */
+.pGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 42px;
+}
+@media (max-width: 1080px) {
+  .pGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pcard {
+  position: relative;
+  overflow: hidden;
+  border: 1.5px solid transparent;
+  border-radius: 16px;
+  /* original opaque interior; glass look = signature rim + inset highlight only */
+  background:
+    linear-gradient(var(--surface-card), var(--surface-card)) padding-box,
+    var(--grad-frame) border-box;
+  box-shadow: var(--shadow-card);
+  padding: 20px 20px 18px;
+  display: flex;
+  flex-direction: column;
+}
+:global(html:not(.dark)) .pcard {
+  background:
+    linear-gradient(
+      180deg,
+      var(--surface-raised),
+      color-mix(in oklch, var(--surface-card) 94%, var(--brand-subtle))
+    ) padding-box,
+    var(--grad-frame) border-box;
+  box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.85), var(--shadow-card);
+}
+
+/* Entrance */
+:global(html.js) .pcard {
+  opacity: 0;
+  transform: translateY(16px);
+  filter: blur(5px);
+  transition:
+    opacity 560ms ease var(--d, 0ms),
+    transform 560ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0ms),
+    filter 560ms ease var(--d, 0ms),
+    border-color 140ms ease,
+    box-shadow 140ms ease;
+}
+:global(html.js) .pcard[data-in='true'] {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition:
+    border-color 140ms ease,
+    box-shadow 140ms ease,
+    transform 160ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.pcard[data-in='true']:hover {
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-raised);
+  transform: translateY(-2px);
+}
+:global(html.js) .pcard[data-in='true']:hover {
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-raised);
+  transform: translateY(-2px);
+}
+
+/* Cursor spotlight (tinted per card via --tone) */
+.pcard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    300px circle at var(--mx, 50%) var(--my, -30%),
+    color-mix(in oklch, var(--tone) 9%, transparent),
+    transparent 62%
+  );
+  opacity: 0;
+  transition: opacity 220ms ease;
+  pointer-events: none;
+}
+.pcard:hover::before {
+  opacity: 1;
+}
+
+.toneDanger {
+  --tone: var(--danger-solid);
+}
+.toneWarn {
+  --tone: var(--warning-solid);
+}
+.toneBrand {
+  --tone: var(--brand-primary);
+}
+
+.pIc {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line-default);
+  border-radius: 10px;
+  background: var(--surface-sunken);
+  color: var(--ink-secondary);
+}
+.pcard .pIc {
+  border-color: color-mix(in oklch, var(--tone) 38%, var(--line-default));
+  background: color-mix(in oklch, var(--tone) 8%, var(--surface-card));
+  color: var(--tone);
+}
+:global(html:not(.dark)) .pcard .pIc {
+  box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.6);
+}
+.pIc svg {
+  width: 17px;
+  height: 17px;
+}
+.pIc::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 13px;
+  border: 1.5px solid color-mix(in oklch, var(--tone) 40%, transparent);
+  opacity: 0;
+  transform: scale(0.86);
+  animation: pHalo 3.4s cubic-bezier(0.2, 0.7, 0.2, 1) infinite both;
+  animation-delay: var(--dh, 0s);
+}
+@keyframes pHalo {
+  0% {
+    opacity: 0;
+    transform: scale(0.86);
+  }
+  26% {
+    opacity: 0.55;
+  }
+  62%,
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+.pTitle {
+  margin: 16px 0 0;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--ink-primary);
+}
+.pBody {
+  margin: 8px 0 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-secondary);
+}
+
+/* ── Wells (mini-visuals) ─────────────────────────────── */
+.pWellWrap {
+  margin-top: auto;
+  padding-top: 18px;
+}
+.well {
+  border: 1px solid var(--line-default);
+  border-radius: 10px;
+  background: var(--surface-sunken);
+  padding: 12px 13px;
+  min-height: 128px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color 320ms ease, background-color 320ms ease;
+}
+:global(html:not(.dark)) .well {
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklch, var(--surface-raised) 46%, var(--surface-sunken)),
+    var(--surface-sunken)
+  );
+  box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.7);
+}
+.wellAlarm {
+  border-color: var(--danger-border);
+  background: color-mix(in oklch, var(--danger-subtle) 46%, var(--surface-sunken));
+}
+
+/* Card 1: unnoticed drift + 9-day arc gauge */
+.drTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.drLabel {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--ink-muted);
+}
+.drRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  margin-top: 5px;
+}
+.drOld {
+  color: var(--ink-muted);
+  text-decoration: line-through;
+  text-decoration-color: var(--ink-disabled);
+  text-decoration-thickness: 1.5px;
+}
+.drArr {
+  color: var(--ink-disabled);
+}
+.drNew {
+  font-weight: 600;
+  color: var(--warning-solid);
+}
+.drArc {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+.drArc svg {
+  display: block;
+  transform: rotate(-90deg);
+}
+.drTrack {
+  fill: none;
+  stroke: var(--line-default);
+  stroke-width: 3;
+}
+.drProg {
+  fill: none;
+  stroke: var(--warning-solid);
+  stroke-width: 3;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 640ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.wellAlarm .drProg {
+  stroke: var(--danger-solid);
+}
+.drArcB {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-primary);
+}
+.drMeta {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--ink-muted);
+  letter-spacing: 0.02em;
+}
+
+/* Card 2: scattering inboxes with accumulating badges */
+.inboxHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 9px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--ink-muted);
+}
+.inboxTotal {
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--danger-border);
+  background: color-mix(in oklch, var(--danger-subtle) 80%, transparent);
+  color: var(--danger-solid);
+  font-weight: 600;
+}
+.chanChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.chanChip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border: 1px solid var(--line-default);
+  border-radius: 999px;
+  background: var(--surface-raised);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-secondary);
+  animation: chipBob 4.2s ease-in-out infinite both;
+  animation-delay: var(--bd, 0s);
+}
+@keyframes chipBob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2.5px);
+  }
+}
+.badge {
+  position: absolute;
+  top: -7px;
+  right: -6px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--danger-solid);
+  color: var(--ink-inverse);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  border: 1.5px solid var(--surface-raised);
+  transform: scale(0);
+  transition: transform 200ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+:global(html:not(.dark)) .badge {
+  box-shadow: 0 2px 6px -2px oklch(0.52 0.15 25 / 0.5);
+}
+.badgeOn {
+  transform: scale(1);
+}
+
+/* Card 3: flat spend vs uneven local demand */
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.barRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 46px;
+}
+.barRow + .barRow {
+  height: 44px;
+}
+.bar {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  background: var(--viz-1-soft);
+}
+:global(html.js) .bar {
+  transform-origin: bottom;
+  transform: scaleY(0);
+  transition: transform 540ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--bd, 0ms);
+}
+:global(html.js) .bars[data-in='true'] .bar {
+  transform: scaleY(1);
+}
+.demand {
+  background: var(--viz-1);
+}
+.demandHigh {
+  background: color-mix(in oklch, var(--brand-primary) 82%, var(--surface-card));
+}
+.demandShort {
+  background: repeating-linear-gradient(
+    115deg,
+    var(--danger-subtle) 0 5px,
+    color-mix(in oklch, var(--danger-subtle) 40%, transparent) 5px 10px
+  );
+  border: 1px solid var(--danger-border);
+  border-bottom: none;
+  background-size: 200% 100%;
+  animation: hatchDrift 1.5s linear infinite;
+}
+@keyframes hatchDrift {
+  to {
+    background-position: 20px 0;
+  }
+}
+.barsLegend {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  color: var(--ink-muted);
+}
+.lgDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2.5px;
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: -1px;
+}
+.wNote {
+  margin: 0;
+  padding-top: 10px;
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+/* ── Connective line (S6, approved) with self-drawing underline ── */
+.connectiveRow {
+  margin-top: 34px;
+  text-align: center;
+}
+.connective {
+  display: inline-block;
+  font-size: 14.5px;
+  color: var(--ink-secondary);
+  padding-bottom: 3px;
+  background: linear-gradient(120deg, var(--brand-primary), oklch(0.55 0.15 330) 60%, oklch(0.65 0.13 72))
+    bottom left / 0% 2px no-repeat;
+  transition: background-size 700ms cubic-bezier(0.2, 0.7, 0.2, 1) 250ms;
+}
+.connective[data-in='true'] {
+  background-size: 100% 2px;
+}
+.connective b {
+  color: var(--ink-primary);
+  font-weight: 600;
+}
+
+/* ── Reduced motion ─────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .shEyebrowDot,
+  .pIc::after,
+  .chanChip,
+  .demandShort {
+    animation: none !important;
+  }
+  .w,
+  .wAccent,
+  .shDesc,
+  .pcard,
+  .connective {
+    transition: none !important;
+  }
+  .drProg,
+  .badge {
+    transition: none !important;
+  }
+  .bar {
+    transition: none !important;
+    transition-delay: 0ms !important;
+  }
+}

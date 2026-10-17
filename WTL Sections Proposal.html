@@ -1,0 +1,826 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WTL — Sections Proposal (Metrics Strip + Problem) v2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ── Tokens (site + approved hero signatures) ── */
+      :root {
+        color-scheme: light;
+        --surface-page: oklch(0.950 0.008 270);
+        --surface-card: oklch(0.988 0.002 85);
+        --surface-raised: oklch(1 0 0);
+        --surface-sunken: oklch(0.940 0.008 270);
+        --surface-hover: oklch(0.960 0.006 270);
+        --ink-primary: oklch(0.203 0.014 265);
+        --ink-secondary: oklch(0.462 0.011 265);
+        --ink-muted: oklch(0.617 0.010 265);
+        --ink-inverse: oklch(0.985 0.001 85);
+        --ink-disabled: oklch(0.733 0.008 265);
+        --line-default: oklch(0.902 0.004 85);
+        --line-strong: oklch(0.838 0.005 85);
+        --brand-primary: oklch(0.52 0.12 265);
+        --brand-hover: oklch(0.45 0.12 265);
+        --brand-subtle: oklch(0.951 0.021 265);
+        --brand-border: oklch(0.868 0.050 265);
+        --success-solid: oklch(0.55 0.14 150);
+        --success-subtle: oklch(0.955 0.030 150);
+        --success-border: oklch(0.872 0.068 150);
+        --warning-solid: oklch(0.62 0.13 70);
+        --warning-subtle: oklch(0.960 0.042 70);
+        --warning-border: oklch(0.874 0.080 70);
+        --danger-solid: oklch(0.52 0.15 25);
+        --danger-subtle: oklch(0.955 0.032 25);
+        --danger-border: oklch(0.872 0.070 25);
+        --viz-1: oklch(0.58 0.14 265);
+        --viz-1-soft: oklch(0.78 0.10 265);
+        --shadow-card: 0 1px 2px oklch(0.20 0.02 265 / 0.04);
+        --shadow-raised: 0 6px 18px -6px oklch(0.20 0.02 265 / 0.10), 0 1px 2px oklch(0.20 0.02 265 / 0.04);
+        --grad-head: linear-gradient(98deg, oklch(0.30 0.06 262) 0%, oklch(0.50 0.18 280) 36%, oklch(0.55 0.17 330) 66%, oklch(0.60 0.15 72) 100%);
+        --grad-frame: linear-gradient(135deg, oklch(0.80 0.10 262 / 0.85) 0%, oklch(0.84 0.09 330 / 0.70) 48%, oklch(0.90 0.10 72 / 0.85) 100%);
+      }
+      [data-theme="dark"] {
+        color-scheme: dark;
+        --surface-page: oklch(0.171 0.007 265);
+        --surface-card: oklch(0.212 0.008 265);
+        --surface-raised: oklch(0.246 0.009 265);
+        --surface-sunken: oklch(0.145 0.006 265);
+        --surface-hover: oklch(0.258 0.009 265);
+        --ink-primary: oklch(0.962 0.002 85);
+        --ink-secondary: oklch(0.742 0.009 265);
+        --ink-muted: oklch(0.596 0.011 265);
+        --ink-inverse: oklch(0.185 0.010 265);
+        --ink-disabled: oklch(0.446 0.010 265);
+        --line-default: oklch(0.286 0.009 265);
+        --line-strong: oklch(0.375 0.011 265);
+        --brand-primary: oklch(0.72 0.13 265);
+        --brand-hover: oklch(0.79 0.11 265);
+        --brand-subtle: oklch(0.288 0.055 265);
+        --brand-border: oklch(0.402 0.080 265);
+        --success-solid: oklch(0.74 0.15 150);
+        --success-subtle: oklch(0.278 0.050 150);
+        --success-border: oklch(0.388 0.072 150);
+        --warning-solid: oklch(0.80 0.14 70);
+        --warning-subtle: oklch(0.288 0.052 70);
+        --warning-border: oklch(0.402 0.074 70);
+        --danger-solid: oklch(0.72 0.16 25);
+        --danger-subtle: oklch(0.288 0.058 25);
+        --danger-border: oklch(0.402 0.086 25);
+        --viz-1: oklch(0.72 0.13 265);
+        --viz-1-soft: oklch(0.55 0.10 265);
+        --shadow-card: 0 1px 2px oklch(0 0 0 / 0.28);
+        --shadow-raised: 0 6px 18px -6px oklch(0 0 0 / 0.45), 0 1px 2px oklch(0 0 0 / 0.30);
+        --grad-head: linear-gradient(98deg, oklch(0.92 0.02 85) 0%, oklch(0.72 0.16 280) 38%, oklch(0.70 0.16 330) 68%, oklch(0.82 0.14 55) 100%);
+        --grad-frame: linear-gradient(135deg, oklch(0.42 0.13 262 / 0.9) 0%, oklch(0.40 0.12 330 / 0.8) 48%, oklch(0.52 0.13 60 / 0.9) 100%);
+      }
+
+      * { box-sizing: border-box; }
+      html, body { margin: 0; }
+      body {
+        background: var(--surface-page);
+        color: var(--ink-primary);
+        font-family: "Figtree", "Helvetica Neue", Helvetica, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-feature-settings: "tnum";
+        overflow-x: clip;
+      }
+      .mono { font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+      .tnum { font-variant-numeric: tabular-nums; }
+
+      /* ── Proposal chrome (won't ship) ── */
+      .proposal-chrome {
+        position: sticky; top: 0; z-index: 60;
+        display: flex; align-items: center; justify-content: space-between; gap: 16px;
+        padding: 10px 20px;
+        background: var(--surface-sunken);
+        border-bottom: 1px solid var(--line-default);
+        font-size: 13px; color: var(--ink-secondary);
+      }
+      .proposal-chrome b { color: var(--ink-primary); font-weight: 600; }
+      .theme-pill {
+        display: flex; gap: 2px; padding: 3px;
+        background: var(--surface-page);
+        border: 1px solid var(--line-default); border-radius: 999px; flex-shrink: 0;
+      }
+      .theme-pill button {
+        height: 26px; padding: 0 14px; border: none; border-radius: 999px;
+        background: transparent; color: var(--ink-secondary);
+        font-size: 12px; font-weight: 500; cursor: pointer;
+      }
+      .theme-pill button[aria-pressed="true"] {
+        background: var(--surface-raised); color: var(--ink-primary);
+        font-weight: 600; box-shadow: var(--shadow-card);
+      }
+      .suggestions { max-width: 1152px; margin: 0 auto; padding: 18px 24px 6px; }
+      .suggestions-inner {
+        border: 1px dashed var(--line-strong); border-radius: 16px;
+        background: color-mix(in oklch, var(--brand-subtle) 40%, transparent);
+        padding: 16px 20px;
+      }
+      .suggestions b { color: var(--ink-primary); font-weight: 600; font-size: 13px; }
+      .suggestions ol { margin: 8px 0 0; padding-left: 18px; }
+      .suggestions li { font-size: 13px; color: var(--ink-secondary); line-height: 1.55; }
+      .suggestions li::marker { color: var(--brand-primary); font-weight: 600; }
+      .suggestions .flag { color: var(--warning-solid); font-weight: 600; }
+
+      /* ═══════════ SECTION 1 — Metrics strip ═══════════ */
+      .metrics { position: relative; padding: 56px 0 46px; overflow: clip; }
+      html:not([data-theme="dark"]) .metrics::before {
+        content: ""; position: absolute; inset: 0; pointer-events: none;
+        background:
+          radial-gradient(ellipse 42% 52% at 12% 18%, oklch(0.86 0.07 262 / 0.55) 0%, transparent 70%),
+          radial-gradient(ellipse 36% 44% at 88% 12%, oklch(0.88 0.065 330 / 0.45) 0%, transparent 70%),
+          radial-gradient(ellipse 40% 40% at 82% 100%, oklch(0.90 0.07 72 / 0.4) 0%, transparent 70%),
+          radial-gradient(ellipse 32% 36% at 4% 96%, oklch(0.90 0.06 200 / 0.4) 0%, transparent 68%);
+      }
+      [data-theme="dark"] .metrics::before {
+        content: ""; position: absolute; inset: 0; pointer-events: none;
+        background:
+          radial-gradient(ellipse 42% 52% at 12% 18%, oklch(0.30 0.06 262 / 0.5) 0%, transparent 70%),
+          radial-gradient(ellipse 36% 44% at 88% 12%, oklch(0.30 0.05 330 / 0.4) 0%, transparent 70%);
+      }
+
+      .m-wrap { position: relative; max-width: 1152px; margin: 0 auto; padding: 0 24px; }
+      .m-strip-head { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+      .m-live {
+        display: inline-flex; align-items: center; gap: 7px;
+        padding: 5px 12px; border-radius: 999px;
+        border: 1px solid var(--success-border); background: color-mix(in oklch, var(--success-subtle) 70%, transparent);
+        color: var(--success-solid); font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase;
+      }
+      .live-dot {
+        width: 7px; height: 7px; border-radius: 999px; background: var(--success-solid); flex-shrink: 0;
+        animation: wtl-live 2.2s ease-out infinite;
+      }
+      @keyframes wtl-live {
+        0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklch, var(--success-solid) 45%, transparent); }
+        70% { box-shadow: 0 0 0 6px color-mix(in oklch, var(--success-solid) 0%, transparent); }
+      }
+
+      .m-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+      @media (max-width: 1080px) { .m-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 520px) { .m-grid { grid-template-columns: 1fr; } }
+
+      /* glass stat tiles */
+      .stat {
+        position: relative; overflow: hidden;
+        border: 1.5px solid transparent; border-radius: 16px;
+        background-color: color-mix(in oklch, var(--surface-card) 84%, transparent);
+        backdrop-filter: blur(14px) saturate(1.2);
+        -webkit-backdrop-filter: blur(14px) saturate(1.2);
+        box-shadow:
+          0 20px 44px -18px oklch(0.50 0.11 265 / 0.24),
+          0 3px 10px -4px oklch(0.84 0.09 330 / 0.16),
+          inset 0 1px 0 0 oklch(1 0 0 / 0.85);
+        padding: 16px 16px 14px;
+        transition: transform 160ms cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 160ms ease;
+      }
+      .stat::before {
+        content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px;
+        background: var(--grad-frame);
+        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor; mask-composite: exclude;
+        pointer-events: none;
+      }
+      [data-theme="dark"] .stat {
+        box-shadow:
+          0 24px 52px -18px oklch(0 0 0 / 0.55),
+          inset 0 1px 0 0 oklch(1 0 0 / 0.10),
+          0 3px 10px -4px oklch(0.42 0.13 262 / 0.5);
+      }
+      .stat:hover { transform: translateY(-2px); }
+
+      .m-ic {
+        position: relative; width: 38px; height: 38px; flex-shrink: 0;
+        display: inline-flex; align-items: center; justify-content: center;
+        border: 1px solid var(--brand-border); border-radius: 10px;
+        background: linear-gradient(180deg, color-mix(in oklch, var(--brand-subtle) 78%, transparent), color-mix(in oklch, var(--brand-subtle) 40%, transparent));
+        color: var(--brand-primary);
+        box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.55), 0 3px 10px -5px oklch(0.52 0.12 265 / 0.4);
+      }
+      .m-ic::after {
+        content: ""; position: absolute; inset: -4px; border-radius: 13px;
+        border: 1.5px solid color-mix(in oklch, var(--brand-primary) 34%, transparent);
+        opacity: 0; transform: scale(0.86);
+        animation: m-halo 3s cubic-bezier(0.2, 0.7, 0.2, 1) infinite both;
+        animation-delay: var(--dh, 0s);
+      }
+      @keyframes m-halo {
+        0% { opacity: 0; transform: scale(0.86); }
+        26% { opacity: 0.65; }
+        62%, 100% { opacity: 0; transform: scale(1.22); }
+      }
+
+      .m-top { display: flex; align-items: center; gap: 12px; }
+      .m-val { display: block; font-size: 32px; font-weight: 700; letter-spacing: -0.028em; line-height: 1.02; color: var(--ink-primary); }
+      .m-val .fix { font-size: 21px; font-weight: 600; color: var(--ink-muted); letter-spacing: 0; }
+      .m-val.landed { animation: val-pop 460ms cubic-bezier(0.2, 0.7, 0.2, 1); }
+      @keyframes val-pop {
+        0% { transform: scale(1); }
+        38% { transform: scale(1.055); }
+        100% { transform: scale(1); }
+      }
+      .m-lab { display: block; margin-top: 8px; font-size: 14px; font-weight: 600; color: var(--ink-primary); }
+      .m-sub { display: block; margin-top: 2px; font-size: 12px; color: var(--ink-muted); }
+
+      /* self-drawing sparkline */
+      .spark { display: block; width: 100%; height: 30px; margin-top: 14px; }
+      .spark .line { fill: none; stroke: var(--viz-1); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1100ms cubic-bezier(0.4, 0, 0.2, 1) 250ms; }
+      .spark .area { opacity: 0; transition: opacity 700ms ease 700ms; }
+      .spark .tip { opacity: 0; transition: opacity 400ms ease 1200ms; }
+      .stat.in .spark .line { stroke-dashoffset: 0; }
+      .stat.in .spark .area { opacity: 1; }
+      .stat.in .spark .tip { opacity: 1; }
+
+      /* industry chips */
+      .m-foot { display: flex; align-items: center; gap: 16px; margin-top: 22px; flex-wrap: wrap; }
+      .m-foot-label { flex-shrink: 0; font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-muted); font-weight: 500; }
+      .m-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+      .ind-chip {
+        display: inline-flex; align-items: center; gap: 7px;
+        padding: 5px 11px; border-radius: 999px;
+        border: 1px solid var(--line-default); background: var(--surface-raised);
+        font-size: 12.5px; color: var(--ink-secondary); white-space: nowrap;
+        transition: border-color 120ms ease, background-color 120ms ease, transform 160ms cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 160ms ease;
+      }
+      .ind-chip:hover {
+        border-color: var(--brand-border); color: var(--ink-primary);
+        transform: translateY(-1px) scale(1.02);
+        box-shadow: 0 6px 16px -8px oklch(0.52 0.12 265 / 0.35);
+        background: linear-gradient(180deg, color-mix(in oklch, var(--brand-subtle) 34%, var(--surface-raised)), var(--surface-raised));
+      }
+      .ind-chip b { color: var(--ink-primary); font-weight: 600; }
+      .ind-chip .cnt { font-family: "Geist Mono", monospace; font-size: 10.5px; color: var(--brand-primary); padding: 1.5px 7px; border-radius: 999px; background: color-mix(in oklch, var(--brand-subtle) 60%, var(--surface-card)); border: 1px solid var(--brand-border); }
+
+      /* ═══════════ SECTION 2 — Problem ═══════════ */
+      .problem { position: relative; padding: 74px 0 90px; overflow: clip; }
+      html:not([data-theme="dark"]) .problem::before {
+        content: ""; position: absolute; inset: 0; pointer-events: none;
+        background:
+          radial-gradient(ellipse 38% 42% at 92% 8%, oklch(0.90 0.075 72 / 0.5) 0%, transparent 70%),
+          radial-gradient(ellipse 34% 38% at 4% 88%, oklch(0.88 0.07 262 / 0.42) 0%, transparent 70%),
+          radial-gradient(color-mix(in oklch, var(--ink-primary) 5%, transparent) 1px, transparent 1px);
+        background-size: 100% 100%, 100% 100%, 26px 26px;
+      }
+      [data-theme="dark"] .problem::before {
+        content: ""; position: absolute; inset: 0; pointer-events: none;
+        background:
+          radial-gradient(ellipse 38% 42% at 92% 8%, oklch(0.28 0.05 72 / 0.55) 0%, transparent 70%),
+          radial-gradient(ellipse 34% 38% at 4% 88%, oklch(0.26 0.05 262 / 0.45) 0%, transparent 70%);
+      }
+
+      .p-wrap { position: relative; max-width: 1152px; margin: 0 auto; padding: 0 24px; }
+      .sh { max-width: 680px; }
+      .sh-eyebrow {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 5px 12px; border-radius: 999px;
+        border: 1px solid var(--warning-border);
+        font-family: "Geist Mono", monospace; font-size: 11px; font-weight: 600;
+        letter-spacing: 0.09em; text-transform: uppercase; color: var(--warning-solid);
+        background: color-mix(in oklch, var(--warning-subtle) 66%, transparent);
+      }
+      html:not([data-theme="dark"]) .sh-eyebrow {
+        background: linear-gradient(120deg, oklch(0.90 0.08 262 / 0.5) 0%, oklch(0.94 0.05 330 / 0.42) 55%, oklch(0.95 0.08 72 / 0.5) 100%);
+        border-color: color-mix(in oklch, var(--warning-solid) 45%, transparent);
+        box-shadow: 0 2px 12px -2px oklch(0.62 0.13 70 / 0.18);
+      }
+      .sh-eyebrow .live-dot { background: var(--warning-solid); animation-name: wtl-live-w; }
+      @keyframes wtl-live-w {
+        0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklch, var(--warning-solid) 50%, transparent); }
+        70% { box-shadow: 0 0 0 6px color-mix(in oklch, var(--warning-solid) 0%, transparent); }
+      }
+
+      .sh-title { margin: 16px 0 0; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; font-weight: 700; letter-spacing: -0.03em; text-wrap: balance; }
+      .w { display: inline-block; opacity: 0; transform: translateY(16px) scale(0.98); filter: blur(6px); transition: opacity 560ms ease, transform 560ms cubic-bezier(0.2, 0.7, 0.2, 1), filter 560ms ease; transition-delay: var(--d, 0s); }
+      .sh.in .w, .sh.in .accent { opacity: 1; transform: none; filter: none; }
+      .reduced .w, .reduced .accent { opacity: 1; transform: none; filter: none; }
+      .accent {
+        opacity: 0; transform: translateY(16px); filter: blur(6px);
+        transition: opacity 560ms ease, transform 560ms cubic-bezier(0.2, 0.7, 0.2, 1), filter 560ms ease;
+        transition-delay: var(--d, 0s);
+        background: var(--grad-head);
+        -webkit-background-clip: text; background-clip: text;
+        -webkit-text-fill-color: transparent; color: transparent;
+        font-weight: 700;
+      }
+      .sh-desc { margin: 16px 0 0; font-size: 16.5px; line-height: 1.6; color: var(--ink-secondary); text-wrap: pretty; max-width: 56ch; opacity: 0; transform: translateY(8px); transition: opacity 600ms ease 480ms, transform 600ms ease 480ms; }
+      .sh.in .sh-desc, .reduced .sh-desc { opacity: 1; transform: none; }
+
+      .p-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 42px; }
+      @media (max-width: 1080px) { .p-grid { grid-template-columns: 1fr; } }
+      .pcard {
+        position: relative; overflow: hidden;
+        border: 1px solid var(--line-default); border-radius: 16px;
+        background: var(--surface-card); box-shadow: var(--shadow-card);
+        padding: 20px 20px 18px; display: flex; flex-direction: column;
+        transition: border-color 140ms ease, box-shadow 140ms ease, transform 160ms cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+      html:not([data-theme="dark"]) .pcard {
+        background: linear-gradient(180deg, var(--surface-raised), color-mix(in oklch, var(--surface-card) 94%, var(--brand-subtle)));
+        box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.85), var(--shadow-card);
+      }
+      .pcard:hover { border-color: var(--line-strong); box-shadow: var(--shadow-raised); transform: translateY(-2px); }
+      /* cursor spotlight */
+      .pcard::before {
+        content: ""; position: absolute; inset: 0; border-radius: inherit;
+        background: radial-gradient(300px circle at var(--mx, 50%) var(--my, -30%), color-mix(in oklch, var(--tone) 9%, transparent), transparent 62%);
+        opacity: 0; transition: opacity 220ms ease; pointer-events: none;
+      }
+      .pcard:hover::before { opacity: 1; }
+      .tone-danger { --tone: var(--danger-solid); }
+      .tone-warn { --tone: var(--warning-solid); }
+      .tone-brand { --tone: var(--brand-primary); }
+
+      .p-ic {
+        position: relative; width: 38px; height: 38px;
+        display: inline-flex; align-items: center; justify-content: center;
+        border: 1px solid var(--line-default); border-radius: 10px;
+        background: var(--surface-sunken); color: var(--ink-secondary);
+      }
+      .pcard .p-ic { border-color: color-mix(in oklch, var(--tone) 38%, var(--line-default)); background: color-mix(in oklch, var(--tone) 8%, var(--surface-subtle, var(--surface-card))); color: var(--tone); }
+      html:not([data-theme="dark"]) .p-ic { box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.6); }
+      .p-ic::after {
+        content: ""; position: absolute; inset: -4px; border-radius: 13px;
+        border: 1.5px solid color-mix(in oklch, var(--tone) 40%, transparent);
+        opacity: 0; transform: scale(0.86);
+        animation: p-halo 3.4s cubic-bezier(0.2, 0.7, 0.2, 1) infinite both;
+        animation-delay: var(--dh, 0s);
+      }
+      @keyframes p-halo {
+        0% { opacity: 0; transform: scale(0.86); }
+        26% { opacity: 0.55; }
+        62%, 100% { opacity: 0; transform: scale(1.2); }
+      }
+      .p-ic svg { width: 17px; height: 17px; }
+      .pcard h3 { margin: 16px 0 0; font-size: 18px; font-weight: 600; letter-spacing: -0.015em; color: var(--ink-primary); }
+      .pcard .body { margin: 8px 0 0; font-size: 14.5px; line-height: 1.55; color: var(--ink-secondary); }
+      .well {
+        border: 1px solid var(--line-default); border-radius: 10px;
+        background: var(--surface-sunken); padding: 12px 13px;
+        margin-top: 18px; min-height: 128px;
+        display: flex; flex-direction: column; justify-content: space-between;
+        transition: border-color 320ms ease, background-color 320ms ease;
+      }
+      html:not([data-theme="dark"]) .well {
+        background: linear-gradient(180deg, color-mix(in oklch, var(--surface-raised) 46%, var(--surface-sunken)), var(--surface-sunken));
+        box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.7);
+      }
+
+      /* card 1: unnoticed drift + day arc */
+      .dr-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+      .dr-label { margin: 0; font-family: "Geist Mono", monospace; font-size: 10.5px; letter-spacing: 0.02em; color: var(--ink-muted); }
+      .dr-row { display: flex; align-items: center; gap: 8px; font-size: 13.5px; margin-top: 5px; }
+      .dr-row .old { color: var(--ink-muted); text-decoration: line-through; text-decoration-color: var(--ink-disabled); text-decoration-thickness: 1.5px; }
+      .dr-row .arr { color: var(--ink-disabled); }
+      .dr-row .new { font-weight: 600; color: var(--warning-solid); }
+      .dr-arc { position: relative; width: 44px; height: 44px; flex-shrink: 0; }
+      .dr-arc svg { transform: rotate(-90deg); }
+      .dr-arc .track { fill: none; stroke: var(--line-default); stroke-width: 3; }
+      .dr-arc .prog { fill: none; stroke: var(--warning-solid); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 113; stroke-dashoffset: 113; transition: stroke-dashoffset 640ms cubic-bezier(0.2, 0.7, 0.2, 1); }
+      .dr-arc b {
+        position: absolute; inset: 0; display: grid; place-items: center;
+        font-family: "Geist Mono", monospace; font-size: 11px; font-weight: 600; color: var(--ink-primary);
+      }
+      .dr-meta { margin-top: 10px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-family: "Geist Mono", monospace; font-size: 10.5px; color: var(--ink-muted); letter-spacing: 0.02em; }
+      .well.drift-alarm { border-color: var(--danger-border); background: color-mix(in oklch, var(--danger-subtle) 46%, var(--surface-sunken)); }
+      .well.drift-alarm .dr-arc .prog { stroke: var(--danger-solid); }
+      [data-theme="dark"] .well.drift-alarm .dr-arc .prog { stroke: var(--danger-solid); }
+
+      /* card 2: scattering inboxes */
+      .inbox-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 9px; font-family: "Geist Mono", monospace; font-size: 10.5px; color: var(--ink-muted); }
+      .inbox-total { padding: 2px 8px; border-radius: 999px; border: 1px solid var(--danger-border); background: color-mix(in oklch, var(--danger-subtle) 80%, transparent); color: var(--danger-solid); font-weight: 600; }
+      .chan-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+      .chan-chip {
+        position: relative; display: inline-flex; align-items: center;
+        padding: 4px 10px; border-radius: 999px;
+        border: 1px solid var(--line-default); background: var(--surface-raised);
+        font-size: 12px; font-weight: 500; color: var(--ink-secondary);
+        animation: chip-bob 4.2s ease-in-out infinite both; animation-delay: var(--bd, 0s);
+      }
+      @keyframes chip-bob {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-2.5px); }
+      }
+      .chan-chip .badge {
+        position: absolute; top: -7px; right: -6px;
+        min-width: 16px; height: 16px; padding: 0 4px;
+        display: inline-flex; align-items: center; justify-content: center;
+        border-radius: 999px; background: var(--danger-solid); color: var(--ink-inverse);
+        font-family: "Geist Mono", monospace; font-size: 9px; font-weight: 600;
+        border: 1.5px solid var(--surface-raised);
+        transform: scale(0); transition: transform 200ms cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+      .chan-chip .badge.on { transform: scale(1); }
+      html:not([data-theme="dark"]) .chan-chip .badge { box-shadow: 0 2px 6px -2px oklch(0.52 0.15 25 / 0.5); }
+
+      /* card 3: flat spend vs local demand */
+      .bars { display: flex; flex-direction: column; gap: 7px; }
+      .bar-row { display: flex; align-items: flex-end; gap: 6px; height: 46px; }
+      .bar-row + .bar-row { height: 44px; }
+      .bar { width: 100%; border-radius: 4px 4px 0 0; background: var(--viz-1-soft); transform-origin: bottom; transform: scaleY(0); transition: transform 540ms cubic-bezier(0.2, 0.7, 0.2, 1); transition-delay: var(--bd, 0ms); }
+      .bar.spend { height: 34px; }
+      .bar.demand { background: var(--viz-1); }
+      .bar.demand.short {
+        background: repeating-linear-gradient(115deg, var(--danger-subtle) 0 5px, color-mix(in oklch, var(--danger-subtle) 40%, transparent) 5px 10px);
+        border: 1px solid var(--danger-border); border-bottom: none;
+        background-size: 200% 100%;
+        animation: hatch-drift 1.5s linear infinite;
+      }
+      .bar.demand.high { background: color-mix(in oklch, var(--brand-primary) 82%, var(--surface-card)); }
+      @keyframes hatch-drift { to { background-position: 20px 0; } }
+      .bars.in .bar { transform: scaleY(1); }
+      .bars-legend { margin-top: 10px; display: flex; align-items: center; gap: 10px; font-family: "Geist Mono", monospace; font-size: 10px; letter-spacing: 0.02em; color: var(--ink-muted); }
+      .lg-dot { width: 8px; height: 8px; border-radius: 2.5px; display: inline-block; margin-right: 5px; vertical-align: -1px; }
+      .well-note { margin: 0; padding-top: 10px; font-size: 11px; color: var(--ink-muted); }
+
+      /* connective line (SUGGESTION — approve/drop) */
+      .connective-row { margin-top: 34px; text-align: center; }
+      .connective {
+        display: inline-block; font-size: 14.5px; color: var(--ink-secondary); padding-bottom: 3px;
+        background: linear-gradient(120deg, var(--brand-primary), oklch(0.55 0.15 330) 60%, oklch(0.65 0.13 72)) bottom left / 0% 2px no-repeat;
+        transition: background-size 700ms cubic-bezier(0.2, 0.7, 0.2, 1) 250ms;
+      }
+      .connective.in { background-size: 100% 2px; }
+      .reduced .connective { background-size: 100% 2px; }
+      .connective b { color: var(--ink-primary); font-weight: 600; }
+
+      .reveal { opacity: 0; transform: translateY(16px); filter: blur(5px); transition: opacity 560ms ease, transform 560ms cubic-bezier(0.2, 0.7, 0.2, 1), filter 560ms ease; transition-delay: var(--d, 0s); }
+      .reveal.in, .reduced .reveal { opacity: 1; transform: none; filter: none; }
+
+      footer { height: 120px; display: grid; place-items: center; color: var(--ink-disabled); font-size: 12px; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .live-dot, .m-ic::after, .p-ic::after, .chan-chip, .bar.demand.short { animation: none !important; }
+        .stat { transition: none; }
+        .spark .line, .spark .area, .spark .tip { transition: none; }
+        .bar { transition: none !important; transition-delay: 0ms !important; }
+        .w, .accent, .sh-desc, .reveal, .connective { transition: none !important; }
+        .m-val.landed { animation: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="proposal-chrome">
+      <span>
+        <b>WTL Sections Proposal v2</b> — glass proof-strip + cinematic problem section. All live
+        copy verbatim; improvements numbered below the chrome.
+      </span>
+      <div class="theme-pill">
+        <button onclick="document.documentElement.setAttribute('data-theme','light')" aria-pressed="true">Light</button>
+        <button onclick="document.documentElement.setAttribute('data-theme','dark')" aria-pressed="false">Dark</button>
+      </div>
+    </div>
+
+    <div class="suggestions">
+      <div class="suggestions-inner">
+        <b>What makes this world-class (S1–S7)</b>
+        <ol>
+          <li><b>Living proof:</b> each metric counts up on first sight with a landing pop, and a self-drawing gradient sparkline sketches underneath — the strip feels like a live feed, not a pricing table.</li>
+          <li><b>Glass tiles</b> with signature gradient hairlines, pulse halos on the icons, ambient mesh behind, hover lift. Continues the approved hero language one notch quieter.</li>
+          <li><b>Industry pills</b> get mono count badges and a glossy hover lift. Static (the hero owns the page's one marquee).</li>
+          <li><b>Cinematic heading:</b> word-by-word blur-rise reveal; “One small team.” lands last with the signature sweep.</li>
+          <li><b>Cursor spotlight cards:</b> each pain card has a soft radial glow that follows the pointer, tinted to its own warning color.</li>
+          <li><b>Micro-replays, upgraded:</b> drift card gets a 9-day <b>mother-arc gauge</b> that fills then flashes alarm; inbox badges accumulate onto bobbing chips with a live unread tally; spend/demand chart grows bars and scrolls the hatched “wasted” cells forever.</li>
+          <li><span class="flag">New copy — approve or drop:</span> connective line: <b>“No single store looks broken — multiply by twelve and it compounds.”</b> — underlined by a gradient stroke that draws itself.</li>
+        </ol>
+      </div>
+    </div>
+
+    <main>
+      <!-- ═══ SECTION 1 · Metrics strip ═══ -->
+      <section class="metrics" aria-label="Key performance metrics">
+        <div class="m-wrap">
+          <div class="m-strip-head">
+            <span class="m-live mono"><span class="live-dot" aria-hidden="true"></span>Network telemetry</span>
+          </div>
+          <div class="m-grid">
+            <div class="stat reveal" style="--d: 40ms">
+              <div class="m-top">
+                <span class="m-ic" aria-hidden="true" style="--dh: 0s">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M2 21h20"/><path d="M8 7h2M8 11h2M8 15h2M14 7h.01M14 11h.01M14 15h.01"/></svg>
+                </span>
+                <span class="m-val tnum"><span class="count" data-target="8400" data-format="comma">0</span><span class="fix">+</span></span>
+              </div>
+              <span class="m-lab">Storefronts Managed</span>
+              <span class="m-sub">across 42 metro &amp; tier-2 cities</span>
+              <svg class="spark" viewBox="0 0 96 30" preserveAspectRatio="none" aria-hidden="true">
+                <defs><linearGradient id="sparkA" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" style="stop-color: var(--viz-1); stop-opacity: 0.20"/><stop offset="100%" style="stop-color: var(--viz-1); stop-opacity: 0"/></linearGradient></defs>
+                <path class="area" fill="url(#sparkA)" d="M0,24 16,22 32,19 48,17 64,14 80,9 96,4 V30 H0 Z"/>
+                <path class="line" pathLength="1" d="M0,24 16,22 32,19 48,17 64,14 80,9 96,4"/>
+                <circle class="tip" cx="96" cy="4" r="2" style="fill: var(--viz-1)"/>
+              </svg>
+            </div>
+
+            <div class="stat reveal" style="--d: 110ms">
+              <div class="m-top">
+                <span class="m-ic" aria-hidden="true" style="--dh: 0.4s">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                </span>
+                <span class="m-val tnum"><span class="count" data-target="124000" data-format="comma">0</span><span class="fix">+</span></span>
+              </div>
+              <span class="m-lab">Reviews Patrolled Daily</span>
+              <span class="m-sub">autonomous 24/7 sentiment AI</span>
+              <svg class="spark" viewBox="0 0 96 30" preserveAspectRatio="none" aria-hidden="true">
+                <defs><linearGradient id="sparkB" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" style="stop-color: var(--viz-1); stop-opacity: 0.20"/><stop offset="100%" style="stop-color: var(--viz-1); stop-opacity: 0"/></linearGradient></defs>
+                <path class="area" fill="url(#sparkB)" d="M0,26 16,23 32,20 48,14 64,10 80,7 96,3 V30 H0 Z"/>
+                <path class="line" pathLength="1" d="M0,26 16,23 32,20 48,14 64,10 80,7 96,3"/>
+                <circle class="tip" cx="96" cy="3" r="2" style="fill: var(--viz-1)"/>
+              </svg>
+            </div>
+
+            <div class="stat reveal" style="--d: 180ms">
+              <div class="m-top">
+                <span class="m-ic" aria-hidden="true" style="--dh: 0.8s">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+                </span>
+                <span class="m-val tnum"><span class="fix">&lt;&nbsp;</span><span class="count" data-target="45">0</span><span class="fix">s</span></span>
+              </div>
+              <span class="m-lab">WhatsApp Escalation</span>
+              <span class="m-sub">instant alert to branch managers</span>
+              <svg class="spark" viewBox="0 0 96 30" preserveAspectRatio="none" aria-hidden="true">
+                <defs><linearGradient id="sparkC" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" style="stop-color: var(--viz-1); stop-opacity: 0.20"/><stop offset="100%" style="stop-color: var(--viz-1); stop-opacity: 0"/></linearGradient></defs>
+                <path class="area" fill="url(#sparkC)" d="M0,6 16,8 32,10 48,15 64,19 80,22 96,25 V30 H0 Z"/>
+                <path class="line" pathLength="1" d="M0,6 16,8 32,10 48,15 64,19 80,22 96,25"/>
+                <circle class="tip" cx="96" cy="25" r="2" style="fill: var(--viz-1)"/>
+              </svg>
+            </div>
+
+            <div class="stat reveal" style="--d: 250ms">
+              <div class="m-top">
+                <span class="m-ic" aria-hidden="true" style="--dh: 1.2s">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h6v6"/><path d="M22 7 16.5 12.5a2 2 0 0 1-2.83 0l-2.17-2.17a2 2 0 0 0-2.83 0L2 17"/></svg>
+                </span>
+                <span class="m-val tnum"><span class="fix">+</span><span class="count" data-target="28">0</span><span class="fix">%</span></span>
+              </div>
+              <span class="m-lab">Catchment Footfall</span>
+              <span class="m-sub">3-km radius bounded ad engine</span>
+              <svg class="spark" viewBox="0 0 96 30" preserveAspectRatio="none" aria-hidden="true">
+                <defs><linearGradient id="sparkD" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" style="stop-color: var(--viz-1); stop-opacity: 0.20"/><stop offset="100%" style="stop-color: var(--viz-1); stop-opacity: 0"/></linearGradient></defs>
+                <path class="area" fill="url(#sparkD)" d="M0,22 16,18 32,21 48,15 64,17 80,10 96,5 V30 H0 Z"/>
+                <path class="line" pathLength="1" d="M0,22 16,18 32,21 48,15 64,17 80,10 96,5"/>
+                <circle class="tip" cx="96" cy="5" r="2" style="fill: var(--viz-1)"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="m-foot reveal" style="--d: 300ms">
+            <span class="m-foot-label mono">Industry Footprints:</span>
+            <div class="m-chips">
+              <span class="ind-chip"><b>Automotive Dealerships</b><span class="cnt">1,800+ Showrooms</span></span>
+              <span class="ind-chip"><b>Healthcare &amp; Clinics</b><span class="cnt">940+ Centres</span></span>
+              <span class="ind-chip"><b>Retail Chains</b><span class="cnt">3,200+ Outlets</span></span>
+              <span class="ind-chip"><b>Restaurants &amp; QSR</b><span class="cnt">1,450+ Outlets</span></span>
+              <span class="ind-chip"><b>Banking &amp; Branches</b><span class="cnt">1,000+ Branches</span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ SECTION 2 · Problem ═══ -->
+      <section class="problem" aria-labelledby="problem-title">
+        <div class="p-wrap">
+          <div class="sh" data-in>
+            <span class="sh-eyebrow"><span class="live-dot" aria-hidden="true"></span>THE MULTI-LOCATION PROBLEM</span>
+            <h2 id="problem-title" class="sh-title">
+              <span class="w" style="--d: 0ms">Twelve</span>
+              <span class="w" style="--d: 70ms">stores.</span>
+              <span class="w" style="--d: 210ms">Seven</span>
+              <span class="w" style="--d: 280ms">channels.</span>
+              <span class="accent" style="--d: 520ms">One small team.</span>
+            </h2>
+            <p class="sh-desc">
+              Most brands manage local marketing across disconnected tools. Nothing is wrong at any
+              single location — it just slips quietly everywhere at once.
+            </p>
+          </div>
+
+          <div class="p-grid">
+            <!-- card 1: profiles drift -->
+            <article class="pcard tone-danger reveal" style="--d: 80ms">
+              <span class="p-ic tone-danger" aria-hidden="true" style="--dh: 0s">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              </span>
+              <h3>Profiles drift</h3>
+              <p class="body">
+                Hours, phone numbers, and photos change on Google and Maps without anyone at head
+                office noticing — until a customer shows up to a closed door.
+              </p>
+              <div class="well" id="driftWell">
+                <div class="dr-top">
+                  <div>
+                    <p class="dr-label mono">Saturday hours · Thane</p>
+                    <div class="dr-row">
+                      <span class="old tnum">10:00 – 20:00</span>
+                      <span class="arr" aria-hidden="true">→</span>
+                      <span class="new tnum">10:00 – 18:00</span>
+                    </div>
+                  </div>
+                  <div class="dr-arc" aria-hidden="true">
+                    <svg width="44" height="44" viewBox="0 0 44 44">
+                      <circle class="track" cx="22" cy="22" r="18"/>
+                      <circle class="prog" id="driftProg" cx="22" cy="22" r="18"/>
+                    </svg>
+                    <b id="driftDay">0d</b>
+                  </div>
+                </div>
+                <div class="dr-meta">
+                  <span>Edited by a Google user · unreviewed</span>
+                  <span id="driftWord">unnoticed for 9 days</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- card 2: conversations scatter -->
+            <article class="pcard tone-warn reveal" style="--d: 170ms">
+              <span class="p-ic tone-warn" aria-hidden="true" style="--dh: 0.5s">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg>
+              </span>
+              <h3>Conversations scatter</h3>
+              <p class="body">
+                Reviews, comments, and DMs arrive across a handful of platforms and dozens of
+                locations, each in a different inbox with a different owner.
+              </p>
+              <div class="well">
+                <div>
+                  <div class="inbox-head mono">
+                    <span>untriaged</span>
+                    <span class="inbox-total tnum" id="inboxTotal">0 unread</span>
+                  </div>
+                  <div class="chan-chips" id="chanChips">
+                    <span class="chan-chip" style="--bd: 0s" data-n="3">Google<span class="badge">3</span></span>
+                    <span class="chan-chip" style="--bd: 0.5s" data-n="5">Instagram<span class="badge">5</span></span>
+                    <span class="chan-chip" style="--bd: 1s" data-n="2">Facebook<span class="badge">2</span></span>
+                    <span class="chan-chip" style="--bd: 1.5s" data-n="1">YouTube<span class="badge">1</span></span>
+                    <span class="chan-chip" style="--bd: 2s" data-n="2">Play Store<span class="badge">2</span></span>
+                    <span class="chan-chip" style="--bd: 2.5s" data-n="1">App Store<span class="badge">1</span></span>
+                    <span class="chan-chip" style="--bd: 3s" data-n="4">Email<span class="badge">4</span></span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- card 3: growth stays generic -->
+            <article class="pcard tone-brand reveal" style="--d: 260ms">
+              <span class="p-ic tone-brand" aria-hidden="true" style="--dh: 1s">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              </span>
+              <h3>Growth stays generic</h3>
+              <p class="body">
+                Campaigns get planned nationally while demand is local, so spend lands far from the
+                store that could actually serve the customer.
+              </p>
+              <div class="well">
+                <div>
+                  <div class="bars" id="genBars" aria-hidden="true">
+                    <div class="bar-row">
+                      <span class="bar spend" style="--bd: 0ms"></span><span class="bar spend" style="--bd: 40ms"></span><span class="bar spend" style="--bd: 80ms"></span><span class="bar spend" style="--bd: 120ms"></span><span class="bar spend" style="--bd: 160ms"></span><span class="bar spend" style="--bd: 200ms"></span><span class="bar spend" style="--bd: 240ms"></span>
+                    </div>
+                    <div class="bar-row">
+                      <span class="bar demand high" style="--bd: 40ms" data-h="40"></span><span class="bar demand" style="--bd: 90ms" data-h="33"></span><span class="bar demand short" style="--bd: 140ms" data-h="24"></span><span class="bar demand high" style="--bd: 190ms" data-h="42"></span><span class="bar demand" style="--bd: 240ms" data-h="31"></span><span class="bar demand short" style="--bd: 290ms" data-h="20"></span><span class="bar demand" style="--bd: 340ms" data-h="36"></span>
+                    </div>
+                  </div>
+                  <div class="bars-legend mono">
+                    <span><i class="lg-dot" style="background: var(--viz-1-soft)"></i>flat spend</span>
+                    <span><i class="lg-dot" style="background: var(--viz-1)"></i>local demand</span>
+                    <span><i class="lg-dot" style="background: var(--danger-subtle); border: 1px solid var(--danger-border)"></i>wasted</span>
+                  </div>
+                </div>
+                <p class="well-note">Same budget, every store, regardless of local demand</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="connective-row">
+            <span class="connective" data-in><b>No single store looks broken</b> — multiply by twelve and it compounds.</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>framing only — not part of the proposal</footer>
+
+    <script>
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) document.body.classList.add('reduced');
+
+      /* ── reveal-on-sight (words, cards, stats, connective) ── */
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.35 });
+      document.querySelectorAll('[data-in], .reveal').forEach((el) => io.observe(el));
+
+      /* ── S1: count-up on first inView ── */
+      function runCount(el) {
+        const target = parseInt(el.dataset.target, 10);
+        const fmt = (n) => (el.dataset.format === 'comma' ? n.toLocaleString('en-US') : String(n));
+        if (prefersReduced) { el.textContent = fmt(target); return; }
+        const t0 = performance.now(); const D = 1300;
+        function tick(t) {
+          const p = Math.min(1, (t - t0) / D);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = fmt(Math.round(target * eased));
+          if (p < 1) requestAnimationFrame(tick);
+          else {
+            el.textContent = fmt(target);
+            el.closest('.m-val').classList.add('landed');
+          }
+        }
+        requestAnimationFrame(tick);
+      }
+      const seen = new WeakSet();
+      const co = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting && !seen.has(e.target)) {
+            seen.add(e.target); runCount(e.target); co.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.6 });
+      document.querySelectorAll('.count').forEach((c) => co.observe(c));
+
+      /* ── S5a: unnoticed-drift arc fills 0→9d, then alarm flash ── */
+      const driftDay = document.getElementById('driftDay');
+      const driftProg = document.getElementById('driftProg');
+      const driftWell = document.getElementById('driftWell');
+      const driftWord = document.getElementById('driftWord');
+      const CIRC = 2 * Math.PI * 18;
+      function setDay(n) {
+        driftDay.textContent = n + 'd';
+        driftProg.style.strokeDashoffset = String(CIRC * (1 - n / 9));
+        driftWord.textContent = n >= 9 ? 'customer walks to a closed door' : 'unnoticed for ' + (9 - n) + ' more days';
+      }
+      if (prefersReduced) {
+        setDay(9);
+        driftWell.classList.add('drift-alarm');
+      } else {
+        let d = 0;
+        driftProg.style.strokeDasharray = String(CIRC);
+        setInterval(() => {
+          d = d >= 9 ? 0 : d + 1;
+          if (d === 0) driftWell.classList.remove('drift-alarm');
+          setDay(d);
+          if (d === 9) driftWell.classList.add('drift-alarm');
+        }, 950);
+      }
+
+      /* ── S5b: inbox badges accumulate ── */
+      const chips = Array.from(document.querySelectorAll('#chanChips .chan-chip'));
+      const grand = chips.reduce((s, c) => s + parseInt(c.dataset.n, 10), 0);
+      const totalEl = document.getElementById('inboxTotal');
+      function setTotal(n) { totalEl.textContent = (prefersReduced || n > 0) ? n + ' unread' : '0 unread'; }
+      if (prefersReduced) {
+        chips.forEach((c) => c.querySelector('.badge').classList.add('on'));
+        setTotal(grand);
+      } else {
+        let i = 0, acc = 0, holding = false;
+        setInterval(() => {
+          if (holding) return;
+          if (i >= chips.length) {
+            holding = true;
+            setTimeout(() => {
+              chips.forEach((c) => c.querySelector('.badge').classList.remove('on'));
+              i = 0; acc = 0; setTotal(0); holding = false;
+            }, 1900);
+            return;
+          }
+          const c = chips[i]; c.querySelector('.badge').classList.add('on');
+          acc += parseInt(c.dataset.n, 10); setTotal(acc); i += 1;
+        }, 420);
+      }
+
+      /* ── S5c: bars grow on inView ── */
+      document.querySelectorAll('.bar.demand').forEach((b) => (b.style.height = b.dataset.h + 'px'));
+      const bars = document.getElementById('genBars');
+      if (prefersReduced) bars.classList.add('in');
+      else {
+        const bo = new IntersectionObserver((entries) => {
+          entries.forEach((e) => { if (e.isIntersecting) { bars.classList.add('in'); bo.disconnect(); } });
+        }, { threshold: 0.4 });
+        bo.observe(bars);
+      }
+
+      /* ── cursor spotlight ── */
+      if (!prefersReduced) {
+        document.querySelectorAll('.pcard').forEach((card) => {
+          card.addEventListener('pointermove', (e) => {
+            const r = card.getBoundingClientRect();
+            card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+            card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -3,8 +3,8 @@
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { SectionHeading } from './primitives'
 import { Reveal } from './reveal'
+import styles from './faq.module.css'
 
 const faqs = [
   {
@@ -27,52 +27,67 @@ const faqs = [
     q: 'How long does onboarding take for a chain with 20 to 100+ outlets?',
     a: 'Most multi-location brands are fully live within 48 to 72 hours. We sync your existing Google Business Profile manager account in bulk, map your store codes and manager phone numbers, and configure your brand tone guidelines for AI reply drafting.',
   },
-]
+] as const
 
 export function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section id="faq" aria-labelledby="faq-title" className="border-t border-line bg-card/60 py-20 md:py-28">
-      <div className="mx-auto max-w-4xl px-5 md:px-8">
-        <Reveal>
-          <SectionHeading
-            id="faq-title"
-            eyebrow="Frequently Asked Questions"
-            title="Everything you need to know about What The Local."
-            description="Clear answers on permissions, Google Business Profile syncing, WhatsApp escalations, and onboarding."
-          />
-        </Reveal>
+    <section id="faq" aria-labelledby="faq-title" className={styles.faq}>
+      <div className={styles.wrap}>
+        <div className={styles.grid}>
+          <div className={styles.rail}>
+            <Reveal>
+              <span className={styles.eyebrowChip}>
+                <span className={styles.eyebrowDot} aria-hidden="true" />
+                Frequently Asked Questions
+              </span>
+              <h2 id="faq-title" className={styles.sTitle}>
+                Everything you need to know about{' '}
+                <span className={styles.sAccent}>What The Local.</span>
+              </h2>
+              <p className={styles.sDesc}>
+                Clear answers on permissions, Google Business Profile syncing, WhatsApp escalations,
+                and onboarding.
+              </p>
+            </Reveal>
+          </div>
 
-        <div className="mt-12 space-y-3">
-          {faqs.map((faq, idx) => {
-            const isOpen = openIndex === idx
-            return (
-              <Reveal key={faq.q} delay={idx * 60}>
-                <div className="overflow-hidden rounded-ctl border border-line bg-card transition-colors">
-                  <button
-                    type="button"
-                    onClick={() => setOpenIndex(isOpen ? null : idx)}
-                    aria-expanded={isOpen}
-                    className="flex w-full items-center justify-between gap-4 p-5 text-left transition-colors hover:bg-hover"
-                  >
-                    <span className="text-base font-semibold text-ink">{faq.q}</span>
-                    <ChevronDown
-                      className={cn(
-                        'size-4 text-ink-3 shrink-0 transition-transform duration-200',
-                        isOpen && 'rotate-180 text-brand',
-                      )}
-                    />
-                  </button>
-                  {isOpen && (
-                    <div className="border-t border-line/60 bg-sunken/30 px-5 py-4 text-[14px] leading-relaxed text-ink-2 enter-rise">
-                      {faq.a}
+          <Reveal delay={140}>
+            <div className={styles.list}>
+              {faqs.map((faq, idx) => {
+                const isOpen = openIndex === idx
+                return (
+                  <div key={faq.q} className={cn(styles.item, isOpen && styles.itemOpen)}>
+                    <button
+                      type="button"
+                      onClick={() => setOpenIndex(isOpen ? null : idx)}
+                      aria-expanded={isOpen}
+                      aria-controls={`faq-a-${idx}`}
+                      id={`faq-q-${idx}`}
+                      className={styles.btn}
+                    >
+                      <span className={styles.num} aria-hidden="true">
+                        {String(idx + 1).padStart(2, '0')}
+                      </span>
+                      <span className={styles.q}>{faq.q}</span>
+                      <ChevronDown aria-hidden="true" className={styles.chev} />
+                    </button>
+                    <div
+                      className={styles.body}
+                      id={`faq-a-${idx}`}
+                      role="region"
+                      aria-labelledby={`faq-q-${idx}`}
+                    >
+                      <div className={styles.bodyIn}>
+                        <p className={styles.a}>{faq.a}</p>
+                      </div>
                     </div>
-                  )}
-                </div>
-              </Reveal>
-            )
-          })}
+                  </div>
+                )
+              })}
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

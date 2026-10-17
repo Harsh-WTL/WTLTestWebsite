@@ -1,0 +1,248 @@
+/* WTL FAQ — approved proposal 4 (S11) "answer ledger": sticky heading rail left,
+   numbered questions right, true grid-rows height animation on expand.
+   Port rules: :global(html.js) gating for the collapsed state (SSR/no-JS shows all
+   answers expanded), full oklch, var(--font-mono). */
+
+.faq {
+  position: relative;
+  padding: 44px 0 84px;
+  overflow: clip;
+}
+:global(html:not(.dark)) .faq::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 30% 44% at 96% 62%, oklch(0.90 0.06 262 / 0.3) 0%, transparent 70%);
+}
+[data-theme='dark'] .faq::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 30% 44% at 96% 62%, oklch(0.26 0.05 262 / 0.34) 0%, transparent 70%);
+}
+
+.wrap {
+  position: relative;
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Eyebrow chip + heading (shared grammar) ────────────── */
+.eyebrowChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border: 1px solid var(--brand-border);
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--brand-subtle) 66%, transparent);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+}
+:global(html:not(.dark)) .eyebrowChip {
+  background: linear-gradient(
+    120deg,
+    oklch(0.90 0.08 262 / 0.6) 0%,
+    oklch(0.92 0.06 330 / 0.5) 55%,
+    oklch(0.95 0.06 72 / 0.45) 100%
+  );
+  border-color: color-mix(in oklch, var(--brand-primary) 40%, transparent);
+  color: var(--brand-hover);
+  box-shadow: 0 2px 12px -2px oklch(0.52 0.12 265 / 0.14);
+}
+.eyebrowDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--brand-primary);
+  flex-shrink: 0;
+  animation: brandPulse 2.4s ease-out infinite;
+}
+@keyframes brandPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklch, var(--brand-primary) 45%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 6px color-mix(in oklch, var(--brand-primary) 0%, transparent);
+  }
+}
+.sTitle {
+  margin: 16px 0 0;
+  max-width: 640px;
+  font-size: clamp(30px, 3.6vw, 44px);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  color: var(--ink-primary);
+}
+.sAccent {
+  color: var(--ink-primary);
+}
+@supports (background: oklch(1 0 0 / 0)) {
+  .sAccent {
+    background-image: var(--grad-head);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+.sDesc {
+  margin: 16px 0 0;
+  max-width: 56ch;
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--ink-secondary);
+  text-wrap: pretty;
+}
+
+/* ── Two-column ledger ──────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 4.4fr) minmax(0, 7.6fr);
+  gap: 40px;
+  margin-top: 44px;
+  align-items: start;
+}
+.rail {
+  position: sticky;
+  top: 96px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.item {
+  border: 1px solid var(--line-default);
+  border-radius: 12px;
+  background: var(--surface-sunken);
+  transition:
+    border-color 200ms ease,
+    background-color 200ms ease;
+}
+.item:hover {
+  border-color: var(--line-strong);
+}
+.itemOpen {
+  background: var(--surface-card);
+  border-color: var(--brand-border);
+}
+.btn {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 16px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  border-radius: 12px;
+}
+.btn:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+}
+.num {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 10.5px;
+  font-weight: 600;
+  border: 1px solid var(--line-default);
+  background: var(--surface-card);
+  color: var(--ink-muted);
+  transition:
+    color 200ms ease,
+    border-color 200ms ease,
+    background-color 200ms ease;
+}
+.itemOpen .num {
+  border-color: var(--brand-border);
+  background: color-mix(in oklch, var(--brand-subtle) 70%, transparent);
+  color: var(--brand-primary);
+}
+.q {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink-primary);
+  line-height: 1.4;
+}
+.chev {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  color: var(--ink-muted);
+  transition:
+    transform 260ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    color 200ms ease;
+}
+.itemOpen .chev {
+  transform: rotate(180deg);
+  color: var(--brand-primary);
+}
+/* true grid-rows height animation — SSR/no-JS renders all answers EXPANDED */
+.body {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows 320ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+:global(html.js) .body {
+  grid-template-rows: 0fr;
+}
+/* the "open" rule repeats :global(html.js) (specificity trap) */
+:global(html.js) .itemOpen .body {
+  grid-template-rows: 1fr;
+}
+.bodyIn {
+  overflow: hidden;
+  min-height: 0;
+}
+.a {
+  padding: 2px 16px 16px 54px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-secondary);
+}
+
+@media (max-width: 1080px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .rail {
+    position: static;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eyebrowDot {
+    animation: none !important;
+  }
+  .body,
+  .chev,
+  .item,
+  .num {
+    transition: none !important;
+  }
+}

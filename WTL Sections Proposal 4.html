@@ -1,0 +1,1084 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WTL — Sections Proposal 4 (Use cases + FAQ + Final CTA)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ── Tokens (site + approved signatures) ── */
+      :root {
+        color-scheme: light;
+        --surface-page: oklch(0.950 0.008 270);
+        --surface-card: oklch(0.988 0.002 85);
+        --surface-raised: oklch(1 0 0);
+        --surface-sunken: oklch(0.940 0.008 270);
+        --surface-hover: oklch(0.960 0.006 270);
+        --ink-primary: oklch(0.203 0.014 265);
+        --ink-secondary: oklch(0.462 0.011 265);
+        --ink-muted: oklch(0.617 0.010 265);
+        --ink-inverse: oklch(0.985 0.001 85);
+        --ink-disabled: oklch(0.733 0.008 265);
+        --line-default: oklch(0.902 0.004 85);
+        --line-strong: oklch(0.838 0.005 85);
+        --brand-primary: oklch(0.52 0.12 265);
+        --brand-hover: oklch(0.45 0.12 265);
+        --brand-subtle: oklch(0.951 0.021 265);
+        --brand-border: oklch(0.868 0.050 265);
+        --success-solid: oklch(0.55 0.14 150);
+        --success-subtle: oklch(0.955 0.030 150);
+        --success-border: oklch(0.872 0.068 150);
+        --shadow-card: 0 1px 2px oklch(0.20 0.02 265 / 0.04);
+        --shadow-raised: 0 6px 18px -6px oklch(0.20 0.02 265 / 0.10), 0 1px 2px oklch(0.20 0.02 265 / 0.04);
+        --grad-head: linear-gradient(98deg, oklch(0.30 0.06 262) 0%, oklch(0.50 0.18 280) 36%, oklch(0.55 0.17 330) 66%, oklch(0.60 0.15 72) 100%);
+        --grad-frame: linear-gradient(135deg, oklch(0.80 0.10 262 / 0.85) 0%, oklch(0.84 0.09 330 / 0.70) 48%, oklch(0.90 0.10 72 / 0.85) 100%);
+        /* canonical insight tri-hue (Ahana cards) — this page's ONE gradient surface */
+        --insight-bg: linear-gradient(135deg, oklch(0.936 0.032 262) 0%, oklch(0.928 0.042 330) 50%, oklch(0.960 0.048 84) 100%);
+      }
+      [data-theme="dark"] {
+        color-scheme: dark;
+        --surface-page: oklch(0.171 0.007 265);
+        --surface-card: oklch(0.212 0.008 265);
+        --surface-raised: oklch(0.246 0.009 265);
+        --surface-sunken: oklch(0.145 0.006 265);
+        --surface-hover: oklch(0.258 0.009 265);
+        --ink-primary: oklch(0.962 0.002 85);
+        --ink-secondary: oklch(0.742 0.009 265);
+        --ink-muted: oklch(0.596 0.011 265);
+        --ink-inverse: oklch(0.185 0.010 265);
+        --ink-disabled: oklch(0.446 0.010 265);
+        --line-default: oklch(0.286 0.009 265);
+        --line-strong: oklch(0.375 0.011 265);
+        --brand-primary: oklch(0.72 0.13 265);
+        --brand-hover: oklch(0.79 0.11 265);
+        --brand-subtle: oklch(0.288 0.055 265);
+        --brand-border: oklch(0.402 0.080 265);
+        --success-solid: oklch(0.74 0.15 150);
+        --success-subtle: oklch(0.278 0.050 150);
+        --success-border: oklch(0.388 0.072 150);
+        --shadow-card: 0 1px 2px oklch(0 0 0 / 0.28);
+        --shadow-raised: 0 6px 18px -6px oklch(0 0 0 / 0.45), 0 1px 2px oklch(0 0 0 / 0.30);
+        --grad-head: linear-gradient(98deg, oklch(0.92 0.02 85) 0%, oklch(0.72 0.16 280) 38%, oklch(0.70 0.16 330) 68%, oklch(0.82 0.14 55) 100%);
+        --grad-frame: linear-gradient(135deg, oklch(0.42 0.13 262 / 0.9) 0%, oklch(0.40 0.12 330 / 0.8) 48%, oklch(0.52 0.13 60 / 0.9) 100%);
+        --insight-bg: linear-gradient(135deg, oklch(0.27 0.055 262) 0%, oklch(0.26 0.045 330) 50%, oklch(0.29 0.05 84) 100%);
+      }
+
+      * { box-sizing: border-box; }
+      html, body { margin: 0; }
+      body {
+        background: var(--surface-page);
+        color: var(--ink-primary);
+        font-family: "Figtree", "Helvetica Neue", Helvetica, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-feature-settings: "tnum";
+        overflow-x: clip;
+      }
+      button { font-family: inherit; }
+      .tnum { font-variant-numeric: tabular-nums; }
+      .mono { font-family: "Geist Mono", ui-monospace, monospace; }
+
+      /* ── Proposal chrome (won't ship) ── */
+      .proposal-chrome {
+        position: sticky; top: 0; z-index: 60;
+        display: flex; align-items: center; justify-content: space-between; gap: 16px;
+        padding: 10px 20px;
+        background: var(--surface-sunken);
+        border-bottom: 1px solid var(--line-default);
+        font-size: 13px; color: var(--ink-secondary);
+      }
+      .proposal-chrome b { color: var(--ink-primary); font-weight: 600; }
+      .theme-pill {
+        display: flex; gap: 2px; padding: 3px;
+        background: var(--surface-page);
+        border: 1px solid var(--line-default); border-radius: 999px; flex-shrink: 0;
+      }
+      .theme-pill button {
+        height: 26px; padding: 0 14px; border: none; border-radius: 999px;
+        background: transparent; color: var(--ink-secondary);
+        font-size: 12px; font-weight: 500; cursor: pointer;
+      }
+      .theme-pill button[aria-pressed="true"] {
+        background: var(--surface-raised); color: var(--ink-primary);
+        font-weight: 600; box-shadow: var(--shadow-card);
+      }
+      .suggestions { max-width: 1152px; margin: 0 auto; padding: 18px 24px 6px; }
+      .suggestions-inner {
+        border: 1px dashed var(--line-strong); border-radius: 16px;
+        background: color-mix(in oklch, var(--brand-subtle) 40%, transparent);
+        padding: 16px 20px;
+      }
+      .suggestions b { color: var(--ink-primary); font-weight: 600; font-size: 13px; }
+      .suggestions ol { margin: 8px 0 0; padding-left: 18px; }
+      .suggestions li { font-size: 13px; color: var(--ink-secondary); line-height: 1.55; }
+      .suggestions li::marker { color: var(--brand-primary); font-weight: 600; }
+      .suggestions li b { color: var(--ink-primary); }
+
+      .wrap { position: relative; max-width: 1152px; margin: 0 auto; padding: 0 24px; }
+
+      .jsroot .revealhold { opacity: 0; transform: translateY(14px); filter: blur(6px);
+        transition: opacity 560ms ease, transform 560ms cubic-bezier(0.2, 0.7, 0.2, 1), filter 560ms ease;
+        transition-delay: var(--d, 0ms); }
+      .jsroot .revealhold[data-in="true"] { opacity: 1; transform: none; filter: none; }
+
+      .eyebrowChip {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 5px 12px; border: 1px solid var(--brand-border); border-radius: 999px;
+        background: color-mix(in oklch, var(--brand-subtle) 66%, transparent);
+        font-family: "Geist Mono", ui-monospace, monospace;
+        font-size: 11px; font-weight: 600; letter-spacing: 0.09em;
+        text-transform: uppercase; color: var(--brand-primary);
+      }
+      html:not([data-theme="dark"]) .eyebrowChip {
+        background: linear-gradient(120deg, oklch(0.90 0.08 262 / 0.6) 0%, oklch(0.92 0.06 330 / 0.5) 55%, oklch(0.95 0.06 72 / 0.45) 100%);
+        border-color: color-mix(in oklch, var(--brand-primary) 40%, transparent);
+        color: var(--brand-hover);
+        box-shadow: 0 2px 12px -2px oklch(0.52 0.12 265 / 0.14);
+      }
+      .eyebrowDot { width: 7px; height: 7px; border-radius: 999px; background: var(--brand-primary); flex-shrink: 0;
+        animation: brandPulse 2.4s ease-out infinite; }
+      @keyframes brandPulse {
+        0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklch, var(--brand-primary) 45%, transparent); }
+        70% { box-shadow: 0 0 0 6px color-mix(in oklch, var(--brand-primary) 0%, transparent); }
+      }
+      .sTitle { margin: 16px 0 0; max-width: 640px; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1;
+        font-weight: 700; letter-spacing: -0.03em; text-wrap: balance; color: var(--ink-primary); }
+      .spark-accent { color: var(--ink-primary); }
+      @supports (background: oklch(1 0 0 / 0)) {
+        .spark-accent {
+          background-image: var(--grad-head);
+          -webkit-background-clip: text; background-clip: text;
+          -webkit-text-fill-color: transparent; color: transparent;
+        }
+      }
+      .sDesc { margin: 16px 0 0; max-width: 56ch; font-size: 16.5px; line-height: 1.6; color: var(--ink-secondary); text-wrap: pretty; }
+
+      /* ═══════════ SECTION S10 · Use cases — "the industry wall" ═══════════ */
+      .uc { position: relative; padding: 84px 0 44px; overflow: clip; }
+      html:not([data-theme="dark"]) .uc::before {
+        content: ""; position: absolute; inset: 0; pointer-events: none;
+        background: radial-gradient(color-mix(in oklch, var(--ink-primary) 4%, transparent) 1px, transparent 1px);
+        background-size: 26px 26px;
+      }
+      /* static radar rings in the corner (hero motif, no loop) */
+      .ucRings { position: absolute; top: 30px; right: -60px; width: 330px; height: 330px; pointer-events: none; opacity: 0.9; }
+      .ucRings i { position: absolute; inset: 0; margin: auto; border-radius: 999px; border: 1px dashed var(--line-strong); }
+      .ucRings i:nth-child(1) { width: 100%; height: 100%; }
+      .ucRings i:nth-child(2) { width: 66%; height: 66%; border-style: solid; border-color: var(--line-default); }
+      .ucRings i:nth-child(3) { width: 33%; height: 33%; border-style: solid; border-color: var(--line-strong); }
+      html:not([data-theme="dark"]) .ucRings { opacity: 0.8; }
+
+      .ucHead { max-width: 640px; position: relative; z-index: 2; }
+
+      /* stage: industry rows left, floating preview dock right */
+      .ucStage {
+        position: relative; z-index: 2; margin-top: 46px;
+        display: grid; grid-template-columns: minmax(0, 660px) minmax(280px, 1fr); gap: 56px;
+      }
+      @media (max-width: 980px) { .ucStage { grid-template-columns: 1fr; gap: 0; } }
+
+      .ucList { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line-default); }
+      .ucRow { position: relative; border-bottom: 1px solid var(--line-default); }
+      .ucRow::before { /* brand inset bar for the active row */
+        content: ""; position: absolute; left: 0; top: 12px; bottom: 12px; width: 2px; border-radius: 2px;
+        background: linear-gradient(180deg, var(--brand-primary), oklch(0.55 0.15 330));
+        transform: scaleY(0); transform-origin: top;
+        transition: transform 320ms cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+      .ucRow.on::before { transform: scaleY(1); }
+      .ucRowBtn {
+        display: grid; grid-template-columns: 30px 40px minmax(0, 1fr) 20px; align-items: center; gap: 16px;
+        width: 100%; text-align: left; border: none; background: transparent; cursor: pointer;
+        padding: 17px 8px 17px 10px; border-radius: 10px;
+        transition: background-color 160ms ease;
+      }
+      .ucRowBtn:hover { background: var(--surface-hover); }
+      .ucRowBtn:focus-visible { outline: 2px solid var(--brand-primary); outline-offset: -2px; }
+      .jsroot .ucRowBtn { opacity: 0; transform: translateX(-10px); }
+      .jsroot .ucStage[data-in="true"] .ucRowBtn { opacity: 1; transform: none;
+        transition: opacity 480ms ease var(--rd, 0ms), transform 480ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--rd, 0ms),
+                    background-color 160ms ease; }
+      .ucIdx { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink-muted);
+        transition: color 200ms ease; }
+      .ucRow.on .ucIdx { color: var(--brand-primary); }
+      .ucIc {
+        width: 40px; height: 40px; border-radius: 11px; flex-shrink: 0; position: relative;
+        display: inline-flex; align-items: center; justify-content: center;
+        border: 1px solid var(--brand-border);
+        background: linear-gradient(180deg, color-mix(in oklch, var(--brand-subtle) 78%, transparent), color-mix(in oklch, var(--brand-subtle) 40%, transparent));
+        color: var(--brand-primary);
+        box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.55), 0 3px 10px -5px oklch(0.52 0.12 265 / 0.35);
+        transition: transform 240ms cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+      .ucIc svg { width: 18px; height: 18px; }
+      .ucIc::after { /* one-time halo ring on activation */
+        content: ""; position: absolute; inset: -1px; border-radius: 11px;
+        border: 1.5px solid color-mix(in oklch, var(--brand-primary) 40%, transparent);
+        opacity: 0; transform: scale(0.9); pointer-events: none;
+      }
+      .ucRow.on .ucIc { transform: scale(1.06); }
+      .ucRow.on .ucIc::after { animation: stepHalo 760ms cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+      @keyframes stepHalo {
+        0% { opacity: 0; transform: scale(0.9); }
+        35% { opacity: 0.7; }
+        100% { opacity: 0; transform: scale(1.25); }
+      }
+      .ucTx { min-width: 0; }
+      .ucName { display: block; font-size: 19px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.25;
+        color: var(--ink-primary); }
+      .ucRow.on .ucName {
+        background-image: var(--grad-head);
+        -webkit-background-clip: text; background-clip: text;
+        -webkit-text-fill-color: transparent; color: transparent;
+      }
+      .ucRb { display: block; margin-top: 4px; font-size: 13.5px; line-height: 1.5; color: var(--ink-secondary); }
+      .ucGo { width: 18px; height: 18px; justify-self: end; color: var(--ink-muted); opacity: 0;
+        transform: translateX(-6px);
+        transition: opacity 240ms ease, transform 240ms cubic-bezier(0.2, 0.7, 0.2, 1), color 200ms ease; }
+      .ucRow.on .ucGo { opacity: 1; transform: none; color: var(--brand-primary); }
+
+      /* mobile: active row expands inline */
+      .ucExp { display: none; }
+      @media (max-width: 980px) {
+        .ucExp { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 320ms cubic-bezier(0.2, 0.7, 0.2, 1); }
+        .ucRow.on .ucExp { grid-template-rows: 1fr; }
+        .ucExpIn { overflow: hidden; min-height: 0; }
+        .ucRowBtn .ucGo { display: none; }
+      }
+
+      /* floating preview dock */
+      .ucDock { position: relative; align-self: stretch; justify-self: end; width: min(360px, 100%); min-height: 320px; }
+      @media (max-width: 980px) { .ucDock { display: none; } }
+      .ucDockCard {
+        position: absolute; top: 0; left: 0; right: 0; z-index: 5;
+        border: 1px solid var(--line-strong); border-radius: 16px; overflow: hidden;
+        background: var(--surface-raised); box-shadow: var(--shadow-raised);
+      }
+      [data-theme="dark"] .ucDockCard { background: var(--surface-card); }
+      .jsroot .ucDockCard { opacity: 0; transition: opacity 520ms ease 260ms; }
+      .jsroot .ucStage[data-in="true"] .ucDockCard { opacity: 1; }
+      .ucGlare {
+        position: absolute; inset: 0; z-index: 6; pointer-events: none; opacity: 0;
+        background: linear-gradient(105deg, transparent 30%, oklch(1 0 0 / 0.42) 44%, oklch(1 0 0 / 0.22) 50%, transparent 62%);
+        transform: translateX(-130%);
+      }
+      .ucGlare.go { animation: ucGlareRun 850ms cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+      @keyframes ucGlareRun {
+        0% { transform: translateX(-130%); opacity: 1; }
+        88%, 100% { transform: translateX(130%); opacity: 0; }
+      }
+      .ucDockHead { display: flex; align-items: center; justify-content: space-between; gap: 10px;
+        padding: 12px 14px; border-bottom: 1px solid var(--line-default);
+        background: color-mix(in oklch, var(--brand-subtle) 45%, transparent); }
+      .ucDockTag { font-size: 10.5px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase;
+        color: var(--brand-primary); }
+      .sBadge { font-size: 9.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--ink-muted); border: 1px solid var(--line-default); border-radius: 999px;
+        padding: 3px 8px; background: var(--surface-card); }
+      .ucPvHost { padding: 14px 14px 16px; }
+      .pvIn { animation: pvIn 260ms cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+      @keyframes pvIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+      /* mini product artifact (all sample data) */
+      .ucPv { display: flex; flex-direction: column; }
+      .ucPvRow {
+        display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+        padding: 7px 0; border-bottom: 1px dashed var(--line-default); font-size: 12.5px;
+      }
+      .ucPvRow:last-of-type { border-bottom: none; }
+      .ucPvRow strong { font-weight: 600; color: var(--ink-primary); letter-spacing: -0.01em; white-space: nowrap; }
+      .ucPvRow span { color: var(--ink-muted); text-align: right; }
+      .ucPvBtn {
+        margin-top: 10px; align-self: flex-start;
+        font-size: 12px; font-weight: 600; color: var(--brand-primary);
+        border: 1px solid var(--brand-border); border-radius: 8px; padding: 6px 11px;
+        background: color-mix(in oklch, var(--brand-subtle) 64%, transparent);
+      }
+      .ucHint { margin: 16px 0 0; font-size: 10.5px; font-weight: 500; letter-spacing: 0.09em;
+        text-transform: uppercase; color: var(--ink-muted); }
+
+      /* ═══════════ SECTION S11 · FAQ — "the two-column ledger" ═══════════ */
+      .faq { position: relative; padding: 44px 0 84px; overflow: clip; }
+      html:not([data-theme="dark"]) .faq::before {
+        content: ""; position: absolute; inset: 0; pointer-events: none;
+        background: radial-gradient(ellipse 30% 44% at 96% 62%, oklch(0.90 0.06 262 / 0.3) 0%, transparent 70%);
+      }
+      [data-theme="dark"] .faq::before {
+        content: ""; position: absolute; inset: 0; pointer-events: none;
+        background: radial-gradient(ellipse 30% 44% at 96% 62%, oklch(0.26 0.05 262 / 0.34) 0%, transparent 70%);
+      }
+      .faqGrid { display: grid; grid-template-columns: minmax(0, 4.4fr) minmax(0, 7.6fr); gap: 40px; margin-top: 44px; align-items: start; }
+      @media (max-width: 1080px) { .faqGrid { grid-template-columns: 1fr; gap: 30px; } }
+      .faqRail { position: sticky; top: 96px; }
+      @media (max-width: 1080px) { .faqRail { position: static; } }
+
+      .faqList { display: flex; flex-direction: column; gap: 10px; }
+      .faqItem {
+        border: 1px solid var(--line-default); border-radius: 12px; background: var(--surface-sunken);
+        transition: border-color 200ms ease, background-color 200ms ease;
+      }
+      .faqItem:hover { border-color: var(--line-strong); }
+      .faqItem.open { background: var(--surface-card); border-color: var(--brand-border); }
+      .faqBtn {
+        display: flex; width: 100%; align-items: center; gap: 12px; padding: 15px 16px;
+        border: none; background: transparent; cursor: pointer; text-align: left;
+      }
+      .faqNum {
+        width: 26px; height: 26px; flex-shrink: 0; border-radius: 8px;
+        display: inline-flex; align-items: center; justify-content: center;
+        font-family: "Geist Mono", ui-monospace, monospace; font-size: 10.5px; font-weight: 600;
+        border: 1px solid var(--line-default); background: var(--surface-card); color: var(--ink-muted);
+        transition: color 200ms ease, border-color 200ms ease, background-color 200ms ease;
+      }
+      .faqItem.open .faqNum {
+        border-color: var(--brand-border);
+        background: color-mix(in oklch, var(--brand-subtle) 70%, transparent);
+        color: var(--brand-primary);
+      }
+      .faqQ { flex: 1; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink-primary); line-height: 1.4; }
+      .faqBtn:focus-visible { outline: 2px solid var(--brand-primary); outline-offset: 2px; border-radius: 12px; }
+      .faqChev { width: 17px; height: 17px; flex-shrink: 0; color: var(--ink-muted);
+        transition: transform 260ms cubic-bezier(0.2, 0.7, 0.2, 1), color 200ms ease; }
+      .faqItem.open .faqChev { transform: rotate(180deg); color: var(--brand-primary); }
+      .faqBody { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 320ms cubic-bezier(0.2, 0.7, 0.2, 1); }
+      .faqItem.open .faqBody { grid-template-rows: 1fr; }
+      .faqBodyInner { overflow: hidden; min-height: 0; }
+      .faqA { padding: 2px 16px 16px 54px; font-size: 14px; line-height: 1.65; color: var(--ink-secondary); }
+      .faqA ::selection { background: color-mix(in oklch, var(--brand-subtle) 90%, transparent); }
+
+      /* ═══════════ SECTION S12 · Final CTA — "the insight close" ═══════════ */
+      .ctaSec { position: relative; padding: 44px 0 104px; }
+      .ctaPanel {
+        position: relative; overflow: hidden; border-radius: 20px;
+        border: 1px solid oklch(1 0 0 / 0.2);
+        background: var(--insight-bg);
+        box-shadow: var(--shadow-raised);
+        padding: clamp(28px, 4.4vw, 56px);
+        color: var(--ink-primary);
+      }
+      .ctaPanel::before { /* soft spec sheen over the whole panel */
+        content: ""; position: absolute; inset: 0; pointer-events: none;
+        background: linear-gradient(180deg, oklch(1 0 0 / 0.32), oklch(1 0 0 / 0) 46%);
+      }
+      .ctaGlare {
+        position: absolute; inset: 0; z-index: 7; pointer-events: none; opacity: 0;
+        background: linear-gradient(105deg, transparent 30%, oklch(1 0 0 / 0.34) 44%, oklch(1 0 0 / 0.18) 50%, transparent 62%);
+        transform: translateX(-130%);
+      }
+      .ctaGlare.run { animation: ctaGlareRun 1100ms cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+      @keyframes ctaGlareRun {
+        0% { transform: translateX(-130%); opacity: 1; }
+        88%, 100% { transform: translateX(130%); opacity: 0; }
+      }
+      [data-theme="dark"] .ctaGlare {
+        background: linear-gradient(105deg, transparent 30%, oklch(1 0 0 / 0.14) 44%, oklch(1 0 0 / 0.07) 50%, transparent 62%);
+      }
+      .ctaGrid { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 40px; align-items: center; }
+      @media (max-width: 1080px) { .ctaGrid { grid-template-columns: 1fr; gap: 28px; } }
+      .ctaEyebrow {
+        margin: 0; font-family: "Geist Mono", ui-monospace, monospace;
+        font-size: 11px; font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase;
+        color: color-mix(in oklch, var(--ink-primary) 78%, transparent);
+      }
+      .ctaTitle { margin: 10px 0 0; max-width: 560px; font-size: clamp(30px, 4vw, 48px); line-height: 1.08;
+        font-weight: 700; letter-spacing: -0.03em; text-wrap: balance; }
+      .ctaDesc { margin: 16px 0 0; max-width: 52ch; font-size: 16.5px; line-height: 1.6;
+        color: color-mix(in oklch, var(--ink-primary) 82%, transparent); text-wrap: pretty; }
+      .ctaActs { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 26px; }
+      .btnDemo {
+        display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 22px;
+        border-radius: 10px; border: none; cursor: pointer;
+        font-size: 14.5px; font-weight: 600; color: var(--ink-inverse);
+        background: linear-gradient(180deg, var(--ink-primary), color-mix(in oklch, var(--ink-primary) 82%, var(--surface-page)));
+        box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.22), 0 10px 20px -10px oklch(0.20 0.02 265 / 0.8);
+        transition: transform 160ms cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 160ms ease;
+      }
+      .btnDemo svg { width: 16px; height: 16px; }
+      .btnDemo:hover { transform: translateY(-1px); }
+      .btnHow {
+        display: inline-flex; align-items: center; height: 48px; padding: 0 20px;
+        border-radius: 10px; border: 1px solid color-mix(in oklch, var(--ink-primary) 22%, transparent);
+        color: var(--ink-primary); background: transparent;
+        font-size: 14px; font-weight: 600; text-decoration: none;
+        transition: background-color 160ms ease, border-color 160ms ease;
+      }
+      .btnHow:hover { background: oklch(1 0 0 / 0.14); }
+      [data-theme="dark"] .btnHow:hover { background: oklch(1 0 0 / 0.09); }
+      .ctaChecks { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 26px; }
+      .ctaChecks span { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 500;
+        color: color-mix(in oklch, var(--ink-primary) 85%, transparent); }
+      .ctaChecks svg { width: 14px; height: 14px; color: var(--brand-primary); }
+
+      /* right card: glass demo steps on a drawing rail */
+      .ctaCard {
+        position: relative; border-radius: 14px; padding: 20px 20px 22px;
+        border: 1px solid oklch(1 0 0 / 0.3);
+        background: linear-gradient(180deg, oklch(1 0 0 / 0.24), oklch(1 0 0 / 0.10));
+        backdrop-filter: blur(10px) saturate(1.25);
+        -webkit-backdrop-filter: blur(10px) saturate(1.25);
+        box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.5);
+      }
+      [data-theme="dark"] .ctaCard {
+        border-color: oklch(1 0 0 / 0.14);
+        background: linear-gradient(180deg, oklch(1 0 0 / 0.07), oklch(1 0 0 / 0.03));
+      }
+      .ctaCardEye {
+        margin: 0 0 4px; font-family: "Geist Mono", ui-monospace, monospace;
+        font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+        color: color-mix(in oklch, var(--ink-primary) 75%, transparent);
+      }
+      .ctaSteps { position: relative; list-style: none; margin: 14px 0 0; padding: 0 0 0 0; }
+      .ctaSteps::before { /* connecting rail */
+        content: ""; position: absolute; left: 13px; top: 16px; bottom: 16px; width: 1.5px;
+        background: linear-gradient(180deg, var(--brand-primary), oklch(0.55 0.15 330), oklch(0.65 0.13 72));
+        opacity: 0.55;
+      }
+      .jsroot .ctaPanel[data-in="true"] .ctaSteps::before {
+        transform-origin: top; animation: railDrop 900ms cubic-bezier(0.2, 0.7, 0.2, 1) 350ms both;
+      }
+      .jsroot .ctaPanel .ctaSteps::before { transform: scaleY(0); }
+      .jsroot .ctaPanel[data-in="true"] .ctaSteps::before { transform: scaleY(1); }
+      @keyframes railDrop { from { transform: scaleY(0); } to { transform: scaleY(1); }
+        }
+      .ctaStep { position: relative; display: flex; align-items: flex-start; gap: 11px; padding: 9px 0; }
+      .ctaStepNum {
+        position: relative; z-index: 2; width: 27px; height: 27px; flex-shrink: 0; border-radius: 999px;
+        display: inline-flex; align-items: center; justify-content: center;
+        background: oklch(1 0 0 / 0.5); color: var(--ink-primary);
+        border: 1px solid oklch(1 0 0 / 0.55);
+        font-size: 11px; font-weight: 700; font-variant-numeric: tabular-nums;
+      }
+      [data-theme="dark"] .ctaStepNum { background: oklch(1 0 0 / 0.12); border-color: oklch(1 0 0 / 0.2); }
+      .jsroot .ctaPanel[data-in="true"] .ctaStepNum { animation: stepRise 460ms cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+      .jsroot .ctaPanel .ctaStepNum { opacity: 0; }
+      .jsroot .ctaPanel[data-in="true"] .ctaStep:nth-child(1) .ctaStepNum { animation-delay: 500ms; }
+      .jsroot .ctaPanel[data-in="true"] .ctaStep:nth-child(2) .ctaStepNum { animation-delay: 680ms; }
+      .jsroot .ctaPanel[data-in="true"] .ctaStep:nth-child(3) .ctaStepNum { animation-delay: 860ms; }
+      @keyframes stepRise { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: none; } }
+      .ctaStepTitle { display: block; font-size: 14px; font-weight: 600; color: var(--ink-primary); }
+      .ctaStepCap { display: block; margin-top: 2px; font-size: 11.5px; line-height: 1.5;
+        color: color-mix(in oklch, var(--ink-primary) 78%, transparent); }
+
+      /* ═══════════ Footer S13 — wordmark close ═══════════ */
+      footer { border-top: 1px solid var(--line-default); background: var(--surface-sunken); padding: 0; }
+      html:not([data-theme="dark"]) footer { background: color-mix(in oklch, var(--surface-sunken) 70%, var(--surface-card)); }
+      .footWrap { max-width: 1152px; margin: 0 auto; padding: 54px 24px 0; }
+      .footGrid { display: grid; gap: 34px; grid-template-columns: 1.7fr 1fr 1fr 1fr; padding-bottom: 46px; }
+      @media (max-width: 900px) { .footGrid { grid-template-columns: 1fr 1fr; } }
+      .footBrand { margin: 0; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; display: flex; align-items: center; gap: 9px; }
+      .footMark {
+        width: 26px; height: 26px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center;
+        background: linear-gradient(135deg, var(--brand-primary), oklch(0.55 0.15 330));
+        color: var(--ink-inverse); font-family: "Geist Mono", ui-monospace, monospace;
+        font-size: 10px; font-weight: 700; box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.4);
+      }
+      .footDesc { margin: 12px 0 0; max-width: 36ch; font-size: 13px; line-height: 1.6; color: var(--ink-secondary); }
+      .footLive { display: flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 11px; color: var(--ink-muted);
+        font-family: "Geist Mono", ui-monospace, monospace; }
+      .footLiveDot { width: 8px; height: 8px; border-radius: 999px; background: var(--success-solid);
+        animation: brandPulse 3s ease-out infinite; flex-shrink: 0; }
+      .footCol h4 { margin: 0; font-family: "Geist Mono", ui-monospace, monospace;
+        font-size: 10.5px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-muted); }
+      .footCol ul { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+      .footCol a { font-size: 13px; color: var(--ink-secondary); text-decoration: none; width: fit-content;
+        background: linear-gradient(90deg, var(--brand-primary), oklch(0.55 0.15 330)) left bottom / 0% 1.5px no-repeat;
+        padding-bottom: 2px; transition: background-size 260ms cubic-bezier(0.2, 0.7, 0.2, 1), color 160ms ease; }
+      .footCol a:hover { color: var(--ink-primary); background-size: 100% 1.5px; }
+
+      /* giant wordmark strip + live IST clock */
+      .footWordRow { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;
+        border-top: 1px solid var(--line-default); padding: 30px 0 8px; }
+      @media (max-width: 760px) { .footWordRow { flex-direction: column; align-items: flex-start; gap: 8px; } }
+      .footWord { margin: 0; font-size: clamp(44px, 9.4vw, 116px); font-weight: 700; letter-spacing: -0.045em;
+        line-height: 0.95; color: var(--ink-primary); }
+      .footWord span { display: inline-block; will-change: transform;
+        background-image: var(--grad-head); background-repeat: no-repeat;
+        background-size: calc(var(--wordW, 900) * 1px) 100%;
+        background-position: calc(var(--x, 0) * -1px) 0;
+        -webkit-background-clip: text; background-clip: text;
+        -webkit-text-fill-color: transparent; color: transparent; }
+      .footWord.run span { animation: wordWave 760ms cubic-bezier(0.3, 1.45, 0.45, 1) both;
+        animation-delay: calc(var(--i) * 22ms); }
+      @keyframes wordWave {
+        0% { transform: none; }
+        40% { transform: translateY(-0.14em); }
+        100% { transform: none; }
+      }
+      .footMeta { flex-shrink: 0; text-align: right; padding-bottom: 10px; }
+      @media (max-width: 760px) { .footMeta { text-align: left; } }
+      .footClock { margin: 0; font-family: "Geist Mono", ui-monospace, monospace; font-size: 12.5px;
+        font-weight: 500; letter-spacing: 0.08em; color: var(--ink-secondary); }
+      .footClock b { color: var(--ink-primary); font-weight: 600; }
+      .footMetaSub { margin: 5px 0 0; font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
+        text-transform: uppercase; color: var(--ink-muted); }
+      .footLegal { border-top: 1px solid var(--line-default); margin-top: 26px; padding: 16px 0 22px;
+        display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;
+        font-size: 11.5px; color: var(--ink-muted); }
+      .footLegal p { margin: 0; }
+      .footTop { display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+        color: var(--ink-secondary); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+        transition: color 160ms ease; }
+      .footTopIc { width: 28px; height: 28px; border-radius: 999px; border: 1px solid var(--line-strong);
+        display: inline-flex; align-items: center; justify-content: center; color: var(--ink-secondary); flex-shrink: 0;
+        transition: transform 200ms cubic-bezier(0.2, 0.7, 0.2, 1), border-color 160ms ease, color 160ms ease, background-color 160ms ease; }
+      .footTopIc svg { width: 13px; height: 13px; }
+      .footTop:hover { color: var(--brand-primary); }
+      .footTop:hover .footTopIc { color: var(--brand-primary); border-color: var(--brand-border);
+        background: color-mix(in oklch, var(--brand-subtle) 55%, transparent); transform: translateY(-2px); }
+      html { scroll-behavior: smooth; }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+      @media (prefers-reduced-motion: reduce) {
+        .eyebrowDot, .ucIc::after, .ctaGlare.run, .ctaStepNum, .pvIn, .ucGlare.go, .footWord.run span { animation: none !important; }
+        .faqBody, .faqChev, .ucRow::before, .ucRowBtn, .ucGo, .footCol a { transition: none !important; }
+        .jsroot .ctaPanel[data-in="true"] .ctaSteps::before { animation: none !important; transition: none !important; transform: none; }
+        .jsroot .ctaPanel .ctaSteps::before { transform: none; }
+        .jsroot .ctaPanel .ctaStepNum { opacity: 1 !important; transform: none !important; }
+        .jsroot .ucRowBtn { opacity: 1; transform: none; }
+        .jsroot .ucDockCard { opacity: 1; }
+        .ucDockCard { position: sticky; top: 88px; transform: none !important; }
+        .jsroot .revealhold { opacity: 1; transform: none; filter: none; transition: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="proposal-chrome" id="top">
+      <span>
+        <b>WTL Sections Proposal 4</b> — Use cases + FAQ + Final CTA (+ wordmark footer). All live copy
+        verbatim. Improvements numbered below.
+      </span>
+      <div class="theme-pill">
+        <button onclick="document.documentElement.setAttribute('data-theme','light')" aria-pressed="true">Light</button>
+        <button onclick="document.documentElement.setAttribute('data-theme','dark')" aria-pressed="false">Dark</button>
+      </div>
+    </div>
+
+    <div class="suggestions">
+      <div class="suggestions-inner">
+        <b>What makes this set best-in-class (S10–S13)</b>
+        <ol>
+          <li><b>S10 — The verticals rail:</b> the 6 industries leave the "6 plain cards" pattern and become a full-width editorial ledger — mono index, glass brand chip, hairline rows. The active industry pings its chip, drops a brand bar, and <b>its name takes the signature gradient</b>.</li>
+          <li><b>S10 — Live product preview per industry:</b> a floating glass dock trails your cursor down the rail, showing what WTL actually does for that vertical (Guard drift + <b>1-click revert</b>, sentiment slips, AI reply drafts, <b>Synapse radius routing</b>…) — all Mumbai sample data. It auto-previews each industry on arrival until you take over; on touch/small screens the preview expands inline under the active row.</li>
+          <li><b>S11 — FAQ becomes a two-column "answer ledger":</b> the heading rail is sticky on the left while five questions scroll on the right — the classical docs-site pattern, at marketing polish.</li>
+          <li><b>S11 — Numbered questions, buttery rows:</b> every question gets a mono index chip that tints brand when open; the answer expands with a true <b>grid-rows height animation</b> (no jump), the chevron rotates and turns brand, and open rows get the brand hairline border.</li>
+          <li><b>S12 — The close:</b> the page's one sanctioned insight-gradient panel now carries the glossy sheen (vertical spec highlight), a <b>one-shot glare sweep</b> on scroll-in (hero finisher), and an ink-filled CTA that actually looks pressable.</li>
+          <li><b>S12 — Demo steps on a drawing rail:</b> the 3-step "what you'll see" card is glass on glass; a signature-gradient rail connects numbered chips 1→2→3 and <b>drops down then pops each number</b> when the panel enters view.</li>
+          <li><b>S13 — Footer with a closing signature:</b> columns and copy untouched; below the links sits a giant gradient <b>What The Local</b> wordmark — each letter pops in a wave on hover (and once on scroll-in), beside a <b>live IST clock + "Mumbai · sample-data region" readout</b>. Self-drawing underline hovers, pulsing status dot, and a circular back-to-top button finish it.</li>
+        </ol>
+      </div>
+    </div>
+
+    <main>
+      <!-- ═══ SECTION S10 · Use cases ═══ -->
+      <section id="use-cases" aria-labelledby="use-cases-title" class="uc">
+        <div class="ucRings" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="wrap">
+          <div class="ucHead revealhold" data-in>
+            <span class="eyebrowChip"><span class="eyebrowDot" aria-hidden="true"></span>Use cases</span>
+            <h2 id="use-cases-title" class="sTitle">
+              Built for brands that <span class="spark-accent">live on the high street.</span>
+            </h2>
+            <p class="sDesc">
+              If customers find you through a map and judge you by your reviews, the same workflow applies.
+            </p>
+          </div>
+
+          <div class="ucStage revealhold" id="ucStage" data-in="false">
+            <div>
+              <ul class="ucList" id="ucList">
+              <li class="ucRow" data-tag="Profile Guard">
+                <button class="ucRowBtn" type="button" aria-pressed="false" style="--rd: 0ms">
+                  <span class="ucIdx mono tnum" aria-hidden="true">01</span>
+                  <span class="ucIc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg></span>
+                  <span class="ucTx">
+                    <span class="ucName">Clinics &amp; healthcare</span>
+                    <span class="ucRb">Keep appointment hours accurate and answer patient reviews at every centre.</span>
+                  </span>
+                  <svg class="ucGo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+                <div class="ucExp"><div class="ucExpIn">
+                  <div class="ucPv">
+                    <div class="ucPvRow"><strong>Andheri West — hours</strong><span>Maps 9:30 · system 9:00</span></div>
+                    <div class="ucPvRow"><strong>Edited by</strong><span>Google auto-update</span></div>
+                    <span class="ucPvBtn">1-click revert</span>
+                  </div>
+                </div></div>
+              </li>
+              <li class="ucRow" data-tag="Engage">
+                <button class="ucRowBtn" type="button" aria-pressed="false" style="--rd: 60ms">
+                  <span class="ucIdx mono tnum" aria-hidden="true">02</span>
+                  <span class="ucIc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+                  <span class="ucTx">
+                    <span class="ucName">Retail chains</span>
+                    <span class="ucRb">Spot which stores are slipping on service and spend where footfall is.</span>
+                  </span>
+                  <svg class="ucGo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+                <div class="ucExp"><div class="ucExpIn">
+                  <div class="ucPv">
+                    <div class="ucPvRow"><strong>Khar store — rating</strong><span>4.8 → 4.2 · 30 days</span></div>
+                    <div class="ucPvRow"><strong>Reply drafts</strong><span>2 waiting on manager</span></div>
+                    <span class="ucPvBtn">Open review queue</span>
+                  </div>
+                </div></div>
+              </li>
+              <li class="ucRow" data-tag="Engage">
+                <button class="ucRowBtn" type="button" aria-pressed="false" style="--rd: 120ms">
+                  <span class="ucIdx mono tnum" aria-hidden="true">03</span>
+                  <span class="ucIc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8"/><path d="M15 15 3.3 3.3a4.2 4.2 0 0 0 0 6l7.3 7.3c.7.7 2 .7 2.8 0L15 15Z"/><path d="M15 15l7 7"/><path d="m2.1 21.8 6.4-6.3"/><path d="m19 5-7 7"/></svg></span>
+                  <span class="ucTx">
+                    <span class="ucName">Restaurants &amp; QSR</span>
+                    <span class="ucRb">Reply to every outlet’s reviews and keep menus and hours current.</span>
+                  </span>
+                  <svg class="ucGo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+                <div class="ucExp"><div class="ucExpIn">
+                  <div class="ucPv">
+                    <div class="ucPvRow"><strong>Bandra outlet — 2-star review</strong><span>AI draft ready</span></div>
+                    <div class="ucPvRow"><strong>Tone</strong><span>brand voice · approval rule</span></div>
+                    <span class="ucPvBtn">Approve &amp; post</span>
+                  </div>
+                </div></div>
+              </li>
+              <li class="ucRow" data-tag="Synapse">
+                <button class="ucRowBtn" type="button" aria-pressed="false" style="--rd: 180ms">
+                  <span class="ucIdx mono tnum" aria-hidden="true">04</span>
+                  <span class="ucIc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg></span>
+                  <span class="ucTx">
+                    <span class="ucName">Automotive dealers</span>
+                    <span class="ucRb">Route test-drive leads to the nearest showroom automatically.</span>
+                  </span>
+                  <svg class="ucGo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+                <div class="ucExp"><div class="ucExpIn">
+                  <div class="ucPv">
+                    <div class="ucPvRow"><strong>Test-drive form — A. East</strong><span>new lead</span></div>
+                    <div class="ucPvRow"><strong>Routed to</strong><span>nearest showroom · 3.4 km</span></div>
+                    <span class="ucPvBtn">Notify manager</span>
+                  </div>
+                </div></div>
+              </li>
+              <li class="ucRow" data-tag="Profile Guard">
+                <button class="ucRowBtn" type="button" aria-pressed="false" style="--rd: 240ms">
+                  <span class="ucIdx mono tnum" aria-hidden="true">05</span>
+                  <span class="ucIc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 2v20"/><path d="M14 2v6"/><path d="M14 10h.01"/><path d="M14 14h.01"/><path d="M14 18h.01"/></svg></span>
+                  <span class="ucTx">
+                    <span class="ucName">Banks &amp; branches</span>
+                    <span class="ucRb">Guard branch details and track sentiment by region.</span>
+                  </span>
+                  <svg class="ucGo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+                <div class="ucExp"><div class="ucExpIn">
+                  <div class="ucPv">
+                    <div class="ucPvRow"><strong>Powai branch — attributes</strong><span>phone masked · 1 field</span></div>
+                    <div class="ucPvRow"><strong>Edited by</strong><span>Google auto-update</span></div>
+                    <span class="ucPvBtn">1-click revert</span>
+                  </div>
+                </div></div>
+              </li>
+              <li class="ucRow" data-tag="Synapse">
+                <button class="ucRowBtn" type="button" aria-pressed="false" style="--rd: 300ms">
+                  <span class="ucIdx mono tnum" aria-hidden="true">06</span>
+                  <span class="ucIc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.4 14.4 9.6 9.6"/><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l1.767-1.768a2 2 0 1 1 2.828 2.829z"/><path d="m9.5 9.5-1.8-1.8"/></svg></span>
+                  <span class="ucTx">
+                    <span class="ucName">Fitness &amp; wellness</span>
+                    <span class="ucRb">Run local trial campaigns around each studio’s catchment.</span>
+                  </span>
+                  <svg class="ucGo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+                <div class="ucExp"><div class="ucExpIn">
+                  <div class="ucPv">
+                    <div class="ucPvRow"><strong>Trial-week promo — studio</strong><span>catchment 4 km</span></div>
+                    <div class="ucPvRow"><strong>Lead routing</strong><span>studio WhatsApp</span></div>
+                    <span class="ucPvBtn">Pulse report</span>
+                  </div>
+                </div></div>
+              </li>
+              </ul>
+              <p class="ucHint mono" aria-hidden="true">Hover an industry · sample data</p>
+            </div>
+
+            <aside class="ucDock" id="ucDock" aria-hidden="true">
+              <div class="ucDockCard" id="ucDockCard">
+                <span class="ucGlare" aria-hidden="true"></span>
+                <div class="ucDockHead">
+                  <span class="ucDockTag mono" id="ucDockTag">Profile Guard</span>
+                  <span class="sBadge mono">Sample</span>
+                </div>
+                <div class="ucPvHost" id="ucPvBody"></div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ SECTION S11 · FAQ ═══ -->
+      <section id="faq" aria-labelledby="faq-title" class="faq">
+        <div class="wrap">
+          <div class="faqGrid">
+            <div class="faqRail">
+              <div class="revealhold" data-in>
+                <span class="eyebrowChip"><span class="eyebrowDot" aria-hidden="true"></span>Frequently Asked Questions</span>
+                <h2 id="faq-title" class="sTitle">
+                  Everything you need to know about <span class="spark-accent">What The Local.</span>
+                </h2>
+                <p class="sDesc">
+                  Clear answers on permissions, Google Business Profile syncing, WhatsApp escalations, and
+                  onboarding.
+                </p>
+              </div>
+            </div>
+
+            <div class="faqList revealhold" data-in style="--d: 140ms">
+              <div class="faqItem open">
+                <button class="faqBtn" type="button" aria-expanded="true" aria-controls="faq-a1" id="faq-q1">
+                  <span class="faqNum tnum" aria-hidden="true">01</span>
+                  <span class="faqQ">How does Profile Guard protect our Google and Apple Maps listings?</span>
+                  <svg class="faqChev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="faqBody" id="faq-a1" role="region" aria-labelledby="faq-q1">
+                  <div class="faqBodyInner"><p class="faqA">Profile Guard connects securely to your verified Google Business Profile and Maps integrations. It continuously checks public listings against your central system of record. If a third-party user or automated Google algorithm modifies your hours, phone numbers, or photos, What The Local alerts you instantly with a 1-click revert button to keep your records authoritative.</p></div>
+                </div>
+              </div>
+
+              <div class="faqItem">
+                <button class="faqBtn" type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">
+                  <span class="faqNum tnum" aria-hidden="true">02</span>
+                  <span class="faqQ">How does the WhatsApp escalation engine work for store managers?</span>
+                  <svg class="faqChev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="faqBody" id="faq-a2" role="region" aria-labelledby="faq-q2">
+                  <div class="faqBodyInner"><p class="faqA">Store managers rarely sit at laptops all day. Each outlet is configured with the mobile numbers of assigned store managers and regional heads. When a critical review (1–2 stars) or safety complaint lands, our engine formats an actionable alert via Meta Cloud API within 45 seconds—complete with the customer feedback, rating, and recommended resolution steps.</p></div>
+                </div>
+              </div>
+
+              <div class="faqItem">
+                <button class="faqBtn" type="button" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">
+                  <span class="faqNum tnum" aria-hidden="true">03</span>
+                  <span class="faqQ">Can we control reply permissions between Head Office and local teams?</span>
+                  <svg class="faqChev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="faqBody" id="faq-a3" role="region" aria-labelledby="faq-q3">
+                  <div class="faqBodyInner"><p class="faqA">Yes. You have full workflow control. You can choose full central approval (Head Office approves all AI drafts), regional approval, or give trusted store managers permission to approve drafts directly. In all configurations, responses never post publicly until a human approves them.</p></div>
+                </div>
+              </div>
+
+              <div class="faqItem">
+                <button class="faqBtn" type="button" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">
+                  <span class="faqNum tnum" aria-hidden="true">04</span>
+                  <span class="faqQ">How does Synapse route local ad leads to the nearest store?</span>
+                  <svg class="faqChev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="faqBody" id="faq-a4" role="region" aria-labelledby="faq-q4">
+                  <div class="faqBodyInner"><p class="faqA">Synapse bounds your ad campaigns to each store’s actual catchment radius (e.g. 2–5 km). When a customer submits a lead form or requests a callback, the system automatically geocodes the request and routes the lead into the nearest store manager’s CRM or WhatsApp chat, ensuring immediate follow-up while intent is highest.</p></div>
+                </div>
+              </div>
+
+              <div class="faqItem">
+                <button class="faqBtn" type="button" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">
+                  <span class="faqNum tnum" aria-hidden="true">05</span>
+                  <span class="faqQ">How long does onboarding take for a chain with 20 to 100+ outlets?</span>
+                  <svg class="faqChev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="faqBody" id="faq-a5" role="region" aria-labelledby="faq-q5">
+                  <div class="faqBodyInner"><p class="faqA">Most multi-location brands are fully live within 48 to 72 hours. We sync your existing Google Business Profile manager account in bulk, map your store codes and manager phone numbers, and configure your brand tone guidelines for AI reply drafting.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ SECTION S12 · Final CTA ═══ -->
+      <section aria-labelledby="cta-title" class="ctaSec">
+        <div class="wrap">
+          <div class="revealhold" data-in>
+            <div class="ctaPanel" id="ctaPanel" data-in="false">
+              <span class="ctaGlare" aria-hidden="true"></span>
+              <div class="ctaGrid">
+                <div>
+                  <p class="ctaEyebrow">Ready in under 48 hours</p>
+                  <h2 id="cta-title" class="ctaTitle">See your own locations in What The Local.</h2>
+                  <p class="ctaDesc">
+                    Book a tailored 20-minute walkthrough. We’ll load your actual Google Business Profiles,
+                    run a live Profile Guard drift scan, and simulate instant WhatsApp escalation alerts for
+                    your store managers.
+                  </p>
+                  <div class="ctaActs">
+                    <button class="btnDemo" type="button">
+                      Book a Demo
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </button>
+                    <a class="btnHow" href="#how-it-works">How rollout works</a>
+                  </div>
+                  <div class="ctaChecks">
+                    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Zero upfront migration fee</span>
+                    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Official Meta &amp; Google APIs</span>
+                    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Cancel or pause anytime</span>
+                  </div>
+                </div>
+
+                <div class="ctaCard">
+                  <p class="ctaCardEye">What you will see in your demo</p>
+                  <ul class="ctaSteps">
+                    <li class="ctaStep">
+                      <span class="ctaStepNum" aria-hidden="true">1</span>
+                      <div>
+                        <strong class="ctaStepTitle">Live Profile Health Scan</strong>
+                        <span class="ctaStepCap">Audit rogue hours, unreviewed user edits, and phone drifts across your branches.</span>
+                      </div>
+                    </li>
+                    <li class="ctaStep">
+                      <span class="ctaStepNum" aria-hidden="true">2</span>
+                      <div>
+                        <strong class="ctaStepTitle">WhatsApp Alert Dispatch Test</strong>
+                        <span class="ctaStepCap">Simulate a 1-star review and receive the exact store manager WhatsApp alert on your phone.</span>
+                      </div>
+                    </li>
+                    <li class="ctaStep">
+                      <span class="ctaStepNum" aria-hidden="true">3</span>
+                      <div>
+                        <strong class="ctaStepTitle">Radius Ad &amp; Lead Routing Blueprint</strong>
+                        <span class="ctaStepCap">Calculate catchment household reach and nearest-showroom lead delivery for your stores.</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer role="contentinfo">
+      <div class="footWrap">
+        <div class="footGrid">
+          <div>
+            <p class="footBrand"><span class="footMark" aria-hidden="true">WTL</span>What The Local</p>
+            <p class="footDesc">The connected marketing, presence, and reputation operating system built for multi-location brands. Run every store like your best one.</p>
+            <p class="footLive mono"><span class="footLiveDot" aria-hidden="true"></span>All platform systems operational · Meta &amp; Google API connected</p>
+          </div>
+          <div class="footCol">
+            <h4>Platform</h4>
+            <ul>
+              <li><a href="#products">Locations &amp; Guard</a></li>
+              <li><a href="#products">Engage Inbox</a></li>
+              <li><a href="#products">WhatsApp Escalations</a></li>
+              <li><a href="#products">Synapse Local Ads</a></li>
+            </ul>
+          </div>
+          <div class="footCol">
+            <h4>Industries</h4>
+            <ul>
+              <li><a href="#use-cases">Automotive Showrooms</a></li>
+              <li><a href="#use-cases">Healthcare &amp; Clinics</a></li>
+              <li><a href="#use-cases">Retail Chains</a></li>
+              <li><a href="#use-cases">Restaurants &amp; QSR</a></li>
+              <li><a href="#use-cases">Banks &amp; Branches</a></li>
+            </ul>
+          </div>
+          <div class="footCol">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="#how-it-works">How it works</a></li>
+              <li><a href="#products">Products</a></li>
+              <li><a href="#roi-calculator">ROI Calculator</a></li>
+              <li><a href="#comparison">Comparison</a></li>
+              <li><a href="#faq">FAQs</a></li>
+              <li><a href="#top">Back to top</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footWordRow revealhold" id="footWordRow" data-in="false">
+          <p class="footWord" id="footWord" aria-label="What The Local">What The Local</p>
+          <div class="footMeta">
+            <p class="footClock tnum"><b id="footClock">--:--:--</b> IST</p>
+            <p class="footMetaSub mono">Mumbai · sample-data region</p>
+          </div>
+        </div>
+
+        <div class="footLegal">
+          <p>© 2026 What The Local Technologies. All rights reserved.</p>
+          <p>Product previews on this page use sample data from Mumbai region.</p>
+          <a class="footTop" href="#top">
+            <span class="footTopIc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></span>
+            Top
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      document.body.classList.add('jsroot');
+
+      /* ── reveals ── */
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.setAttribute('data-in', 'true'); io.unobserve(e.target); } });
+      }, { threshold: 0.3 });
+      document.querySelectorAll('.revealhold').forEach((el) => io.observe(el));
+
+      /* use-cases rail: hover-preview dock + auto preview */
+      const ucStage = document.getElementById('ucStage');
+      const ucListEl = document.getElementById('ucList');
+      const ucRows = Array.from(ucListEl.querySelectorAll('.ucRow'));
+      const ucDock = document.getElementById('ucDock');
+      const ucDockCard = document.getElementById('ucDockCard');
+      const ucDockTag = document.getElementById('ucDockTag');
+      const ucPvBodyEl = document.getElementById('ucPvBody');
+      let ucCur = 0, ucInteracted = false, ucRaf = 0, ucTY = 0, ucCY = 0, ucCycle = 0;
+
+      function ucGlareCard() {
+        const g = ucDockCard.querySelector('.ucGlare');
+        g.classList.remove('go'); void g.offsetWidth; g.classList.add('go');
+      }
+      function ucSetActive(i, withGlare) {
+        ucCur = i;
+        ucRows.forEach((r, j) => {
+          r.classList.toggle('on', j === i);
+          r.querySelector('.ucRowBtn').setAttribute('aria-pressed', j === i ? 'true' : 'false');
+        });
+        const row = ucRows[i];
+        ucDockTag.textContent = row.dataset.tag;
+        ucPvBodyEl.replaceChildren(row.querySelector('.ucPv').cloneNode(true));
+        ucPvBodyEl.firstElementChild.classList.add('pvIn');
+        if (!prefersReduced && withGlare) ucGlareCard();
+      }
+      function ucKick() {
+        if (ucRaf) return;
+        ucRaf = requestAnimationFrame(ucStep);
+      }
+      function ucStep() {
+        ucCY += (ucTY - ucCY) * 0.14;
+        if (Math.abs(ucTY - ucCY) < 0.5) { ucCY = ucTY; ucRaf = 0; }
+        else ucRaf = requestAnimationFrame(ucStep);
+        ucDockCard.style.transform = 'translateY(' + ucCY + 'px)';
+      }
+      function ucTargetY(e) {
+        const d = ucDock.getBoundingClientRect();
+        const raw = e.clientY - d.top - ucDockCard.offsetHeight / 2;
+        const max = Math.max(0, d.height - ucDockCard.offsetHeight);
+        return Math.max(0, Math.min(raw, max));
+      }
+      ucListEl.addEventListener('pointermove', (e) => {
+        if (prefersReduced || e.pointerType === 'touch') return;
+        ucInteracted = true;
+        ucTY = ucTargetY(e);
+        ucKick();
+      });
+      ucListEl.addEventListener('pointerleave', () => { ucInteracted = false; });
+      ucRows.forEach((r, i) => {
+        const btn = r.querySelector('.ucRowBtn');
+        btn.addEventListener('pointerenter', (e) => {
+          if (e.pointerType === 'touch') return;
+          ucInteracted = true;
+          ucSetActive(i, true);
+        });
+        btn.addEventListener('focus', () => ucSetActive(i, true));
+        btn.addEventListener('click', () => ucSetActive(i, true));
+      });
+      function ucInit() {
+        ucActiveInit();
+        if (prefersReduced || window.matchMedia('(hover: none)').matches) return;
+        ucCycle = setInterval(() => {
+          if (ucInteracted || ucStage.getAttribute('data-in') !== 'true' || document.hidden) return;
+          ucSetActive((ucCur + 1) % ucRows.length, true);
+        }, 3400);
+      }
+      function ucActiveInit() {
+        ucSetActive(0, false);
+        if (prefersReduced) return;
+        const d = ucDock.getBoundingClientRect();
+        const r0 = ucRows[0].getBoundingClientRect();
+        const max = Math.max(0, d.height - ucDockCard.offsetHeight);
+        ucTY = ucCY = Math.max(0, Math.min(r0.top + r0.height / 2 - d.top - ucDockCard.offsetHeight / 2, max));
+        ucDockCard.style.transform = 'translateY(' + ucCY + 'px)';
+      }
+      const ucStageIo = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { ucStage.setAttribute('data-in', 'true'); ucInit(); ucStageIo.disconnect(); } });
+      }, { threshold: 0.2 });
+      ucStageIo.observe(ucStage);
+
+      /* FAQ accordion — true grid-rows height animation */
+      document.querySelectorAll('.faqBtn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.faqItem');
+          const wasOpen = item.classList.contains('open');
+          document.querySelectorAll('.faqItem.open').forEach((o) => {
+            o.classList.remove('open');
+            o.querySelector('.faqBtn').setAttribute('aria-expanded', 'false');
+          });
+          if (!wasOpen) {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      /* final CTA panel: reveal + one-shot glare */
+      const ctaPanel = document.getElementById('ctaPanel');
+      const ctaIo = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            ctaPanel.setAttribute('data-in', 'true');
+            if (!prefersReduced) {
+              const gl = ctaPanel.querySelector('.ctaGlare');
+              void gl.offsetWidth;
+              gl.classList.add('run');
+            }
+            ctaIo.disconnect();
+          }
+        });
+      }, { threshold: 0.35 });
+      ctaIo.observe(ctaPanel);
+
+      /* footer: giant wordmark letters + wave + live IST clock */
+      const footWord = document.getElementById('footWord');
+      {
+        const txt = footWord.textContent.trim();
+        footWord.textContent = '';
+        let li = 0;
+        txt.split(' ').forEach((w, wi, arr) => {
+          Array.from(w).forEach((ch) => {
+            const s = document.createElement('span');
+            s.textContent = ch;
+            s.style.setProperty('--i', li++);
+            footWord.appendChild(s);
+          });
+          if (wi < arr.length - 1) footWord.appendChild(document.createTextNode(' '));
+        });
+      }
+      function footPaint() {
+        footWord.style.setProperty('--wordW', Math.ceil(footWord.offsetWidth));
+        footWord.querySelectorAll('span').forEach((s) => { s.style.setProperty('--x', Math.round(s.offsetLeft)); });
+      }
+      footPaint();
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(footPaint);
+      window.addEventListener('resize', footPaint);
+      function footWave() {
+        if (prefersReduced) return;
+        footWord.classList.remove('run');
+        void footWord.offsetWidth;
+        footWord.classList.add('run');
+        clearTimeout(footWave.t);
+        footWave.t = setTimeout(() => footWord.classList.remove('run'), 1500);
+      }
+      footWord.addEventListener('pointerenter', footWave);
+      new IntersectionObserver((entries, ob) => {
+        entries.forEach((e) => { if (e.isIntersecting) { setTimeout(footWave, 450); ob.disconnect(); } });
+      }, { threshold: 0.35 }).observe(document.getElementById('footWordRow'));
+
+      const footClockEl = document.getElementById('footClock');
+      const footClockFmt = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+      const footTick = () => { footClockEl.textContent = footClockFmt.format(new Date()); };
+      footTick();
+      setInterval(footTick, 1000);
+    </script>
+  </body>
+</html>

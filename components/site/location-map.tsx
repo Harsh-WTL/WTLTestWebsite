@@ -12,10 +12,12 @@ type Props = {
   locations?: SampleLocation[]
   selectedId?: string | null
   pulseId?: string | null
+  signalPath?: { fromId: string; toX: number; toY: number } | null
   onSelect?: (id: string) => void
   radius?: { locationId: string; km: number } | null
   showLabels?: boolean
   animateIn?: boolean
+  darkCanvas?: boolean
 }
 
 export function LocationMap({
@@ -24,13 +26,23 @@ export function LocationMap({
   locations = sampleLocations,
   selectedId,
   pulseId,
+  signalPath,
   onSelect,
   radius,
   showLabels = true,
   animateIn = false,
+  darkCanvas = false,
 }: Props) {
   const uid = useId().replace(/:/g, '')
   const radiusLoc = radius ? locations.find((l) => l.id === radius.locationId) : null
+
+  // Cartographic tone values
+  const fillLand = darkCanvas ? '#0b0e17' : 'var(--map-land)'
+  const fillWater = darkCanvas ? '#040508' : 'var(--map-water)'
+  const strokeRoad = darkCanvas ? '#1b2336' : 'var(--map-road)'
+  const fillDots = darkCanvas ? '#1c2438' : 'var(--viz-grid)'
+  const textFill = darkCanvas ? '#ffffff' : 'var(--ink-primary)'
+  const textStroke = darkCanvas ? '#0b0e17' : 'var(--map-land)'
 
   return (
     <svg
@@ -42,7 +54,7 @@ export function LocationMap({
     >
       <defs>
         <pattern id={`dots-${uid}`} width="12" height="12" patternUnits="userSpaceOnUse">
-          <circle cx="1.5" cy="1.5" r="0.9" fill="var(--viz-grid)" />
+          <circle cx="1.5" cy="1.5" r="0.9" fill={fillDots} />
         </pattern>
         <clipPath id={`land-${uid}`}>
           <rect width="600" height="380" />
@@ -50,20 +62,20 @@ export function LocationMap({
       </defs>
 
       <g aria-hidden="true">
-        <rect width="600" height="380" fill="var(--map-land)" />
+        <rect width="600" height="380" fill={fillLand} />
         <rect width="600" height="380" fill={`url(#dots-${uid})`} />
         <path
           d="M0 0H178C162 52 190 98 176 150C164 198 196 238 190 292C186 334 214 352 210 380H0Z"
-          fill="var(--map-water)"
+          fill={fillWater}
         />
         <path
           d="M452 380C446 330 470 300 458 250C448 206 466 170 452 128C442 96 452 62 438 0"
           fill="none"
-          stroke="var(--map-water)"
+          stroke={fillWater}
           strokeWidth="16"
           strokeLinecap="round"
         />
-        <g fill="none" stroke="var(--map-road)" strokeLinecap="round">
+        <g fill="none" stroke={strokeRoad} strokeLinecap="round">
           <path d="M228 380C232 300 214 230 238 160C258 104 282 60 300 0" strokeWidth="3.5" />
           <path d="M300 380C318 300 360 250 398 200C430 160 470 110 500 0" strokeWidth="3.5" />
           <path d="M190 210C260 196 330 172 420 186C480 196 540 240 600 250" strokeWidth="2.5" />
@@ -73,14 +85,15 @@ export function LocationMap({
         </g>
       </g>
 
+      {/* Radius catchment if requested */}
       {radiusLoc && radius ? (
         <g aria-hidden="true">
           <circle
             cx={radiusLoc.x}
             cy={radiusLoc.y}
             r={radius.km * PX_PER_KM}
-            fill="color-mix(in oklch, var(--viz-1) 12%, transparent)"
-            stroke="var(--viz-1)"
+            fill={darkCanvas ? 'rgba(56, 189, 248, 0.15)' : 'color-mix(in oklch, var(--viz-1) 12%, transparent)'}
+            stroke={darkCanvas ? '#38bdf8' : 'var(--viz-1)'}
             strokeWidth="1.5"
             strokeDasharray="4 4"
             className="transition-[r] duration-500 ease-[cubic-bezier(.2,.7,.2,1)]"
@@ -88,6 +101,38 @@ export function LocationMap({
         </g>
       ) : null}
 
+      {/* Location Signal Conduit Ray */}
+      {signalPath && (() => {
+        const source = locations.find((l) => l.id === signalPath.fromId)
+        if (!source) return null
+        const midX = source.x + (signalPath.toX - source.x) * 0.45
+        const pathD = `M ${source.x} ${source.y} C ${midX} ${source.y}, ${midX} ${signalPath.toY}, ${signalPath.toX} ${signalPath.toY}`
+        const conduitColor = darkCanvas ? '#38bdf8' : 'var(--brand-primary)'
+        return (
+          <g aria-hidden="true" className="signal-layer transition-opacity duration-300">
+            {/* Luminous Glow Ray */}
+            <path
+              d={pathD}
+              fill="none"
+              stroke={darkCanvas ? 'rgba(56, 189, 248, 0.35)' : 'color-mix(in oklch, var(--brand-primary) 30%, transparent)'}
+              strokeWidth="5"
+              strokeLinecap="round"
+            />
+            {/* Animated Dashed Stream */}
+            <path
+              d={pathD}
+              fill="none"
+              stroke={conduitColor}
+              strokeWidth="2"
+              className="signal-conduit"
+              strokeLinecap="round"
+            />
+            <circle cx={signalPath.toX} cy={signalPath.toY} r="3.5" fill={conduitColor} />
+          </g>
+        )
+      })()}
+
+      {/* Location Markers */}
       {locations.map((loc, i) => {
         const meta = statusMeta[loc.status]
         const isSelected = selectedId === loc.id
@@ -95,6 +140,7 @@ export function LocationMap({
         const r = loc.minor ? 4.5 : 6
         const interactive = Boolean(onSelect)
         const markerLabel = `${loc.name}, ${meta.label}, rated ${loc.rating}${isSelected ? ', selected' : ''}`
+        const activeAccent = darkCanvas ? '#38bdf8' : 'var(--brand-primary)'
         return (
           <g
             key={loc.id}
@@ -118,24 +164,35 @@ export function LocationMap({
           >
             <g className={animateIn ? 'marker-pop' : undefined} style={animateIn ? { animationDelay: `${i * 45}ms` } : undefined}>
               {isPulse ? (
-                <circle r={r + 2} fill="none" stroke={meta.fill} strokeWidth="2" className="pulse-ring" />
+                <circle
+                  r={r + 4}
+                  fill="none"
+                  stroke={isSelected ? activeAccent : meta.fill}
+                  strokeWidth="2.5"
+                  className="pulse-ring"
+                />
               ) : null}
               <circle
                 className="focus-ring opacity-0 transition-opacity"
-                r={r + 7}
+                r={r + 8}
                 fill="none"
-                stroke="var(--line-focus)"
+                stroke={activeAccent}
                 strokeWidth="2"
               />
               <circle
-                r={r + 5}
+                r={r + 5.5}
                 fill="none"
-                stroke="var(--brand-primary)"
+                stroke={activeAccent}
                 strokeWidth="2"
                 className={cn('transition-opacity duration-200', isSelected ? 'opacity-100' : 'opacity-0')}
               />
               {interactive ? <circle r="16" fill="transparent" /> : null}
-              <circle r={r} fill={meta.fill} stroke="var(--surface-card)" strokeWidth="2" />
+              <circle
+                r={r}
+                fill={isSelected ? activeAccent : meta.fill}
+                stroke={darkCanvas ? '#0b0e17' : 'var(--surface-card)'}
+                strokeWidth="2"
+              />
               {showLabels && !loc.minor ? (
                 <text
                   x={loc.id === 'andheri' ? 0 : loc.x > 420 ? -(r + 8) : r + 8}
@@ -143,8 +200,8 @@ export function LocationMap({
                   textAnchor={loc.id === 'andheri' ? 'middle' : loc.x > 420 ? 'end' : 'start'}
                   fontSize="11"
                   fontWeight={isSelected ? 700 : 600}
-                  fill="var(--ink-primary)"
-                  stroke="var(--map-land)"
+                  fill={textFill}
+                  stroke={textStroke}
                   strokeWidth="3.5"
                   paintOrder="stroke"
                   strokeLinejoin="round"
