@@ -16,3 +16,17 @@ node_modules
 out/
 *.tsbuildinfo
 .DS_Store
+# Local agent / dev tooling (not for production)
+AGENTS.md
+.opencode/
+opencode.json
+.playwright-mcp/
+shots/
+
+# Design mocks / project notes (local-only, not for production repo)
+WTL *.html
+WTL-*.md
+
+# pnpm artifacts (CI and local dev use npm / package-lock.json)
+pnpm-lock.yaml
+pnpm-workspace.yaml

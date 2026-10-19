@@ -208,6 +208,10 @@
 /* ── Right column: living montage ─────────────────────────────── */
 .montage {
   position: relative;
+  /* inline-size containment: the montage's own width is set by the layout, never
+     by its min-content (the marquee/table would otherwise pin the grid track).
+     Also enables the @container rules at the end of this file. */
+  container-type: inline-size;
 }
 .scenarios {
   display: flex;
@@ -750,6 +754,43 @@
   font-weight: 600;
   color: var(--brand-primary);
   flex-shrink: 0;
+}
+
+/* ── Narrow hero column: adapt the app chrome instead of clipping it ──
+   The montage's full-chrome min-content is ~504px (topbar + table columns).
+   Below that, drop decorative topbar bits to keep every meaningful surface;
+   below ~350px the table also drops its numeric column (name / pill / meta).
+   Must come AFTER the base .topbar/.pRow rules — container queries are one
+   specificity class, same as the base rules they override. */
+@container (max-width: 503px) {
+  .topbar {
+    gap: 8px;
+    padding: 0 10px;
+  }
+  .searchChip,
+  .brandCount {
+    display: none;
+  }
+  /* the search chip is the desktop right-side filler; keep the pill pinned right */
+  .ahanaPill {
+    margin-left: auto;
+  }
+  /* the catch chips overlay intentionally hangs off the frame edge on desktop;
+     on a phone column it would poke outside the viewport — pin it inside */
+  .chipStack {
+    right: 0;
+  }
+}
+@container (max-width: 349px) {
+  .pRow {
+    grid-template-columns: minmax(0, 1fr) minmax(0, auto) minmax(0, auto);
+    gap: 8px;
+    padding: 8px 10px;
+  }
+  /* hide the review-count column; name, status pill and right meta stay */
+  .pRow > span:nth-of-type(2) {
+    display: none;
+  }
 }
 
 /* Reduced motion: stop every CSS-driven animation (SMIL pulses are

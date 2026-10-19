@@ -41,7 +41,7 @@ export function Hero() {
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8">
         {/* Left: content (copy unchanged) · Right: living product montage */}
-        <div className="grid gap-10 lg:gap-12 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,1.04fr)] lg:items-center">
+        <div className="grid grid-cols-1 gap-10 lg:gap-12 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,1.04fr)] lg:items-center">
           <div className="enter-rise max-w-2xl lg:max-w-none">
             {/* Eyebrow */}
             <p className={cn(styles.eyebrow, 'mb-5 font-mono')}>
