@@ -1,5 +1,6 @@
 import { DemoButton } from './demo-dialog'
-import { HeroSignalMap } from './hero-signal-map'
+import { HeroNetwork } from './hero-network'
+import { HeroPreview } from './hero-preview'
 import { ArrowUpRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import styles from './hero-signal.module.css'
@@ -37,22 +38,22 @@ export function Hero() {
     <section
       id="top"
       aria-labelledby="hero-title"
-      className="hero-canvas relative overflow-hidden text-ink dark:text-white pt-10 pb-10 sm:pt-12 md:pt-14 md:pb-14 transition-colors duration-300"
+      className="hero-canvas relative overflow-hidden pt-8 pb-8 text-ink transition-colors duration-300 sm:pt-9 md:pt-10 md:pb-10 lg:pb-9 dark:text-white"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8">
-        {/* Left: content (copy unchanged) · Right: living product montage */}
-        <div className="grid grid-cols-1 gap-10 lg:gap-12 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,1.04fr)] lg:items-center">
-          <div className="enter-rise max-w-2xl lg:max-w-none">
+        {/* Left: message · Right: signal network + compact product crop */}
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,0.98fr)_minmax(0,1.02fr)] lg:items-stretch lg:gap-10">
+          <div className="flex max-w-2xl flex-col lg:max-w-none">
             {/* Eyebrow */}
-            <p className={cn(styles.eyebrow, 'mb-5 font-mono')}>
-              <span aria-hidden="true" className="live-dot size-[7px] shrink-0 rounded-full bg-success" />
+            <p className={cn(styles.eyebrow, 'mb-5 self-start font-mono')}>
+              <span aria-hidden="true" className="size-[7px] shrink-0 rounded-full bg-success" />
               <span>MULTI-LOCATION MARKETING, CONNECTED</span>
             </p>
 
             {/* Oversized Headline with Deliberate 2-Line Desktop Rhythm */}
             <h1
               id="hero-title"
-              className="text-balance text-[38px] leading-[1.04] font-semibold tracking-[-0.035em] sm:text-[50px] md:text-[58px] lg:text-[56px] xl:text-[64px]"
+              className="text-balance text-[38px] leading-[1.04] font-semibold tracking-[-0.035em] sm:text-[50px] md:text-[54px] lg:text-[clamp(44px,4.6vw,64px)]"
             >
               <span className="block text-ink dark:text-white">Make every location</span>
               <span className={cn('block', styles.metal)}>perform at its best.</span>
@@ -65,17 +66,8 @@ export function Hero() {
               needs attention and what to do next.
             </p>
 
-            {/* Live drift sting */}
-            <p className={cn(styles.sting, 'mt-6 sm:mt-7')}>
-              <span className={cn(styles.driftBadge, 'font-mono')}>▲ PROFILE DRIFT</span>
-              <span className="font-mono">
-                Thane · Saturday hours ·{' '}
-                <b className={styles.stingB}>caught 21 min ago</b>
-              </span>
-            </p>
-
             {/* CTAs */}
-            <div className="mt-7 sm:mt-8 flex flex-wrap items-center gap-3.5">
+            <div className="mt-7 flex flex-wrap items-center gap-3.5 sm:mt-8">
               <DemoButton size="lg" withArrow className={cn('rounded-[10px]', styles.btnP)}>
                 Book a Demo
               </DemoButton>
@@ -83,33 +75,38 @@ export function Hero() {
                 href="#products"
                 className={cn(
                   styles.btnS,
-                  'group inline-flex items-center justify-center gap-2 h-12 px-6 text-[15px] font-medium transition-colors duration-150 hover:bg-hover active:scale-[0.98]',
+                  'group inline-flex h-12 items-center justify-center gap-2 px-6 text-[15px] font-medium transition-colors duration-150 hover:bg-hover active:scale-[0.98]',
                 )}
               >
                 <span>Explore the Platform</span>
                 <ArrowUpRight
                   aria-hidden="true"
-                  className="size-4 text-ink-3 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-ink dark:text-white/50 dark:group-hover:text-white"
+                  className="size-4 text-ink-3 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink dark:text-white/50 dark:group-hover:text-white"
                 />
               </a>
             </div>
 
             {/* Compact Platform Architecture Signature */}
-            <div className="mt-6 flex flex-wrap items-center gap-2 font-mono text-[11px] text-ink-3 dark:text-white/50">
-              <span className="text-[10px] uppercase tracking-[0.2em] opacity-75">Platform Architecture:</span>
-              <div className="flex items-center gap-1.5 tracking-[0.14em] font-semibold text-ink dark:text-white/80">
+            <div className="mt-5 flex flex-wrap items-center gap-2 font-mono text-[11px] text-ink-3 dark:text-white/50">
+              <span className="text-[10px] uppercase tracking-[0.2em] opacity-75">
+                Platform Architecture:
+              </span>
+              <div className="flex items-center gap-1.5 font-semibold tracking-[0.14em] text-ink dark:text-white/80">
                 <span>LOCATIONS</span>
-                <span aria-hidden="true" className="opacity-40">/</span>
+                <span aria-hidden="true" className="opacity-40">
+                  /
+                </span>
                 <span>ENGAGE</span>
-                <span aria-hidden="true" className="opacity-40">/</span>
+                <span aria-hidden="true" className="opacity-40">
+                  /
+                </span>
                 <span>SYNAPSE</span>
               </div>
-              <span aria-hidden="true" className="hidden sm:inline opacity-30">·</span>
               <span className="text-[10.5px] opacity-70">Mumbai Metro · 7 Storefronts Linked</span>
             </div>
 
             {/* Official logo rail */}
-            <div className={cn(styles.rail, 'mt-8 sm:mt-10')}>
+            <div className={cn(styles.rail, 'mt-8 lg:mt-auto')}>
               <span className={cn(styles.railLabel, 'font-mono')}>Official</span>
               <div className={styles.marquee}>
                 <div className={styles.track}>
@@ -120,20 +117,27 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Living Signal Montage (scenarios · map · table · chips) */}
-          <div className="enter-rise [animation-delay:120ms] w-full">
-            <HeroSignalMap />
+          {/* Right: integrated signal network + one compact product crop */}
+          <div className="flex w-full min-w-0 max-w-2xl flex-col gap-3.5 lg:max-w-none">
+            <HeroNetwork />
+            <HeroPreview />
           </div>
         </div>
 
         {/* Trust ribbon */}
-        <div className={cn('enter-rise [animation-delay:180ms] mt-10 sm:mt-12 font-mono', styles.ribbon)}>
+        <div className={cn('mt-6 font-mono sm:mt-7', styles.ribbon)}>
           <span className={styles.ribbonKey}>OFFICIAL</span>
-          <span aria-hidden="true" className={styles.ribbonSep}>·</span>
+          <span aria-hidden="true" className={styles.ribbonSep}>
+            ·
+          </span>
           <span>Google Business Profile &amp; Meta APIs</span>
-          <span aria-hidden="true" className={styles.ribbonSep}>·</span>
+          <span aria-hidden="true" className={styles.ribbonSep}>
+            ·
+          </span>
           <span>Zero migration fee</span>
-          <span aria-hidden="true" className={styles.ribbonSep}>·</span>
+          <span aria-hidden="true" className={styles.ribbonSep}>
+            ·
+          </span>
           <span>Rollout in 48 hours</span>
         </div>
       </div>
