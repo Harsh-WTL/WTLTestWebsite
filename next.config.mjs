@@ -3,6 +3,9 @@ const nextConfig = {
   output: 'export',
   basePath: '/WTLTestWebsite',
   trailingSlash: true,
+  experimental: {
+    agentUpgrade: 'security',
+  },
   typescript: {
     ignoreBuildErrors: true,
   },
