@@ -1,0 +1,233 @@
+- generic [ref=f2e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [aria-hidden]: Staging · test copy
+  - generic [ref=f2e7]:
+    - complementary [ref=f2e8]:
+      - generic [ref=f2e9]:
+        - generic [ref=f2e10]: M(
+        - generic [ref=f2e11]:
+          - generic [ref=f2e12]: MDRC (scale test)
+          - generic [ref=f2e13]: 3000 locations
+      - generic [ref=f2e14]:
+        - button "Locations" [ref=f2e15] [cursor=pointer]
+        - button "Engage" [ref=f2e16] [cursor=pointer]
+        - button "Ads" [ref=f2e17] [cursor=pointer]
+      - navigation [ref=f2e18]:
+        - button "Dashboard" [ref=f2e19] [cursor=pointer]
+        - generic [ref=f2e25]: Google
+        - button "Locations 3000" [ref=f2e31] [cursor=pointer]:
+          - text: Locations
+          - generic [ref=f2e35]: "3000"
+        - button "Reviews 20388" [ref=f2e36] [cursor=pointer]:
+          - text: Reviews
+          - generic [ref=f2e39]: "20388"
+        - button "Page Posts" [ref=f2e40] [cursor=pointer]
+        - button "AI Location Studio" [ref=f2e44] [cursor=pointer]
+        - button "Profile Guard" [ref=f2e47] [cursor=pointer]
+        - button "Not Published" [ref=f2e51] [cursor=pointer]
+        - button "Support Cases" [ref=f2e55] [cursor=pointer]
+        - button "QR Codes" [ref=f2e59] [cursor=pointer]
+        - button "Data Manager" [ref=f2e66] [cursor=pointer]
+        - generic [ref=f2e71]: Meta
+        - button "Location Pages" [ref=f2e74] [cursor=pointer]
+        - button "Page Posts" [ref=f2e79] [cursor=pointer]
+        - generic [ref=f2e83]: Microsite
+        - button "Microsite" [ref=f2e87] [cursor=pointer]
+        - generic [ref=f2e93]: Insights
+        - button "Reports" [active] [ref=f2e95] [cursor=pointer]
+        - generic [ref=f2e99]: Account
+        - button "User Management" [ref=f2e103] [cursor=pointer]
+        - button "Activity" [ref=f2e109] [cursor=pointer]
+        - button "Settings" [ref=f2e114] [cursor=pointer]
+        - button "Support" [ref=f2e118] [cursor=pointer]
+    - generic [ref=f2e123]:
+      - generic [ref=f2e138399]:
+        - heading "Reports" [level=1] [ref=f2e138401]
+        - generic [ref=f2e138403]:
+          - button "Refresh" [ref=f2e138404] [cursor=pointer]
+          - generic [ref=f2e138410]:
+            - button "Soft" [ref=f2e138411] [cursor=pointer]
+            - button "Ink" [ref=f2e138418] [cursor=pointer]
+          - button "Notifications" [ref=f2e138421] [cursor=pointer]
+          - button "SM" [ref=f2e138426] [cursor=pointer]
+      - generic [ref=f2e138428]:
+        - button "Generate Report" [ref=f2e138429] [cursor=pointer]
+        - button "Scheduled Reports" [ref=f2e138430] [cursor=pointer]
+      - generic [ref=f2e138431]:
+        - button "Performance Views, clicks, calls & directions" [ref=f2e138432] [cursor=pointer]:
+          - generic [ref=f2e138434]: Performance
+          - generic [ref=f2e138435]: Views, clicks, calls & directions
+        - button "Reviews Individual review content & replies" [ref=f2e138436] [cursor=pointer]:
+          - generic [ref=f2e138439]: Reviews
+          - generic [ref=f2e138440]: Individual review content & replies
+        - button "Review Summary Aggregated ratings & sentiment per location" [ref=f2e138441] [cursor=pointer]:
+          - generic [ref=f2e138443]: Review Summary
+          - generic [ref=f2e138444]: Aggregated ratings & sentiment per location
+        - button "Profile Protection Edit alerts & risk assessment" [ref=f2e138445] [cursor=pointer]:
+          - generic [ref=f2e138449]: Profile Protection
+          - generic [ref=f2e138450]: Edit alerts & risk assessment
+        - button "Location Status Location overview & sync health" [ref=f2e138451] [cursor=pointer]:
+          - generic [ref=f2e138455]: Location Status
+          - generic [ref=f2e138456]: Location overview & sync health
+      - generic [ref=f2e138458]:
+        - combobox [ref=f2e138459] [cursor=pointer]:
+          - option "Last 30 Days" [selected]
+          - option "Today"
+          - option "Yesterday"
+          - option "Last 7 Days"
+          - option "This Month"
+          - option "Last Month"
+          - option "Last Quarter"
+          - option "Custom Range"
+        - generic [ref=f2e138460]:
+          - generic [ref=f2e138461]: "From:"
+          - textbox [disabled] [ref=f2e138462]: 2026-10-20
+          - generic [ref=f2e138463]: "To:"
+          - textbox [disabled] [ref=f2e138464]: 2026-11-18
+        - combobox [ref=f2e138465] [cursor=pointer]:
+          - option "All States" [selected]
+          - option "Andhra Pradesh"
+          - option "Assam"
+          - option "Bihar"
+          - option "Chandigarh"
+          - option "Chhattisgarh"
+          - option "Delhi"
+          - option "Goa"
+          - option "Gujarat"
+          - option "Haryana"
+          - option "Himachal Pradesh"
+          - option "Jammu and Kashmir"
+          - option "Jharkhand"
+          - option "Karnataka"
+          - option "Kerala"
+          - option "Madhya Pradesh"
+          - option "Maharashtra"
+          - option "Odisha"
+          - option "Punjab"
+          - option "Rajasthan"
+          - option "Tamil Nadu"
+          - option "Telangana"
+          - option "Uttar Pradesh"
+          - option "Uttarakhand"
+          - option "West Bengal"
+        - combobox [ref=f2e138466] [cursor=pointer]:
+          - option "All Cities" [selected]
+          - option "Agra"
+          - option "Ahmedabad"
+          - option "Amritsar"
+          - option "Aurangabad"
+          - option "Bengaluru"
+          - option "Bhopal"
+          - option "Bhubaneswar"
+          - option "Chandigarh"
+          - option "Chennai"
+          - option "Coimbatore"
+          - option "Dehradun"
+          - option "Delhi"
+          - option "Durgapur"
+          - option "Faridabad"
+          - option "Ghaziabad"
+          - option "Goa"
+          - option "Gurugram"
+          - option "Guwahati"
+          - option "Gwalior"
+          - option "Hubballi"
+          - option "Hyderabad"
+          - option "Indore"
+          - option "Jabalpur"
+          - option "Jaipur"
+          - option "Jalandhar"
+          - option "Jammu"
+          - option "Jodhpur"
+          - option "Kanpur"
+          - option "Karnal"
+          - option "Kochi"
+          - option "Kolkata"
+          - option "Kota"
+          - option "Lucknow"
+          - option "Ludhiana"
+          - option "Madurai"
+          - option "Mangaluru"
+          - option "Meerut"
+          - option "Mumbai"
+          - option "Mysuru"
+          - option "Nagpur"
+          - option "Nashik"
+          - option "Noida"
+          - option "Panipat"
+          - option "Patna"
+          - option "Pune"
+          - option "Raipur"
+          - option "Rajkot"
+          - option "Ranchi"
+          - option "Salem"
+          - option "Shimla"
+          - option "Siliguri"
+          - option "Srinagar"
+          - option "Surat"
+          - option "Thiruvananthapuram"
+          - option "Tiruchirappalli"
+          - option "Udaipur"
+          - option "Vadodara"
+          - option "Varanasi"
+          - option "Vijayawada"
+          - option "Visakhapatnam"
+        - generic [ref=f2e138467]:
+          - switch "Compare" [ref=f2e138468] [cursor=pointer]
+          - generic [ref=f2e138469]: Compare
+          - combobox [disabled] [ref=f2e138470] [cursor=pointer]:
+            - option "Previous Period" [selected]
+            - option "Year over Year"
+            - option "Custom Period"
+        - generic [ref=f2e138471]:
+          - button "Generate Report" [ref=f2e138472] [cursor=pointer]
+          - button "Download CSV" [disabled] [ref=f2e138475]
+      - generic [ref=f2e138479]:
+        - generic [ref=f2e138480]:
+          - generic [ref=f2e138481]: Total Impressions
+          - generic [ref=f2e138483]: —
+        - generic [ref=f2e138485]:
+          - generic [ref=f2e138486]: Website Clicks
+          - generic [ref=f2e138488]: —
+        - generic [ref=f2e138490]:
+          - generic [ref=f2e138491]: Phone Calls
+          - generic [ref=f2e138493]: —
+        - generic [ref=f2e138495]:
+          - generic [ref=f2e138496]: Direction Requests
+          - generic [ref=f2e138498]: —
+      - generic [ref=f2e138500]:
+        - generic [ref=f2e138501]:
+          - generic [ref=f2e138502]:
+            - generic [ref=f2e138503]: Metric Breakdown
+            - generic [ref=f2e138504]: This period vs previous, by metric
+          - generic [ref=f2e138505]:
+            - generic [ref=f2e138506]: This period
+            - generic [ref=f2e138508]: Previous
+        - generic [ref=f2e138511]:
+          - generic [ref=f2e138512]: No report yet
+          - generic [ref=f2e138513]: Generate a report to draw the chart.
+      - generic [ref=f2e138514]:
+        - generic [ref=f2e138515]:
+          - textbox "Search in results..." [ref=f2e138517]
+          - generic [ref=f2e138518]: click a header to sort
+        - generic [ref=f2e138521]:
+          - generic [ref=f2e138522]:
+            - generic [ref=f2e138523] [cursor=pointer]:
+              - text: Store Code
+              - generic [ref=f2e138524]: ↓
+            - generic [ref=f2e138525] [cursor=pointer]: Store Name
+            - generic [ref=f2e138526] [cursor=pointer]: City
+            - generic [ref=f2e138527] [cursor=pointer]: State
+            - generic [ref=f2e138528] [cursor=pointer]: Search Views
+            - generic [ref=f2e138529] [cursor=pointer]: Maps Views
+            - generic [ref=f2e138530] [cursor=pointer]: Total Impressions
+            - generic [ref=f2e138531] [cursor=pointer]: Website Clicks
+            - generic [ref=f2e138532] [cursor=pointer]: Phone Calls
+            - generic [ref=f2e138533] [cursor=pointer]: Directions
+            - generic [ref=f2e138534] [cursor=pointer]: Bookings
+            - generic [ref=f2e138535] [cursor=pointer]: Conversations
+          - generic [ref=f2e138536]:
+            - generic [ref=f2e138539]: No report yet
+            - generic [ref=f2e138540]: Pick a report type and a date range, then Generate Report.

@@ -1,0 +1,169 @@
+- generic [ref=f2e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [aria-hidden]: Staging · test copy
+  - generic [ref=f2e7]:
+    - complementary [ref=f2e8]:
+      - generic [ref=f2e9]:
+        - generic [ref=f2e10]: M(
+        - generic [ref=f2e11]:
+          - generic [ref=f2e12]: MDRC (scale test)
+          - generic [ref=f2e13]: 3000 locations
+      - generic [ref=f2e14]:
+        - button "Locations" [ref=f2e15] [cursor=pointer]
+        - button "Engage" [ref=f2e16] [cursor=pointer]
+        - button "Ads" [ref=f2e17] [cursor=pointer]
+      - navigation [ref=f2e18]:
+        - button "Dashboard" [ref=f2e19] [cursor=pointer]
+        - generic [ref=f2e25]: Google
+        - button "Locations 3000" [ref=f2e31] [cursor=pointer]:
+          - text: Locations
+          - generic [ref=f2e35]: "3000"
+        - button "Reviews 20388" [ref=f2e36] [cursor=pointer]:
+          - text: Reviews
+          - generic [ref=f2e39]: "20388"
+        - button "Page Posts" [ref=f2e40] [cursor=pointer]
+        - button "AI Location Studio" [ref=f2e44] [cursor=pointer]
+        - button "Profile Guard" [active] [ref=f2e47] [cursor=pointer]
+        - button "Not Published" [ref=f2e51] [cursor=pointer]
+        - button "Support Cases" [ref=f2e55] [cursor=pointer]
+        - button "QR Codes" [ref=f2e59] [cursor=pointer]
+        - button "Data Manager" [ref=f2e66] [cursor=pointer]
+        - generic [ref=f2e71]: Meta
+        - button "Location Pages" [ref=f2e74] [cursor=pointer]
+        - button "Page Posts" [ref=f2e79] [cursor=pointer]
+        - generic [ref=f2e83]: Microsite
+        - button "Microsite" [ref=f2e87] [cursor=pointer]
+        - generic [ref=f2e93]: Insights
+        - button "Reports" [ref=f2e95] [cursor=pointer]
+        - generic [ref=f2e99]: Account
+        - button "User Management" [ref=f2e103] [cursor=pointer]
+        - button "Activity" [ref=f2e109] [cursor=pointer]
+        - button "Settings" [ref=f2e114] [cursor=pointer]
+        - button "Support" [ref=f2e118] [cursor=pointer]
+    - generic [ref=f2e123]:
+      - generic [ref=f2e58622]:
+        - heading "Profile Guard" [level=1] [ref=f2e58624]
+        - generic [ref=f2e58625]:
+          - button "Export CSV" [ref=f2e58626] [cursor=pointer]
+          - button "Scan Now" [ref=f2e58630] [cursor=pointer]
+          - generic [ref=f2e58638]:
+            - button "Refresh" [ref=f2e58639] [cursor=pointer]
+            - generic [ref=f2e58645]:
+              - button "Soft" [ref=f2e58646] [cursor=pointer]
+              - button "Ink" [ref=f2e58653] [cursor=pointer]
+            - button "Notifications" [ref=f2e58656] [cursor=pointer]
+            - button "SM" [ref=f2e58661] [cursor=pointer]
+      - generic [ref=f2e58664]:
+        - generic [ref=f2e58665]:
+          - generic [ref=f2e58666]: Auto-reject all edits
+          - generic [ref=f2e58667]: Automatically revert any third-party changes to your listings
+        - switch "Auto-reject all edits" [ref=f2e58668] [cursor=pointer]
+      - generic [ref=f2e58669]:
+        - generic [ref=f2e58670]:
+          - generic [ref=f2e58671]: Total Edits
+          - generic [ref=f2e58673]: "5"
+        - generic [ref=f2e58675]:
+          - generic [ref=f2e58676]: Pending
+          - generic [ref=f2e58678]: "4"
+        - generic [ref=f2e58680]:
+          - generic [ref=f2e58681]: Approved
+          - generic [ref=f2e58683]: "1"
+        - generic [ref=f2e58685]:
+          - generic [ref=f2e58686]: Rejected
+          - generic [ref=f2e58688]: "0"
+        - generic [ref=f2e58690]:
+          - generic [ref=f2e58691]: Auto-Blocked
+          - generic [ref=f2e58693]: "0"
+        - generic [ref=f2e58695]:
+          - generic [ref=f2e58696]: High Risk
+          - generic [ref=f2e58698]: "1"
+      - generic [ref=f2e58701]:
+        - textbox "Search location or field..." [ref=f2e58703]
+        - combobox [ref=f2e58704] [cursor=pointer]:
+          - option "All Status" [selected]
+          - option "Pending"
+          - option "Approved"
+          - option "Rejected"
+          - option "Auto-Blocked"
+        - combobox [ref=f2e58705] [cursor=pointer]:
+          - option "All Risk" [selected]
+          - option "Critical"
+          - option "High"
+          - option "Medium"
+          - option "Low"
+        - generic [ref=f2e58706]:
+          - button "Approve All (4)" [ref=f2e58707] [cursor=pointer]
+          - button "Reject All (4)" [ref=f2e58708] [cursor=pointer]
+      - generic [ref=f2e58709]:
+        - generic [ref=f2e58710] [cursor=pointer]:
+          - generic [ref=f2e58711]:
+            - generic [ref=f2e58712]:
+              - generic [ref=f2e58713]: MDRC (scale test) Bhopal Airport Road · Bhopal
+              - generic [ref=f2e58714]: Low
+              - generic [ref=f2e58715]: Google Update
+              - generic [ref=f2e58716]: ◷ Pending
+            - generic [ref=f2e58717]: Oct 5, 11:59 PM
+          - generic [ref=f2e58718]:
+            - generic [ref=f2e58719]: specialHours
+            - generic [ref=f2e58720]: "Now: 2026-10-20: closed; 2026-11-01: 10:00–14:00"
+            - generic [ref=f2e58721]:
+              - button "Approve" [ref=f2e58722]
+              - button "Reject" [ref=f2e58725]
+        - generic [ref=f2e58729] [cursor=pointer]:
+          - generic [ref=f2e58730]:
+            - generic [ref=f2e58731]:
+              - generic [ref=f2e58732]: MDRC (scale test) Bhopal Airport Road · Bhopal
+              - generic [ref=f2e58733]: ▲ High
+              - generic [ref=f2e58734]: Google Update
+              - generic [ref=f2e58735]: ◷ Pending
+            - generic [ref=f2e58736]: Oct 5, 11:59 PM
+          - generic [ref=f2e58737]:
+            - generic [ref=f2e58738]: openInfo.status
+            - generic [ref=f2e58739]: "Was: OPEN"
+            - generic [ref=f2e58740]: "Now: CLOSED_TEMPORARILY"
+            - generic [ref=f2e58741]:
+              - button "Approve" [ref=f2e58742]
+              - button "Reject" [ref=f2e58745]
+        - generic [ref=f2e58749] [cursor=pointer]:
+          - generic [ref=f2e58750]:
+            - generic [ref=f2e58751]:
+              - generic [ref=f2e58752]: MDRC (scale test) Bhopal Airport Road · Bhopal
+              - generic [ref=f2e58753]: Medium
+              - generic [ref=f2e58754]: Google Update
+              - generic [ref=f2e58755]: ◷ Pending
+            - generic [ref=f2e58756]: Oct 5, 11:59 PM
+          - generic [ref=f2e58757]:
+            - generic [ref=f2e58758]: attributes.has_wheelchair_accessible_entrance
+            - generic [ref=f2e58759]: "Was: true"
+            - generic [ref=f2e58760]:
+              - button "Approve" [ref=f2e58761]
+              - button "Reject" [ref=f2e58764]
+        - generic [ref=f2e58768] [cursor=pointer]:
+          - generic [ref=f2e58769]:
+            - generic [ref=f2e58770]:
+              - generic [ref=f2e58771]: MDRC (scale test) Bhopal Airport Road · Bhopal
+              - generic [ref=f2e58772]: Low
+              - generic [ref=f2e58773]: Google Update
+              - generic [ref=f2e58774]: ◷ Pending
+            - generic [ref=f2e58775]: Oct 5, 11:59 PM
+          - generic [ref=f2e58776]:
+            - generic [ref=f2e58777]: categories.additionalCategories
+            - generic [ref=f2e58778]: "Was: Medical laboratory"
+            - generic [ref=f2e58779]: "Now: Blood testing service, Medical laboratory"
+            - generic [ref=f2e58780]:
+              - button "Approve" [ref=f2e58781]
+              - button "Reject" [ref=f2e58784]
+        - generic [ref=f2e58788] [cursor=pointer]:
+          - generic [ref=f2e58789]:
+            - generic [ref=f2e58790]:
+              - generic [ref=f2e58791]: MDRC (scale test) Bhopal Airport Road · Bhopal
+              - generic [ref=f2e58792]: Medium
+              - generic [ref=f2e58793]: Google Update
+              - generic [ref=f2e58794]: ✓ Approved
+            - generic [ref=f2e58795]: Oct 5, 11:59 PM
+          - generic [ref=f2e58796]:
+            - generic [ref=f2e58797]: Business Hours
+            - generic [ref=f2e58798]: "Was: Mon 09:30–19:30; Tue 09:30–19:30; Wed 09:30–19:30;"
+            - generic [ref=f2e58799]: "Now: Mon 10:00–18:00; Tue 10:00–18:00; Wed 10:00–18:00;"

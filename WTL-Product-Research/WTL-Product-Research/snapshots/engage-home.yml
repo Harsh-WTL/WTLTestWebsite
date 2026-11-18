@@ -1,0 +1,136 @@
+- generic [ref=f2e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [aria-hidden]: Staging · test copy
+  - generic [ref=f2e7]:
+    - complementary [ref=f2e8]:
+      - generic [ref=f2e9]:
+        - generic [ref=f2e10]: M(
+        - generic [ref=f2e11]:
+          - generic [ref=f2e12]: MDRC (scale test)
+          - generic [ref=f2e13]: 0 channels connected
+      - generic [ref=f2e14]:
+        - button "Locations" [ref=f2e15] [cursor=pointer]
+        - button "Engage" [active] [ref=f2e16] [cursor=pointer]
+        - button "Ads" [ref=f2e17] [cursor=pointer]
+      - navigation [ref=f2e18]:
+        - button "Dashboard" [ref=f2e140670] [cursor=pointer]
+        - button "Agent Queue" [ref=f2e140673] [cursor=pointer]
+        - generic [ref=f2e140678]: Inbox
+        - button "Comments" [ref=f2e140682] [cursor=pointer]
+        - button "Messages" [ref=f2e140686] [cursor=pointer]
+        - button "Email" [ref=f2e140689] [cursor=pointer]
+        - button "Ad Comments" [ref=f2e140693] [cursor=pointer]
+        - button "App Updates" [ref=f2e140697] [cursor=pointer]
+        - generic [ref=f2e140700]: Understand
+        - button "Tickets" [ref=f2e140702] [cursor=pointer]
+        - button "Analytics" [ref=f2e140705] [cursor=pointer]
+        - button "Customers" [ref=f2e140708] [cursor=pointer]
+        - button "Reports" [ref=f2e140714] [cursor=pointer]
+        - generic [ref=f2e140718]: Configure
+        - button "Alerts" [ref=f2e140722] [cursor=pointer]
+        - button "Channels" [ref=f2e140726] [cursor=pointer]
+        - button "Team" [ref=f2e140733] [cursor=pointer]
+        - button "Ticket Rules" [ref=f2e140739] [cursor=pointer]
+        - button "Response Studio" [ref=f2e140743] [cursor=pointer]
+        - generic [ref=f2e99]: Account
+        - button "User Management" [ref=f2e103] [cursor=pointer]
+        - button "Activity" [ref=f2e109] [cursor=pointer]
+        - button "Settings" [ref=f2e114] [cursor=pointer]
+        - button "Support" [ref=f2e118] [cursor=pointer]
+    - generic [ref=f2e123]:
+      - generic [ref=f2e140746]:
+        - heading "Good afternoon, Dhruv." [level=1] [ref=f2e140748]
+        - generic [ref=f2e140749]:
+          - combobox [ref=f2e140750] [cursor=pointer]:
+            - option "Last 30 days"
+            - option "Last 7 days" [selected]
+            - option "Last 90 days"
+          - generic [ref=f2e140751]:
+            - button "Search" [ref=f2e140752] [cursor=pointer]
+            - button "Refresh" [ref=f2e140756] [cursor=pointer]
+            - generic [ref=f2e140762]:
+              - button "Soft" [ref=f2e140763] [cursor=pointer]
+              - button "Ink" [ref=f2e140770] [cursor=pointer]
+            - button "Notifications" [ref=f2e140773] [cursor=pointer]
+            - button "SM" [ref=f2e140778] [cursor=pointer]
+      - generic [ref=f2e140780]:
+        - generic [ref=f2e140781]:
+          - generic [ref=f2e140782]: Volume
+          - generic [ref=f2e140783]: "0"
+          - generic [ref=f2e140786]:
+            - generic [ref=f2e140787]: → 0%
+            - generic [ref=f2e140788]: vs previous 7 days
+        - generic [ref=f2e140789]:
+          - generic [ref=f2e140790]: Response rate
+          - generic [ref=f2e140792]: —
+          - generic [ref=f2e140794]: No items in this period
+        - generic [ref=f2e140796]:
+          - generic [ref=f2e140797]: Needs attention
+          - generic [ref=f2e140798]: "0"
+          - link "Escalated or negative open →" [ref=f2e140801] [cursor=pointer]:
+            - /url: "#"
+        - generic [ref=f2e140802]:
+          - generic [ref=f2e140803]: AI / Human
+          - generic [ref=f2e140804]: —
+          - generic [ref=f2e140808]: 0 answered by AI · 0 by your team
+      - generic [ref=f2e140809]:
+        - generic [ref=f2e140810]:
+          - generic [ref=f2e140811]: Activity
+          - generic [ref=f2e140812]:
+            - generic [ref=f2e140813]: Volume & sentiment over time
+            - generic [ref=f2e140815]:
+              - button "Total" [ref=f2e140816] [cursor=pointer]
+              - button "Positive" [ref=f2e140817] [cursor=pointer]
+              - button "Negative" [ref=f2e140818] [cursor=pointer]
+              - button "Replied" [ref=f2e140819] [cursor=pointer]
+          - generic [ref=f2e140820]: No activity in this period
+        - generic [ref=f2e140823]:
+          - generic [ref=f2e140824]: Sentiment
+          - generic [ref=f2e140825]:
+            - generic [ref=f2e140826]: Net score · 0 classified
+            - generic [ref=f2e140828]: —
+          - generic [ref=f2e140829]: No classified items yet
+          - generic [ref=f2e140832]:
+            - generic [ref=f2e140833]:
+              - generic [ref=f2e140834]: "0"
+              - generic [ref=f2e140835]: Positive
+            - generic [ref=f2e140836]:
+              - generic [ref=f2e140837]: "0"
+              - generic [ref=f2e140838]: Neutral
+            - generic [ref=f2e140839]:
+              - generic [ref=f2e140840]: "0"
+              - generic [ref=f2e140841]: Negative
+      - generic [ref=f2e140842]:
+        - generic [ref=f2e140843]:
+          - generic [ref=f2e140844]: Platform mix
+          - generic [ref=f2e140845]: Where the conversation lives
+          - generic [ref=f2e140846]:
+            - generic [ref=f2e140851]: No platform data
+            - generic [ref=f2e140852]: Nothing came in on any channel in this period.
+        - generic [ref=f2e140853]:
+          - generic [ref=f2e140854]: Live feed
+          - generic [ref=f2e140855]:
+            - generic [ref=f2e140856]: Most recent activity
+            - link "Open inbox →" [ref=f2e140858] [cursor=pointer]:
+              - /url: "#"
+          - generic [ref=f2e140859]:
+            - generic [ref=f2e140864]: No activity yet
+            - generic [ref=f2e140865]: New comments, messages and reviews show up here as they arrive.
+        - generic [ref=f2e140866]:
+          - generic [ref=f2e140867]: What's driving sentiment
+          - generic [ref=f2e140868]:
+            - generic [ref=f2e140869]: Themes from this period
+            - link "All themes →" [ref=f2e140871] [cursor=pointer]:
+              - /url: "#"
+          - generic [ref=f2e140872]:
+            - generic [ref=f2e140873]:
+              - generic [ref=f2e140874]: LOVED
+              - generic [ref=f2e140877]: No themes yet
+            - generic [ref=f2e140878]:
+              - generic [ref=f2e140879]: ASKED ABOUT
+              - generic [ref=f2e140881]: No themes yet
+            - generic [ref=f2e140882]:
+              - generic [ref=f2e140883]: NEEDS WORK
+              - generic [ref=f2e140886]: No themes yet

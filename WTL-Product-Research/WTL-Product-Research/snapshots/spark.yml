@@ -1,0 +1,48 @@
+- generic [ref=f2e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [aria-hidden]: Staging · test copy
+  - generic [ref=f2e7]:
+    - complementary [ref=f2e8]:
+      - generic [ref=f2e9]:
+        - generic [ref=f2e10]: M(
+        - generic [ref=f2e11]:
+          - generic [ref=f2e12]: MDRC (scale test)
+          - generic [ref=f2e13]: 3000 locations
+      - generic [ref=f2e14]:
+        - button "Locations" [ref=f2e15] [cursor=pointer]
+        - button "Engage" [ref=f2e16] [cursor=pointer]
+        - button "Ads" [ref=f2e17] [cursor=pointer]
+      - navigation [ref=f2e18]:
+        - button "Synapse Ads" [ref=f2e142203] [cursor=pointer]
+        - button "AI Creative Studio" [ref=f2e142206] [cursor=pointer]
+        - button "SPARK" [active] [ref=f2e142211] [cursor=pointer]
+        - generic [ref=f2e142218]: Insights
+        - button "Reports" [ref=f2e142220] [cursor=pointer]
+        - generic [ref=f2e99]: Account
+        - button "User Management" [ref=f2e103] [cursor=pointer]
+        - button "Activity" [ref=f2e109] [cursor=pointer]
+        - button "Settings" [ref=f2e114] [cursor=pointer]
+        - button "Support" [ref=f2e118] [cursor=pointer]
+    - generic [ref=f2e123]:
+      - generic [ref=f2e142352]:
+        - heading "SPARK" [level=1] [ref=f2e142354]
+        - generic [ref=f2e142356]:
+          - button "Refresh" [ref=f2e142357] [cursor=pointer]
+          - generic [ref=f2e142363]:
+            - button "Soft" [ref=f2e142364] [cursor=pointer]
+            - button "Ink" [ref=f2e142371] [cursor=pointer]
+          - button "Notifications" [ref=f2e142374] [cursor=pointer]
+          - button "SM" [ref=f2e142379] [cursor=pointer]
+      - generic [ref=f2e142383]:
+        - generic [ref=f2e142384]: SPARK
+        - generic [ref=f2e142385]: Smart Personalised Ad Readiness Kit
+        - generic [ref=f2e142386]: Answer 3 quick questions and SPARK will scan your website, learn your brand and get your ads ready.
+        - generic [ref=f2e142387]:
+          - generic [ref=f2e142388]: Brand Intelligence
+          - generic [ref=f2e142399]: Audience Mapping
+          - generic [ref=f2e142406]: Product Catalogue
+          - generic [ref=f2e142412]: AI Ad Generation
+        - button "Let's Go →" [ref=f2e142416] [cursor=pointer]
+        - generic [ref=f2e142417]: Takes about 2 minutes

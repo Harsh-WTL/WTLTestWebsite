@@ -1,0 +1,615 @@
+- generic [ref=f2e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [aria-hidden]: Staging · test copy
+  - generic [ref=f2e7]:
+    - complementary [ref=f2e8]:
+      - generic [ref=f2e9]:
+        - generic [ref=f2e10]: M(
+        - generic [ref=f2e11]:
+          - generic [ref=f2e12]: MDRC (scale test)
+          - generic [ref=f2e13]: 3000 locations
+      - generic [ref=f2e14]:
+        - button "Locations" [ref=f2e15] [cursor=pointer]
+        - button "Engage" [ref=f2e16] [cursor=pointer]
+        - button "Ads" [ref=f2e17] [cursor=pointer]
+      - navigation [ref=f2e18]:
+        - button "Dashboard" [ref=f2e19] [cursor=pointer]
+        - generic [ref=f2e25]: Google
+        - button "Locations 3000" [ref=f2e31] [cursor=pointer]:
+          - text: Locations
+          - generic [ref=f2e35]: "3000"
+        - button "Reviews 20388" [ref=f2e36] [cursor=pointer]:
+          - text: Reviews
+          - generic [ref=f2e39]: "20388"
+        - button "Page Posts" [ref=f2e40] [cursor=pointer]
+        - button "AI Location Studio" [ref=f2e44] [cursor=pointer]
+        - button "Profile Guard" [ref=f2e47] [cursor=pointer]
+        - button "Not Published" [active] [ref=f2e51] [cursor=pointer]
+        - button "Support Cases" [ref=f2e55] [cursor=pointer]
+        - button "QR Codes" [ref=f2e59] [cursor=pointer]
+        - button "Data Manager" [ref=f2e66] [cursor=pointer]
+        - generic [ref=f2e71]: Meta
+        - button "Location Pages" [ref=f2e74] [cursor=pointer]
+        - button "Page Posts" [ref=f2e79] [cursor=pointer]
+        - generic [ref=f2e83]: Microsite
+        - button "Microsite" [ref=f2e87] [cursor=pointer]
+        - generic [ref=f2e93]: Insights
+        - button "Reports" [ref=f2e95] [cursor=pointer]
+        - generic [ref=f2e99]: Account
+        - button "User Management" [ref=f2e103] [cursor=pointer]
+        - button "Activity" [ref=f2e109] [cursor=pointer]
+        - button "Settings" [ref=f2e114] [cursor=pointer]
+        - button "Support" [ref=f2e118] [cursor=pointer]
+    - generic [ref=f2e123]:
+      - generic [ref=f2e58834]:
+        - heading "Not Published by Google" [level=1] [ref=f2e58836]
+        - generic [ref=f2e58837]:
+          - button "Check now" [ref=f2e58838] [cursor=pointer]
+          - button "Raise with support" [ref=f2e58844] [cursor=pointer]
+          - generic [ref=f2e58852]:
+            - button "Refresh" [ref=f2e58853] [cursor=pointer]
+            - generic [ref=f2e58859]:
+              - button "Soft" [ref=f2e58860] [cursor=pointer]
+              - button "Ink" [ref=f2e58867] [cursor=pointer]
+            - button "Notifications" [ref=f2e58870] [cursor=pointer]
+            - button "SM" [ref=f2e58875] [cursor=pointer]
+      - generic [ref=f2e58877]:
+        - generic [ref=f2e58878]:
+          - generic [ref=f2e58879]: Locations affected
+          - generic [ref=f2e58881]: "38"
+        - generic [ref=f2e58883]:
+          - generic [ref=f2e58884]: Fields not published
+          - generic [ref=f2e58886]: "38"
+        - generic [ref=f2e58888]:
+          - generic [ref=f2e58889]: Last checked
+          - generic [ref=f2e58891]: about 2 months ago
+      - generic [ref=f2e58893]:
+        - generic [ref=f2e58895]:
+          - generic [ref=f2e58896]: Changes you sent to Google, last 60 days
+          - generic [ref=f2e58897]: Each change and what Google did with it. The same status shows on the listing's page.
+        - generic [ref=f2e58900]:
+          - generic [ref=f2e58901]:
+            - generic [ref=f2e58902]: Listing
+            - generic [ref=f2e58903]: Field
+            - generic [ref=f2e58904]: You sent
+            - generic [ref=f2e58905]: Google holds
+            - generic [ref=f2e58906]: Public sees
+            - generic [ref=f2e58907]: Sent
+            - generic [ref=f2e58908]: Status
+          - generic [ref=f2e58909]:
+            - generic [ref=f2e58910]: MDRC (scale test) Bhopal Airport Road
+            - generic [ref=f2e58912]: Phone
+            - generic [ref=f2e58913]: 091707 77876
+            - generic [ref=f2e58914]: 085174 63192
+            - generic [ref=f2e58915]: 085174 63192
+            - generic [ref=f2e58916]: 2 Oct
+            - generic [ref=f2e58918]: ◷ Google is reviewing
+          - generic [ref=f2e58920]:
+            - generic [ref=f2e58921]: MDRC (scale test) Dehradun Industrial Area
+            - generic [ref=f2e58923]: Phone
+            - generic [ref=f2e58924]: 091707 77876
+            - generic [ref=f2e58925]: 090503 79580
+            - generic [ref=f2e58926]: 090503 79580
+            - generic [ref=f2e58927]: 2 Oct
+            - generic [ref=f2e58929]: ✕ Not accepted
+          - generic [ref=f2e58931]:
+            - generic [ref=f2e58932]: MDRC (scale test) Chandigarh Old City
+            - generic [ref=f2e58934]: Phone
+            - generic [ref=f2e58935]: 091707 77876
+            - generic [ref=f2e58936]: 091707 77876
+            - generic [ref=f2e58937]: 091901 50867
+            - generic [ref=f2e58938]: 2 Oct
+            - generic [ref=f2e58940]: ✓ Published
+      - generic [ref=f2e58943]:
+        - generic [ref=f2e58944]: What this means
+        - paragraph [ref=f2e58945]: Google checks every edit before it shows on Maps and Search. Some pass in minutes, some wait days, and some are declined.
+        - list [ref=f2e58946]:
+          - listitem [ref=f2e58947]: Under review means Google is still deciding. Not accepted means it declined the change.
+          - listitem [ref=f2e58948]: Do not re-edit the same field while it is under review; that restarts the clock.
+          - listitem [ref=f2e58949]: If Google reverted a value you did not send, decide in Profile Guard.
+          - listitem [ref=f2e58950]: If a field has waited more than a week, raise it with support from here.
+      - generic [ref=f2e58951]:
+        - textbox "Filter by location, field or value" [ref=f2e58954]
+        - generic [ref=f2e58957]:
+          - generic [ref=f2e58958]:
+            - generic [ref=f2e58959]: Location
+            - generic [ref=f2e58960]: Not published by Google
+            - generic [ref=f2e58961]: Since
+            - generic [ref=f2e58962]: Last checked
+            - generic [ref=f2e58963]: Support
+          - generic [ref=f2e58964]:
+            - generic [ref=f2e58966]:
+              - generic [ref=f2e58967]: MDRC (scale test) Bhopal Airport Road
+              - generic [ref=f2e58968]: Bhopal
+            - generic [ref=f2e58970]:
+              - generic [ref=f2e58971]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e58972]:
+                - generic [ref=f2e58973]: Phone numbers
+                - generic [ref=f2e58974]: 091707 77876
+                - generic [ref=f2e58975]: public sees 085174 63192
+            - generic [ref=f2e58976]: 20 Sep
+            - generic [ref=f2e58978]: about 2 months ago
+            - button "Raise" [ref=f2e58981] [cursor=pointer]
+          - generic [ref=f2e58982]:
+            - generic [ref=f2e58984]:
+              - generic [ref=f2e58985]: MDRC (scale test) Durgapur Court Road
+              - generic [ref=f2e58986]: Durgapur
+            - generic [ref=f2e58988]:
+              - generic [ref=f2e58989]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e58990]:
+                - generic [ref=f2e58991]: Phone numbers
+                - generic [ref=f2e58992]: 091707 77876
+                - generic [ref=f2e58993]: public sees 096999 81169
+            - generic [ref=f2e58994]: 20 Sep
+            - generic [ref=f2e58996]: about 2 months ago
+            - button "Raise" [ref=f2e58999] [cursor=pointer]
+          - generic [ref=f2e59000]:
+            - generic [ref=f2e59002]:
+              - generic [ref=f2e59003]: MDRC (scale test) Durgapur Railway Colony
+              - generic [ref=f2e59004]: Durgapur
+            - generic [ref=f2e59006]:
+              - generic [ref=f2e59007]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59008]:
+                - generic [ref=f2e59009]: Phone numbers
+                - generic [ref=f2e59010]: 091707 77876
+                - generic [ref=f2e59011]: public sees 097931 24095
+            - generic [ref=f2e59012]: 20 Sep
+            - generic [ref=f2e59014]: about 2 months ago
+            - button "Raise" [ref=f2e59017] [cursor=pointer]
+          - generic [ref=f2e59018]:
+            - generic [ref=f2e59020]:
+              - generic [ref=f2e59021]: MDRC (scale test) Faridabad Bypass Road
+              - generic [ref=f2e59022]: Faridabad
+            - generic [ref=f2e59024]:
+              - generic [ref=f2e59025]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59026]:
+                - generic [ref=f2e59027]: Phone numbers
+                - generic [ref=f2e59028]: 091707 77876
+                - generic [ref=f2e59029]: public sees 098258 36881
+            - generic [ref=f2e59030]: 20 Sep
+            - generic [ref=f2e59032]: about 2 months ago
+            - button "Raise" [ref=f2e59035] [cursor=pointer]
+          - generic [ref=f2e59036]:
+            - generic [ref=f2e59038]:
+              - generic [ref=f2e59039]: MDRC (scale test) Gurugram Railway Colony
+              - generic [ref=f2e59040]: Gurugram
+            - generic [ref=f2e59042]:
+              - generic [ref=f2e59043]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59044]:
+                - generic [ref=f2e59045]: Phone numbers
+                - generic [ref=f2e59046]: 091707 77876
+                - generic [ref=f2e59047]: public sees 090804 01604
+            - generic [ref=f2e59048]: 20 Sep
+            - generic [ref=f2e59050]: about 2 months ago
+            - button "Raise" [ref=f2e59053] [cursor=pointer]
+          - generic [ref=f2e59054]:
+            - generic [ref=f2e59056]:
+              - generic [ref=f2e59057]: MDRC (scale test) Guwahati Vijay Nagar
+              - generic [ref=f2e59058]: Guwahati
+            - generic [ref=f2e59060]:
+              - generic [ref=f2e59061]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59062]:
+                - generic [ref=f2e59063]: Phone numbers
+                - generic [ref=f2e59064]: 091707 77876
+                - generic [ref=f2e59065]: public sees 097702 57484
+            - generic [ref=f2e59066]: 20 Sep
+            - generic [ref=f2e59068]: about 2 months ago
+            - button "Raise" [ref=f2e59071] [cursor=pointer]
+          - generic [ref=f2e59072]:
+            - generic [ref=f2e59074]:
+              - generic [ref=f2e59075]: MDRC (scale test) Hubballi Court Road
+              - generic [ref=f2e59076]: Hubballi
+            - generic [ref=f2e59078]:
+              - generic [ref=f2e59079]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59080]:
+                - generic [ref=f2e59081]: Phone numbers
+                - generic [ref=f2e59082]: 091707 77876
+                - generic [ref=f2e59083]: public sees 096873 63183
+            - generic [ref=f2e59084]: 20 Sep
+            - generic [ref=f2e59086]: about 2 months ago
+            - button "Raise" [ref=f2e59089] [cursor=pointer]
+          - generic [ref=f2e59090]:
+            - generic [ref=f2e59092]:
+              - generic [ref=f2e59093]: MDRC (scale test) Indore Vijay Nagar
+              - generic [ref=f2e59094]: Indore
+            - generic [ref=f2e59096]:
+              - generic [ref=f2e59097]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59098]:
+                - generic [ref=f2e59099]: Phone numbers
+                - generic [ref=f2e59100]: 091707 77876
+                - generic [ref=f2e59101]: public sees 085520 82054
+            - generic [ref=f2e59102]: 20 Sep
+            - generic [ref=f2e59104]: about 2 months ago
+            - button "Raise" [ref=f2e59107] [cursor=pointer]
+          - generic [ref=f2e59108]:
+            - generic [ref=f2e59110]:
+              - generic [ref=f2e59111]: MDRC (scale test) Jabalpur Gandhi Nagar
+              - generic [ref=f2e59112]: Jabalpur
+            - generic [ref=f2e59114]:
+              - generic [ref=f2e59115]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59116]:
+                - generic [ref=f2e59117]: Phone numbers
+                - generic [ref=f2e59118]: 091707 77876
+                - generic [ref=f2e59119]: public sees 094951 66305
+            - generic [ref=f2e59120]: 20 Sep
+            - generic [ref=f2e59122]: about 2 months ago
+            - button "Raise" [ref=f2e59125] [cursor=pointer]
+          - generic [ref=f2e59126]:
+            - generic [ref=f2e59128]:
+              - generic [ref=f2e59129]: MDRC (scale test) Jabalpur Gandhi Nagar 2
+              - generic [ref=f2e59130]: Jabalpur
+            - generic [ref=f2e59132]:
+              - generic [ref=f2e59133]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59134]:
+                - generic [ref=f2e59135]: Phone numbers
+                - generic [ref=f2e59136]: 091707 77876
+                - generic [ref=f2e59137]: public sees 091881 14531
+            - generic [ref=f2e59138]: 20 Sep
+            - generic [ref=f2e59140]: about 2 months ago
+            - button "Raise" [ref=f2e59143] [cursor=pointer]
+          - generic [ref=f2e59144]:
+            - generic [ref=f2e59146]:
+              - generic [ref=f2e59147]: MDRC (scale test) Jalandhar Lakeview
+              - generic [ref=f2e59148]: Jalandhar
+            - generic [ref=f2e59150]:
+              - generic [ref=f2e59151]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59152]:
+                - generic [ref=f2e59153]: Phone numbers
+                - generic [ref=f2e59154]: 091707 77876
+                - generic [ref=f2e59155]: public sees 091393 33421
+            - generic [ref=f2e59156]: 20 Sep
+            - generic [ref=f2e59158]: about 2 months ago
+            - button "Raise" [ref=f2e59161] [cursor=pointer]
+          - generic [ref=f2e59162]:
+            - generic [ref=f2e59164]:
+              - generic [ref=f2e59165]: MDRC (scale test) Jalandhar University Road
+              - generic [ref=f2e59166]: Jalandhar
+            - generic [ref=f2e59168]:
+              - generic [ref=f2e59169]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59170]:
+                - generic [ref=f2e59171]: Phone numbers
+                - generic [ref=f2e59172]: 091707 77876
+                - generic [ref=f2e59173]: public sees 088049 16467
+            - generic [ref=f2e59174]: 20 Sep
+            - generic [ref=f2e59176]: about 2 months ago
+            - button "Raise" [ref=f2e59179] [cursor=pointer]
+          - generic [ref=f2e59180]:
+            - generic [ref=f2e59182]:
+              - generic [ref=f2e59183]: MDRC (scale test) Jodhpur Main Market
+              - generic [ref=f2e59184]: Jodhpur
+            - generic [ref=f2e59186]:
+              - generic [ref=f2e59187]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59188]:
+                - generic [ref=f2e59189]: Phone numbers
+                - generic [ref=f2e59190]: 091707 77876
+                - generic [ref=f2e59191]: public sees 085795 19845
+            - generic [ref=f2e59192]: 20 Sep
+            - generic [ref=f2e59194]: about 2 months ago
+            - button "Raise" [ref=f2e59197] [cursor=pointer]
+          - generic [ref=f2e59198]:
+            - generic [ref=f2e59200]:
+              - generic [ref=f2e59201]: MDRC (scale test) Kanpur Airport Road
+              - generic [ref=f2e59202]: Kanpur
+            - generic [ref=f2e59204]:
+              - generic [ref=f2e59205]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59206]:
+                - generic [ref=f2e59207]: Phone numbers
+                - generic [ref=f2e59208]: 091707 77876
+                - generic [ref=f2e59209]: public sees 088110 31237
+            - generic [ref=f2e59210]: 20 Sep
+            - generic [ref=f2e59212]: about 2 months ago
+            - button "Raise" [ref=f2e59215] [cursor=pointer]
+          - generic [ref=f2e59216]:
+            - generic [ref=f2e59218]:
+              - generic [ref=f2e59219]: MDRC (scale test) Karnal Shastri Nagar
+              - generic [ref=f2e59220]: Karnal
+            - generic [ref=f2e59222]:
+              - generic [ref=f2e59223]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59224]:
+                - generic [ref=f2e59225]: Phone numbers
+                - generic [ref=f2e59226]: 091707 77876
+                - generic [ref=f2e59227]: public sees 096729 95278
+            - generic [ref=f2e59228]: 20 Sep
+            - generic [ref=f2e59230]: about 2 months ago
+            - button "Raise" [ref=f2e59233] [cursor=pointer]
+          - generic [ref=f2e59234]:
+            - generic [ref=f2e59236]:
+              - generic [ref=f2e59237]: MDRC (scale test) Kochi University Road
+              - generic [ref=f2e59238]: Kochi
+            - generic [ref=f2e59240]:
+              - generic [ref=f2e59241]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59242]:
+                - generic [ref=f2e59243]: Phone numbers
+                - generic [ref=f2e59244]: 091707 77876
+                - generic [ref=f2e59245]: public sees 098870 14650
+            - generic [ref=f2e59246]: 20 Sep
+            - generic [ref=f2e59248]: about 2 months ago
+            - button "Raise" [ref=f2e59251] [cursor=pointer]
+          - generic [ref=f2e59252]:
+            - generic [ref=f2e59254]:
+              - generic [ref=f2e59255]: MDRC (scale test) Kochi University Road 2
+              - generic [ref=f2e59256]: Kochi
+            - generic [ref=f2e59258]:
+              - generic [ref=f2e59259]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59260]:
+                - generic [ref=f2e59261]: Phone numbers
+                - generic [ref=f2e59262]: 091707 77876
+                - generic [ref=f2e59263]: public sees 095818 56849
+            - generic [ref=f2e59264]: 20 Sep
+            - generic [ref=f2e59266]: about 2 months ago
+            - button "Raise" [ref=f2e59269] [cursor=pointer]
+          - generic [ref=f2e59270]:
+            - generic [ref=f2e59272]:
+              - generic [ref=f2e59273]: MDRC (scale test) Kota Airport Road
+              - generic [ref=f2e59274]: Kota
+            - generic [ref=f2e59276]:
+              - generic [ref=f2e59277]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59278]:
+                - generic [ref=f2e59279]: Phone numbers
+                - generic [ref=f2e59280]: 091707 77876
+                - generic [ref=f2e59281]: public sees 094715 02542
+            - generic [ref=f2e59282]: 20 Sep
+            - generic [ref=f2e59284]: about 2 months ago
+            - button "Raise" [ref=f2e59287] [cursor=pointer]
+          - generic [ref=f2e59288]:
+            - generic [ref=f2e59290]:
+              - generic [ref=f2e59291]: MDRC (scale test) Kota Court Road
+              - generic [ref=f2e59292]: Kota
+            - generic [ref=f2e59294]:
+              - generic [ref=f2e59295]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59296]:
+                - generic [ref=f2e59297]: Phone numbers
+                - generic [ref=f2e59298]: 091707 77876
+                - generic [ref=f2e59299]: public sees 088830 97718
+            - generic [ref=f2e59300]: 20 Sep
+            - generic [ref=f2e59302]: about 2 months ago
+            - button "Raise" [ref=f2e59305] [cursor=pointer]
+          - generic [ref=f2e59306]:
+            - generic [ref=f2e59308]:
+              - generic [ref=f2e59309]: MDRC (scale test) Lucknow Green Park
+              - generic [ref=f2e59310]: Lucknow
+            - generic [ref=f2e59312]:
+              - generic [ref=f2e59313]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59314]:
+                - generic [ref=f2e59315]: Phone numbers
+                - generic [ref=f2e59316]: 091707 77876
+                - generic [ref=f2e59317]: public sees 090306 44680
+            - generic [ref=f2e59318]: 20 Sep
+            - generic [ref=f2e59320]: about 2 months ago
+            - button "Raise" [ref=f2e59323] [cursor=pointer]
+          - generic [ref=f2e59324]:
+            - generic [ref=f2e59326]:
+              - generic [ref=f2e59327]: MDRC (scale test) Lucknow Sector 14
+              - generic [ref=f2e59328]: Lucknow
+            - generic [ref=f2e59330]:
+              - generic [ref=f2e59331]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59332]:
+                - generic [ref=f2e59333]: Phone numbers
+                - generic [ref=f2e59334]: 091707 77876
+                - generic [ref=f2e59335]: public sees 094460 36292
+            - generic [ref=f2e59336]: 20 Sep
+            - generic [ref=f2e59338]: about 2 months ago
+            - button "Raise" [ref=f2e59341] [cursor=pointer]
+          - generic [ref=f2e59342]:
+            - generic [ref=f2e59344]:
+              - generic [ref=f2e59345]: MDRC (scale test) Ludhiana Model Town
+              - generic [ref=f2e59346]: Ludhiana
+            - generic [ref=f2e59348]:
+              - generic [ref=f2e59349]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59350]:
+                - generic [ref=f2e59351]: Phone numbers
+                - generic [ref=f2e59352]: 091707 77876
+                - generic [ref=f2e59353]: public sees 094926 38289
+            - generic [ref=f2e59354]: 20 Sep
+            - generic [ref=f2e59356]: about 2 months ago
+            - button "Raise" [ref=f2e59359] [cursor=pointer]
+          - generic [ref=f2e59360]:
+            - generic [ref=f2e59362]:
+              - generic [ref=f2e59363]: MDRC (scale test) Madurai Ashok Nagar
+              - generic [ref=f2e59364]: Madurai
+            - generic [ref=f2e59366]:
+              - generic [ref=f2e59367]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59368]:
+                - generic [ref=f2e59369]: Phone numbers
+                - generic [ref=f2e59370]: 091707 77876
+                - generic [ref=f2e59371]: public sees 085781 05518
+            - generic [ref=f2e59372]: 20 Sep
+            - generic [ref=f2e59374]: about 2 months ago
+            - button "Raise" [ref=f2e59377] [cursor=pointer]
+          - generic [ref=f2e59378]:
+            - generic [ref=f2e59380]:
+              - generic [ref=f2e59381]: MDRC (scale test) Mangaluru Green Park
+              - generic [ref=f2e59382]: Mangaluru
+            - generic [ref=f2e59384]:
+              - generic [ref=f2e59385]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59386]:
+                - generic [ref=f2e59387]: Phone numbers
+                - generic [ref=f2e59388]: 091707 77876
+                - generic [ref=f2e59389]: public sees 093941 83668
+            - generic [ref=f2e59390]: 20 Sep
+            - generic [ref=f2e59392]: about 2 months ago
+            - button "Raise" [ref=f2e59395] [cursor=pointer]
+          - generic [ref=f2e59396]:
+            - generic [ref=f2e59398]:
+              - generic [ref=f2e59399]: MDRC (scale test) Mangaluru Patel Nagar
+              - generic [ref=f2e59400]: Mangaluru
+            - generic [ref=f2e59402]:
+              - generic [ref=f2e59403]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59404]:
+                - generic [ref=f2e59405]: Phone numbers
+                - generic [ref=f2e59406]: 091707 77876
+                - generic [ref=f2e59407]: public sees 085776 16700
+            - generic [ref=f2e59408]: 20 Sep
+            - generic [ref=f2e59410]: about 2 months ago
+            - button "Raise" [ref=f2e59413] [cursor=pointer]
+          - generic [ref=f2e59414]:
+            - generic [ref=f2e59416]:
+              - generic [ref=f2e59417]: MDRC (scale test) Nashik Cantonment
+              - generic [ref=f2e59418]: Nashik
+            - generic [ref=f2e59420]:
+              - generic [ref=f2e59421]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59422]:
+                - generic [ref=f2e59423]: Phone numbers
+                - generic [ref=f2e59424]: 091707 77876
+                - generic [ref=f2e59425]: public sees 093330 33214
+            - generic [ref=f2e59426]: 20 Sep
+            - generic [ref=f2e59428]: about 2 months ago
+            - button "Raise" [ref=f2e59431] [cursor=pointer]
+          - generic [ref=f2e59432]:
+            - generic [ref=f2e59434]:
+              - generic [ref=f2e59435]: MDRC (scale test) Noida Vijay Nagar
+              - generic [ref=f2e59436]: Noida
+            - generic [ref=f2e59438]:
+              - generic [ref=f2e59439]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59440]:
+                - generic [ref=f2e59441]: Phone numbers
+                - generic [ref=f2e59442]: 091707 77876
+                - generic [ref=f2e59443]: public sees 085265 72453
+            - generic [ref=f2e59444]: 20 Sep
+            - generic [ref=f2e59446]: about 2 months ago
+            - button "Raise" [ref=f2e59449] [cursor=pointer]
+          - generic [ref=f2e59450]:
+            - generic [ref=f2e59452]:
+              - generic [ref=f2e59453]: MDRC (scale test) Panipat Bus Stand Road
+              - generic [ref=f2e59454]: Panipat
+            - generic [ref=f2e59456]:
+              - generic [ref=f2e59457]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59458]:
+                - generic [ref=f2e59459]: Phone numbers
+                - generic [ref=f2e59460]: 091707 77876
+                - generic [ref=f2e59461]: public sees 085836 26646
+            - generic [ref=f2e59462]: 20 Sep
+            - generic [ref=f2e59464]: about 2 months ago
+            - button "Raise" [ref=f2e59467] [cursor=pointer]
+          - generic [ref=f2e59468]:
+            - generic [ref=f2e59470]:
+              - generic [ref=f2e59471]: MDRC (scale test) Ranchi Model Town
+              - generic [ref=f2e59472]: Ranchi
+            - generic [ref=f2e59474]:
+              - generic [ref=f2e59475]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59476]:
+                - generic [ref=f2e59477]: Phone numbers
+                - generic [ref=f2e59478]: 091707 77876
+                - generic [ref=f2e59479]: public sees 085146 79381
+            - generic [ref=f2e59480]: 20 Sep
+            - generic [ref=f2e59482]: about 2 months ago
+            - button "Raise" [ref=f2e59485] [cursor=pointer]
+          - generic [ref=f2e59486]:
+            - generic [ref=f2e59488]:
+              - generic [ref=f2e59489]: MDRC (scale test) Srinagar Civil Lines
+              - generic [ref=f2e59490]: Srinagar
+            - generic [ref=f2e59492]:
+              - generic [ref=f2e59493]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59494]:
+                - generic [ref=f2e59495]: Phone numbers
+                - generic [ref=f2e59496]: 091707 77876
+                - generic [ref=f2e59497]: public sees 095735 99685
+            - generic [ref=f2e59498]: 20 Sep
+            - generic [ref=f2e59500]: about 2 months ago
+            - button "Raise" [ref=f2e59503] [cursor=pointer]
+          - generic [ref=f2e59504]:
+            - generic [ref=f2e59506]:
+              - generic [ref=f2e59507]: MDRC (scale test) Srinagar Tilak Nagar
+              - generic [ref=f2e59508]: Srinagar
+            - generic [ref=f2e59510]:
+              - generic [ref=f2e59511]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59512]:
+                - generic [ref=f2e59513]: Phone numbers
+                - generic [ref=f2e59514]: 091707 77876
+                - generic [ref=f2e59515]: public sees 085137 17512
+            - generic [ref=f2e59516]: 20 Sep
+            - generic [ref=f2e59518]: about 2 months ago
+            - button "Raise" [ref=f2e59521] [cursor=pointer]
+          - generic [ref=f2e59522]:
+            - generic [ref=f2e59524]:
+              - generic [ref=f2e59525]: MDRC (scale test) Thiruvananthapuram Cantonment
+              - generic [ref=f2e59526]: Thiruvananthapuram
+            - generic [ref=f2e59528]:
+              - generic [ref=f2e59529]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59530]:
+                - generic [ref=f2e59531]: Phone numbers
+                - generic [ref=f2e59532]: 091707 77876
+                - generic [ref=f2e59533]: public sees 088091 61568
+            - generic [ref=f2e59534]: 20 Sep
+            - generic [ref=f2e59536]: about 2 months ago
+            - button "Raise" [ref=f2e59539] [cursor=pointer]
+          - generic [ref=f2e59540]:
+            - generic [ref=f2e59542]:
+              - generic [ref=f2e59543]: MDRC (scale test) Thiruvananthapuram Mall Road
+              - generic [ref=f2e59544]: Thiruvananthapuram
+            - generic [ref=f2e59546]:
+              - generic [ref=f2e59547]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59548]:
+                - generic [ref=f2e59549]: Phone numbers
+                - generic [ref=f2e59550]: 091707 77876
+                - generic [ref=f2e59551]: public sees 094699 73305
+            - generic [ref=f2e59552]: 20 Sep
+            - generic [ref=f2e59554]: about 2 months ago
+            - button "Raise" [ref=f2e59557] [cursor=pointer]
+          - generic [ref=f2e59558]:
+            - generic [ref=f2e59560]:
+              - generic [ref=f2e59561]: MDRC (scale test) Udaipur Gandhi Nagar
+              - generic [ref=f2e59562]: Udaipur
+            - generic [ref=f2e59564]:
+              - generic [ref=f2e59565]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59566]:
+                - generic [ref=f2e59567]: Phone numbers
+                - generic [ref=f2e59568]: 091707 77876
+                - generic [ref=f2e59569]: public sees 096353 82611
+            - generic [ref=f2e59570]: 20 Sep
+            - generic [ref=f2e59572]: about 2 months ago
+            - button "Raise" [ref=f2e59575] [cursor=pointer]
+          - generic [ref=f2e59576]:
+            - generic [ref=f2e59578]:
+              - generic [ref=f2e59579]: MDRC (scale test) Udaipur MG Road
+              - generic [ref=f2e59580]: Udaipur
+            - generic [ref=f2e59582]:
+              - generic [ref=f2e59583]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59584]:
+                - generic [ref=f2e59585]: Phone numbers
+                - generic [ref=f2e59586]: 091707 77876
+                - generic [ref=f2e59587]: public sees 095824 01061
+            - generic [ref=f2e59588]: 20 Sep
+            - generic [ref=f2e59590]: about 2 months ago
+            - button "Raise" [ref=f2e59593] [cursor=pointer]
+          - generic [ref=f2e59594]:
+            - generic [ref=f2e59596]:
+              - generic [ref=f2e59597]: MDRC (scale test) Vadodara Bypass Road
+              - generic [ref=f2e59598]: Vadodara
+            - generic [ref=f2e59600]:
+              - generic [ref=f2e59601]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59602]:
+                - generic [ref=f2e59603]: Phone numbers
+                - generic [ref=f2e59604]: 091707 77876
+                - generic [ref=f2e59605]: public sees 096361 77819
+            - generic [ref=f2e59606]: 20 Sep
+            - generic [ref=f2e59608]: about 2 months ago
+            - button "Raise" [ref=f2e59611] [cursor=pointer]
+          - generic [ref=f2e59612]:
+            - generic [ref=f2e59614]:
+              - generic [ref=f2e59615]: MDRC (scale test) Visakhapatnam Nehru Place
+              - generic [ref=f2e59616]: Visakhapatnam
+            - generic [ref=f2e59618]:
+              - generic [ref=f2e59619]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59620]:
+                - generic [ref=f2e59621]: Phone numbers
+                - generic [ref=f2e59622]: 091707 77876
+                - generic [ref=f2e59623]: public sees 090366 89549
+            - generic [ref=f2e59624]: 20 Sep
+            - generic [ref=f2e59626]: about 2 months ago
+            - button "Raise" [ref=f2e59629] [cursor=pointer]
+          - generic [ref=f2e59630]:
+            - generic [ref=f2e59632]:
+              - generic [ref=f2e59633]: MDRC (scale test) Visakhapatnam Rajendra Nagar
+              - generic [ref=f2e59634]: Visakhapatnam
+            - generic [ref=f2e59636]:
+              - generic [ref=f2e59637]: "Likely declined: unpublished for over 7 days while the public sees a different value. Google never says so outright. Change the detail to the public value, or to one Google accepts, and this row clears."
+              - generic [ref=f2e59638]:
+                - generic [ref=f2e59639]: Phone numbers
+                - generic [ref=f2e59640]: 091707 77876
+                - generic [ref=f2e59641]: public sees 085967 82165
+            - generic [ref=f2e59642]: 20 Sep
+            - generic [ref=f2e59644]: about 2 months ago
+            - button "Raise" [ref=f2e59647] [cursor=pointer]

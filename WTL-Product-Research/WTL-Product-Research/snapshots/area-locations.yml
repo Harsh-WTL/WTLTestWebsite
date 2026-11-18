@@ -1,0 +1,108 @@
+- generic [ref=f2e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [aria-hidden]: Staging · test copy
+  - generic [ref=f2e7]:
+    - complementary [ref=f2e8]:
+      - generic [ref=f2e9]:
+        - generic [ref=f2e10]: M(
+        - generic [ref=f2e11]:
+          - generic [ref=f2e12]: MDRC (scale test)
+          - generic [ref=f2e13]: 3000 locations
+      - generic [ref=f2e14]:
+        - button "Locations" [active] [ref=f2e15] [cursor=pointer]
+        - button "Engage" [ref=f2e16] [cursor=pointer]
+        - button "Ads" [ref=f2e17] [cursor=pointer]
+      - navigation [ref=f2e18]:
+        - button "Dashboard" [ref=f2e19] [cursor=pointer]
+        - generic [ref=f2e25]: Google
+        - button "Locations 3000" [ref=f2e31] [cursor=pointer]:
+          - text: Locations
+          - generic [ref=f2e35]: "3000"
+        - button "Reviews 20388" [ref=f2e36] [cursor=pointer]:
+          - text: Reviews
+          - generic [ref=f2e39]: "20388"
+        - button "Page Posts" [ref=f2e40] [cursor=pointer]
+        - button "AI Location Studio" [ref=f2e44] [cursor=pointer]
+        - button "Profile Guard" [ref=f2e47] [cursor=pointer]
+        - button "Not Published" [ref=f2e51] [cursor=pointer]
+        - button "Support Cases" [ref=f2e55] [cursor=pointer]
+        - button "QR Codes" [ref=f2e59] [cursor=pointer]
+        - button "Data Manager" [ref=f2e66] [cursor=pointer]
+        - generic [ref=f2e71]: Meta
+        - button "Location Pages" [ref=f2e74] [cursor=pointer]
+        - button "Page Posts" [ref=f2e79] [cursor=pointer]
+        - generic [ref=f2e83]: Microsite
+        - button "Microsite" [ref=f2e87] [cursor=pointer]
+        - generic [ref=f2e93]: Insights
+        - button "Reports" [ref=f2e95] [cursor=pointer]
+        - generic [ref=f2e99]: Account
+        - button "User Management" [ref=f2e103] [cursor=pointer]
+        - button "Activity" [ref=f2e109] [cursor=pointer]
+        - button "Settings" [ref=f2e114] [cursor=pointer]
+        - button "Support" [ref=f2e118] [cursor=pointer]
+    - generic [ref=f2e123]:
+      - generic [ref=f2e140580]:
+        - heading "Support" [level=1] [ref=f2e140582]
+        - generic [ref=f2e140583]:
+          - button "New Ticket" [ref=f2e140584] [cursor=pointer]
+          - generic [ref=f2e140586]:
+            - button "Refresh" [ref=f2e140587] [cursor=pointer]
+            - generic [ref=f2e140593]:
+              - button "Soft" [ref=f2e140594] [cursor=pointer]
+              - button "Ink" [ref=f2e140601] [cursor=pointer]
+            - button "Notifications" [ref=f2e140604] [cursor=pointer]
+            - button "SM" [ref=f2e140609] [cursor=pointer]
+      - generic [ref=f2e140611]:
+        - generic [ref=f2e140612]:
+          - generic [ref=f2e140613] [cursor=pointer]:
+            - generic [ref=f2e140614]: "Not published by Google: MDRC (scale test) Bhubaneswar Railway Colony"
+            - generic [ref=f2e140615]:
+              - generic [ref=f2e140616]: Google Listing · Sep 27, 2026
+              - generic [ref=f2e140617]: normal
+              - generic [ref=f2e140618]: In Progress
+          - generic [ref=f2e140619] [cursor=pointer]:
+            - generic [ref=f2e140620]: "Not published by Google: MDRC (scale test) Meerut Patel Nagar"
+            - generic [ref=f2e140621]:
+              - generic [ref=f2e140622]: Google Listing · Sep 27, 2026
+              - generic [ref=f2e140623]: normal
+              - generic [ref=f2e140624]: In Progress
+          - generic [ref=f2e140625] [cursor=pointer]:
+            - generic [ref=f2e140626]: "Not published by Google: MDRC (scale test) Udaipur Ring Road"
+            - generic [ref=f2e140627]:
+              - generic [ref=f2e140628]: Google Listing · Sep 25, 2026
+              - generic [ref=f2e140629]: normal
+              - generic [ref=f2e140630]: Open
+          - generic [ref=f2e140631] [cursor=pointer]:
+            - generic [ref=f2e140632]: "Not published by Google: MDRC (scale test) Lucknow Green Park"
+            - generic [ref=f2e140633]:
+              - generic [ref=f2e140634]: Google Listing · Sep 25, 2026
+              - generic [ref=f2e140635]: normal
+              - generic [ref=f2e140636]: Open
+          - generic [ref=f2e140637] [cursor=pointer]:
+            - generic [ref=f2e140638]: "Not published by Google: MDRC (scale test) Srinagar Civil Lines"
+            - generic [ref=f2e140639]:
+              - generic [ref=f2e140640]: Google Listing · Sep 24, 2026
+              - generic [ref=f2e140641]: normal
+              - generic [ref=f2e140642]: Open
+          - generic [ref=f2e140643] [cursor=pointer]:
+            - generic [ref=f2e140644]: "Not published by Google: MDRC (scale test) Srinagar Tilak Nagar"
+            - generic [ref=f2e140645]:
+              - generic [ref=f2e140646]: Google Listing · Sep 20, 2026
+              - generic [ref=f2e140647]: normal
+              - generic [ref=f2e140648]: In Progress
+        - generic [ref=f2e140650]:
+          - generic [ref=f2e140652]:
+            - generic [ref=f2e140653]: "Not published by Google: MDRC (scale test) Bhubaneswar Railway Colony"
+            - generic [ref=f2e140654]:
+              - generic [ref=f2e140655]: Google Listing
+              - generic [ref=f2e140656]: normal
+              - generic [ref=f2e140657]: In Progress
+          - paragraph [ref=f2e140658]: Phone number held by Google since 9 days. Please take it up with Google Business Profile support.
+          - generic [ref=f2e140660]: No messages yet. Start the conversation below.
+          - generic [ref=f2e140662]:
+            - generic [ref=f2e140663]:
+              - textbox "Type your message..." [ref=f2e140664]
+              - button "Send" [disabled] [ref=f2e140665] [cursor=pointer]
+            - generic [ref=f2e140669]: Ctrl/⌘ + Enter sends

@@ -1,0 +1,807 @@
+- generic [ref=e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [aria-hidden]: Staging · test copy
+  - generic [ref=e41]:
+    - complementary [ref=e42]:
+      - generic [ref=e43]:
+        - generic [ref=e44]: M(
+        - generic [ref=e45]:
+          - generic [ref=e46]: MDRC (scale test)
+          - generic [ref=e47]: 3000 locations
+      - generic [ref=e48]:
+        - button "Locations" [ref=e49] [cursor=pointer]
+        - button "Engage" [ref=e50] [cursor=pointer]
+        - button "Ads" [ref=e51] [cursor=pointer]
+      - navigation [ref=e52]:
+        - button "Dashboard" [ref=e53] [cursor=pointer]
+        - generic [ref=e59]: Google
+        - button "Locations 3000" [active] [ref=e65] [cursor=pointer]:
+          - text: Locations
+          - generic [ref=e69]: "3000"
+        - button "Reviews 20388" [ref=e70] [cursor=pointer]:
+          - text: Reviews
+          - generic [ref=e73]: "20388"
+        - button "Page Posts" [ref=e74] [cursor=pointer]
+        - button "AI Location Studio" [ref=e78] [cursor=pointer]
+        - button "Profile Guard" [ref=e81] [cursor=pointer]
+        - button "Not Published" [ref=e85] [cursor=pointer]
+        - button "Support Cases" [ref=e89] [cursor=pointer]
+        - button "QR Codes" [ref=e93] [cursor=pointer]
+        - button "Data Manager" [ref=e100] [cursor=pointer]
+        - generic [ref=e105]: Meta
+        - button "Location Pages" [ref=e108] [cursor=pointer]
+        - button "Page Posts" [ref=e113] [cursor=pointer]
+        - generic [ref=e117]: Microsite
+        - button "Microsite" [ref=e121] [cursor=pointer]
+        - generic [ref=e127]: Insights
+        - button "Reports" [ref=e129] [cursor=pointer]
+        - generic [ref=e133]: Account
+        - button "User Management" [ref=e137] [cursor=pointer]
+        - button "Activity" [ref=e143] [cursor=pointer]
+        - button "Settings" [ref=e148] [cursor=pointer]
+        - button "Support" [ref=e152] [cursor=pointer]
+    - generic [ref=e157]:
+      - generic [ref=e791]:
+        - heading "Google Locations" [level=1] [ref=e793]
+        - generic [ref=e794]:
+          - button "Export CSV" [ref=e795] [cursor=pointer]
+          - generic [ref=e799]:
+            - button "Refresh" [ref=e800] [cursor=pointer]
+            - generic [ref=e806]:
+              - button "Soft" [ref=e807] [cursor=pointer]
+              - button "Ink" [ref=e814] [cursor=pointer]
+            - button "Notifications" [ref=e817] [cursor=pointer]
+            - button "SM" [ref=e822] [cursor=pointer]
+      - generic [ref=e824]:
+        - generic [ref=e825]:
+          - generic [ref=e826]: Total locations
+          - generic [ref=e828]: 3,000
+        - generic [ref=e830]:
+          - generic [ref=e831]: Verified
+          - generic [ref=e833]: "0"
+        - generic [ref=e835]:
+          - generic [ref=e836]: Pending
+          - generic [ref=e838]: "184"
+        - generic [ref=e840]:
+          - generic [ref=e841]: Unverified
+          - generic [ref=e843]: 2,816
+          - generic [ref=e845]: ▼ needs action
+        - generic [ref=e847]:
+          - generic [ref=e848]: Avg health
+          - generic [ref=e850]:
+            - generic [ref=e851]: "63"
+            - generic [ref=e852]: "%"
+      - generic [ref=e857]:
+        - textbox "Search by name, city, ID…" [ref=e859]
+        - combobox [ref=e860] [cursor=pointer]:
+          - option "All status" [selected]
+          - option "Verified"
+          - option "Pending"
+          - option "Unverified"
+          - option "Duplicate"
+          - option "Suspended"
+        - combobox [ref=e861] [cursor=pointer]:
+          - option "All cities" [selected]
+          - option "Agra"
+          - option "Ahmedabad"
+          - option "Amritsar"
+          - option "Aurangabad"
+          - option "Bengaluru"
+          - option "Bhopal"
+          - option "Bhubaneswar"
+          - option "Chandigarh"
+          - option "Chennai"
+          - option "Coimbatore"
+          - option "Dehradun"
+          - option "Delhi"
+          - option "Durgapur"
+          - option "Faridabad"
+          - option "Ghaziabad"
+          - option "Goa"
+          - option "Gurugram"
+          - option "Guwahati"
+          - option "Gwalior"
+          - option "Hubballi"
+          - option "Hyderabad"
+          - option "Indore"
+          - option "Jabalpur"
+          - option "Jaipur"
+          - option "Jalandhar"
+          - option "Jammu"
+          - option "Jodhpur"
+          - option "Kanpur"
+          - option "Karnal"
+          - option "Kochi"
+          - option "Kolkata"
+          - option "Kota"
+          - option "Lucknow"
+          - option "Ludhiana"
+          - option "Madurai"
+          - option "Mangaluru"
+          - option "Meerut"
+          - option "Mumbai"
+          - option "Mysuru"
+          - option "Nagpur"
+          - option "Nashik"
+          - option "Noida"
+          - option "Panipat"
+          - option "Patna"
+          - option "Pune"
+          - option "Raipur"
+          - option "Rajkot"
+          - option "Ranchi"
+          - option "Salem"
+          - option "Shimla"
+          - option "Siliguri"
+          - option "Srinagar"
+          - option "Surat"
+          - option "Thiruvananthapuram"
+          - option "Tiruchirappalli"
+          - option "Udaipur"
+          - option "Vadodara"
+          - option "Varanasi"
+          - option "Vijayawada"
+          - option "Visakhapatnam"
+        - combobox [ref=e862] [cursor=pointer]:
+          - option "All states" [selected]
+          - option "Andhra Pradesh"
+          - option "Assam"
+          - option "Bihar"
+          - option "Chandigarh"
+          - option "Chhattisgarh"
+          - option "Delhi"
+          - option "Goa"
+          - option "Gujarat"
+          - option "Haryana"
+          - option "Himachal Pradesh"
+          - option "Jammu and Kashmir"
+          - option "Jharkhand"
+          - option "Karnataka"
+          - option "Kerala"
+          - option "Madhya Pradesh"
+          - option "Maharashtra"
+          - option "Odisha"
+          - option "Punjab"
+          - option "Rajasthan"
+          - option "Tamil Nadu"
+          - option "Telangana"
+          - option "Uttar Pradesh"
+          - option "Uttarakhand"
+          - option "West Bengal"
+        - combobox [ref=e863] [cursor=pointer]:
+          - option "All zones" [selected]
+          - option "North"
+          - option "South"
+          - option "East"
+          - option "West"
+        - combobox [ref=e864] [cursor=pointer]:
+          - option "All accounts" [selected]
+          - option "[SCALE] MDRC North"
+          - option "[SCALE] MDRC South"
+          - option "[SCALE] MDRC East & West"
+        - generic [ref=e865]:
+          - button "Grid" [ref=e866] [cursor=pointer]
+          - button "List" [ref=e872] [cursor=pointer]
+      - generic [ref=e875]:
+        - generic [ref=e877]:
+          - generic [ref=e878]:
+            - checkbox "Select all on this page" [ref=e880] [cursor=pointer]
+            - generic [ref=e881] [cursor=pointer]: Store code
+            - generic [ref=e882] [cursor=pointer]: Location name
+            - generic [ref=e883] [cursor=pointer]: City
+            - generic [ref=e884] [cursor=pointer]: Zone
+            - generic [ref=e885] [cursor=pointer]: Status
+            - generic [ref=e886] [cursor=pointer]: Rating
+            - generic [ref=e887] [cursor=pointer]: Health
+          - generic [ref=e888] [cursor=pointer]:
+            - checkbox "Select location" [ref=e890]
+            - generic "WTL ID WTL-L-1678" [ref=e892]: MDRC-S-03841
+            - generic [ref=e893]:
+              - generic [ref=e894]: MDRC (scale test) Bhopal Court Road 10
+              - generic [ref=e895]: 210, Court Road
+            - generic [ref=e896]: Bhopal
+            - generic [ref=e897]: West
+            - generic [ref=e898]: ✓ Verified
+            - generic [ref=e900]: —
+            - generic [ref=e901]: 63%
+            - button "More" [ref=e907]: ⋯
+          - generic [ref=e908] [cursor=pointer]:
+            - checkbox "Select location" [ref=e910]
+            - generic "WTL ID WTL-L-1546" [ref=e912]: MDRC-S-02522
+            - generic [ref=e913]:
+              - generic [ref=e914]: MDRC (scale test) Delhi Rajendra Nagar 5
+              - generic [ref=e915]: 82, Rajendra Nagar
+            - generic [ref=e916]: Delhi
+            - generic [ref=e917]: North
+            - generic [ref=e918]: ◷ Pending
+            - generic [ref=e920]: —
+            - generic [ref=e921]: 63%
+            - button "More" [ref=e927]: ⋯
+          - generic [ref=e928] [cursor=pointer]:
+            - checkbox "Select location" [ref=e930]
+            - generic "WTL ID WTL-L-1560" [ref=e932]: MDRC-S-02657
+            - generic [ref=e933]:
+              - generic [ref=e934]: MDRC (scale test) Hyderabad Nehru Place 6
+              - generic [ref=e935]: 110, Nehru Place
+            - generic [ref=e936]: Hyderabad
+            - generic [ref=e937]: South
+            - generic [ref=e938]: ✓ Verified
+            - generic [ref=e940]: —
+            - generic [ref=e941]: 63%
+            - button "More" [ref=e947]: ⋯
+          - generic [ref=e948] [cursor=pointer]:
+            - checkbox "Select location" [ref=e950]
+            - generic "WTL ID WTL-L-1527" [ref=e952]: MDRC-S-02325
+            - generic [ref=e953]:
+              - generic [ref=e954]: MDRC (scale test) Vijayawada Civil Lines 5
+              - generic [ref=e955]: 96, Civil Lines
+            - generic [ref=e956]: Vijayawada
+            - generic [ref=e957]: South
+            - generic [ref=e958]: ◷ Pending
+            - generic [ref=e960]: ★ 4.3
+            - generic [ref=e962]: 63%
+            - button "More" [ref=e968]: ⋯
+          - generic [ref=e969] [cursor=pointer]:
+            - checkbox "Select location" [ref=e971]
+            - generic "WTL ID WTL-L-1539" [ref=e973]: MDRC-S-02454
+            - generic [ref=e974]:
+              - generic [ref=e975]: MDRC (scale test) Ludhiana Rajendra Nagar 4
+              - generic [ref=e976]: 198, Rajendra Nagar
+            - generic [ref=e977]: Ludhiana
+            - generic [ref=e978]: North
+            - generic [ref=e979]: ✓ Verified
+            - generic [ref=e981]: —
+            - generic [ref=e982]: 63%
+            - button "More" [ref=e988]: ⋯
+          - generic [ref=e989] [cursor=pointer]:
+            - checkbox "Select location" [ref=e991]
+            - generic "WTL ID WTL-L-1497" [ref=e993]: MDRC-S-02032
+            - generic [ref=e994]:
+              - generic [ref=e995]: MDRC (scale test) Mysuru Mall Road
+              - generic [ref=e996]: 171, Mall Road
+            - generic [ref=e997]: Mysuru
+            - generic [ref=e998]: South
+            - generic [ref=e999]: ✓ Verified
+            - generic [ref=e1001]: —
+            - generic [ref=e1002]: 63%
+            - button "More" [ref=e1008]: ⋯
+          - generic [ref=e1009] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1011]
+            - generic "WTL ID WTL-L-1703" [ref=e1013]: MDRC-S-04085
+            - generic [ref=e1014]:
+              - generic [ref=e1015]: MDRC (scale test) Rajkot Civil Lines 12
+              - generic [ref=e1016]: 58, Civil Lines
+            - generic [ref=e1017]: Rajkot
+            - generic [ref=e1018]: West
+            - generic [ref=e1019]: ✓ Verified
+            - generic [ref=e1021]: ★ 4.2
+            - generic [ref=e1023]: 63%
+            - button "More" [ref=e1029]: ⋯
+          - generic [ref=e1030] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1032]
+            - generic "WTL ID WTL-L-1709" [ref=e1034]: MDRC-S-04154
+            - generic [ref=e1035]:
+              - generic [ref=e1036]: MDRC (scale test) Surat Green Park 14
+              - generic [ref=e1037]: 167, Green Park
+            - generic [ref=e1038]: Surat
+            - generic [ref=e1039]: West
+            - generic [ref=e1040]: ✓ Verified
+            - generic [ref=e1042]: —
+            - generic [ref=e1043]: 63%
+            - button "More" [ref=e1049]: ⋯
+          - generic [ref=e1050] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1052]
+            - generic "WTL ID WTL-L-1523" [ref=e1054]: MDRC-S-02285
+            - generic [ref=e1055]:
+              - generic [ref=e1056]: MDRC (scale test) Guwahati Lakeview 5
+              - generic [ref=e1057]: 166, Lakeview
+            - generic [ref=e1058]: Guwahati
+            - generic [ref=e1059]: East
+            - generic [ref=e1060]: ✓ Verified
+            - generic [ref=e1062]: ★ 4.2
+            - generic [ref=e1064]: 63%
+            - button "More" [ref=e1070]: ⋯
+          - generic [ref=e1071] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1073]
+            - generic "WTL ID WTL-L-1645" [ref=e1075]: MDRC-S-03505
+            - generic [ref=e1076]:
+              - generic [ref=e1077]: MDRC (scale test) Gurugram Tilak Nagar 7
+              - generic [ref=e1078]: 43, Tilak Nagar
+            - generic [ref=e1079]: Gurugram
+            - generic [ref=e1080]: North
+            - generic [ref=e1081]: ✓ Verified
+            - generic [ref=e1083]: ★ 4.2
+            - generic [ref=e1085]: 63%
+            - button "More" [ref=e1091]: ⋯
+          - generic [ref=e1092] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1094]
+            - generic "WTL ID WTL-L-1666" [ref=e1096]: MDRC-S-03716
+            - generic [ref=e1097]:
+              - generic [ref=e1098]: MDRC (scale test) Mangaluru Green Park 10
+              - generic [ref=e1099]: 51, Green Park
+            - generic [ref=e1100]: Mangaluru
+            - generic [ref=e1101]: South
+            - generic [ref=e1102]: ✓ Verified
+            - generic [ref=e1104]: —
+            - generic [ref=e1105]: 63%
+            - button "More" [ref=e1111]: ⋯
+          - generic [ref=e1112] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1114]
+            - generic "WTL ID WTL-L-1547" [ref=e1116]: MDRC-S-02529
+            - generic [ref=e1117]:
+              - generic [ref=e1118]: MDRC (scale test) Surat Patel Nagar 6
+              - generic [ref=e1119]: 140, Patel Nagar
+            - generic [ref=e1120]: Surat
+            - generic [ref=e1121]: West
+            - generic [ref=e1122]: ✓ Verified
+            - generic [ref=e1124]: —
+            - generic [ref=e1125]: 63%
+            - button "More" [ref=e1131]: ⋯
+          - generic [ref=e1132] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1134]
+            - generic "WTL ID WTL-L-1611" [ref=e1136]: MDRC-S-03172
+            - generic [ref=e1137]:
+              - generic [ref=e1138]: MDRC (scale test) Nashik Cantonment 10
+              - generic [ref=e1139]: 207, Cantonment
+            - generic [ref=e1140]: Nashik
+            - generic [ref=e1141]: West
+            - generic [ref=e1142]: ✓ Verified
+            - generic [ref=e1144]: —
+            - generic [ref=e1145]: 63%
+            - button "More" [ref=e1151]: ⋯
+          - generic [ref=e1152] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1154]
+            - generic "WTL ID WTL-L-1707" [ref=e1156]: MDRC-S-04128
+            - generic [ref=e1157]:
+              - generic [ref=e1158]: MDRC (scale test) Gwalior Main Market 14
+              - generic [ref=e1159]: 91, Main Market
+            - generic [ref=e1160]: Gwalior
+            - generic [ref=e1161]: West
+            - generic [ref=e1162]: ✓ Verified
+            - generic [ref=e1164]: —
+            - generic [ref=e1165]: 63%
+            - button "More" [ref=e1171]: ⋯
+          - generic [ref=e1172] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1174]
+            - generic "WTL ID WTL-L-1532" [ref=e1176]: MDRC-S-02376
+            - generic [ref=e1177]:
+              - generic [ref=e1178]: MDRC (scale test) Hubballi Court Road 5
+              - generic [ref=e1179]: 195, Court Road
+            - generic [ref=e1180]: Hubballi
+            - generic [ref=e1181]: South
+            - generic [ref=e1182]: ✓ Verified
+            - generic [ref=e1184]: —
+            - generic [ref=e1185]: 63%
+            - button "More" [ref=e1191]: ⋯
+          - generic [ref=e1192] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1194]
+            - generic "WTL ID WTL-L-2012" [ref=e1196]: MDRC-S-02664
+            - generic [ref=e1197]:
+              - generic [ref=e1198]: MDRC (scale test) Ahmedabad Ring Road 6
+              - generic [ref=e1199]: 143, Ring Road
+            - generic [ref=e1200]: Ahmedabad
+            - generic [ref=e1201]: West
+            - generic [ref=e1202]: ✓ Verified
+            - generic [ref=e1204]: —
+            - generic [ref=e1205]: 63%
+            - button "More" [ref=e1211]: ⋯
+          - generic [ref=e1212] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1214]
+            - generic "WTL ID WTL-L-1736" [ref=e1216]: MDRC-S-04420
+            - generic [ref=e1217]:
+              - generic [ref=e1218]: MDRC (scale test) Raipur Green Park 16
+              - generic [ref=e1219]: 143, Green Park
+            - generic [ref=e1220]: Raipur
+            - generic [ref=e1221]: West
+            - generic [ref=e1222]: ✓ Verified
+            - generic [ref=e1224]: —
+            - generic [ref=e1225]: 63%
+            - button "More" [ref=e1231]: ⋯
+          - generic [ref=e1232] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1234]
+            - generic "WTL ID WTL-L-1473" [ref=e1236]: MDRC-S-01791
+            - generic [ref=e1237]:
+              - generic [ref=e1238]: MDRC (scale test) Noida Vijay Nagar
+              - generic [ref=e1239]: 202, Vijay Nagar
+            - generic [ref=e1240]: Noida
+            - generic [ref=e1241]: North
+            - generic [ref=e1242]: ✓ Verified
+            - generic [ref=e1244]: ★ 4.2
+            - generic [ref=e1246]: 63%
+            - button "More" [ref=e1252]: ⋯
+          - generic [ref=e1253] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1255]
+            - generic "WTL ID WTL-L-1593" [ref=e1257]: MDRC-S-02989
+            - generic [ref=e1258]:
+              - generic [ref=e1259]: MDRC (scale test) Visakhapatnam Nehru Place 9
+              - generic [ref=e1260]: 97, Nehru Place
+            - generic [ref=e1261]: Visakhapatnam
+            - generic [ref=e1262]: South
+            - generic [ref=e1263]: ✓ Verified
+            - generic [ref=e1265]: ★ 4.0
+            - generic [ref=e1267]: 63%
+            - button "More" [ref=e1273]: ⋯
+          - generic [ref=e1274] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1276]
+            - generic "WTL ID WTL-L-1573" [ref=e1278]: MDRC-S-02791
+            - generic [ref=e1279]:
+              - generic [ref=e1280]: MDRC (scale test) Nashik Shastri Nagar 5
+              - generic [ref=e1281]: 117, Shastri Nagar
+            - generic [ref=e1282]: Nashik
+            - generic [ref=e1283]: West
+            - generic [ref=e1284]: ✓ Verified
+            - generic [ref=e1286]: —
+            - generic [ref=e1287]: 63%
+            - button "More" [ref=e1293]: ⋯
+          - generic [ref=e1294] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1296]
+            - generic "WTL ID WTL-L-1705" [ref=e1298]: MDRC-S-04111
+            - generic [ref=e1299]:
+              - generic [ref=e1300]: MDRC (scale test) Delhi Rajendra Nagar 13
+              - generic [ref=e1301]: 61, Rajendra Nagar
+            - generic [ref=e1302]: Delhi
+            - generic [ref=e1303]: North
+            - generic [ref=e1304]: ✓ Verified
+            - generic [ref=e1306]: —
+            - generic [ref=e1307]: 63%
+            - button "More" [ref=e1313]: ⋯
+          - generic [ref=e1314] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1316]
+            - generic "WTL ID WTL-L-1670" [ref=e1318]: MDRC-S-03758
+            - generic [ref=e1319]:
+              - generic [ref=e1320]: MDRC (scale test) Ranchi Station Road 12
+              - generic [ref=e1321]: 213, Station Road
+            - generic [ref=e1322]: Ranchi
+            - generic [ref=e1323]: East
+            - generic [ref=e1324]: ✓ Verified
+            - generic [ref=e1326]: —
+            - generic [ref=e1327]: 63%
+            - button "More" [ref=e1333]: ⋯
+          - generic [ref=e1334] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1336]
+            - generic "WTL ID WTL-L-1751" [ref=e1338]: MDRC-S-04572
+            - generic [ref=e1339]:
+              - generic [ref=e1340]: MDRC (scale test) Surat Green Park 17
+              - generic [ref=e1341]: 139, Green Park
+            - generic [ref=e1342]: Surat
+            - generic [ref=e1343]: West
+            - generic [ref=e1344]: ◷ Pending
+            - generic [ref=e1346]: ★ 4.2
+            - generic [ref=e1348]: 63%
+            - button "More" [ref=e1354]: ⋯
+          - generic [ref=e1355] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1357]
+            - generic "WTL ID WTL-L-1700" [ref=e1359]: MDRC-S-04062
+            - generic [ref=e1360]:
+              - generic [ref=e1361]: MDRC (scale test) Lucknow Green Park 14
+              - generic [ref=e1362]: 141, Green Park
+            - generic [ref=e1363]: Lucknow
+            - generic [ref=e1364]: North
+            - generic [ref=e1365]: ✓ Verified
+            - generic [ref=e1367]: —
+            - generic [ref=e1368]: 63%
+            - button "More" [ref=e1374]: ⋯
+          - generic [ref=e1375] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1377]
+            - generic "WTL ID WTL-L-1487" [ref=e1379]: MDRC-S-01926
+            - generic [ref=e1380]:
+              - generic [ref=e1381]: MDRC (scale test) Karnal Airport Road 2
+              - generic [ref=e1382]: 25, Airport Road
+            - generic [ref=e1383]: Karnal
+            - generic [ref=e1384]: North
+            - generic [ref=e1385]: ✓ Verified
+            - generic [ref=e1387]: —
+            - generic [ref=e1388]: 63%
+            - button "More" [ref=e1394]: ⋯
+          - generic [ref=e1395] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1397]
+            - generic "WTL ID WTL-L-2000" [ref=e1399]: MDRC-S-02530
+            - generic [ref=e1400]:
+              - generic [ref=e1401]: MDRC (scale test) Indore Sadar Bazaar 4
+              - generic [ref=e1402]: 244, Sadar Bazaar
+            - generic [ref=e1403]: Indore
+            - generic [ref=e1404]: West
+            - generic [ref=e1405]: ✓ Verified
+            - generic [ref=e1407]: —
+            - generic [ref=e1408]: 63%
+            - button "More" [ref=e1414]: ⋯
+          - generic [ref=e1415] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1417]
+            - generic "WTL ID WTL-L-1651" [ref=e1419]: MDRC-S-03568
+            - generic [ref=e1420]:
+              - generic [ref=e1421]: MDRC (scale test) Mumbai Mall Road 9
+              - generic [ref=e1422]: 231, Mall Road
+            - generic [ref=e1423]: Mumbai
+            - generic [ref=e1424]: West
+            - generic [ref=e1425]: ✓ Verified
+            - generic [ref=e1427]: —
+            - generic [ref=e1428]: 63%
+            - button "More" [ref=e1434]: ⋯
+          - generic [ref=e1435] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1437]
+            - generic "WTL ID WTL-L-1486" [ref=e1439]: MDRC-S-01916
+            - generic [ref=e1440]:
+              - generic [ref=e1441]: MDRC (scale test) Delhi Rajendra Nagar
+              - generic [ref=e1442]: 134, Rajendra Nagar
+            - generic [ref=e1443]: Delhi
+            - generic [ref=e1444]: North
+            - generic [ref=e1445]: ✓ Verified
+            - generic [ref=e1447]: —
+            - generic [ref=e1448]: 63%
+            - button "More" [ref=e1454]: ⋯
+          - generic [ref=e1455] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1457]
+            - generic "WTL ID WTL-L-1490" [ref=e1459]: MDRC-S-01958
+            - generic [ref=e1460]:
+              - generic [ref=e1461]: MDRC (scale test) Meerut Model Town
+              - generic [ref=e1462]: 149, Model Town
+            - generic [ref=e1463]: Meerut
+            - generic [ref=e1464]: North
+            - generic [ref=e1465]: ✓ Verified
+            - generic [ref=e1467]: ★ 4.3
+            - generic [ref=e1469]: 63%
+            - button "More" [ref=e1475]: ⋯
+          - generic [ref=e1476] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1478]
+            - generic "WTL ID WTL-L-1640" [ref=e1480]: MDRC-S-03455
+            - generic [ref=e1481]:
+              - generic [ref=e1482]: MDRC (scale test) Rajkot Ring Road 6
+              - generic [ref=e1483]: 155, Ring Road
+            - generic [ref=e1484]: Rajkot
+            - generic [ref=e1485]: West
+            - generic [ref=e1486]: ✓ Verified
+            - generic [ref=e1488]: ★ 4.4
+            - generic [ref=e1490]: 63%
+            - button "More" [ref=e1496]: ⋯
+          - generic [ref=e1497] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1499]
+            - generic "WTL ID WTL-L-1720" [ref=e1501]: MDRC-S-04257
+            - generic [ref=e1502]:
+              - generic [ref=e1503]: MDRC (scale test) Shimla Sadar Bazaar 14
+              - generic [ref=e1504]: 69, Sadar Bazaar
+            - generic [ref=e1505]: Shimla
+            - generic [ref=e1506]: North
+            - generic [ref=e1507]: ✓ Verified
+            - generic [ref=e1509]: —
+            - generic [ref=e1510]: 63%
+            - button "More" [ref=e1516]: ⋯
+          - generic [ref=e1517] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1519]
+            - generic "WTL ID WTL-L-1710" [ref=e1521]: MDRC-S-04160
+            - generic [ref=e1522]:
+              - generic [ref=e1523]: MDRC (scale test) Madurai Ashok Nagar 13
+              - generic [ref=e1524]: 6, Ashok Nagar
+            - generic [ref=e1525]: Madurai
+            - generic [ref=e1526]: South
+            - generic [ref=e1527]: ✓ Verified
+            - generic [ref=e1529]: —
+            - generic [ref=e1530]: 63%
+            - button "More" [ref=e1536]: ⋯
+          - generic [ref=e1537] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1539]
+            - generic "WTL ID WTL-L-1569" [ref=e1541]: MDRC-S-02746
+            - generic [ref=e1542]:
+              - generic [ref=e1543]: MDRC (scale test) Kolkata Bypass Road 4
+              - generic [ref=e1544]: 250, Bypass Road
+            - generic [ref=e1545]: Kolkata
+            - generic [ref=e1546]: East
+            - generic [ref=e1547]: ✓ Verified
+            - generic [ref=e1549]: ★ 4.2
+            - generic [ref=e1551]: 63%
+            - button "More" [ref=e1557]: ⋯
+          - generic [ref=e1558] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1560]
+            - generic "WTL ID WTL-L-1570" [ref=e1562]: MDRC-S-02756
+            - generic [ref=e1563]:
+              - generic [ref=e1564]: MDRC (scale test) Vadodara New Colony 9
+              - generic [ref=e1565]: 63, New Colony
+            - generic [ref=e1566]: Vadodara
+            - generic [ref=e1567]: West
+            - generic [ref=e1568]: ✓ Verified
+            - generic [ref=e1570]: ★ 4.2
+            - generic [ref=e1572]: 63%
+            - button "More" [ref=e1578]: ⋯
+          - generic [ref=e1579] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1581]
+            - generic "WTL ID WTL-L-2143" [ref=e1583]: MDRC-S-04106
+            - generic [ref=e1584]:
+              - generic [ref=e1585]: MDRC (scale test) Siliguri Model Town 14
+              - generic [ref=e1586]: 183, Model Town
+            - generic [ref=e1587]: Siliguri
+            - generic [ref=e1588]: East
+            - generic [ref=e1589]: ◷ Pending
+            - generic [ref=e1591]: —
+            - generic [ref=e1592]: 63%
+            - button "More" [ref=e1598]: ⋯
+          - generic [ref=e1599] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1601]
+            - generic "WTL ID WTL-L-2146" [ref=e1603]: MDRC-S-04146
+            - generic [ref=e1604]:
+              - generic [ref=e1605]: MDRC (scale test) Panipat Patel Nagar 14
+              - generic [ref=e1606]: 158, Patel Nagar
+            - generic [ref=e1607]: Panipat
+            - generic [ref=e1608]: North
+            - generic [ref=e1609]: ◷ Pending
+            - generic [ref=e1611]: —
+            - generic [ref=e1612]: 63%
+            - button "More" [ref=e1618]: ⋯
+          - generic [ref=e1619] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1621]
+            - generic "WTL ID WTL-L-1585" [ref=e1623]: MDRC-S-02910
+            - generic [ref=e1624]:
+              - generic [ref=e1625]: MDRC (scale test) Rajkot Civil Lines 5
+              - generic [ref=e1626]: 48, Civil Lines
+            - generic [ref=e1627]: Rajkot
+            - generic [ref=e1628]: West
+            - generic [ref=e1629]: ◷ Pending
+            - generic [ref=e1631]: —
+            - generic [ref=e1632]: 63%
+            - button "More" [ref=e1638]: ⋯
+          - generic [ref=e1639] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1641]
+            - generic "WTL ID WTL-L-1624" [ref=e1643]: MDRC-S-03301
+            - generic [ref=e1644]:
+              - generic [ref=e1645]: MDRC (scale test) Madurai Shastri Nagar 6
+              - generic [ref=e1646]: 154, Shastri Nagar
+            - generic [ref=e1647]: Madurai
+            - generic [ref=e1648]: South
+            - generic [ref=e1649]: ✓ Verified
+            - generic [ref=e1651]: ★ 4.4
+            - generic [ref=e1653]: 63%
+            - button "More" [ref=e1659]: ⋯
+          - generic [ref=e1660] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1662]
+            - generic "WTL ID WTL-L-1723" [ref=e1664]: MDRC-S-04285
+            - generic [ref=e1665]:
+              - generic [ref=e1666]: MDRC (scale test) Jabalpur Old City 14
+              - generic [ref=e1667]: 201, Old City
+            - generic [ref=e1668]: Jabalpur
+            - generic [ref=e1669]: West
+            - generic [ref=e1670]: ✓ Verified
+            - generic [ref=e1672]: —
+            - generic [ref=e1673]: 63%
+            - button "More" [ref=e1679]: ⋯
+          - generic [ref=e1680] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1682]
+            - generic "WTL ID WTL-L-1657" [ref=e1684]: MDRC-S-03632
+            - generic [ref=e1685]:
+              - generic [ref=e1686]: MDRC (scale test) Kota Airport Road 7
+              - generic [ref=e1687]: 138, Airport Road
+            - generic [ref=e1688]: Kota
+            - generic [ref=e1689]: North
+            - generic [ref=e1690]: ✓ Verified
+            - generic [ref=e1692]: —
+            - generic [ref=e1693]: 63%
+            - button "More" [ref=e1699]: ⋯
+          - generic [ref=e1700] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1702]
+            - generic "WTL ID WTL-L-1697" [ref=e1704]: MDRC-S-04026
+            - generic [ref=e1705]:
+              - generic [ref=e1706]: MDRC (scale test) Durgapur Railway Colony 13
+              - generic [ref=e1707]: 140, Railway Colony
+            - generic [ref=e1708]: Durgapur
+            - generic [ref=e1709]: East
+            - generic [ref=e1710]: ✓ Verified
+            - generic [ref=e1712]: ★ 4.5
+            - generic [ref=e1714]: 63%
+            - button "More" [ref=e1720]: ⋯
+          - generic [ref=e1721] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1723]
+            - generic "WTL ID WTL-L-1686" [ref=e1725]: MDRC-S-03916
+            - generic [ref=e1726]:
+              - generic [ref=e1727]: MDRC (scale test) Chandigarh Industrial Area 12
+              - generic [ref=e1728]: 5, Industrial Area
+            - generic [ref=e1729]: Chandigarh
+            - generic [ref=e1730]: North
+            - generic [ref=e1731]: ✓ Verified
+            - generic [ref=e1733]: ★ 4.3
+            - generic [ref=e1735]: 63%
+            - button "More" [ref=e1741]: ⋯
+          - generic [ref=e1742] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1744]
+            - generic "WTL ID WTL-L-1726" [ref=e1746]: MDRC-S-04318
+            - generic [ref=e1747]:
+              - generic [ref=e1748]: MDRC (scale test) Lucknow Patel Nagar 13
+              - generic [ref=e1749]: 88, Patel Nagar
+            - generic [ref=e1750]: Lucknow
+            - generic [ref=e1751]: North
+            - generic [ref=e1752]: ✓ Verified
+            - generic [ref=e1754]: —
+            - generic [ref=e1755]: 63%
+            - button "More" [ref=e1761]: ⋯
+          - generic [ref=e1762] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1764]
+            - generic "WTL ID WTL-L-1769" [ref=e1766]: MDRC-S-04752
+            - generic [ref=e1767]:
+              - generic [ref=e1768]: MDRC (scale test) Kochi University Road 16
+              - generic [ref=e1769]: 32, University Road
+            - generic [ref=e1770]: Kochi
+            - generic [ref=e1771]: South
+            - generic [ref=e1772]: ✓ Verified
+            - generic [ref=e1774]: —
+            - generic [ref=e1775]: 63%
+            - button "More" [ref=e1781]: ⋯
+          - generic [ref=e1782] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1784]
+            - generic "WTL ID WTL-L-1693" [ref=e1786]: MDRC-S-03994
+            - generic [ref=e1787]:
+              - generic [ref=e1788]: MDRC (scale test) Jaipur Ashok Nagar 11
+              - generic [ref=e1789]: 183, Ashok Nagar
+            - generic [ref=e1790]: Jaipur
+            - generic [ref=e1791]: North
+            - generic [ref=e1792]: ✓ Verified
+            - generic [ref=e1794]: —
+            - generic [ref=e1795]: 63%
+            - button "More" [ref=e1801]: ⋯
+          - generic [ref=e1802] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1804]
+            - generic "WTL ID WTL-L-22034" [ref=e1806]: MDRC-S-04147
+            - generic [ref=e1807]:
+              - generic [ref=e1808]: MDRC (scale test) Dehradun Mall Road 13
+              - generic [ref=e1809]: 76, Mall Road
+            - generic [ref=e1810]: Dehradun
+            - generic [ref=e1811]: North
+            - generic [ref=e1812]: ✓ Verified
+            - generic [ref=e1814]: —
+            - generic [ref=e1815]: 63%
+            - button "More" [ref=e1821]: ⋯
+          - generic [ref=e1822] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1824]
+            - generic "WTL ID WTL-L-1662" [ref=e1826]: MDRC-S-03684
+            - generic [ref=e1827]:
+              - generic [ref=e1828]: MDRC (scale test) Bhopal Railway Colony 11
+              - generic [ref=e1829]: 24, Railway Colony
+            - generic [ref=e1830]: Bhopal
+            - generic [ref=e1831]: West
+            - generic [ref=e1832]: ✓ Verified
+            - generic [ref=e1834]: —
+            - generic [ref=e1835]: 63%
+            - button "More" [ref=e1841]: ⋯
+          - generic [ref=e1842] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1844]
+            - generic "WTL ID WTL-L-1536" [ref=e1846]: MDRC-S-02417
+            - generic [ref=e1847]:
+              - generic [ref=e1848]: MDRC (scale test) Gwalior Main Market 5
+              - generic [ref=e1849]: 172, Main Market
+            - generic [ref=e1850]: Gwalior
+            - generic [ref=e1851]: West
+            - generic [ref=e1852]: ✓ Verified
+            - generic [ref=e1854]: ★ 4.2
+            - generic [ref=e1856]: 63%
+            - button "More" [ref=e1862]: ⋯
+          - generic [ref=e1863] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1865]
+            - generic "WTL ID WTL-L-1706" [ref=e1867]: MDRC-S-04124
+            - generic [ref=e1868]:
+              - generic [ref=e1869]: MDRC (scale test) Ludhiana Model Town 15
+              - generic [ref=e1870]: 156, Model Town
+            - generic [ref=e1871]: Ludhiana
+            - generic [ref=e1872]: North
+            - generic [ref=e1873]: ✓ Verified
+            - generic [ref=e1875]: —
+            - generic [ref=e1876]: 63%
+            - button "More" [ref=e1882]: ⋯
+          - generic [ref=e1883] [cursor=pointer]:
+            - checkbox "Select location" [ref=e1885]
+            - generic "WTL ID WTL-L-1565" [ref=e1887]: MDRC-S-02707
+            - generic [ref=e1888]:
+              - generic [ref=e1889]: MDRC (scale test) Coimbatore University Road 5
+              - generic [ref=e1890]: 2, University Road
+            - generic [ref=e1891]: Coimbatore
+            - generic [ref=e1892]: South
+            - generic [ref=e1893]: ✓ Verified
+            - generic [ref=e1895]: ★ 4.1
+            - generic [ref=e1897]: 63%
+            - button "More" [ref=e1903]: ⋯
+        - generic [ref=e1904]:
+          - generic [ref=e1905]: Showing 1–50 of 3000 locations · Page 1 of 60
+          - generic [ref=e1906]:
+            - button "Prev" [disabled] [ref=e1907]
+            - button "1" [ref=e1908] [cursor=pointer]
+            - button "2" [ref=e1909] [cursor=pointer]
+            - button "3" [ref=e1910] [cursor=pointer]
+            - button "4" [ref=e1911] [cursor=pointer]
+            - button "5" [ref=e1912] [cursor=pointer]
+            - button "Next" [ref=e1913] [cursor=pointer]

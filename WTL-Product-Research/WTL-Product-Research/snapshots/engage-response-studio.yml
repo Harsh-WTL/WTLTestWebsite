@@ -1,0 +1,104 @@
+- generic [ref=f2e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [aria-hidden]: Staging · test copy
+  - generic [ref=f2e7]:
+    - complementary [ref=f2e8]:
+      - generic [ref=f2e9]:
+        - generic [ref=f2e10]: M(
+        - generic [ref=f2e11]:
+          - generic [ref=f2e12]: MDRC (scale test)
+          - generic [ref=f2e13]: 0 channels connected
+      - generic [ref=f2e14]:
+        - button "Locations" [ref=f2e15] [cursor=pointer]
+        - button "Engage" [ref=f2e16] [cursor=pointer]
+        - button "Ads" [ref=f2e17] [cursor=pointer]
+      - navigation [ref=f2e18]:
+        - button "Dashboard" [ref=f2e140670] [cursor=pointer]
+        - button "Agent Queue" [ref=f2e140673] [cursor=pointer]
+        - generic [ref=f2e140678]: Inbox
+        - button "Comments" [ref=f2e140682] [cursor=pointer]
+        - button "Messages" [ref=f2e140686] [cursor=pointer]
+        - button "Email" [ref=f2e140689] [cursor=pointer]
+        - button "Ad Comments" [ref=f2e140693] [cursor=pointer]
+        - button "App Updates" [ref=f2e140697] [cursor=pointer]
+        - generic [ref=f2e140700]: Understand
+        - button "Tickets" [ref=f2e140702] [cursor=pointer]
+        - button "Analytics" [ref=f2e140705] [cursor=pointer]
+        - button "Customers" [ref=f2e140708] [cursor=pointer]
+        - button "Reports" [ref=f2e140714] [cursor=pointer]
+        - generic [ref=f2e140718]: Configure
+        - button "Alerts" [ref=f2e140722] [cursor=pointer]
+        - button "Channels" [ref=f2e140726] [cursor=pointer]
+        - button "Team" [ref=f2e140733] [cursor=pointer]
+        - button "Ticket Rules" [ref=f2e140739] [cursor=pointer]
+        - button "Response Studio" [active] [ref=f2e140743] [cursor=pointer]
+        - generic [ref=f2e99]: Account
+        - button "User Management" [ref=f2e103] [cursor=pointer]
+        - button "Activity" [ref=f2e109] [cursor=pointer]
+        - button "Settings" [ref=f2e114] [cursor=pointer]
+        - button "Support" [ref=f2e118] [cursor=pointer]
+    - generic [ref=f2e123]:
+      - generic [ref=f2e141323]:
+        - heading "Response Studio" [level=1] [ref=f2e141325]
+        - generic [ref=f2e141327]:
+          - button "Search" [ref=f2e141328] [cursor=pointer]
+          - button "Refresh" [ref=f2e141332] [cursor=pointer]
+          - generic [ref=f2e141338]:
+            - button "Soft" [ref=f2e141339] [cursor=pointer]
+            - button "Ink" [ref=f2e141346] [cursor=pointer]
+          - button "Notifications" [ref=f2e141349] [cursor=pointer]
+          - button "SM" [ref=f2e141354] [cursor=pointer]
+      - generic [ref=f2e141357]:
+        - generic [ref=f2e141358]:
+          - generic [ref=f2e141359]: ✓
+          - generic [ref=f2e141360]:
+            - generic [ref=f2e141361]: AI auto-replies are running
+            - generic [ref=f2e141362]: AI will reply using the tone and context configured below.
+        - switch "AI auto-replies" [checked] [ref=f2e141364] [cursor=pointer]
+      - generic [ref=f2e141365]:
+        - generic [ref=f2e141369]: Brand voice
+        - generic [ref=f2e141370]: — tone and context the AI uses when replying
+      - generic [ref=f2e141371]:
+        - generic [ref=f2e141372]:
+          - generic [ref=f2e141373]:
+            - generic [ref=f2e141374]: Brand voice basics
+            - generic [ref=f2e141375]: How AI should sound when replying on your behalf.
+          - button "Save" [ref=f2e141376] [cursor=pointer]
+        - generic [ref=f2e141377]:
+          - generic [ref=f2e141378]:
+            - generic [ref=f2e141379]: About your business
+            - textbox "Briefly describe what you do, who you serve, and anything the AI should keep in mind when replying." [ref=f2e141380]
+            - generic [ref=f2e141381]: A short paragraph is enough. Used as background context for every AI reply.
+          - generic [ref=f2e141382]:
+            - generic [ref=f2e141383]: Tone
+            - combobox [ref=f2e141384] [cursor=pointer]:
+              - option "Professional" [selected]
+              - option "Friendly"
+              - option "Casual"
+              - option "Witty"
+              - option "Empathetic"
+          - generic [ref=f2e141386]:
+            - generic [ref=f2e141387]: Contact email
+            - textbox "support@yourbrand.com" [ref=f2e141388]
+            - generic [ref=f2e141389]: The AI will share this only when it's helpful — not on every reply.
+          - generic [ref=f2e141390]:
+            - generic [ref=f2e141391]: Contact phone
+            - textbox "+91 98765 43210" [ref=f2e141392]
+            - generic [ref=f2e141393]: Used the same way — surfaced when it's contextually useful.
+        - generic [ref=f2e141394]:
+          - button "Open full Brand Voice editor" [ref=f2e141395] [cursor=pointer]
+          - button "New Response rule" [ref=f2e141397] [cursor=pointer]
+      - generic [ref=f2e141400]:
+        - generic [ref=f2e141404]: Responses (0)
+        - generic [ref=f2e141405]: — saved replies and automated rules
+      - generic [ref=f2e141406]:
+        - generic [ref=f2e141408] [cursor=pointer]:
+          - generic [ref=f2e141413]: Saved Reply
+          - generic [ref=f2e141414]: A quick reply you can use manually from the inbox — like "thanks for the feedback" or "check our hours".
+          - button "Create Saved Reply" [ref=f2e141416]
+        - generic [ref=f2e141419] [cursor=pointer]:
+          - generic [ref=f2e141423]: Automated Rule
+          - generic [ref=f2e141424]: Automatically reply, escalate, or hide items based on platform, sentiment, or keywords.
+          - button "Create Automated Rule" [ref=f2e141426]

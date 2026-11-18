@@ -1,0 +1,126 @@
+- generic [ref=f2e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [aria-hidden]: Staging · test copy
+  - generic [ref=f2e7]:
+    - complementary [ref=f2e8]:
+      - generic [ref=f2e9]:
+        - generic [ref=f2e10]: M(
+        - generic [ref=f2e11]:
+          - generic [ref=f2e12]: MDRC (scale test)
+          - generic [ref=f2e13]: 3000 locations
+      - generic [ref=f2e14]:
+        - button "Locations" [ref=f2e15] [cursor=pointer]
+        - button "Engage" [ref=f2e16] [cursor=pointer]
+        - button "Ads" [ref=f2e17] [cursor=pointer]
+      - navigation [ref=f2e18]:
+        - button "Dashboard" [ref=f2e19] [cursor=pointer]
+        - generic [ref=f2e25]: Google
+        - button "Locations 3000" [ref=f2e31] [cursor=pointer]:
+          - text: Locations
+          - generic [ref=f2e35]: "3000"
+        - button "Reviews 20388" [ref=f2e36] [cursor=pointer]:
+          - text: Reviews
+          - generic [ref=f2e39]: "20388"
+        - button "Page Posts" [ref=f2e40] [cursor=pointer]
+        - button "AI Location Studio" [ref=f2e44] [cursor=pointer]
+        - button "Profile Guard" [ref=f2e47] [cursor=pointer]
+        - button "Not Published" [ref=f2e51] [cursor=pointer]
+        - button "Support Cases" [ref=f2e55] [cursor=pointer]
+        - button "QR Codes" [ref=f2e59] [cursor=pointer]
+        - button "Data Manager" [ref=f2e66] [cursor=pointer]
+        - generic [ref=f2e71]: Meta
+        - button "Location Pages" [ref=f2e74] [cursor=pointer]
+        - button "Page Posts" [ref=f2e79] [cursor=pointer]
+        - generic [ref=f2e83]: Microsite
+        - button "Microsite" [ref=f2e87] [cursor=pointer]
+        - generic [ref=f2e93]: Insights
+        - button "Reports" [ref=f2e95] [cursor=pointer]
+        - generic [ref=f2e99]: Account
+        - button "User Management" [ref=f2e103] [cursor=pointer]
+        - button "Activity" [ref=f2e109] [cursor=pointer]
+        - button "Settings" [ref=f2e114] [cursor=pointer]
+        - button "Support" [ref=f2e118] [cursor=pointer]
+    - generic [ref=f2e123]:
+      - generic [ref=f2e777]:
+        - heading "Create Post" [level=1] [ref=f2e935]
+        - generic [ref=f2e780]:
+          - button "Calendar" [active] [ref=f2e936] [cursor=pointer]
+          - generic [ref=f2e783]:
+            - button "Refresh" [ref=f2e784] [cursor=pointer]
+            - generic [ref=f2e790]:
+              - button "Soft" [ref=f2e791] [cursor=pointer]
+              - button "Ink" [ref=f2e798] [cursor=pointer]
+            - button "Notifications" [ref=f2e801] [cursor=pointer]
+            - button "SM" [ref=f2e806] [cursor=pointer]
+      - generic [ref=f2e939]:
+        - generic [ref=f2e940]:
+          - generic [ref=f2e941]:
+            - generic [ref=f2e942]: Step 1
+            - generic [ref=f2e943]: What kind of post
+            - generic [ref=f2e944]:
+              - radio "What's New An update, news or announcement" [checked] [ref=f2e945] [cursor=pointer]:
+                - generic [ref=f2e949]: What's New
+                - generic [ref=f2e950]: An update, news or announcement
+              - radio "Event Something happening on a date" [ref=f2e951] [cursor=pointer]:
+                - generic [ref=f2e954]: Event
+                - generic [ref=f2e955]: Something happening on a date
+              - radio "Offer A deal, with an optional coupon" [ref=f2e956] [cursor=pointer]:
+                - generic [ref=f2e960]: Offer
+                - generic [ref=f2e961]: A deal, with an optional coupon
+          - generic [ref=f2e962]:
+            - generic [ref=f2e963]: Step 2
+            - generic [ref=f2e964]: Write it
+            - generic [ref=f2e965]:
+              - generic [ref=f2e966]:
+                - generic [ref=f2e967]:
+                  - generic [ref=f2e968]: Body
+                  - generic [ref=f2e969]: 0 / 1500
+                - textbox "What do you want to say?" [ref=f2e970]
+              - generic [ref=f2e971] [cursor=pointer]:
+                - strong [ref=f2e977]: Add a photo
+                - generic [ref=f2e978]: 1200 × 900 works best · up to 5MB
+              - generic [ref=f2e979]:
+                - generic [ref=f2e980]: "Insert:"
+                - 'button "{{Location name}}" [ref=f2e981] [cursor=pointer]'
+                - 'button "{{Address}}" [ref=f2e982] [cursor=pointer]'
+                - 'button "{{Area}}" [ref=f2e983] [cursor=pointer]'
+                - 'button "{{State}}" [ref=f2e984] [cursor=pointer]'
+                - 'button "{{Pincode}}" [ref=f2e985] [cursor=pointer]'
+          - generic [ref=f2e986]:
+            - generic [ref=f2e987]: Step 3
+            - generic [ref=f2e988]: Details
+            - generic [ref=f2e990]:
+              - generic [ref=f2e991]: Button on the post (optional)
+              - combobox [ref=f2e992] [cursor=pointer]:
+                - option "No button" [selected]
+                - option "Book"
+                - option "Order Online"
+                - option "Learn More"
+                - option "Sign Up"
+                - option "Call"
+                - option "Shop"
+                - option "Get Offer"
+        - generic [ref=f2e993]:
+          - generic [ref=f2e994]:
+            - generic [ref=f2e995]: Preview
+            - generic [ref=f2e996]:
+              - generic [ref=f2e998]:
+                - generic [ref=f2e999]: M(
+                - generic [ref=f2e1000]:
+                  - generic [ref=f2e1001]: MDRC (scale test) Bhopal Court Road 10
+                  - generic [ref=f2e1002]: Google Business Profile · Just now
+              - generic [ref=f2e1008]:
+                - generic [ref=f2e1009]: What's New
+                - generic [ref=f2e1010]: Your post will read like this…
+          - generic [ref=f2e1011]:
+            - generic [ref=f2e1012]: Where
+            - generic [ref=f2e1013]:
+              - generic [ref=f2e1014]: All 3000 locations
+              - button "Change" [ref=f2e1015] [cursor=pointer]
+            - generic [ref=f2e1017]:
+              - button "Publish now" [ref=f2e1018] [cursor=pointer]
+              - button "Schedule" [ref=f2e1019] [cursor=pointer]
+            - button "Publish to 3000 locations" [disabled] [ref=f2e1020]
+            - generic [ref=f2e1024]: Write your post or add a photo

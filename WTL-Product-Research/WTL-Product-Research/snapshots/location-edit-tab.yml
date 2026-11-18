@@ -1,0 +1,389 @@
+- generic [ref=e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [aria-hidden]: Staging · test copy
+  - generic [ref=e41]:
+    - complementary [ref=e42]:
+      - generic [ref=e43]:
+        - generic [ref=e44]: M(
+        - generic [ref=e45]:
+          - generic [ref=e46]: MDRC (scale test)
+          - generic [ref=e47]: 3000 locations
+      - generic [ref=e48]:
+        - button "Locations" [ref=e49] [cursor=pointer]
+        - button "Engage" [ref=e50] [cursor=pointer]
+        - button "Ads" [ref=e51] [cursor=pointer]
+      - navigation [ref=e52]:
+        - button "Dashboard" [ref=e53] [cursor=pointer]
+        - generic [ref=e59]: Google
+        - button "Locations 3000" [ref=e65] [cursor=pointer]:
+          - text: Locations
+          - generic [ref=e69]: "3000"
+        - button "Reviews 20388" [ref=e70] [cursor=pointer]:
+          - text: Reviews
+          - generic [ref=e73]: "20388"
+        - button "Page Posts" [ref=e74] [cursor=pointer]
+        - button "AI Location Studio" [ref=e78] [cursor=pointer]
+        - button "Profile Guard" [ref=e81] [cursor=pointer]
+        - button "Not Published" [ref=e85] [cursor=pointer]
+        - button "Support Cases" [ref=e89] [cursor=pointer]
+        - button "QR Codes" [ref=e93] [cursor=pointer]
+        - button "Data Manager" [ref=e100] [cursor=pointer]
+        - generic [ref=e105]: Meta
+        - button "Location Pages" [ref=e108] [cursor=pointer]
+        - button "Page Posts" [ref=e113] [cursor=pointer]
+        - generic [ref=e117]: Microsite
+        - button "Microsite" [ref=e121] [cursor=pointer]
+        - generic [ref=e127]: Insights
+        - button "Reports" [ref=e129] [cursor=pointer]
+        - generic [ref=e133]: Account
+        - button "User Management" [ref=e137] [cursor=pointer]
+        - button "Activity" [ref=e143] [cursor=pointer]
+        - button "Settings" [ref=e148] [cursor=pointer]
+        - button "Support" [ref=e152] [cursor=pointer]
+    - generic [ref=e156]:
+      - banner [ref=e1924]:
+        - generic [ref=e1925]:
+          - button "Refresh" [ref=e1926] [cursor=pointer]
+          - generic [ref=e1932]:
+            - button "Soft" [ref=e1933] [cursor=pointer]
+            - button "Ink" [ref=e1940] [cursor=pointer]
+          - button "Notifications" [ref=e1943] [cursor=pointer]
+          - button "SM" [ref=e1948] [cursor=pointer]
+      - generic [ref=e157]:
+        - button "Back" [ref=e1951] [cursor=pointer]
+        - generic [ref=e1954]:
+          - generic [ref=e1955]:
+            - generic [ref=e1956]:
+              - heading "MDRC (scale test) Bhopal Court Road 10" [level=1] [ref=e1957]
+              - generic [ref=e1958]: ✓ Verified
+            - generic [ref=e1959]: Bhopal, Madhya Pradesh · Diagnostic center · MDRC-S-03841 · [SCALE] MDRC North
+          - generic [ref=e1960]:
+            - button "Edit" [ref=e1961] [cursor=pointer]
+            - button "Add photos or videos" [ref=e1965] [cursor=pointer]
+        - generic [ref=e1970]:
+          - generic [ref=e1971]:
+            - generic [ref=e1972]: Avg rating
+            - generic [ref=e1974]: —
+            - generic [ref=e1976]: 0 reviews
+          - generic [ref=e1977]:
+            - generic [ref=e1978]: Health
+            - generic [ref=e1980]:
+              - generic [ref=e1981]: "63"
+              - generic [ref=e1982]: "%"
+            - generic [ref=e1983]: 13 issues
+          - generic [ref=e1985]:
+            - generic [ref=e1986]: Verification
+            - generic [ref=e1988]: Verified
+            - generic [ref=e1990]: Synced Sep 29
+          - generic [ref=e1991]:
+            - generic [ref=e1992]: Media
+            - generic [ref=e1994]: "0"
+            - generic [ref=e1996]: uploaded
+        - generic [ref=e1997]:
+          - button "Overview" [ref=e1998] [cursor=pointer]
+          - button "Analytics" [ref=e1999] [cursor=pointer]
+          - button "Media" [ref=e2000] [cursor=pointer]
+          - button "Services" [ref=e2001] [cursor=pointer]
+          - button "Edit" [active] [ref=e2002] [cursor=pointer]
+        - generic [ref=e2278]:
+          - paragraph [ref=e2279]: Profile Photos
+          - generic [ref=e2284]:
+            - generic [ref=e2285]:
+              - text: Logo / Profile Photo
+              - paragraph [ref=e2286]: "Recommended: 720×720 px (square 1:1, max 5 MB)"
+              - button "Logo" [ref=e2287] [cursor=pointer]
+            - generic [ref=e2292]:
+              - text: Cover Photo
+              - paragraph [ref=e2293]: "Recommended: 1080×608 px (16:9, max 5 MB)"
+              - button "Cover" [ref=e2294] [cursor=pointer]
+          - paragraph [ref=e2299]: Basic Information
+          - generic [ref=e2300]:
+            - generic [ref=e2301]:
+              - text: Business Name
+              - textbox [ref=e2302]: MDRC (scale test) Bhopal Court Road 10
+            - generic [ref=e2303]:
+              - text: Store Code
+              - textbox [ref=e2304]: MDRC-S-03841
+          - generic [ref=e2305]:
+            - generic [ref=e2306]:
+              - text: Open Status
+              - paragraph [ref=e2307]: Business is marked as open
+            - switch [checked] [ref=e2308] [cursor=pointer]
+          - generic [ref=e2309]:
+            - text: Opening Date
+            - button "Pick opening date" [ref=e2310] [cursor=pointer]
+          - generic [ref=e2311]:
+            - text: Primary Category
+            - textbox [ref=e2312]: Diagnostic center
+          - generic [ref=e2313]:
+            - generic [ref=e2314]: Additional Categories (comma-separated)
+            - textbox "e.g. Restaurant, Café" [ref=e2315]
+          - generic [ref=e2316]:
+            - generic [ref=e2317]:
+              - text: Phone
+              - textbox [ref=e2318]: 091707 77876
+            - generic [ref=e2319]:
+              - generic [ref=e2320]: Additional Phones (comma-separated)
+              - textbox "e.g. +91-9876543210" [ref=e2321]
+          - generic [ref=e2322]:
+            - generic [ref=e2323]:
+              - text: Website
+              - textbox [ref=e2324]: https://www.mdrcindia.com/labs/bhopal
+            - generic [ref=e2325]:
+              - text: Appointment Link
+              - textbox "https://..." [ref=e2326]
+            - generic [ref=e2327]:
+              - text: WhatsApp Number
+              - generic [ref=e2328]:
+                - generic [ref=e2329]: https://wa.me/
+                - textbox "919876543210" [ref=e2330]
+          - generic [ref=e2331]:
+            - generic [ref=e2332]: Labels (comma-separated)
+            - textbox "e.g. flagship, premium" [ref=e2333]: scale-test-mdrc
+          - generic [ref=e2334]:
+            - generic [ref=e2335]:
+              - text: Description
+              - generic [ref=e2336]: (128/750)
+            - textbox [ref=e2337]: MDRC (scale test) Bhopal offers pathology, radiology and full-body health checks with home sample collection and online reports.
+          - paragraph [ref=e2338]: Address
+          - generic [ref=e2339]:
+            - text: Address Lines
+            - textbox "One line per row" [ref=e2340]: 210, Court Road
+          - generic [ref=e2341]:
+            - generic [ref=e2342]:
+              - text: City
+              - textbox [ref=e2343]: Bhopal
+            - generic [ref=e2344]:
+              - text: State
+              - textbox [ref=e2345]: Madhya Pradesh
+          - generic [ref=e2346]:
+            - generic [ref=e2347]:
+              - text: PIN Code
+              - textbox [ref=e2348]: "462057"
+            - generic [ref=e2349]:
+              - text: Country Code
+              - textbox [ref=e2350]: IN
+          - paragraph [ref=e2352]: Coordinates
+          - generic [ref=e2353]:
+            - generic [ref=e2354]:
+              - text: Latitude
+              - spinbutton [ref=e2355]: "23.2687805"
+            - generic [ref=e2356]:
+              - text: Longitude
+              - spinbutton [ref=e2357]: "77.4924682"
+          - paragraph [ref=e2358]: Business Hours
+          - generic [ref=e2359]:
+            - generic [ref=e2360]:
+              - generic [ref=e2361]: Mon
+              - generic [ref=e2362]:
+                - switch [checked] [ref=e2363] [cursor=pointer]
+                - generic [ref=e2364]: Open
+              - textbox [ref=e2365]: 09:30
+              - generic [ref=e2366]: –
+              - textbox [ref=e2367]: 19:30
+            - generic [ref=e2368]:
+              - generic [ref=e2369]: Tue
+              - generic [ref=e2370]:
+                - switch [checked] [ref=e2371] [cursor=pointer]
+                - generic [ref=e2372]: Open
+              - textbox [ref=e2373]: 09:30
+              - generic [ref=e2374]: –
+              - textbox [ref=e2375]: 19:30
+            - generic [ref=e2376]:
+              - generic [ref=e2377]: Wed
+              - generic [ref=e2378]:
+                - switch [checked] [ref=e2379] [cursor=pointer]
+                - generic [ref=e2380]: Open
+              - textbox [ref=e2381]: 09:30
+              - generic [ref=e2382]: –
+              - textbox [ref=e2383]: 19:30
+            - generic [ref=e2384]:
+              - generic [ref=e2385]: Thu
+              - generic [ref=e2386]:
+                - switch [checked] [ref=e2387] [cursor=pointer]
+                - generic [ref=e2388]: Open
+              - textbox [ref=e2389]: 09:30
+              - generic [ref=e2390]: –
+              - textbox [ref=e2391]: 19:30
+            - generic [ref=e2392]:
+              - generic [ref=e2393]: Fri
+              - generic [ref=e2394]:
+                - switch [checked] [ref=e2395] [cursor=pointer]
+                - generic [ref=e2396]: Open
+              - textbox [ref=e2397]: 09:30
+              - generic [ref=e2398]: –
+              - textbox [ref=e2399]: 19:30
+            - generic [ref=e2400]:
+              - generic [ref=e2401]: Sat
+              - generic [ref=e2402]:
+                - switch [checked] [ref=e2403] [cursor=pointer]
+                - generic [ref=e2404]: Open
+              - textbox [ref=e2405]: 09:30
+              - generic [ref=e2406]: –
+              - textbox [ref=e2407]: 19:30
+            - generic [ref=e2408]:
+              - generic [ref=e2409]: Sun
+              - generic [ref=e2410]:
+                - switch [checked] [ref=e2411] [cursor=pointer]
+                - generic [ref=e2412]: Open
+              - textbox [ref=e2413]: 10:00
+              - generic [ref=e2414]: –
+              - textbox [ref=e2415]: 14:00
+          - generic [ref=e2416]:
+            - paragraph [ref=e2417]: Special Hours / Date Closures
+            - button "Add Date" [ref=e2418] [cursor=pointer]
+          - paragraph [ref=e2419]: No special dates set.
+          - paragraph [ref=e2420]: Service Options
+          - generic [ref=e2426]:
+            - generic [ref=e2427] [cursor=pointer]:
+              - checkbox "Dine-in" [ref=e2428]
+              - generic [ref=e2429]: Dine-in
+            - generic [ref=e2430] [cursor=pointer]:
+              - checkbox "Takeaway" [ref=e2431]
+              - generic [ref=e2432]: Takeaway
+            - generic [ref=e2433] [cursor=pointer]:
+              - checkbox "Delivery" [ref=e2434]
+              - generic [ref=e2435]: Delivery
+            - generic [ref=e2436] [cursor=pointer]:
+              - checkbox "Drive-through" [ref=e2437]
+              - generic [ref=e2438]: Drive-through
+            - generic [ref=e2439] [cursor=pointer]:
+              - checkbox "Curbside Pickup" [ref=e2440]
+              - generic [ref=e2441]: Curbside Pickup
+            - generic [ref=e2442] [cursor=pointer]:
+              - checkbox "Online Appointments" [ref=e2443]
+              - generic [ref=e2444]: Online Appointments
+            - generic [ref=e2445] [cursor=pointer]:
+              - checkbox "Online Estimates" [ref=e2446]
+              - generic [ref=e2447]: Online Estimates
+            - generic [ref=e2448] [cursor=pointer]:
+              - checkbox "On-site Services" [ref=e2449]
+              - generic [ref=e2450]: On-site Services
+            - generic [ref=e2451] [cursor=pointer]:
+              - checkbox "Online / Telehealth" [ref=e2452]
+              - generic [ref=e2453]: Online / Telehealth
+          - paragraph [ref=e2454]: Amenities & Accessibility
+          - generic [ref=e2459]:
+            - generic [ref=e2460] [cursor=pointer]:
+              - checkbox "Wi-Fi" [ref=e2461]
+              - generic [ref=e2466]: Wi-Fi
+            - generic [ref=e2467] [cursor=pointer]:
+              - checkbox "Restroom" [ref=e2468]
+              - generic [ref=e2472]: Restroom
+            - generic [ref=e2473] [cursor=pointer]:
+              - checkbox "Wheelchair Accessible Entrance" [checked] [ref=e2474]
+              - generic [ref=e2481]: Wheelchair Accessible Entrance
+            - generic [ref=e2482] [cursor=pointer]:
+              - checkbox "Wheelchair Accessible Seating" [ref=e2483]
+              - generic [ref=e2487]: Wheelchair Accessible Seating
+            - generic [ref=e2488] [cursor=pointer]:
+              - checkbox "Gender Neutral Restroom" [ref=e2489]
+              - generic [ref=e2495]: Gender Neutral Restroom
+            - generic [ref=e2496] [cursor=pointer]:
+              - checkbox "Changing Table" [ref=e2497]
+              - generic [ref=e2501]: Changing Table
+            - generic [ref=e2502] [cursor=pointer]:
+              - checkbox "Live Music" [ref=e2503]
+              - generic [ref=e2508]: Live Music
+            - generic [ref=e2509] [cursor=pointer]:
+              - checkbox "Outdoor Seating" [ref=e2510]
+              - generic [ref=e2514]: Outdoor Seating
+            - generic [ref=e2515] [cursor=pointer]:
+              - checkbox "TV" [ref=e2516]
+              - generic [ref=e2520]: TV
+            - generic [ref=e2521] [cursor=pointer]:
+              - checkbox "Fireplace" [ref=e2522]
+              - generic [ref=e2525]: Fireplace
+            - generic [ref=e2526] [cursor=pointer]:
+              - checkbox "Air Conditioning" [ref=e2527]
+              - generic [ref=e2532]: Air Conditioning
+            - generic [ref=e2533] [cursor=pointer]:
+              - checkbox "Dogs Allowed" [ref=e2534]
+              - generic [ref=e2539]: Dogs Allowed
+            - generic [ref=e2540] [cursor=pointer]:
+              - checkbox "Kids Friendly" [ref=e2541]
+              - generic [ref=e2545]: Kids Friendly
+            - generic [ref=e2546] [cursor=pointer]:
+              - checkbox "Smoking Allowed" [ref=e2547]
+              - generic [ref=e2553]: Smoking Allowed
+            - generic [ref=e2554] [cursor=pointer]:
+              - checkbox "Gym / Fitness" [ref=e2555]
+              - generic [ref=e2562]: Gym / Fitness
+            - generic [ref=e2563] [cursor=pointer]:
+              - checkbox "Swimming Pool" [ref=e2564]
+              - generic [ref=e2568]: Swimming Pool
+            - generic [ref=e2569] [cursor=pointer]:
+              - checkbox "LGBTQ+ Friendly" [ref=e2570]
+              - generic [ref=e2573]: LGBTQ+ Friendly
+            - generic [ref=e2574] [cursor=pointer]:
+              - checkbox "Multilingual Staff" [ref=e2575]
+              - generic [ref=e2580]: Multilingual Staff
+          - paragraph [ref=e2581]: Parking
+          - generic [ref=e2586]:
+            - generic [ref=e2587] [cursor=pointer]:
+              - checkbox "Free Parking" [checked] [ref=e2588]
+              - generic [ref=e2589]: Free Parking
+            - generic [ref=e2590] [cursor=pointer]:
+              - checkbox "Paid Parking" [ref=e2591]
+              - generic [ref=e2592]: Paid Parking
+            - generic [ref=e2593] [cursor=pointer]:
+              - checkbox "Street Parking" [ref=e2594]
+              - generic [ref=e2595]: Street Parking
+            - generic [ref=e2596] [cursor=pointer]:
+              - checkbox "Garage / Covered Parking" [ref=e2597]
+              - generic [ref=e2598]: Garage / Covered Parking
+            - generic [ref=e2599] [cursor=pointer]:
+              - checkbox "Valet Parking" [ref=e2600]
+              - generic [ref=e2601]: Valet Parking
+            - generic [ref=e2602] [cursor=pointer]:
+              - checkbox "No Parking Available" [ref=e2603]
+              - generic [ref=e2604]: No Parking Available
+          - paragraph [ref=e2605]: Payment Methods
+          - generic [ref=e2608]:
+            - generic [ref=e2609] [cursor=pointer]:
+              - checkbox "Cash" [checked] [ref=e2610]
+              - generic [ref=e2611]: Cash
+            - generic [ref=e2612] [cursor=pointer]:
+              - checkbox "Credit Cards" [checked] [ref=e2613]
+              - generic [ref=e2614]: Credit Cards
+            - generic [ref=e2615] [cursor=pointer]:
+              - checkbox "Debit Cards" [checked] [ref=e2616]
+              - generic [ref=e2617]: Debit Cards
+            - generic [ref=e2618] [cursor=pointer]:
+              - checkbox "NFC / Mobile Payments" [ref=e2619]
+              - generic [ref=e2620]: NFC / Mobile Payments
+            - generic [ref=e2621] [cursor=pointer]:
+              - checkbox "UPI" [ref=e2622]
+              - generic [ref=e2623]: UPI
+          - paragraph [ref=e2624]: Business Highlights
+          - generic [ref=e2627]:
+            - generic [ref=e2628] [cursor=pointer]:
+              - checkbox "Women-led" [ref=e2629]
+              - generic [ref=e2630]: Women-led
+            - generic [ref=e2631] [cursor=pointer]:
+              - checkbox "Veteran-led" [ref=e2632]
+              - generic [ref=e2633]: Veteran-led
+            - generic [ref=e2634] [cursor=pointer]:
+              - checkbox "Black-owned" [ref=e2635]
+              - generic [ref=e2636]: Black-owned
+            - generic [ref=e2637] [cursor=pointer]:
+              - checkbox "LGBTQ+ owned" [ref=e2638]
+              - generic [ref=e2639]: LGBTQ+ owned
+            - generic [ref=e2640] [cursor=pointer]:
+              - checkbox "Asian-owned" [ref=e2641]
+              - generic [ref=e2642]: Asian-owned
+            - generic [ref=e2643] [cursor=pointer]:
+              - checkbox "Latino-owned" [ref=e2644]
+              - generic [ref=e2645]: Latino-owned
+            - generic [ref=e2646] [cursor=pointer]:
+              - checkbox "Indigenous-owned" [ref=e2647]
+              - generic [ref=e2648]: Indigenous-owned
+            - generic [ref=e2649] [cursor=pointer]:
+              - checkbox "Family-owned" [ref=e2650]
+              - generic [ref=e2651]: Family-owned
+            - generic [ref=e2652] [cursor=pointer]:
+              - checkbox "Small Business" [ref=e2653]
+              - generic [ref=e2654]: Small Business
+          - button "Save Changes" [ref=e2656] [cursor=pointer]

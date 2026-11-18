@@ -1,0 +1,796 @@
+- generic [ref=f2e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [aria-hidden]: Staging · test copy
+  - generic [ref=f2e7]:
+    - complementary [ref=f2e8]:
+      - generic [ref=f2e9]:
+        - generic [ref=f2e10]: M(
+        - generic [ref=f2e11]:
+          - generic [ref=f2e12]: MDRC (scale test)
+          - generic [ref=f2e13]: 3000 locations
+      - generic [ref=f2e14]:
+        - button "Locations" [ref=f2e15] [cursor=pointer]
+        - button "Engage" [ref=f2e16] [cursor=pointer]
+        - button "Ads" [ref=f2e17] [cursor=pointer]
+      - navigation [ref=f2e18]:
+        - button "Dashboard" [ref=f2e19] [cursor=pointer]
+        - generic [ref=f2e25]: Google
+        - button "Locations 3000" [ref=f2e31] [cursor=pointer]:
+          - text: Locations
+          - generic [ref=f2e35]: "3000"
+        - button "Reviews 20388" [ref=f2e36] [cursor=pointer]:
+          - text: Reviews
+          - generic [ref=f2e39]: "20388"
+        - button "Page Posts" [ref=f2e40] [cursor=pointer]
+        - button "AI Location Studio" [ref=f2e44] [cursor=pointer]
+        - button "Profile Guard" [ref=f2e47] [cursor=pointer]
+        - button "Not Published" [ref=f2e51] [cursor=pointer]
+        - button "Support Cases" [ref=f2e55] [cursor=pointer]
+        - button "QR Codes" [ref=f2e59] [cursor=pointer]
+        - button "Data Manager" [ref=f2e66] [cursor=pointer]
+        - generic [ref=f2e71]: Meta
+        - button "Location Pages" [ref=f2e74] [cursor=pointer]
+        - button "Page Posts" [ref=f2e79] [cursor=pointer]
+        - generic [ref=f2e83]: Microsite
+        - button "Microsite" [ref=f2e87] [cursor=pointer]
+        - generic [ref=f2e93]: Insights
+        - button "Reports" [ref=f2e95] [cursor=pointer]
+        - generic [ref=f2e99]: Account
+        - button "User Management" [ref=f2e103] [cursor=pointer]
+        - button "Activity" [ref=f2e109] [cursor=pointer]
+        - button "Settings" [ref=f2e114] [cursor=pointer]
+        - button "Support" [ref=f2e118] [cursor=pointer]
+    - generic [ref=f2e123]:
+      - generic [ref=f2e138613]:
+        - heading "Team Management" [level=1] [ref=f2e138615]
+        - generic [ref=f2e138616]:
+          - button "Invite Member" [ref=f2e138617] [cursor=pointer]
+          - generic [ref=f2e138621]:
+            - button "Refresh" [ref=f2e138622] [cursor=pointer]
+            - generic [ref=f2e138628]:
+              - button "Soft" [ref=f2e138629] [cursor=pointer]
+              - button "Ink" [ref=f2e138636] [cursor=pointer]
+            - button "Notifications" [ref=f2e138639] [cursor=pointer]
+            - button "SM" [ref=f2e138644] [cursor=pointer]
+      - generic [ref=f2e138646]:
+        - generic [ref=f2e138648]:
+          - generic [ref=f2e138649]: Team (50)
+          - generic [ref=f2e138650]: People with access to your business dashboard
+        - textbox "Search names or emails" [ref=f2e138653]
+        - generic [ref=f2e138654]:
+          - generic [ref=f2e138659]:
+            - generic [ref=f2e138660]:
+              - generic [ref=f2e138661]: Dhruv Yadav (scale)
+              - generic [ref=f2e138662]: Owner
+              - generic [ref=f2e138663]: You
+            - generic [ref=f2e138664]: scale.mdrc.owner@staging.invalid
+            - generic [ref=f2e138665]: Full access
+          - generic [ref=f2e138667]:
+            - generic [ref=f2e138670]:
+              - generic [ref=f2e138671]:
+                - generic [ref=f2e138672]: Vivaan Iyer
+                - generic [ref=f2e138673]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e138674]: Invitation pending
+              - generic [ref=f2e138675]: scale.mdrc.member010@staging.invalid
+              - generic [ref=f2e138676]: 10 permissions
+            - generic [ref=f2e138678]:
+              - button "Send the invitation email again" [ref=f2e138679] [cursor=pointer]
+              - button "Edit access" [active] [ref=f2e138683] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e138687] [cursor=pointer]
+          - generic [ref=f2e138691]:
+            - generic [ref=f2e138694]:
+              - generic [ref=f2e138695]:
+                - generic [ref=f2e138696]: scale.mdrc.member020@staging.invalid
+                - generic [ref=f2e138697]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e138698]: Invitation pending
+              - generic [ref=f2e138699]: scale.mdrc.member020@staging.invalid
+              - generic [ref=f2e138700]: 5 permissions
+            - generic [ref=f2e138702]:
+              - button "Send the invitation email again" [ref=f2e138703] [cursor=pointer]
+              - button "Edit access" [ref=f2e138707] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e138711] [cursor=pointer]
+          - generic [ref=f2e138715]:
+            - generic [ref=f2e138718]:
+              - generic [ref=f2e138719]:
+                - generic [ref=f2e138720]: scale.mdrc.member021@staging.invalid
+                - generic [ref=f2e138721]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e138722]: Invitation pending
+              - generic [ref=f2e138723]: scale.mdrc.member021@staging.invalid
+              - generic [ref=f2e138724]: 5 permissions
+            - generic [ref=f2e138726]:
+              - button "Send the invitation email again" [ref=f2e138727] [cursor=pointer]
+              - button "Edit access" [ref=f2e138731] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e138735] [cursor=pointer]
+          - generic [ref=f2e138739]:
+            - generic [ref=f2e138742]:
+              - generic [ref=f2e138743]:
+                - generic [ref=f2e138744]: Reyansh Bhat
+                - generic [ref=f2e138745]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e138746]: Invitation pending
+              - generic [ref=f2e138747]: scale.mdrc.member027@staging.invalid
+              - generic [ref=f2e138748]: 5 permissions
+            - generic [ref=f2e138750]:
+              - button "Send the invitation email again" [ref=f2e138751] [cursor=pointer]
+              - button "Edit access" [ref=f2e138755] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e138759] [cursor=pointer]
+          - generic [ref=f2e138763]:
+            - generic [ref=f2e138766]:
+              - generic [ref=f2e138767]:
+                - generic [ref=f2e138768]: scale.mdrc.member041@staging.invalid
+                - generic [ref=f2e138769]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e138770]: Invitation pending
+              - generic [ref=f2e138771]: scale.mdrc.member041@staging.invalid
+              - generic [ref=f2e138772]: 5 permissions
+            - generic [ref=f2e138774]:
+              - button "Send the invitation email again" [ref=f2e138775] [cursor=pointer]
+              - button "Edit access" [ref=f2e138779] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e138783] [cursor=pointer]
+          - generic [ref=f2e138787]:
+            - generic [ref=f2e138790]:
+              - generic [ref=f2e138791]:
+                - generic [ref=f2e138792]: scale.mdrc.member006@staging.invalid
+                - generic [ref=f2e138793]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e138794]: Invitation pending
+              - generic [ref=f2e138795]: scale.mdrc.member006@staging.invalid
+              - generic [ref=f2e138796]: 10 permissions
+            - generic [ref=f2e138798]:
+              - button "Send the invitation email again" [ref=f2e138799] [cursor=pointer]
+              - button "Edit access" [ref=f2e138803] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e138807] [cursor=pointer]
+          - generic [ref=f2e138811]:
+            - generic [ref=f2e138814]:
+              - generic [ref=f2e138815]:
+                - generic [ref=f2e138816]: Tanvi Verma
+                - generic [ref=f2e138817]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e138818]: Invitation pending
+              - generic [ref=f2e138819]: scale.mdrc.member015@staging.invalid
+              - generic [ref=f2e138820]: 10 permissions
+            - generic [ref=f2e138822]:
+              - button "Send the invitation email again" [ref=f2e138823] [cursor=pointer]
+              - button "Edit access" [ref=f2e138827] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e138831] [cursor=pointer]
+          - generic [ref=f2e138835]:
+            - generic [ref=f2e138838]:
+              - generic [ref=f2e138839]:
+                - generic [ref=f2e138840]: Vikram Gupta
+                - generic [ref=f2e138841]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e138842]: Invitation pending
+              - generic [ref=f2e138843]: scale.mdrc.member018@staging.invalid
+              - generic [ref=f2e138844]: 5 permissions
+            - generic [ref=f2e138846]:
+              - button "Send the invitation email again" [ref=f2e138847] [cursor=pointer]
+              - button "Edit access" [ref=f2e138851] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e138855] [cursor=pointer]
+          - generic [ref=f2e138859]:
+            - generic [ref=f2e138862]:
+              - generic [ref=f2e138863]:
+                - generic [ref=f2e138864]: scale.mdrc.member024@staging.invalid
+                - generic [ref=f2e138865]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e138866]: Invitation pending
+              - generic [ref=f2e138867]: scale.mdrc.member024@staging.invalid
+              - generic [ref=f2e138868]: 5 permissions
+            - generic [ref=f2e138870]:
+              - button "Send the invitation email again" [ref=f2e138871] [cursor=pointer]
+              - button "Edit access" [ref=f2e138875] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e138879] [cursor=pointer]
+          - generic [ref=f2e138883]:
+            - generic [ref=f2e138886]:
+              - generic [ref=f2e138887]:
+                - generic [ref=f2e138888]: scale.mdrc.member033@staging.invalid
+                - generic [ref=f2e138889]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e138890]: Invitation pending
+              - generic [ref=f2e138891]: scale.mdrc.member033@staging.invalid
+              - generic [ref=f2e138892]: 5 permissions
+            - generic [ref=f2e138894]:
+              - button "Send the invitation email again" [ref=f2e138895] [cursor=pointer]
+              - button "Edit access" [ref=f2e138899] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e138903] [cursor=pointer]
+          - generic [ref=f2e138907]:
+            - generic [ref=f2e138910]:
+              - generic [ref=f2e138911]:
+                - generic [ref=f2e138912]: scale.mdrc.member001@staging.invalid
+                - generic [ref=f2e138913]: Custom
+                - generic [ref=f2e138914]: Signed up
+              - generic [ref=f2e138915]: scale.mdrc.member001@staging.invalid
+              - generic [ref=f2e138916]: 10 permissions
+            - generic [ref=f2e138918]:
+              - button "Edit access" [ref=f2e138919] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e138923] [cursor=pointer]
+          - generic [ref=f2e138927]:
+            - generic [ref=f2e138930]:
+              - generic [ref=f2e138931]:
+                - generic [ref=f2e138932]: scale.mdrc.member049@staging.invalid
+                - generic [ref=f2e138933]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e138934]: Invitation pending
+              - generic [ref=f2e138935]: scale.mdrc.member049@staging.invalid
+              - generic [ref=f2e138936]: 5 permissions
+            - generic [ref=f2e138938]:
+              - button "Send the invitation email again" [ref=f2e138939] [cursor=pointer]
+              - button "Edit access" [ref=f2e138943] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e138947] [cursor=pointer]
+          - generic [ref=f2e138951]:
+            - generic [ref=f2e138954]:
+              - generic [ref=f2e138955]:
+                - generic [ref=f2e138956]: scale.mdrc.member005@staging.invalid
+                - generic [ref=f2e138957]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e138958]: Invitation pending
+              - generic [ref=f2e138959]: scale.mdrc.member005@staging.invalid
+              - generic [ref=f2e138960]: 10 permissions
+            - generic [ref=f2e138962]:
+              - button "Send the invitation email again" [ref=f2e138963] [cursor=pointer]
+              - button "Edit access" [ref=f2e138967] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e138971] [cursor=pointer]
+          - generic [ref=f2e138975]:
+            - generic [ref=f2e138978]:
+              - generic [ref=f2e138979]:
+                - generic [ref=f2e138980]: scale.mdrc.member002@staging.invalid
+                - generic [ref=f2e138981]: Custom
+                - generic [ref=f2e138982]: Signed up
+              - generic [ref=f2e138983]: scale.mdrc.member002@staging.invalid
+              - generic [ref=f2e138984]: 10 permissions
+            - generic [ref=f2e138986]:
+              - button "Edit access" [ref=f2e138987] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e138991] [cursor=pointer]
+          - generic [ref=f2e138995]:
+            - generic [ref=f2e138998]:
+              - generic [ref=f2e138999]:
+                - generic [ref=f2e139000]: scale.mdrc.member014@staging.invalid
+                - generic [ref=f2e139001]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139002]: Invitation pending
+              - generic [ref=f2e139003]: scale.mdrc.member014@staging.invalid
+              - generic [ref=f2e139004]: 10 permissions
+            - generic [ref=f2e139006]:
+              - button "Send the invitation email again" [ref=f2e139007] [cursor=pointer]
+              - button "Edit access" [ref=f2e139011] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139015] [cursor=pointer]
+          - generic [ref=f2e139019]:
+            - generic [ref=f2e139022]:
+              - generic [ref=f2e139023]:
+                - generic [ref=f2e139024]: Aditya Bose
+                - generic [ref=f2e139025]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139026]: Invitation pending
+              - generic [ref=f2e139027]: scale.mdrc.member012@staging.invalid
+              - generic [ref=f2e139028]: 10 permissions
+            - generic [ref=f2e139030]:
+              - button "Send the invitation email again" [ref=f2e139031] [cursor=pointer]
+              - button "Edit access" [ref=f2e139035] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139039] [cursor=pointer]
+          - generic [ref=f2e139043]:
+            - generic [ref=f2e139046]:
+              - generic [ref=f2e139047]:
+                - generic [ref=f2e139048]: scale.mdrc.member032@staging.invalid
+                - generic [ref=f2e139049]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139050]: Invitation pending
+              - generic [ref=f2e139051]: scale.mdrc.member032@staging.invalid
+              - generic [ref=f2e139052]: 5 permissions
+            - generic [ref=f2e139054]:
+              - button "Send the invitation email again" [ref=f2e139055] [cursor=pointer]
+              - button "Edit access" [ref=f2e139059] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139063] [cursor=pointer]
+          - generic [ref=f2e139067]:
+            - generic [ref=f2e139070]:
+              - generic [ref=f2e139071]:
+                - generic [ref=f2e139072]: Reyansh Naidu
+                - generic [ref=f2e139073]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139074]: Invitation pending
+              - generic [ref=f2e139075]: scale.mdrc.member009@staging.invalid
+              - generic [ref=f2e139076]: 10 permissions
+            - generic [ref=f2e139078]:
+              - button "Send the invitation email again" [ref=f2e139079] [cursor=pointer]
+              - button "Edit access" [ref=f2e139083] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139087] [cursor=pointer]
+          - generic [ref=f2e139091]:
+            - generic [ref=f2e139094]:
+              - generic [ref=f2e139095]:
+                - generic [ref=f2e139096]: Sneha Chauhan
+                - generic [ref=f2e139097]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139098]: Invitation pending
+              - generic [ref=f2e139099]: scale.mdrc.member038@staging.invalid
+              - generic [ref=f2e139100]: 5 permissions
+            - generic [ref=f2e139102]:
+              - button "Send the invitation email again" [ref=f2e139103] [cursor=pointer]
+              - button "Edit access" [ref=f2e139107] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139111] [cursor=pointer]
+          - generic [ref=f2e139115]:
+            - generic [ref=f2e139118]:
+              - generic [ref=f2e139119]:
+                - generic [ref=f2e139120]: scale.mdrc.member037@staging.invalid
+                - generic [ref=f2e139121]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139122]: Invitation pending
+              - generic [ref=f2e139123]: scale.mdrc.member037@staging.invalid
+              - generic [ref=f2e139124]: 5 permissions
+            - generic [ref=f2e139126]:
+              - button "Send the invitation email again" [ref=f2e139127] [cursor=pointer]
+              - button "Edit access" [ref=f2e139131] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139135] [cursor=pointer]
+          - generic [ref=f2e139139]:
+            - generic [ref=f2e139142]:
+              - generic [ref=f2e139143]:
+                - generic [ref=f2e139144]: Krishna Bhat
+                - generic [ref=f2e139145]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139146]: Invitation pending
+              - generic [ref=f2e139147]: scale.mdrc.member047@staging.invalid
+              - generic [ref=f2e139148]: 5 permissions
+            - generic [ref=f2e139150]:
+              - button "Send the invitation email again" [ref=f2e139151] [cursor=pointer]
+              - button "Edit access" [ref=f2e139155] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139159] [cursor=pointer]
+          - generic [ref=f2e139163]:
+            - generic [ref=f2e139166]:
+              - generic [ref=f2e139167]:
+                - generic [ref=f2e139168]: scale.mdrc.member029@staging.invalid
+                - generic [ref=f2e139169]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139170]: Invitation pending
+              - generic [ref=f2e139171]: scale.mdrc.member029@staging.invalid
+              - generic [ref=f2e139172]: 5 permissions
+            - generic [ref=f2e139174]:
+              - button "Send the invitation email again" [ref=f2e139175] [cursor=pointer]
+              - button "Edit access" [ref=f2e139179] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139183] [cursor=pointer]
+          - generic [ref=f2e139187]:
+            - generic [ref=f2e139190]:
+              - generic [ref=f2e139191]:
+                - generic [ref=f2e139192]: Isha Malhotra
+                - generic [ref=f2e139193]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139194]: Invitation pending
+              - generic [ref=f2e139195]: scale.mdrc.member034@staging.invalid
+              - generic [ref=f2e139196]: 5 permissions
+            - generic [ref=f2e139198]:
+              - button "Send the invitation email again" [ref=f2e139199] [cursor=pointer]
+              - button "Edit access" [ref=f2e139203] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139207] [cursor=pointer]
+          - generic [ref=f2e139211]:
+            - generic [ref=f2e139214]:
+              - generic [ref=f2e139215]:
+                - generic [ref=f2e139216]: scale.mdrc.member028@staging.invalid
+                - generic [ref=f2e139217]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139218]: Invitation pending
+              - generic [ref=f2e139219]: scale.mdrc.member028@staging.invalid
+              - generic [ref=f2e139220]: 5 permissions
+            - generic [ref=f2e139222]:
+              - button "Send the invitation email again" [ref=f2e139223] [cursor=pointer]
+              - button "Edit access" [ref=f2e139227] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139231] [cursor=pointer]
+          - generic [ref=f2e139235]:
+            - generic [ref=f2e139238]:
+              - generic [ref=f2e139239]:
+                - generic [ref=f2e139240]: Aditya Mishra
+                - generic [ref=f2e139241]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139242]: Invitation pending
+              - generic [ref=f2e139243]: scale.mdrc.member013@staging.invalid
+              - generic [ref=f2e139244]: 10 permissions
+            - generic [ref=f2e139246]:
+              - button "Send the invitation email again" [ref=f2e139247] [cursor=pointer]
+              - button "Edit access" [ref=f2e139251] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139255] [cursor=pointer]
+          - generic [ref=f2e139259]:
+            - generic [ref=f2e139262]:
+              - generic [ref=f2e139263]:
+                - generic [ref=f2e139264]: Reyansh Malhotra
+                - generic [ref=f2e139265]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139266]: Invitation pending
+              - generic [ref=f2e139267]: scale.mdrc.member007@staging.invalid
+              - generic [ref=f2e139268]: 10 permissions
+            - generic [ref=f2e139270]:
+              - button "Send the invitation email again" [ref=f2e139271] [cursor=pointer]
+              - button "Edit access" [ref=f2e139275] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139279] [cursor=pointer]
+          - generic [ref=f2e139283]:
+            - generic [ref=f2e139286]:
+              - generic [ref=f2e139287]:
+                - generic [ref=f2e139288]: scale.mdrc.member031@staging.invalid
+                - generic [ref=f2e139289]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139290]: Invitation pending
+              - generic [ref=f2e139291]: scale.mdrc.member031@staging.invalid
+              - generic [ref=f2e139292]: 5 permissions
+            - generic [ref=f2e139294]:
+              - button "Send the invitation email again" [ref=f2e139295] [cursor=pointer]
+              - button "Edit access" [ref=f2e139299] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139303] [cursor=pointer]
+          - generic [ref=f2e139307]:
+            - generic [ref=f2e139310]:
+              - generic [ref=f2e139311]:
+                - generic [ref=f2e139312]: scale.mdrc.member039@staging.invalid
+                - generic [ref=f2e139313]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139314]: Invitation pending
+              - generic [ref=f2e139315]: scale.mdrc.member039@staging.invalid
+              - generic [ref=f2e139316]: 5 permissions
+            - generic [ref=f2e139318]:
+              - button "Send the invitation email again" [ref=f2e139319] [cursor=pointer]
+              - button "Edit access" [ref=f2e139323] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139327] [cursor=pointer]
+          - generic [ref=f2e139331]:
+            - generic [ref=f2e139334]:
+              - generic [ref=f2e139335]:
+                - generic [ref=f2e139336]: Sai Sharma
+                - generic [ref=f2e139337]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139338]: Invitation pending
+              - generic [ref=f2e139339]: scale.mdrc.member043@staging.invalid
+              - generic [ref=f2e139340]: 5 permissions
+            - generic [ref=f2e139342]:
+              - button "Send the invitation email again" [ref=f2e139343] [cursor=pointer]
+              - button "Edit access" [ref=f2e139347] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139351] [cursor=pointer]
+          - generic [ref=f2e139355]:
+            - generic [ref=f2e139358]:
+              - generic [ref=f2e139359]:
+                - generic [ref=f2e139360]: scale.mdrc.member023@staging.invalid
+                - generic [ref=f2e139361]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139362]: Invitation pending
+              - generic [ref=f2e139363]: scale.mdrc.member023@staging.invalid
+              - generic [ref=f2e139364]: 5 permissions
+            - generic [ref=f2e139366]:
+              - button "Send the invitation email again" [ref=f2e139367] [cursor=pointer]
+              - button "Edit access" [ref=f2e139371] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139375] [cursor=pointer]
+          - generic [ref=f2e139379]:
+            - generic [ref=f2e139382]:
+              - generic [ref=f2e139383]:
+                - generic [ref=f2e139384]: scale.mdrc.member004@staging.invalid
+                - generic [ref=f2e139385]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139386]: Invitation pending
+              - generic [ref=f2e139387]: scale.mdrc.member004@staging.invalid
+              - generic [ref=f2e139388]: 10 permissions
+            - generic [ref=f2e139390]:
+              - button "Send the invitation email again" [ref=f2e139391] [cursor=pointer]
+              - button "Edit access" [ref=f2e139395] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139399] [cursor=pointer]
+          - generic [ref=f2e139403]:
+            - generic [ref=f2e139406]:
+              - generic [ref=f2e139407]:
+                - generic [ref=f2e139408]: scale.mdrc.member040@staging.invalid
+                - generic [ref=f2e139409]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139410]: Invitation pending
+              - generic [ref=f2e139411]: scale.mdrc.member040@staging.invalid
+              - generic [ref=f2e139412]: 5 permissions
+            - generic [ref=f2e139414]:
+              - button "Send the invitation email again" [ref=f2e139415] [cursor=pointer]
+              - button "Edit access" [ref=f2e139419] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139423] [cursor=pointer]
+          - generic [ref=f2e139427]:
+            - generic [ref=f2e139430]:
+              - generic [ref=f2e139431]:
+                - generic [ref=f2e139432]: Ananya Sharma
+                - generic [ref=f2e139433]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139434]: Invitation pending
+              - generic [ref=f2e139435]: scale.mdrc.member017@staging.invalid
+              - generic [ref=f2e139436]: 5 permissions
+            - generic [ref=f2e139438]:
+              - button "Send the invitation email again" [ref=f2e139439] [cursor=pointer]
+              - button "Edit access" [ref=f2e139443] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139447] [cursor=pointer]
+          - generic [ref=f2e139451]:
+            - generic [ref=f2e139454]:
+              - generic [ref=f2e139455]:
+                - generic [ref=f2e139456]: scale.mdrc.member022@staging.invalid
+                - generic [ref=f2e139457]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139458]: Invitation pending
+              - generic [ref=f2e139459]: scale.mdrc.member022@staging.invalid
+              - generic [ref=f2e139460]: 5 permissions
+            - generic [ref=f2e139462]:
+              - button "Send the invitation email again" [ref=f2e139463] [cursor=pointer]
+              - button "Edit access" [ref=f2e139467] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139471] [cursor=pointer]
+          - generic [ref=f2e139475]:
+            - generic [ref=f2e139478]:
+              - generic [ref=f2e139479]:
+                - generic [ref=f2e139480]: Kabir Bose
+                - generic [ref=f2e139481]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139482]: Invitation pending
+              - generic [ref=f2e139483]: scale.mdrc.member026@staging.invalid
+              - generic [ref=f2e139484]: 5 permissions
+            - generic [ref=f2e139486]:
+              - button "Send the invitation email again" [ref=f2e139487] [cursor=pointer]
+              - button "Edit access" [ref=f2e139491] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139495] [cursor=pointer]
+          - generic [ref=f2e139499]:
+            - generic [ref=f2e139502]:
+              - generic [ref=f2e139503]:
+                - generic [ref=f2e139504]: scale.mdrc.member035@staging.invalid
+                - generic [ref=f2e139505]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139506]: Invitation pending
+              - generic [ref=f2e139507]: scale.mdrc.member035@staging.invalid
+              - generic [ref=f2e139508]: 5 permissions
+            - generic [ref=f2e139510]:
+              - button "Send the invitation email again" [ref=f2e139511] [cursor=pointer]
+              - button "Edit access" [ref=f2e139515] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139519] [cursor=pointer]
+          - generic [ref=f2e139523]:
+            - generic [ref=f2e139526]:
+              - generic [ref=f2e139527]:
+                - generic [ref=f2e139528]: Nikhil Malhotra
+                - generic [ref=f2e139529]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139530]: Invitation pending
+              - generic [ref=f2e139531]: scale.mdrc.member044@staging.invalid
+              - generic [ref=f2e139532]: 5 permissions
+            - generic [ref=f2e139534]:
+              - button "Send the invitation email again" [ref=f2e139535] [cursor=pointer]
+              - button "Edit access" [ref=f2e139539] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139543] [cursor=pointer]
+          - generic [ref=f2e139547]:
+            - generic [ref=f2e139550]:
+              - generic [ref=f2e139551]:
+                - generic [ref=f2e139552]: scale.mdrc.member042@staging.invalid
+                - generic [ref=f2e139553]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139554]: Invitation pending
+              - generic [ref=f2e139555]: scale.mdrc.member042@staging.invalid
+              - generic [ref=f2e139556]: 5 permissions
+            - generic [ref=f2e139558]:
+              - button "Send the invitation email again" [ref=f2e139559] [cursor=pointer]
+              - button "Edit access" [ref=f2e139563] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139567] [cursor=pointer]
+          - generic [ref=f2e139571]:
+            - generic [ref=f2e139574]:
+              - generic [ref=f2e139575]:
+                - generic [ref=f2e139576]: Tanvi Pillai
+                - generic [ref=f2e139577]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139578]: Invitation pending
+              - generic [ref=f2e139579]: scale.mdrc.member025@staging.invalid
+              - generic [ref=f2e139580]: 5 permissions
+            - generic [ref=f2e139582]:
+              - button "Send the invitation email again" [ref=f2e139583] [cursor=pointer]
+              - button "Edit access" [ref=f2e139587] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139591] [cursor=pointer]
+          - generic [ref=f2e139595]:
+            - generic [ref=f2e139598]:
+              - generic [ref=f2e139599]:
+                - generic [ref=f2e139600]: scale.mdrc.member048@staging.invalid
+                - generic [ref=f2e139601]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139602]: Invitation pending
+              - generic [ref=f2e139603]: scale.mdrc.member048@staging.invalid
+              - generic [ref=f2e139604]: 5 permissions
+            - generic [ref=f2e139606]:
+              - button "Send the invitation email again" [ref=f2e139607] [cursor=pointer]
+              - button "Edit access" [ref=f2e139611] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139615] [cursor=pointer]
+          - generic [ref=f2e139619]:
+            - generic [ref=f2e139622]:
+              - generic [ref=f2e139623]:
+                - generic [ref=f2e139624]: Vivaan Bose
+                - generic [ref=f2e139625]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139626]: Invitation pending
+              - generic [ref=f2e139627]: scale.mdrc.member003@staging.invalid
+              - generic [ref=f2e139628]: 10 permissions
+            - generic [ref=f2e139630]:
+              - button "Send the invitation email again" [ref=f2e139631] [cursor=pointer]
+              - button "Edit access" [ref=f2e139635] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139639] [cursor=pointer]
+          - generic [ref=f2e139643]:
+            - generic [ref=f2e139646]:
+              - generic [ref=f2e139647]:
+                - generic [ref=f2e139648]: Rohan Agarwal
+                - generic [ref=f2e139649]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139650]: Invitation pending
+              - generic [ref=f2e139651]: scale.mdrc.member046@staging.invalid
+              - generic [ref=f2e139652]: 5 permissions
+            - generic [ref=f2e139654]:
+              - button "Send the invitation email again" [ref=f2e139655] [cursor=pointer]
+              - button "Edit access" [ref=f2e139659] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139663] [cursor=pointer]
+          - generic [ref=f2e139667]:
+            - generic [ref=f2e139670]:
+              - generic [ref=f2e139671]:
+                - generic [ref=f2e139672]: Kabir Mehta
+                - generic [ref=f2e139673]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139674]: Invitation pending
+              - generic [ref=f2e139675]: scale.mdrc.member016@staging.invalid
+              - generic [ref=f2e139676]: 5 permissions
+            - generic [ref=f2e139678]:
+              - button "Send the invitation email again" [ref=f2e139679] [cursor=pointer]
+              - button "Edit access" [ref=f2e139683] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139687] [cursor=pointer]
+          - generic [ref=f2e139691]:
+            - generic [ref=f2e139694]:
+              - generic [ref=f2e139695]:
+                - generic [ref=f2e139696]: scale.mdrc.member045@staging.invalid
+                - generic [ref=f2e139697]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139698]: Invitation pending
+              - generic [ref=f2e139699]: scale.mdrc.member045@staging.invalid
+              - generic [ref=f2e139700]: 5 permissions
+            - generic [ref=f2e139702]:
+              - button "Send the invitation email again" [ref=f2e139703] [cursor=pointer]
+              - button "Edit access" [ref=f2e139707] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139711] [cursor=pointer]
+          - generic [ref=f2e139715]:
+            - generic [ref=f2e139718]:
+              - generic [ref=f2e139719]:
+                - generic [ref=f2e139720]: Krishna Jain
+                - generic [ref=f2e139721]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139722]: Invitation pending
+              - generic [ref=f2e139723]: scale.mdrc.member011@staging.invalid
+              - generic [ref=f2e139724]: 10 permissions
+            - generic [ref=f2e139726]:
+              - button "Send the invitation email again" [ref=f2e139727] [cursor=pointer]
+              - button "Edit access" [ref=f2e139731] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139735] [cursor=pointer]
+          - generic [ref=f2e139739]:
+            - generic [ref=f2e139742]:
+              - generic [ref=f2e139743]:
+                - generic [ref=f2e139744]: Reyansh Mishra
+                - generic [ref=f2e139745]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139746]: Invitation pending
+              - generic [ref=f2e139747]: scale.mdrc.member036@staging.invalid
+              - generic [ref=f2e139748]: 5 permissions
+            - generic [ref=f2e139750]:
+              - button "Send the invitation email again" [ref=f2e139751] [cursor=pointer]
+              - button "Edit access" [ref=f2e139755] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139759] [cursor=pointer]
+          - generic [ref=f2e139763]:
+            - generic [ref=f2e139766]:
+              - generic [ref=f2e139767]:
+                - generic [ref=f2e139768]: scale.mdrc.member019@staging.invalid
+                - generic [ref=f2e139769]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139770]: Invitation pending
+              - generic [ref=f2e139771]: scale.mdrc.member019@staging.invalid
+              - generic [ref=f2e139772]: 5 permissions
+            - generic [ref=f2e139774]:
+              - button "Send the invitation email again" [ref=f2e139775] [cursor=pointer]
+              - button "Edit access" [ref=f2e139779] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139783] [cursor=pointer]
+          - generic [ref=f2e139787]:
+            - generic [ref=f2e139790]:
+              - generic [ref=f2e139791]:
+                - generic [ref=f2e139792]: Rahul Singh
+                - generic [ref=f2e139793]: Custom
+                - generic "Invitation sent, hasn't clicked the magic link yet" [ref=f2e139794]: Invitation pending
+              - generic [ref=f2e139795]: scale.mdrc.member008@staging.invalid
+              - generic [ref=f2e139796]: 10 permissions
+            - generic [ref=f2e139798]:
+              - button "Send the invitation email again" [ref=f2e139799] [cursor=pointer]
+              - button "Edit access" [ref=f2e139803] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139807] [cursor=pointer]
+          - generic [ref=f2e139811]:
+            - generic [ref=f2e139814]:
+              - generic [ref=f2e139815]:
+                - generic [ref=f2e139816]: scale.mdrc.member030@staging.invalid
+                - generic [ref=f2e139817]: Custom
+                - generic [ref=f2e139818]: Signed up
+              - generic [ref=f2e139819]: scale.mdrc.member030@staging.invalid
+              - generic [ref=f2e139820]: 5 permissions
+            - generic [ref=f2e139822]:
+              - button "Edit access" [ref=f2e139823] [cursor=pointer]
+              - button "Remove from the team" [ref=f2e139827] [cursor=pointer]
+      - generic [ref=f2e139831]:
+        - generic [ref=f2e139832]:
+          - generic [ref=f2e139833]:
+            - generic [ref=f2e139834]: Location Zones
+            - generic [ref=f2e139835]: Group locations into zones for easier access management
+          - button "New Zone" [ref=f2e139836] [cursor=pointer]
+        - generic [ref=f2e139838]: No zones yet. Create one to group locations.
+      - dialog [ref=f2e139840]:
+        - generic [ref=f2e139841]:
+          - generic [ref=f2e139842]: Edit Access — Vivaan Iyer
+          - button "Close" [ref=f2e139844] [cursor=pointer]
+        - generic [ref=f2e139849]:
+          - generic [ref=f2e139850]:
+            - generic [ref=f2e139851]: Product
+            - combobox [ref=f2e139852] [cursor=pointer]:
+              - option "All products" [selected]
+              - option "Locations"
+              - option "Engage"
+              - option "Advertising"
+            - generic [ref=f2e139853]: Scopes the permissions and role presets below to a single product.
+          - generic [ref=f2e139854]:
+            - generic [ref=f2e139855]: Role
+            - combobox [ref=f2e139856] [cursor=pointer]:
+              - option "Owner"
+              - option "Regional Manager"
+              - option "Store Manager"
+              - option "Review Handler"
+              - option "Report Viewer"
+              - option "Content Creator"
+              - option "Engage Agent"
+              - option "Engage Lead"
+              - option "Engage Read-Only"
+              - option "Custom" [selected]
+            - generic [ref=f2e139857]: Pick and choose permissions
+          - generic [ref=f2e139858]:
+            - generic [ref=f2e139859]: Location Access
+            - combobox [ref=f2e139860] [cursor=pointer]:
+              - option "All Locations" [selected]
+              - option "By State"
+              - option "By City"
+              - option "By Pincode"
+              - option "By Zone"
+              - option "Specific Locations"
+          - generic [ref=f2e139861]:
+            - generic [ref=f2e139862]: Permissions
+            - generic [ref=f2e139863]:
+              - generic [ref=f2e139864]:
+                - generic [ref=f2e139865]: General
+                - generic [ref=f2e139866] [cursor=pointer]:
+                  - checkbox "View Dashboard" [checked] [ref=f2e139867]: ✓
+                  - text: View Dashboard
+              - generic [ref=f2e139868]:
+                - generic [ref=f2e139869]: Reports
+                - generic [ref=f2e139870] [cursor=pointer]:
+                  - checkbox "View Reports" [checked] [ref=f2e139871]: ✓
+                  - text: View Reports
+              - generic [ref=f2e139872]:
+                - generic [ref=f2e139873]: Locations
+                - generic [ref=f2e139874] [cursor=pointer]:
+                  - checkbox "View Locations" [checked] [ref=f2e139875]: ✓
+                  - text: View Locations
+                - generic [ref=f2e139876] [cursor=pointer]:
+                  - checkbox "Edit Locations" [checked] [ref=f2e139877]: ✓
+                  - text: Edit Locations
+              - generic [ref=f2e139878]:
+                - generic [ref=f2e139879]: Reviews
+                - generic [ref=f2e139880] [cursor=pointer]:
+                  - checkbox "View Reviews" [checked] [ref=f2e139881]: ✓
+                  - text: View Reviews
+                - generic [ref=f2e139882] [cursor=pointer]:
+                  - checkbox "Reply to Reviews" [checked] [ref=f2e139883]: ✓
+                  - text: Reply to Reviews
+              - generic [ref=f2e139884]:
+                - generic [ref=f2e139885]: Posts
+                - generic [ref=f2e139886] [cursor=pointer]:
+                  - checkbox "View Posts" [checked] [ref=f2e139887]: ✓
+                  - text: View Posts
+                - generic [ref=f2e139888] [cursor=pointer]:
+                  - checkbox "Create Posts" [checked] [ref=f2e139889]: ✓
+                  - text: Create Posts
+              - generic [ref=f2e139890]:
+                - generic [ref=f2e139891]: Profile Guard
+                - generic [ref=f2e139892] [cursor=pointer]:
+                  - checkbox "View Profile Guard" [checked] [ref=f2e139893]: ✓
+                  - text: View Profile Guard
+                - generic [ref=f2e139894] [cursor=pointer]:
+                  - checkbox "Manage Profile Guard" [checked] [ref=f2e139895]: ✓
+                  - text: Manage Profile Guard
+              - generic [ref=f2e139896]:
+                - generic [ref=f2e139897]: Creative
+                - generic [ref=f2e139898] [cursor=pointer]:
+                  - checkbox "Use Creative Studio" [ref=f2e139899]
+                  - text: Use Creative Studio
+              - generic [ref=f2e139900]:
+                - generic [ref=f2e139901]: Inbox
+                - generic [ref=f2e139902] [cursor=pointer]:
+                  - checkbox "View Inbox (Comments / DMs / Mentions)" [ref=f2e139903]
+                  - text: View Inbox (Comments / DMs / Mentions)
+                - generic [ref=f2e139904] [cursor=pointer]:
+                  - checkbox "Send replies" [ref=f2e139905]
+                  - text: Send replies
+                - generic [ref=f2e139906] [cursor=pointer]:
+                  - checkbox "Edit sent replies" [ref=f2e139907]
+                  - text: Edit sent replies
+                - generic [ref=f2e139908] [cursor=pointer]:
+                  - checkbox "Delete items / replies" [ref=f2e139909]
+                  - text: Delete items / replies
+                - generic [ref=f2e139910] [cursor=pointer]:
+                  - checkbox "Assign items to other agents" [ref=f2e139911]
+                  - text: Assign items to other agents
+                - generic [ref=f2e139912] [cursor=pointer]:
+                  - checkbox "Escalate and resolve items" [ref=f2e139913]
+                  - text: Escalate and resolve items
+              - generic [ref=f2e139914]:
+                - generic [ref=f2e139915]: Configure
+                - generic [ref=f2e139916] [cursor=pointer]:
+                  - checkbox "Manage Response Studio (brand voice + AI master switch)" [ref=f2e139917]
+                  - text: Manage Response Studio (brand voice + AI master switch)
+                - generic [ref=f2e139918] [cursor=pointer]:
+                  - checkbox "Manage channels (SLA, auto-reply settings)" [ref=f2e139919]
+                  - text: Manage channels (SLA, auto-reply settings)
+                - generic [ref=f2e139920] [cursor=pointer]:
+                  - checkbox "Manage team (invite / roles)" [ref=f2e139921]
+                  - text: Manage team (invite / roles)
+              - generic [ref=f2e139922]:
+                - generic [ref=f2e139923]: Insights
+                - generic [ref=f2e139924] [cursor=pointer]:
+                  - checkbox "View Engage Analytics + Reports" [ref=f2e139925]
+                  - text: View Engage Analytics + Reports
+              - generic [ref=f2e139926]:
+                - generic [ref=f2e139927]: Advertising
+                - generic [ref=f2e139928] [cursor=pointer]:
+                  - checkbox "Manage Ads" [ref=f2e139929]
+                  - text: Manage Ads
+              - generic [ref=f2e139930]:
+                - generic [ref=f2e139931]: Admin
+                - generic [ref=f2e139932] [cursor=pointer]:
+                  - checkbox "Manage Users" [ref=f2e139933]
+                  - text: Manage Users
+        - generic [ref=f2e139934]:
+          - button "Cancel" [ref=f2e139935] [cursor=pointer]
+          - button "Save Permissions" [ref=f2e139936] [cursor=pointer]

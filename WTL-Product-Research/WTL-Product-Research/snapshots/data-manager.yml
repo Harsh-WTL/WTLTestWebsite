@@ -1,0 +1,83 @@
+- generic [ref=f2e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [aria-hidden]: Staging · test copy
+  - generic [ref=f2e7]:
+    - complementary [ref=f2e8]:
+      - generic [ref=f2e9]:
+        - generic [ref=f2e10]: M(
+        - generic [ref=f2e11]:
+          - generic [ref=f2e12]: MDRC (scale test)
+          - generic [ref=f2e13]: 3000 locations
+      - generic [ref=f2e14]:
+        - button "Locations" [ref=f2e15] [cursor=pointer]
+        - button "Engage" [ref=f2e16] [cursor=pointer]
+        - button "Ads" [ref=f2e17] [cursor=pointer]
+      - navigation [ref=f2e18]:
+        - button "Dashboard" [ref=f2e19] [cursor=pointer]
+        - generic [ref=f2e25]: Google
+        - button "Locations 3000" [ref=f2e31] [cursor=pointer]:
+          - text: Locations
+          - generic [ref=f2e35]: "3000"
+        - button "Reviews 20388" [ref=f2e36] [cursor=pointer]:
+          - text: Reviews
+          - generic [ref=f2e39]: "20388"
+        - button "Page Posts" [ref=f2e40] [cursor=pointer]
+        - button "AI Location Studio" [ref=f2e44] [cursor=pointer]
+        - button "Profile Guard" [ref=f2e47] [cursor=pointer]
+        - button "Not Published" [ref=f2e51] [cursor=pointer]
+        - button "Support Cases" [ref=f2e55] [cursor=pointer]
+        - button "QR Codes" [ref=f2e59] [cursor=pointer]
+        - button "Data Manager" [active] [ref=f2e66] [cursor=pointer]
+        - generic [ref=f2e71]: Meta
+        - button "Location Pages" [ref=f2e74] [cursor=pointer]
+        - button "Page Posts" [ref=f2e79] [cursor=pointer]
+        - generic [ref=f2e83]: Microsite
+        - button "Microsite" [ref=f2e87] [cursor=pointer]
+        - generic [ref=f2e93]: Insights
+        - button "Reports" [ref=f2e95] [cursor=pointer]
+        - generic [ref=f2e99]: Account
+        - button "User Management" [ref=f2e103] [cursor=pointer]
+        - button "Activity" [ref=f2e109] [cursor=pointer]
+        - button "Settings" [ref=f2e114] [cursor=pointer]
+        - button "Support" [ref=f2e118] [cursor=pointer]
+    - generic [ref=f2e123]:
+      - generic [ref=f2e92947]:
+        - heading "Data Manager" [level=1] [ref=f2e92949]
+        - generic [ref=f2e92951]:
+          - button "Refresh" [ref=f2e92952] [cursor=pointer]
+          - generic [ref=f2e92958]:
+            - button "Soft" [ref=f2e92959] [cursor=pointer]
+            - button "Ink" [ref=f2e92966] [cursor=pointer]
+          - button "Notifications" [ref=f2e92969] [cursor=pointer]
+          - button "SM" [ref=f2e92974] [cursor=pointer]
+      - generic [ref=f2e92976]:
+        - generic [ref=f2e92977] [cursor=pointer]:
+          - generic [ref=f2e92981]: Upload your master location data
+          - generic [ref=f2e92982]: Drag and drop an Excel (.xlsx) or CSV file, or click to browse
+          - generic [ref=f2e92983]:
+            - button "Choose File" [ref=f2e92984]
+            - button "Download Sample" [ref=f2e92985]
+          - link "Or browse & edit locations directly without uploading" [ref=f2e92986]:
+            - /url: "#"
+        - generic [ref=f2e92987]:
+          - generic [ref=f2e92988]: "Expected columns (flexible matching):"
+          - generic [ref=f2e92989]:
+            - generic [ref=f2e92990]: Store Code
+            - generic [ref=f2e92991]: Name / Title
+            - generic [ref=f2e92992]: Phone
+            - generic [ref=f2e92993]: Website
+            - generic [ref=f2e92994]: Description
+            - generic [ref=f2e92995]: Address Line 1
+            - generic [ref=f2e92996]: Address Line 2
+            - generic [ref=f2e92997]: City
+            - generic [ref=f2e92998]: State
+            - generic [ref=f2e92999]: Pincode
+            - generic [ref=f2e93000]: Monday Hours
+            - generic [ref=f2e93001]: Tuesday Hours
+            - generic [ref=f2e93002]: Wednesday Hours
+            - generic [ref=f2e93003]: Thursday Hours
+            - generic [ref=f2e93004]: Friday Hours
+            - generic [ref=f2e93005]: Saturday Hours
+            - generic [ref=f2e93006]: Sunday Hours

@@ -1,0 +1,79 @@
+- generic [ref=f2e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [aria-hidden]: Staging · test copy
+  - generic [ref=f2e7]:
+    - complementary [ref=f2e8]:
+      - generic [ref=f2e9]:
+        - generic [ref=f2e10]: M(
+        - generic [ref=f2e11]:
+          - generic [ref=f2e12]: MDRC (scale test)
+          - generic [ref=f2e13]: 3000 locations
+      - generic [ref=f2e14]:
+        - button "Locations" [ref=f2e15] [cursor=pointer]
+        - button "Engage" [ref=f2e16] [cursor=pointer]
+        - button "Ads" [ref=f2e17] [cursor=pointer]
+      - navigation [ref=f2e18]:
+        - button "Dashboard" [ref=f2e19] [cursor=pointer]
+        - generic [ref=f2e25]: Google
+        - button "Locations 3000" [ref=f2e31] [cursor=pointer]:
+          - text: Locations
+          - generic [ref=f2e35]: "3000"
+        - button "Reviews 20388" [ref=f2e36] [cursor=pointer]:
+          - text: Reviews
+          - generic [ref=f2e39]: "20388"
+        - button "Page Posts" [ref=f2e40] [cursor=pointer]
+        - button "AI Location Studio" [ref=f2e44] [cursor=pointer]
+        - button "Profile Guard" [ref=f2e47] [cursor=pointer]
+        - button "Not Published" [ref=f2e51] [cursor=pointer]
+        - button "Support Cases" [ref=f2e55] [cursor=pointer]
+        - button "QR Codes" [ref=f2e59] [cursor=pointer]
+        - button "Data Manager" [ref=f2e66] [cursor=pointer]
+        - generic [ref=f2e71]: Meta
+        - button "Location Pages" [ref=f2e74] [cursor=pointer]
+        - button "Page Posts" [ref=f2e79] [cursor=pointer]
+        - generic [ref=f2e83]: Microsite
+        - button "Microsite" [active] [ref=f2e87] [cursor=pointer]
+        - generic [ref=f2e93]: Insights
+        - button "Reports" [ref=f2e95] [cursor=pointer]
+        - generic [ref=f2e99]: Account
+        - button "User Management" [ref=f2e103] [cursor=pointer]
+        - button "Activity" [ref=f2e109] [cursor=pointer]
+        - button "Settings" [ref=f2e114] [cursor=pointer]
+        - button "Support" [ref=f2e118] [cursor=pointer]
+    - generic [ref=f2e123]:
+      - generic [ref=f2e93082]:
+        - heading "Microsite" [level=1] [ref=f2e93084]
+        - generic [ref=f2e93086]:
+          - button "Refresh" [ref=f2e93087] [cursor=pointer]
+          - generic [ref=f2e93093]:
+            - button "Soft" [ref=f2e93094] [cursor=pointer]
+            - button "Ink" [ref=f2e93101] [cursor=pointer]
+          - button "Notifications" [ref=f2e93104] [cursor=pointer]
+          - button "SM" [ref=f2e93109] [cursor=pointer]
+      - generic [ref=f2e93111]:
+        - generic [ref=f2e93113]:
+          - button "1 Industry & Template" [ref=f2e93115] [cursor=pointer]:
+            - generic [ref=f2e93116]: "1"
+            - generic [ref=f2e93117]: Industry & Template
+          - generic [ref=f2e93120]:
+            - generic [ref=f2e93121]: "2"
+            - generic [ref=f2e93122]: Sections & Content
+          - generic [ref=f2e93125]:
+            - generic [ref=f2e93126]: "3"
+            - generic [ref=f2e93127]: Generate & Preview
+        - generic [ref=f2e93129]:
+          - generic [ref=f2e93130]:
+            - heading "What's your industry?" [level=3] [ref=f2e93131]
+            - paragraph [ref=f2e93132]: This helps us tailor the template suggestions for your business.
+          - generic [ref=f2e93133]:
+            - paragraph [ref=f2e93140] [cursor=pointer]: Retail / Fashion
+            - paragraph [ref=f2e93148] [cursor=pointer]: Automotive
+            - paragraph [ref=f2e93154] [cursor=pointer]: Bank / NBFC
+            - paragraph [ref=f2e93160] [cursor=pointer]: Healthcare / Diagnostics
+            - paragraph [ref=f2e93169] [cursor=pointer]: QSR / Restaurant
+        - generic [ref=f2e93170]:
+          - button "Back" [disabled] [ref=f2e93171]
+          - generic [ref=f2e93172]: Step 1 of 3
+          - button "Next" [ref=f2e93173] [cursor=pointer]

@@ -1,0 +1,68 @@
+- generic [ref=f2e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [aria-hidden]: Staging · test copy
+  - generic [ref=f2e7]:
+    - complementary [ref=f2e8]:
+      - generic [ref=f2e9]:
+        - generic [ref=f2e10]: M(
+        - generic [ref=f2e11]:
+          - generic [ref=f2e12]: MDRC (scale test)
+          - generic [ref=f2e13]: 0 channels connected
+      - generic [ref=f2e14]:
+        - button "Locations" [ref=f2e15] [cursor=pointer]
+        - button "Engage" [ref=f2e16] [cursor=pointer]
+        - button "Ads" [ref=f2e17] [cursor=pointer]
+      - navigation [ref=f2e18]:
+        - button "Dashboard" [ref=f2e140670] [cursor=pointer]
+        - button "Agent Queue" [active] [ref=f2e140673] [cursor=pointer]
+        - generic [ref=f2e140678]: Inbox
+        - button "Comments" [ref=f2e140682] [cursor=pointer]
+        - button "Messages" [ref=f2e140686] [cursor=pointer]
+        - button "Email" [ref=f2e140689] [cursor=pointer]
+        - button "Ad Comments" [ref=f2e140693] [cursor=pointer]
+        - button "App Updates" [ref=f2e140697] [cursor=pointer]
+        - generic [ref=f2e140700]: Understand
+        - button "Tickets" [ref=f2e140702] [cursor=pointer]
+        - button "Analytics" [ref=f2e140705] [cursor=pointer]
+        - button "Customers" [ref=f2e140708] [cursor=pointer]
+        - button "Reports" [ref=f2e140714] [cursor=pointer]
+        - generic [ref=f2e140718]: Configure
+        - button "Alerts" [ref=f2e140722] [cursor=pointer]
+        - button "Channels" [ref=f2e140726] [cursor=pointer]
+        - button "Team" [ref=f2e140733] [cursor=pointer]
+        - button "Ticket Rules" [ref=f2e140739] [cursor=pointer]
+        - button "Response Studio" [ref=f2e140743] [cursor=pointer]
+        - generic [ref=f2e99]: Account
+        - button "User Management" [ref=f2e103] [cursor=pointer]
+        - button "Activity" [ref=f2e109] [cursor=pointer]
+        - button "Settings" [ref=f2e114] [cursor=pointer]
+        - button "Support" [ref=f2e118] [cursor=pointer]
+    - generic [ref=f2e123]:
+      - generic [ref=f2e140887]:
+        - heading "Team queue" [level=1] [ref=f2e140889]
+        - generic [ref=f2e140890]:
+          - 'textbox "Ticket #, order, AWB, email…" [ref=f2e140892]'
+          - combobox [ref=f2e140893] [cursor=pointer]:
+            - option "Everyone" [selected]
+            - option "Unassigned"
+            - option "Dhruv Yadav (scale)"
+          - button "New ticket" [ref=f2e140894] [cursor=pointer]
+          - generic [ref=f2e140896]:
+            - button "Search" [ref=f2e140897] [cursor=pointer]
+            - button "Refresh" [ref=f2e140901] [cursor=pointer]
+            - generic [ref=f2e140907]:
+              - button "Soft" [ref=f2e140908] [cursor=pointer]
+              - button "Ink" [ref=f2e140915] [cursor=pointer]
+            - button "Notifications" [ref=f2e140918] [cursor=pointer]
+            - button "SM" [ref=f2e140923] [cursor=pointer]
+      - generic [ref=f2e140925]:
+        - button "To do" [ref=f2e140926] [cursor=pointer]
+        - button "WIP" [ref=f2e140927] [cursor=pointer]
+        - button "ACR" [ref=f2e140928] [cursor=pointer]
+        - button "Resolved" [ref=f2e140929] [cursor=pointer]
+        - button "Closed" [ref=f2e140930] [cursor=pointer]
+      - generic [ref=f2e140934]:
+        - generic [ref=f2e140937]: Nothing to do
+        - generic [ref=f2e140938]: New tickets land here as they come in.

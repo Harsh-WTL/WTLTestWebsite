@@ -1,0 +1,267 @@
+- generic [ref=e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [aria-hidden]: Staging · test copy
+  - generic [ref=e41]:
+    - complementary [ref=e42]:
+      - generic [ref=e43]:
+        - generic [ref=e44]: M(
+        - generic [ref=e45]:
+          - generic [ref=e46]: MDRC (scale test)
+          - generic [ref=e47]: 3000 locations
+      - generic [ref=e48]:
+        - button "Locations" [ref=e49] [cursor=pointer]
+        - button "Engage" [ref=e50] [cursor=pointer]
+        - button "Ads" [ref=e51] [cursor=pointer]
+      - navigation [ref=e52]:
+        - button "Dashboard" [ref=e53] [cursor=pointer]
+        - generic [ref=e59]: Google
+        - button "Locations 3000" [ref=e65] [cursor=pointer]:
+          - text: Locations
+          - generic [ref=e69]: "3000"
+        - button "Reviews 20388" [ref=e70] [cursor=pointer]:
+          - text: Reviews
+          - generic [ref=e73]: "20388"
+        - button "Page Posts" [ref=e74] [cursor=pointer]
+        - button "AI Location Studio" [ref=e78] [cursor=pointer]
+        - button "Profile Guard" [ref=e81] [cursor=pointer]
+        - button "Not Published" [ref=e85] [cursor=pointer]
+        - button "Support Cases" [ref=e89] [cursor=pointer]
+        - button "QR Codes" [ref=e93] [cursor=pointer]
+        - button "Data Manager" [ref=e100] [cursor=pointer]
+        - generic [ref=e105]: Meta
+        - button "Location Pages" [ref=e108] [cursor=pointer]
+        - button "Page Posts" [ref=e113] [cursor=pointer]
+        - generic [ref=e117]: Microsite
+        - button "Microsite" [ref=e121] [cursor=pointer]
+        - generic [ref=e127]: Insights
+        - button "Reports" [ref=e129] [cursor=pointer]
+        - generic [ref=e133]: Account
+        - button "User Management" [ref=e137] [cursor=pointer]
+        - button "Activity" [ref=e143] [cursor=pointer]
+        - button "Settings" [ref=e148] [cursor=pointer]
+        - button "Support" [ref=e152] [cursor=pointer]
+    - generic [ref=e156]:
+      - banner [ref=e1924]:
+        - generic [ref=e1925]:
+          - button "Refresh" [ref=e1926] [cursor=pointer]
+          - generic [ref=e1932]:
+            - button "Soft" [ref=e1933] [cursor=pointer]
+            - button "Ink" [ref=e1940] [cursor=pointer]
+          - button "Notifications" [ref=e1943] [cursor=pointer]
+          - button "SM" [ref=e1948] [cursor=pointer]
+      - generic [ref=e157]:
+        - button "Back" [ref=e1951] [cursor=pointer]
+        - generic [ref=e1954]:
+          - generic [ref=e1955]:
+            - generic [ref=e1956]:
+              - heading "MDRC (scale test) Bhopal Court Road 10" [level=1] [ref=e1957]
+              - generic [ref=e1958]: ✓ Verified
+            - generic [ref=e1959]: Bhopal, Madhya Pradesh · Diagnostic center · MDRC-S-03841 · [SCALE] MDRC North
+          - generic [ref=e1960]:
+            - button "Edit" [ref=e1961] [cursor=pointer]
+            - button "Add photos or videos" [ref=e1965] [cursor=pointer]
+        - generic [ref=e1970]:
+          - generic [ref=e1971]:
+            - generic [ref=e1972]: Avg rating
+            - generic [ref=e1974]: —
+            - generic [ref=e1976]: 0 reviews
+          - generic [ref=e1977]:
+            - generic [ref=e1978]: Health
+            - generic [ref=e1980]:
+              - generic [ref=e1981]: "63"
+              - generic [ref=e1982]: "%"
+            - generic [ref=e1983]: 13 issues
+          - generic [ref=e1985]:
+            - generic [ref=e1986]: Verification
+            - generic [ref=e1988]: Verified
+            - generic [ref=e1990]: Synced Sep 29
+          - generic [ref=e1991]:
+            - generic [ref=e1992]: Media
+            - generic [ref=e1994]: "0"
+            - generic [ref=e1996]: uploaded
+        - generic [ref=e1997]:
+          - button "Overview" [ref=e1998] [cursor=pointer]
+          - button "Analytics" [ref=e1999] [cursor=pointer]
+          - button "Media" [ref=e2000] [cursor=pointer]
+          - button "Services" [ref=e2001] [cursor=pointer]
+          - button "Edit" [ref=e2002] [cursor=pointer]
+        - generic [ref=e2003]:
+          - generic [ref=e2004]:
+            - generic [ref=e2005]:
+              - generic [ref=e2006]: Core identity
+              - button "Edit" [ref=e2008] [cursor=pointer]
+            - generic [ref=e2013]:
+              - term [ref=e2014]: Business name
+              - definition [ref=e2015]: MDRC (scale test) Bhopal Court Road 10
+              - term [ref=e2016]: Primary category
+              - definition [ref=e2017]: Diagnostic center
+              - term [ref=e2018]: Status
+              - definition [ref=e2019]:
+                - generic [ref=e2020]: Open
+              - term [ref=e2021]: Store code
+              - definition [ref=e2022]: MDRC-S-03841
+              - term [ref=e2023]: Opening date
+              - definition [ref=e2024]: Not set
+              - term [ref=e2025]: Additional categories
+              - definition [ref=e2026]: Not set
+          - generic [ref=e2027]:
+            - generic [ref=e2028]:
+              - generic [ref=e2029]: Contact & location
+              - button "Edit" [ref=e2031] [cursor=pointer]
+            - generic [ref=e2036]:
+              - term [ref=e2037]: Address
+              - definition [ref=e2038]:
+                - generic [ref=e2039]: 210, Court Road
+                - generic [ref=e2040]: Bhopal, Madhya Pradesh, 462057, IN
+              - term [ref=e2041]: Coordinates
+              - definition [ref=e2042]: 23.2687805, 77.4924682
+              - term [ref=e2043]: Phone
+              - definition [ref=e2044]: 091707 77876
+              - term [ref=e2045]: Additional phones
+              - definition [ref=e2046]: Not set
+              - term [ref=e2047]: AdWords phone
+              - definition [ref=e2048]: Not set
+              - term [ref=e2049]: Website
+              - definition [ref=e2050]:
+                - link "www.mdrcindia.com/labs/bhopal" [ref=e2051] [cursor=pointer]:
+                  - /url: https://www.mdrcindia.com/labs/bhopal
+              - term [ref=e2052]: Appointment link
+              - definition [ref=e2053]: Not set
+              - term [ref=e2054]: WhatsApp URL
+              - definition [ref=e2055]: Not set
+          - generic [ref=e2056]:
+            - generic [ref=e2057]:
+              - generic [ref=e2058]: Business hours
+              - button "Edit" [ref=e2060] [cursor=pointer]
+            - generic [ref=e2064]:
+              - generic [ref=e2065]:
+                - term [ref=e2066]: Mon
+                - definition [ref=e2067]: 09:30 – 19:30
+                - term [ref=e2068]: Tue
+                - definition [ref=e2069]: 09:30 – 19:30
+                - term [ref=e2070]: Wed
+                - definition [ref=e2071]: 09:30 – 19:30
+                - term [ref=e2072]: Thu
+                - definition [ref=e2073]: 09:30 – 19:30
+                - term [ref=e2074]: Fri
+                - definition [ref=e2075]: 09:30 – 19:30
+                - term [ref=e2076]: Sat
+                - definition [ref=e2077]: 09:30 – 19:30
+                - term [ref=e2078]: Sun
+                - definition [ref=e2079]: 10:00 – 14:00
+              - generic [ref=e2081]: Special hours
+              - generic [ref=e2082]: No special dates set.
+          - generic [ref=e2083]:
+            - generic [ref=e2084]:
+              - generic [ref=e2085]: Description
+              - button "Edit" [ref=e2087] [cursor=pointer]
+            - paragraph [ref=e2091]: MDRC (scale test) Bhopal offers pathology, radiology and full-body health checks with home sample collection and online reports.
+            - generic [ref=e2093]:
+              - term [ref=e2094]: Short name
+              - definition [ref=e2095]: Not set
+          - generic [ref=e2096]:
+            - generic [ref=e2097]:
+              - generic [ref=e2098]: Profile photos
+              - button "Edit" [ref=e2100] [cursor=pointer]
+            - generic [ref=e2104]:
+              - generic [ref=e2105]: No cover photo yet
+              - generic [ref=e2111]: M(
+              - generic [ref=e2113]:
+                - generic [ref=e2114]: Logo · not set
+                - generic [ref=e2115]: Cover · not set
+          - generic [ref=e2116]:
+            - generic [ref=e2117]: Identifiers & metadata
+            - generic [ref=e2121]:
+              - term [ref=e2122]: WTL ID
+              - definition [ref=e2123]: WTL-L-1678
+              - term [ref=e2124]: Google location ID
+              - definition [ref=e2125]: locations/9690360843026232173
+              - term [ref=e2126]: Place ID
+              - definition [ref=e2127]: ChIJscaled4078e275700eeefa0f2
+              - term [ref=e2128]: Region code
+              - definition [ref=e2129]: IN
+              - term [ref=e2130]: PIN code
+              - definition [ref=e2131]: "462057"
+              - term [ref=e2132]: Last synced
+              - definition [ref=e2133]: 29 Sep, 00:22
+              - term [ref=e2134]: Labels
+              - definition [ref=e2135]:
+                - generic [ref=e2136]: scale-test-mdrc
+              - term [ref=e2138]: Service area
+              - definition [ref=e2139]: Not set
+          - generic [ref=e2140]:
+            - generic [ref=e2141]:
+              - generic [ref=e2142]:
+                - generic [ref=e2143]: Services
+                - generic [ref=e2144]: 0 on the listing
+              - button "Edit services" [ref=e2145] [cursor=pointer]
+            - generic [ref=e2149]: No services on this listing yet
+          - generic [ref=e2150]:
+            - generic [ref=e2151]:
+              - generic [ref=e2152]: Attributes
+              - button "Edit" [ref=e2154] [cursor=pointer]
+            - generic [ref=e2158]:
+              - generic [ref=e2159]:
+                - generic [ref=e2160]: Service options
+                - generic [ref=e2161]:
+                  - generic [ref=e2162] [cursor=pointer]: ✕ Dine-in
+                  - generic [ref=e2163] [cursor=pointer]: ✕ Takeaway
+                  - generic [ref=e2164] [cursor=pointer]: ✕ Delivery
+                  - generic [ref=e2165] [cursor=pointer]: ✕ Drive-through
+                  - generic [ref=e2166] [cursor=pointer]: ✕ Curbside Pickup
+                  - generic [ref=e2167] [cursor=pointer]: ✕ Online Appointments
+                  - generic [ref=e2168] [cursor=pointer]: ✕ Online Estimates
+                  - generic [ref=e2169] [cursor=pointer]: ✕ On-site Services
+                  - generic [ref=e2170] [cursor=pointer]: ✕ Online / Telehealth
+              - generic [ref=e2171]:
+                - generic [ref=e2172]: Amenities & accessibility
+                - generic [ref=e2173]:
+                  - generic [ref=e2174] [cursor=pointer]: ✕ Wi-Fi
+                  - generic [ref=e2175] [cursor=pointer]: ✕ Restroom
+                  - generic [ref=e2176] [cursor=pointer]: ✓ Wheelchair Accessible Entrance
+                  - generic [ref=e2177] [cursor=pointer]: ✕ Wheelchair Accessible Seating
+                  - generic [ref=e2178] [cursor=pointer]: ✕ Gender Neutral Restroom
+                  - generic [ref=e2179] [cursor=pointer]: ✕ Changing Table
+                  - generic [ref=e2180] [cursor=pointer]: ✕ Live Music
+                  - generic [ref=e2181] [cursor=pointer]: ✕ Outdoor Seating
+                  - generic [ref=e2182] [cursor=pointer]: ✕ TV
+                  - generic [ref=e2183] [cursor=pointer]: ✕ Fireplace
+                  - generic [ref=e2184] [cursor=pointer]: ✕ Air Conditioning
+                  - generic [ref=e2185] [cursor=pointer]: ✕ Dogs Allowed
+                  - generic [ref=e2186] [cursor=pointer]: ✕ Kids Friendly
+                  - generic [ref=e2187] [cursor=pointer]: ✕ Smoking Allowed
+                  - generic [ref=e2188] [cursor=pointer]: ✕ Gym / Fitness
+                  - generic [ref=e2189] [cursor=pointer]: ✕ Swimming Pool
+                  - generic [ref=e2190] [cursor=pointer]: ✕ LGBTQ+ Friendly
+                  - generic [ref=e2191] [cursor=pointer]: ✕ Multilingual Staff
+              - generic [ref=e2192]:
+                - generic [ref=e2193]: Payment methods
+                - generic [ref=e2194]:
+                  - generic [ref=e2195] [cursor=pointer]: ✓ Cash
+                  - generic [ref=e2196] [cursor=pointer]: ✓ Credit Cards
+                  - generic [ref=e2197] [cursor=pointer]: ✓ Debit Cards
+                  - generic [ref=e2198] [cursor=pointer]: ✕ NFC / Mobile Payments
+                  - generic [ref=e2199] [cursor=pointer]: ✕ UPI
+              - generic [ref=e2200]:
+                - generic [ref=e2201]: Business highlights
+                - generic [ref=e2202]:
+                  - generic [ref=e2203] [cursor=pointer]: ✕ Women-led
+                  - generic [ref=e2204] [cursor=pointer]: ✕ Veteran-led
+                  - generic [ref=e2205] [cursor=pointer]: ✕ Black-owned
+                  - generic [ref=e2206] [cursor=pointer]: ✕ LGBTQ+ owned
+                  - generic [ref=e2207] [cursor=pointer]: ✕ Asian-owned
+                  - generic [ref=e2208] [cursor=pointer]: ✕ Latino-owned
+                  - generic [ref=e2209] [cursor=pointer]: ✕ Indigenous-owned
+                  - generic [ref=e2210] [cursor=pointer]: ✕ Family-owned
+                  - generic [ref=e2211] [cursor=pointer]: ✕ Small Business
+              - generic [ref=e2212]:
+                - generic [ref=e2213]: Parking
+                - generic [ref=e2214]:
+                  - generic [ref=e2215] [cursor=pointer]: ✓ Free Parking
+                  - generic [ref=e2216] [cursor=pointer]: ✕ Paid Parking
+                  - generic [ref=e2217] [cursor=pointer]: ✕ Street Parking
+                  - generic [ref=e2218] [cursor=pointer]: ✕ Garage / Covered Parking
+                  - generic [ref=e2219] [cursor=pointer]: ✕ Valet Parking
+                  - generic [ref=e2220] [cursor=pointer]: ✕ No Parking Available

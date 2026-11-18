@@ -1,0 +1,136 @@
+- generic [ref=f2e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [aria-hidden]: Staging · test copy
+  - generic [ref=f2e7]:
+    - complementary [ref=f2e8]:
+      - generic [ref=f2e9]:
+        - generic [ref=f2e10]: M(
+        - generic [ref=f2e11]:
+          - generic [ref=f2e12]: MDRC (scale test)
+          - generic [ref=f2e13]: 3000 locations
+      - generic [ref=f2e14]:
+        - button "Locations" [ref=f2e15] [cursor=pointer]
+        - button "Engage" [ref=f2e16] [cursor=pointer]
+        - button "Ads" [ref=f2e17] [cursor=pointer]
+      - navigation [ref=f2e18]:
+        - button "Dashboard" [ref=f2e19] [cursor=pointer]
+        - generic [ref=f2e25]: Google
+        - button "Locations 3000" [ref=f2e31] [cursor=pointer]:
+          - text: Locations
+          - generic [ref=f2e35]: "3000"
+        - button "Reviews 20388" [ref=f2e36] [cursor=pointer]:
+          - text: Reviews
+          - generic [ref=f2e39]: "20388"
+        - button "Page Posts" [active] [ref=f2e40] [cursor=pointer]
+        - button "AI Location Studio" [ref=f2e44] [cursor=pointer]
+        - button "Profile Guard" [ref=f2e47] [cursor=pointer]
+        - button "Not Published" [ref=f2e51] [cursor=pointer]
+        - button "Support Cases" [ref=f2e55] [cursor=pointer]
+        - button "QR Codes" [ref=f2e59] [cursor=pointer]
+        - button "Data Manager" [ref=f2e66] [cursor=pointer]
+        - generic [ref=f2e71]: Meta
+        - button "Location Pages" [ref=f2e74] [cursor=pointer]
+        - button "Page Posts" [ref=f2e79] [cursor=pointer]
+        - generic [ref=f2e83]: Microsite
+        - button "Microsite" [ref=f2e87] [cursor=pointer]
+        - generic [ref=f2e93]: Insights
+        - button "Reports" [ref=f2e95] [cursor=pointer]
+        - generic [ref=f2e99]: Account
+        - button "User Management" [ref=f2e103] [cursor=pointer]
+        - button "Activity" [ref=f2e109] [cursor=pointer]
+        - button "Settings" [ref=f2e114] [cursor=pointer]
+        - button "Support" [ref=f2e118] [cursor=pointer]
+    - generic [ref=f2e123]:
+      - generic [ref=f2e777]:
+        - heading "Post Scheduling" [level=1] [ref=f2e779]
+        - generic [ref=f2e780]:
+          - button "Create Post" [ref=f2e781] [cursor=pointer]
+          - generic [ref=f2e783]:
+            - button "Refresh" [ref=f2e784] [cursor=pointer]
+            - generic [ref=f2e790]:
+              - button "Soft" [ref=f2e791] [cursor=pointer]
+              - button "Ink" [ref=f2e798] [cursor=pointer]
+            - button "Notifications" [ref=f2e801] [cursor=pointer]
+            - button "SM" [ref=f2e806] [cursor=pointer]
+      - generic [ref=f2e808]:
+        - button "Calendar" [ref=f2e809] [cursor=pointer]
+        - button "Post History" [ref=f2e810] [cursor=pointer]
+      - generic [ref=f2e811]:
+        - generic [ref=f2e812]:
+          - generic [ref=f2e813]: Upcoming Holidays
+          - generic [ref=f2e814]: Click one to start a post
+        - generic [ref=f2e815]:
+          - button "Guru Nanak Jayanti Nov 24 6d" [ref=f2e816] [cursor=pointer]:
+            - text: Guru Nanak Jayanti
+            - generic [ref=f2e817]: Nov 24
+            - generic [ref=f2e818]: 6d
+          - button "Christmas Dec 25 37d" [ref=f2e819] [cursor=pointer]:
+            - text: Christmas
+            - generic [ref=f2e820]: Dec 25
+            - generic [ref=f2e821]: 37d
+      - generic [ref=f2e822]:
+        - generic [ref=f2e823]:
+          - generic [ref=f2e824]:
+            - button "Previous month" [ref=f2e825] [cursor=pointer]
+            - generic [ref=f2e828]: November 2026
+            - button "Next month" [ref=f2e829] [cursor=pointer]
+          - button "Today" [ref=f2e832] [cursor=pointer]
+        - generic [ref=f2e833]:
+          - generic [ref=f2e834]: Mon
+          - generic [ref=f2e835]: Tue
+          - generic [ref=f2e836]: Wed
+          - generic [ref=f2e837]: Thu
+          - generic [ref=f2e838]: Fri
+          - generic [ref=f2e839]: Sat
+          - generic [ref=f2e840]: Sun
+        - generic [ref=f2e841]:
+          - generic [ref=f2e842]: "26"
+          - generic [ref=f2e844]: "27"
+          - generic [ref=f2e846]: "28"
+          - generic [ref=f2e848]: "29"
+          - generic [ref=f2e850]: "30"
+          - generic [ref=f2e852]: "31"
+          - generic "Add post" [ref=f2e854] [cursor=pointer]: "1"
+          - generic "Add post" [ref=f2e856] [cursor=pointer]: "2"
+          - generic "Add post" [ref=f2e858] [cursor=pointer]: "3"
+          - generic "Add post" [ref=f2e860] [cursor=pointer]: "4"
+          - generic "Add post" [ref=f2e862] [cursor=pointer]: "5"
+          - generic "Add post" [ref=f2e864] [cursor=pointer]: "6"
+          - generic "Add post" [ref=f2e866] [cursor=pointer]: "7"
+          - generic "Add post" [ref=f2e868] [cursor=pointer]: "8"
+          - generic "Add post" [ref=f2e870] [cursor=pointer]: "9"
+          - generic "Add post" [ref=f2e872] [cursor=pointer]: "10"
+          - generic "Add post" [ref=f2e874] [cursor=pointer]: "11"
+          - generic "Add post" [ref=f2e876] [cursor=pointer]: "12"
+          - generic "Add post" [ref=f2e878] [cursor=pointer]: "13"
+          - generic "Add post" [ref=f2e880] [cursor=pointer]: "14"
+          - generic "Add post" [ref=f2e882] [cursor=pointer]: "15"
+          - generic "Add post" [ref=f2e884] [cursor=pointer]: "16"
+          - generic "Add post" [ref=f2e886] [cursor=pointer]: "17"
+          - generic "Add post" [ref=f2e888] [cursor=pointer]: "18"
+          - generic "Add post" [ref=f2e890] [cursor=pointer]: "19"
+          - generic "Add post" [ref=f2e892] [cursor=pointer]: "20"
+          - generic "Add post" [ref=f2e894] [cursor=pointer]: "21"
+          - generic "Add post" [ref=f2e896] [cursor=pointer]: "22"
+          - generic "Add post" [ref=f2e898] [cursor=pointer]: "23"
+          - generic "Add post" [ref=f2e900] [cursor=pointer]: "24"
+          - generic "Add post" [ref=f2e902] [cursor=pointer]: "25"
+          - generic "Add post" [ref=f2e904] [cursor=pointer]: "26"
+          - generic "Add post" [ref=f2e906] [cursor=pointer]: "27"
+          - generic "Add post" [ref=f2e908] [cursor=pointer]: "28"
+          - generic "Add post" [ref=f2e910] [cursor=pointer]: "29"
+          - generic "Add post" [ref=f2e912] [cursor=pointer]: "30"
+          - generic [ref=f2e914]: "1"
+          - generic [ref=f2e916]: "2"
+          - generic [ref=f2e918]: "3"
+          - generic [ref=f2e920]: "4"
+          - generic [ref=f2e922]: "5"
+          - generic [ref=f2e924]: "6"
+        - generic [ref=f2e926]:
+          - generic [ref=f2e927]:
+            - generic [ref=f2e928]: Scheduled
+            - generic [ref=f2e930]: Published
+            - generic [ref=f2e932]: Failed
+          - generic [ref=f2e934]: Click a date to add a post · hover a post to preview it
