@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Check, Flame, MapPin, MessageSquare, PhoneCall, Send, Sparkles } from 'lucide-react'
+import { Check, MessageSquare, MapPin, Send, Sparkles } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { locationById, sampleConversations, type Conversation } from '@/lib/sample-data'
 import { Stars } from '../primitives'
@@ -10,6 +10,7 @@ const sentimentClass: Record<Conversation['sentiment'], string> = {
   Negative: 'border-danger-border bg-danger-subtle text-danger',
   Neutral: 'border-info-border bg-info-subtle text-info',
   Mixed: 'border-warning-border bg-warning-subtle text-warning',
+  Positive: 'border-success-border bg-success-subtle text-success',
 }
 
 export function EngageView() {
@@ -18,12 +19,11 @@ export function EngageView() {
     Object.fromEntries(sampleConversations.map((c) => [c.id, c.draft])),
   )
   const [approved, setApproved] = useState<Record<string, boolean>>({})
-  const [activeTab, setActiveTab] = useState<'draft' | 'whatsapp'>('draft')
+  const [activeTab, setActiveTab] = useState<'draft' | 'response-studio'>('draft')
 
   const convo = sampleConversations.find((c) => c.id === selectedId) ?? sampleConversations[0]
   const isApproved = approved[convo.id]
   const locationName = convo.locationId ? locationById(convo.locationId).name : 'All locations · App'
-  const isEscalation = convo.sentiment === 'Negative'
 
   return (
     <div className="grid lg:grid-cols-[280px_minmax(0,1fr)]">
@@ -52,7 +52,7 @@ export function EngageView() {
                   <p className="text-[11px] text-ink-3">{c.channel}</p>
                   {c.sentiment === 'Negative' && (
                     <span className="inline-flex items-center gap-0.5 rounded px-1 text-[10px] font-semibold bg-danger-subtle text-danger">
-                      <Flame className="size-2.5" /> Alert
+                      <MessageSquare className="size-2.5" /> Needs attention
                     </span>
                   )}
                 </div>
@@ -95,17 +95,14 @@ export function EngageView() {
             </button>
             <button
               type="button"
-              onClick={() => setActiveTab('whatsapp')}
+              onClick={() => setActiveTab('response-studio')}
               className={cn(
                 'relative flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold transition-colors',
-                activeTab === 'whatsapp' ? 'bg-card text-ink shadow-sm' : 'text-ink-2 hover:text-ink',
+                activeTab === 'response-studio' ? 'bg-card text-ink shadow-sm' : 'text-ink-2 hover:text-ink',
               )}
             >
-              <MessageSquare className="size-3 text-[#25D366]" />
-              Store WhatsApp Alert
-              {isEscalation && (
-                <span className="flex size-2 rounded-full bg-danger animate-ping" />
-              )}
+              <MessageSquare className="size-3 text-brand" />
+              Response Studio
             </button>
           </div>
         </div>
@@ -126,6 +123,11 @@ export function EngageView() {
               {t}
             </span>
           ))}
+          {convo.sentimentTheme && (
+            <span className="rounded-full border border-brand-border bg-brand-subtle px-2.5 py-0.5 text-[11px] font-semibold text-brand">
+              {convo.sentimentTheme}
+            </span>
+          )}
         </div>
 
         {activeTab === 'draft' ? (
@@ -182,47 +184,51 @@ export function EngageView() {
           </div>
         ) : (
           <div className="mt-auto pt-4">
-            <div className="rounded-card border border-[#25D366]/30 bg-[#25D366]/5 p-4">
-              <div className="flex items-center justify-between gap-2 border-b border-[#25D366]/20 pb-2.5">
+            <div className="rounded-card border border-brand-border bg-brand-subtle/30 p-4">
+              <div className="flex items-center justify-between gap-2 border-b border-brand-border/20 pb-2.5">
                 <div className="flex items-center gap-2">
-                  <span className="flex size-7 items-center justify-center rounded-full bg-[#25D366] text-white">
+                  <span className="flex size-7 items-center justify-center rounded-full bg-brand text-white">
                     <MessageSquare className="size-3.5" />
                   </span>
                   <div>
                     <p className="text-xs font-bold text-ink">
-                      WhatsApp Escalation Engine
+                      Response Studio
                     </p>
                     <p className="text-[11px] text-ink-3">
-                      Sent to Assigned Outlet Manager · {locationName}
+                      AI auto-reply configuration · Brand voice controls · Saved replies
                     </p>
                   </div>
                 </div>
-                <span className="rounded-full bg-[#25D366]/20 px-2 py-0.5 text-[11px] font-semibold text-[#128C7E] dark:text-[#25D366]">
-                  Dispatched in 40s
+                <span className="rounded-full bg-brand/20 px-2 py-0.5 text-[11px] font-semibold text-brand">
+                  Available when channels connected
                 </span>
               </div>
 
               <div className="mt-3 rounded-ctl border border-line bg-card/90 p-3 text-xs leading-relaxed text-ink shadow-sm">
-                <p className="font-bold text-danger">🚨 URGENT: 1-STAR REVIEW ALERT</p>
-                <p className="mt-1 text-ink-2">
-                  <strong>Location:</strong> {locationName} Hub | <strong>Source:</strong> {convo.channel}
-                </p>
-                <div className="my-2 border-t border-line/60" />
-                <p className="italic text-ink-2">&ldquo;{convo.text}&rdquo;</p>
-                <div className="my-2 border-t border-line/60" />
-                <p className="font-semibold text-ink">Recommended Store SOP:</p>
-                <ol className="mt-1 list-decimal space-y-0.5 pl-4 text-ink-2">
-                  <li>Directly call customer within 2 hours to resolve grievance</li>
-                  <li>Post empathetic response via WhatTheLocal portal</li>
-                  <li>Update internal ticket to prevent recurrence</li>
-                </ol>
+                <p className="font-bold text-brand">Response Studio Features</p>
+                <ul className="mt-2 list-disc space-y-1 pl-4 text-ink-2">
+                  <li>AI auto-replies master switch (per-star toggles)</li>
+                  <li>Brand voice: 1,000-char description + Professional/Friendly/Witty/Empathetic presets</li>
+                  <li>Contact email/phone shared by AI only when helpful</li>
+                  <li>Saved Replies + Automated Rules builders</li>
+                  <li>Full Brand Voice editor</li>
+                </ul>
+              </div>
+
+              <div className="mt-3 rounded-ctl border border-line bg-card/90 p-3 text-xs leading-relaxed text-ink shadow-sm">
+                <p className="font-bold text-brand">Agent Queue</p>
+                <ul className="mt-2 list-decimal space-y-1 pl-4 text-ink-2">
+                  <li>Pipeline: To do → WIP → ACR → Resolved → Closed</li>
+                  <li>Round-robin assignment (configurable)</li>
+                  <li>Search by Ticket #, order, AWB, email</li>
+                </ul>
               </div>
 
               <div className="mt-2.5 flex items-center justify-between text-[11px] text-ink-3">
                 <span className="inline-flex items-center gap-1">
-                  <PhoneCall className="size-3 text-[#25D366]" /> Meta Cloud API (v21.0)
+                  <MessageSquare className="size-3 text-brand" /> 8 channels available
                 </span>
-                <span>Configurable per store manager phone</span>
+                <span>Channel availability depends on connected accounts</span>
               </div>
             </div>
           </div>

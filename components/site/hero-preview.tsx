@@ -3,11 +3,11 @@ import { LogoMark } from './logo'
 import { sampleLocations } from '@/lib/sample-data'
 import styles from './hero-preview.module.css'
 
-/* Derived from the shared Mumbai sample workspace so the preview never
+/* Derived from the shared sample workspace so the preview never
    invents client names or extra widgets. */
 const total = sampleLocations.length
 const healthy = sampleLocations.filter((l) => l.status === 'healthy').length
-const attention = sampleLocations.filter((l) => l.status === 'attention').length
+const attention = sampleLocations.filter((l) => l.status === 'at-risk').length
 const critical = sampleLocations.filter((l) => l.status === 'critical').length
 const openItems = attention + critical
 const reviews = sampleLocations.reduce((sum, l) => sum + l.reviews, 0)
@@ -16,8 +16,8 @@ const rating = (
 ).toFixed(1)
 
 const row = (id: string) => sampleLocations.find((l) => l.id === id) ?? sampleLocations[0]
-const THANE = row('thane')
-const VASHI = row('vashi')
+const NORTH_MALL = row('loc-003')
+const WESTSIDE_CLINIC = row('loc-002')
 
 /* 12-week sample review trend — illustrative, labelled as such in the frame. */
 const TREND = [18, 22, 20, 27, 25, 31, 30, 36, 34, 39, 41, 44]
@@ -38,7 +38,7 @@ export function HeroPreview() {
   return (
     <figure
       className={styles.preview}
-      aria-label="Illustrative What The Local product preview: portfolio health, reviews and an Ahana insight for a twelve-site Mumbai workspace."
+      aria-label="Illustrative What The Local product preview: portfolio health, reviews and an Ahana insight for a sample workspace."
     >
       <div className={styles.bar}>
         <LogoMark className="size-[18px]" />
@@ -60,14 +60,14 @@ export function HeroPreview() {
               <span className={styles.openPill}>{openItems} open</span>
             </div>
             <p className={styles.healthMain}>
-              <b>{healthy}</b>
-              <span>/ {total}</span>
+              <b>Portfolio Score 70/100</b>
+              <span> — {healthy} healthy, {attention} at risk, {critical} critical</span>
             </p>
-            <p className={styles.caption}>locations healthy</p>
+            <p className={styles.caption}>locations</p>
             <div
               className={styles.segBar}
               role="img"
-              aria-label={`${healthy} healthy, ${attention} need attention, ${critical} critical`}
+              aria-label={`${healthy} healthy, ${attention} at risk, ${critical} critical`}
             >
               <span className={styles.segOk} style={{ flex: healthy }} />
               <span className={styles.segWarn} style={{ flex: attention }} />
@@ -78,7 +78,7 @@ export function HeroPreview() {
                 <i className={styles.dotOk} aria-hidden="true" /> {healthy} healthy
               </span>
               <span>
-                <i className={styles.dotWarn} aria-hidden="true" /> {attention} attention
+                <i className={styles.dotWarn} aria-hidden="true" /> {attention} at risk
               </span>
               <span>
                 <i className={styles.dotBad} aria-hidden="true" /> {critical} critical
@@ -92,7 +92,7 @@ export function HeroPreview() {
               <span className={styles.monoMeta}>12 WK</span>
             </div>
             <p className={styles.ratingMain}>
-              <b>{rating}</b>
+              <b>{rating}★</b>
               <Star aria-hidden="true" className={styles.star} />
             </p>
             <p className={styles.caption}>{reviews} reviews across {total} sites</p>
@@ -112,11 +112,10 @@ export function HeroPreview() {
           <section className={styles.ahana} aria-label="Ahana insight">
             <span className={styles.ahanaTag}>✦ Ahana insight</span>
             <p className={styles.ahanaText}>
-              Wait-time mentions are rising at <b>Powai</b> this month. The rest of the network is
-              steady.
+              AI Score for Downtown Branch is 78/100. 13 fields incomplete including WhatsApp URL, Special Hours, Q&A.
             </p>
             <span className={styles.ahanaCta}>
-              Open Powai <span aria-hidden="true">→</span>
+              Open Downtown Branch <span aria-hidden="true">→</span>
             </span>
           </section>
         </div>
@@ -131,26 +130,26 @@ export function HeroPreview() {
             <span aria-hidden="true" className={styles.attnIconWarn}>
               ▲
             </span>
-            <span className={styles.attnName}>{THANE.name}</span>
-            <span className={styles.attnNote}>Saturday hours changed</span>
-            <span className={styles.attnCode}>{THANE.code}</span>
-            <span className={styles.attnActionWarn}>Revert →</span>
+            <span className={styles.attnName}>{NORTH_MALL.name}</span>
+            <span className={styles.attnNote}>Profile Guard: hours edit auto-rejected</span>
+            <span className={styles.attnCode}>{NORTH_MALL.code}</span>
+            <span className={styles.attnActionWarn}>Review →</span>
           </div>
 
           <div className={styles.attnRow}>
             <span aria-hidden="true" className={styles.attnIconBad}>
               ✕
             </span>
-            <span className={styles.attnName}>{VASHI.name}</span>
-            <span className={styles.attnNote}>3 unanswered · oldest 3 days</span>
-            <span className={styles.attnCode}>{VASHI.code}</span>
+            <span className={styles.attnName}>{WESTSIDE_CLINIC.name}</span>
+            <span className={styles.attnNote}>3 unanswered · AI-assisted replies active</span>
+            <span className={styles.attnCode}>{WESTSIDE_CLINIC.code}</span>
             <span className={styles.attnActionBad}>Reply →</span>
           </div>
         </div>
 
         <div className={styles.foot}>
           <span>Illustrative workspace data</span>
-          <span>Mumbai metro · {total} sites</span>
+          <span>Sample region · {total} sites</span>
         </div>
       </div>
     </figure>

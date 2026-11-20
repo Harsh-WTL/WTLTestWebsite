@@ -1,11 +1,10 @@
-/* WTL Metrics — approved proposal v2, ported into the site.
-   Scoped CSS module; design tokens come from app/globals.css (both themes).
+/* WTL Metrics — premium capability showcase, approved proposal v2.
+   Scoped CSS module; design tokens from app/globals.css (both themes).
    Entrance states are gated under html.js so no-JS visitors see static content
    (same philosophy as the global .reveal helper). Light-only lifts are scoped
    under :global(html:not(.dark)) — CSS modules hash bare tag selectors,
-   so the :global() wrapper is required. */
+   so the :global() wrapper is required. All oklch in full form. */
 
-/* ── Section + ambient mesh ─────────────────────────────── */
 .metrics {
   position: relative;
   padding: 64px 0 56px;
@@ -57,6 +56,7 @@
   font-weight: 600;
   letter-spacing: 0.07em;
   text-transform: uppercase;
+  color: var(--success-solid);
 }
 .liveDot {
   width: 7px;
@@ -76,10 +76,10 @@
   }
 }
 
-/* ── Glass stat tiles ─────────────────────────────── */
+/* ── Glass capability cards ───────────────────────────── */
 .mGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
 @media (max-width: 1080px) {
@@ -93,66 +93,173 @@
   }
 }
 
+/* Card */
 .stat {
   position: relative;
   overflow: hidden;
   border: 1.5px solid transparent;
   border-radius: 16px;
-  background-color: color-mix(in oklch, var(--surface-card) 84%, transparent);
-  backdrop-filter: blur(14px) saturate(1.2);
-  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  /* Glass: opaque interior + signature rim only */
+  background:
+    linear-gradient(var(--surface-card), var(--surface-card)) padding-box,
+    var(--grad-frame) border-box;
   box-shadow:
     0 20px 44px -18px oklch(0.50 0.11 265 / 0.24),
     0 3px 10px -4px oklch(0.84 0.09 330 / 0.16),
     inset 0 1px 0 0 oklch(1 0 0 / 0.85);
   padding: 16px 16px 14px;
+  transition:
+    border-color 140ms ease,
+    box-shadow 140ms ease;
 }
-[data-theme='dark'] .stat {
-  box-shadow:
-    0 24px 52px -18px oklch(0 0 0 / 0.55),
-    inset 0 1px 0 0 oklch(1 0 0 / 0.1),
-    0 3px 10px -4px oklch(0.42 0.13 262 / 0.5);
+:global(html:not(.dark)) .stat {
+  background:
+    linear-gradient(
+      180deg,
+      var(--surface-raised),
+      color-mix(in oklch, var(--surface-card) 94%, var(--brand-subtle))
+    ) padding-box,
+    var(--grad-frame) border-box;
+  box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.85), var(--shadow-card);
 }
-/* Signature gradient hairline as a mask ring — keeps the glass translucent so
-   the backdrop blur actually shows through (padding-box/border-box trick would
-   paint an opaque interior). */
+
+/* Cursor spotlight on hover */
 .stat::before {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  padding: 1.5px;
-  background: var(--grad-frame);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  background: radial-gradient(
+    300px circle at var(--mx, 50%) var(--my, -30%),
+    color-mix(in oklch, var(--brand-primary) 6%, transparent),
+    transparent 62%
+  );
+  opacity: 0;
+  transition: opacity 220ms ease;
   pointer-events: none;
 }
+.stat:hover::before { opacity: 1; }
 
-/* Entrance: blur-rise per tile (staggered via --d) */
+.stat:hover {
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-raised);
+  transform: translateY(-2px);
+}
+
+/* Entrance: blur-rise per card (staggered via --d) */
 :global(html.js) .stat {
   opacity: 0;
-  transform: translateY(14px);
-  filter: blur(6px);
+  transform: translateY(16px);
+  filter: blur(5px);
   transition:
     opacity 560ms ease var(--d, 0ms),
     transform 560ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0ms),
     filter 560ms ease var(--d, 0ms),
-    box-shadow 160ms ease;
+    border-color 140ms ease,
+    box-shadow 140ms ease;
 }
 :global(html.js) .stat[data-in='true'] {
   opacity: 1;
   transform: none;
   filter: none;
-  transition: transform 160ms cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 160ms ease;
+  transition:
+    border-color 140ms ease,
+    box-shadow 140ms ease,
+    transform 160ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-.stat[data-in='true']:hover {
-  transform: translateY(-2px);
+
+/* Card interior */
+.statInner {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
-:global(html.js) .stat[data-in='true']:hover {
-  transform: translateY(-2px);
+
+/* Icon chip (reuses the .mIc look — halo ring gated under html.js) */
+.statIcon {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--brand-border);
+  border-radius: 10px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklch, var(--brand-subtle) 78%, transparent),
+    color-mix(in oklch, var(--brand-subtle) 40%, transparent)
+  );
+  color: var(--brand-primary);
+  box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 0.55), 0 3px 10px -5px oklch(0.52 0.12 265 / 0.4);
 }
+.statIcon svg {
+  width: 17px;
+  height: 17px;
+}
+:global(html.js) .statIcon::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 13px;
+  border: 1.5px solid color-mix(in oklch, var(--brand-primary) 34%, transparent);
+  opacity: 0;
+  transform: scale(0.86);
+  animation: mHalo 3s cubic-bezier(0.2, 0.7, 0.2, 1) infinite both;
+  animation-delay: var(--dh, 0s);
+}
+
+/* Card title + subtitle */
+.statTitle {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink-primary);
+}
+.statSub {
+  margin: -4px 0 0;
+  font-size: 13px;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+/* Stat items list */
+.statItems {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.statItem {
+  font-size: 13px;
+  color: var(--ink-secondary);
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.statItem::before {
+  content: '';
+  flex-shrink: 0;
+  width: 5px;
+  height: 5px;
+  margin-top: 7px;
+  border-radius: 50%;
+  background: color-mix(in oklch, var(--brand-primary) 55%, transparent);
+}
+
+/* Reduced-motion modifier: strip entrance + halos */
+:global(html.js) .statReduced {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  transition: none !important;
+}
+:global(html.js) .statReduced .statIcon::after { animation: none !important; }
 
 /* Icon chips + radar halos */
 .mIc {
@@ -189,18 +296,9 @@
   animation-delay: var(--dh, 0s);
 }
 @keyframes mHalo {
-  0% {
-    opacity: 0;
-    transform: scale(0.86);
-  }
-  26% {
-    opacity: 0.65;
-  }
-  62%,
-  100% {
-    opacity: 0;
-    transform: scale(1.22);
-  }
+  0% { opacity: 0; transform: scale(0.86); }
+  26% { opacity: 0.65; }
+  62%, 100% { opacity: 0; transform: scale(1.22); }
 }
 
 /* Value + labels */
@@ -228,15 +326,9 @@
   animation: mValPop 460ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 @keyframes mValPop {
-  0% {
-    transform: scale(1);
-  }
-  38% {
-    transform: scale(1.055);
-  }
-  100% {
-    transform: scale(1);
-  }
+  0% { transform: scale(1); }
+  38% { transform: scale(1.055); }
+  100% { transform: scale(1); }
 }
 .mLab {
   display: block;
@@ -278,15 +370,9 @@
   opacity: 0;
   transition: opacity 400ms ease 1200ms;
 }
-:global(html.js) .stat[data-in='true'] .sparkLine {
-  stroke-dashoffset: 0;
-}
-:global(html.js) .stat[data-in='true'] .sparkArea {
-  opacity: 1;
-}
-:global(html.js) .stat[data-in='true'] .sparkTip {
-  opacity: 1;
-}
+:global(html.js) .stat[data-in='true'] .sparkLine { stroke-dashoffset: 0; }
+:global(html.js) .stat[data-in='true'] .sparkArea { opacity: 1; }
+:global(html.js) .stat[data-in='true'] .sparkTip { opacity: 1; }
 
 /* Industry chips */
 .mFoot {
@@ -355,24 +441,9 @@
 /* ── Reduced motion ─────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .liveDot,
-  .mIc::after {
-    animation: none !important;
-  }
-  .stat {
-    opacity: 1;
-    transform: none;
-    filter: none;
-    transition: none !important;
-  }
-  .sparkLine,
-  .sparkArea,
-  .sparkTip {
-    transition: none !important;
-  }
-  .landed {
-    animation: none !important;
-  }
-  .indChip {
-    transition: none !important;
-  }
+  .mIc::after { animation: none !important; }
+  .stat { opacity: 1; transform: none; filter: none; transition: none !important; }
+  .sparkLine, .sparkArea, .sparkTip { transition: none !important; }
+  .landed { animation: none !important; }
+  .indChip { transition: none !important; }
 }

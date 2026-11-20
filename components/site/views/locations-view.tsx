@@ -8,18 +8,18 @@ import { LocationMap } from '../location-map'
 import { Stars, StatusBadge } from '../primitives'
 
 type GuardState = 'pending' | 'reverted' | 'accepted'
-type Filter = 'all' | 'attention'
+type Filter = 'all' | 'at-risk'
 
 export function LocationsView() {
-  const [selectedId, setSelectedId] = useState('thane')
+  const [selectedId, setSelectedId] = useState('loc-003')
   const [filter, setFilter] = useState<Filter>('all')
   const [guard, setGuard] = useState<GuardState>('pending')
 
   const locations = useMemo<SampleLocation[]>(
     () =>
       sampleLocations.map((l) =>
-        l.id === 'thane' && guard !== 'pending'
-          ? { ...l, status: 'healthy', profile: 'Verified', note: guard === 'reverted' ? 'Saturday hours restored' : 'New Saturday hours confirmed' }
+        l.id === 'loc-003' && guard !== 'pending'
+          ? { ...l, status: 'healthy', profile: 'Verified', note: guard === 'reverted' ? 'Hours restored' : 'New hours confirmed' }
           : l,
       ),
     [guard],
@@ -39,7 +39,7 @@ export function LocationsView() {
           showLabels
         />
         <div className="absolute bottom-3 left-3 flex flex-wrap gap-1.5" aria-hidden="true">
-          {(['healthy', 'attention', 'critical'] as const).map((s) => (
+          {(['healthy', 'at-risk', 'critical'] as const).map((s) => (
             <span key={s} className="inline-flex items-center gap-1.5 rounded-full border border-line bg-raised/90 px-2 py-1 text-[11px] font-medium text-ink-2">
               <span className={cn('size-2 rounded-full', statusMeta[s].dot)} />
               {statusMeta[s].label}
@@ -74,14 +74,14 @@ export function LocationsView() {
           </dl>
           <p className="mt-3 text-[13px] text-ink-2">{selected.note}</p>
 
-          {selected.id === 'thane' ? <ProfileGuard state={guard} onChange={setGuard} /> : null}
+          {selected.id === 'loc-003' ? <ProfileGuard state={guard} onChange={setGuard} /> : null}
         </div>
 
         <div className="flex items-center gap-1 border-b border-line px-3 py-2" role="group" aria-label="Filter locations">
           {(
             [
               ['all', `All ${locations.length}`],
-              ['attention', `Needs attention ${attentionCount}`],
+              ['at-risk', `Needs attention ${attentionCount}`],
             ] as const
           ).map(([value, label]) => (
             <button
@@ -150,7 +150,7 @@ function ProfileGuard({ state, onChange }: { state: GuardState; onChange: (s: Gu
         Profile Guard
       </p>
       <p className="mt-1 text-[13px] text-ink-2">
-        Saturday hours on Google changed to <strong className="font-semibold text-ink">10:00 – 18:00</strong>. Your record says 10:00 – 20:00.
+        Hours on Google changed to <strong className="font-semibold text-ink">09:00 – 17:00</strong>. Your record says 09:00 – 19:00.
       </p>
       <div className="mt-2.5 flex gap-2">
         <button

@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 import styles from './hero-signal.module.css'
 
 /* Official channel wordmarks (dot colors follow each brand's identity) */
-const OFFICIAL_LOGOS: { name: string; dot: string; dotClass?: string }[] = [
+const INTEGRATIONS_LOGOS: { name: string; dot: string; dotClass?: string }[] = [
   { name: 'Google', dot: '#4285F4' },
   { name: 'Instagram', dot: 'linear-gradient(135deg, #F58529, #DD2A7B 55%, #8134AF)' },
   { name: 'WhatsApp', dot: 'var(--surface-raised)', dotClass: 'border border-line-strong' },
@@ -19,7 +19,7 @@ const OFFICIAL_LOGOS: { name: string; dot: string; dotClass?: string }[] = [
 function LogoSet({ hidden = false }: { hidden?: boolean }) {
   return (
     <div aria-hidden={hidden || undefined} style={{ display: 'inline-flex', gap: 44, paddingRight: 44 }}>
-      {OFFICIAL_LOGOS.map((logo) => (
+      {INTEGRATIONS_LOGOS.map((logo) => (
         <span key={logo.name} className={styles.logoItem}>
           <span
             aria-hidden="true"
@@ -47,7 +47,7 @@ export function Hero() {
             {/* Eyebrow */}
             <p className={cn(styles.eyebrow, 'mb-5 self-start font-mono')}>
               <span aria-hidden="true" className="size-[7px] shrink-0 rounded-full bg-success" />
-              <span>MULTI-LOCATION MARKETING, CONNECTED</span>
+              <span>MULTI-LOCATION MARKETING PLATFORM</span>
             </p>
 
             {/* Oversized Headline with Deliberate 2-Line Desktop Rhythm */}
@@ -55,21 +55,19 @@ export function Hero() {
               id="hero-title"
               className="text-balance text-[38px] leading-[1.04] font-semibold tracking-[-0.035em] sm:text-[50px] md:text-[54px] lg:text-[clamp(44px,4.6vw,64px)]"
             >
-              <span className="block text-ink dark:text-white">Make every location</span>
-              <span className={cn('block', styles.metal)}>perform at its best.</span>
+              <span className="block text-ink dark:text-white">Multi-location marketing.</span>
+              <span className={cn('block', styles.metal)}>Finally, in sync.</span>
             </h1>
 
             {/* Supporting Copy */}
             <p className="mt-4 sm:mt-5 max-w-xl text-pretty text-[16px] leading-relaxed text-ink-2 sm:text-[17.5px] dark:text-white/70">
-              Bring location presence, customer conversations, and local marketing into{' '}
-              <span className={styles.uw}>one connected workspace</span>—so your team knows what
-              needs attention and what to do next.
+              Bring location presence, customer engagement and local advertising together in one platform built for businesses with multiple locations.
             </p>
 
             {/* CTAs */}
             <div className="mt-7 flex flex-wrap items-center gap-3.5 sm:mt-8">
               <DemoButton size="lg" withArrow className={cn('rounded-[10px]', styles.btnP)}>
-                Book a Demo
+                Request a demo
               </DemoButton>
               <a
                 href="#products"
@@ -100,14 +98,13 @@ export function Hero() {
                 <span aria-hidden="true" className="opacity-40">
                   /
                 </span>
-                <span>SYNAPSE</span>
+                <span>SYNAPSE ADS</span>
               </div>
-              <span className="text-[10.5px] opacity-70">Mumbai Metro · 7 Storefronts Linked</span>
             </div>
 
             {/* Official logo rail */}
             <div className={cn(styles.rail, 'mt-8 lg:mt-auto')}>
-              <span className={cn(styles.railLabel, 'font-mono')}>Official</span>
+              <span className={cn(styles.railLabel, 'font-mono')}>Channels</span>
               <div className={styles.marquee}>
                 <div className={styles.track}>
                   <LogoSet />
@@ -126,7 +123,7 @@ export function Hero() {
 
         {/* Trust ribbon */}
         <div className={cn('mt-6 font-mono sm:mt-7', styles.ribbon)}>
-          <span className={styles.ribbonKey}>OFFICIAL</span>
+          <span className={styles.ribbonKey}>INTEGRATIONS</span>
           <span aria-hidden="true" className={styles.ribbonSep}>
             ·
           </span>
@@ -134,11 +131,10 @@ export function Hero() {
           <span aria-hidden="true" className={styles.ribbonSep}>
             ·
           </span>
-          <span>Zero migration fee</span>
+          <span>Listings, Reviews, Posts, Profile Guard, AI Studio, Microsite, Reports</span>
           <span aria-hidden="true" className={styles.ribbonSep}>
             ·
           </span>
-          <span>Rollout in 48 hours</span>
         </div>
       </div>
     </section>

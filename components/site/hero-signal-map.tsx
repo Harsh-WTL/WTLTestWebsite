@@ -6,47 +6,43 @@ import { cn } from '@/lib/utils'
 import { sampleLocations, type SampleLocation } from '@/lib/sample-data'
 import { usePrefersReducedMotion } from '@/lib/hooks'
 
-type Scenario = 'overview' | 'drift' | 'escalations'
+type Scenario = 'listings' | 'reputation' | 'advertising'
 
 const SCENARIOS: { id: Scenario; label: string }[] = [
-  { id: 'overview', label: 'Overview' },
-  { id: 'drift', label: 'Drift' },
-  { id: 'escalations', label: 'Escalations' },
+  { id: 'listings', label: 'Listings' },
+  { id: 'reputation', label: 'Reputation' },
+  { id: 'advertising', label: 'Advertising' },
 ]
 
 const byId = (id: string): SampleLocation =>
   sampleLocations.find((l) => l.id === id) ?? sampleLocations[0]
 
-const HUB = byId('bandra')
+const HUB = byId('loc-004')
 const TOTAL = sampleLocations.length
 const HEALTHY = sampleLocations.filter((l) => l.status === 'healthy').length
 const RECEIVED = sampleLocations.reduce((sum, l) => sum + l.reviews, 0)
-const UNANSWERED = byId('vashi').pending
+const UNANSWERED = byId('loc-002').pending
 
-const CITY: Record<string, string> = { vashi: 'Navi Mumbai' }
-
-/* Signal conduits flowing into the Bandra West hub (sample-data coords) */
 const PATHS = {
-  thane: 'M488,58 C400,90 290,160 204,206',
-  powai: 'M392,128 C330,150 260,180 204,206',
-  vashi: 'M512,252 C420,240 290,225 204,206',
-  malad: 'M262,84 C240,120 220,170 204,206',
-  ghatkopar: 'M424,184 C350,200 270,205 204,206',
-  andheri: 'M300,150 C260,170 225,190 204,206',
-  colaba: 'M228,352 C220,310 210,255 204,206',
+  'loc-003': 'M488,58 C400,90 290,160 204,206',
+  'loc-001': 'M392,128 C330,150 260,180 204,206',
+  'loc-002': 'M512,252 C420,240 290,225 204,206',
+  'loc-010': 'M262,84 C240,120 220,170 204,206',
+  'loc-009': 'M424,184 C350,200 270,205 204,206',
+  'loc-005': 'M300,150 C260,170 225,190 204,206',
+  'loc-007': 'M228,352 C220,310 210,255 204,206',
 } as const
 
-/* "Needs attention" rows (driven by sample data) */
 type Row = {
   loc: SampleLocation
   pill: { label: string; tone: 'ok' | 'warn' | 'bad' }
   metaRight: string
 }
 const ROWS: Row[] = [
-  { loc: byId('thane'), pill: { label: '▲ Sat hours', tone: 'warn' }, metaRight: 'reverted ✓' },
-  { loc: byId('powai'), pill: { label: '▲ At risk', tone: 'warn' }, metaRight: '4.3' },
-  { loc: byId('vashi'), pill: { label: '✕ 3 unanswered', tone: 'bad' }, metaRight: '3.9' },
-  { loc: byId('bandra'), pill: { label: '✓ Verified', tone: 'ok' }, metaRight: '4.8' },
+  { loc: byId('loc-003'), pill: { label: '▲ Hours edit', tone: 'warn' }, metaRight: 'auto-rejected' },
+  { loc: byId('loc-001'), pill: { label: '▲ AI Score 78', tone: 'warn' }, metaRight: '13 fields incomplete' },
+  { loc: byId('loc-002'), pill: { label: '✕ 3 unanswered', tone: 'bad' }, metaRight: 'sentiment needs attention' },
+  { loc: byId('loc-004'), pill: { label: '✓ Verified', tone: 'ok' }, metaRight: '4.8★' },
 ]
 const PILL_CLS: Record<Row['pill']['tone'], string> = {
   ok: styles.hpOk,
@@ -54,7 +50,6 @@ const PILL_CLS: Record<Row['pill']['tone'], string> = {
   bad: styles.hpBad,
 }
 
-/* Rotating catch chips */
 type Chip = { ic: string; cls: string; body: ReactNode }
 const CHIPS: Chip[] = [
   {
@@ -62,9 +57,9 @@ const CHIPS: Chip[] = [
     cls: styles.dotBad,
     body: (
       <>
-        <b className={styles.chipB}>Thane</b> · Saturday hours changed externally ·{' '}
+        <b className={styles.chipB}>North Mall</b> · Hours edit detected externally ·{' '}
         <b className={styles.chipB} style={{ color: 'var(--success-solid)' }}>
-          reverted in 1 click
+          auto-rejected in 1 click
         </b>
       </>
     ),
@@ -74,9 +69,9 @@ const CHIPS: Chip[] = [
     cls: styles.dotWarn,
     body: (
       <>
-        <b className={styles.chipB}>Powai</b> · wait-time mentions rising ·{' '}
+        <b className={styles.chipB}>Downtown Branch</b> · AI Location Studio score 78/100 ·{' '}
         <b className={styles.chipB} style={{ color: 'var(--warning-solid)' }}>
-          ▲ At risk
+          13 fields incomplete
         </b>
       </>
     ),
@@ -86,42 +81,40 @@ const CHIPS: Chip[] = [
     cls: styles.dotBrand,
     body: (
       <>
-        <b className={styles.chipB}>Vashi</b> · 3 unanswered, oldest 3 days ·{' '}
-        <b className={styles.chipB}>WhatsApp alert sent</b>
+        <b className={styles.chipB}>Westside Clinic</b> · 3 unanswered reviews ·{' '}
+        <b className={styles.chipB}>AI-assisted replies active</b>
       </>
     ),
   },
 ]
 
-/* Catch note copy per scenario */
 const NOTES: Record<Scenario, ReactNode> = {
-  overview: (
+  listings: (
     <>
-      <b className={styles.catchNoteB}>Live drift scan</b> — Ahana caught the Saturday hours
-      change at <b className={styles.catchNoteB}>Thane</b>.{' '}
-      <b className={styles.catchNoteB}>Vashi</b> triggered a WhatsApp escalation.
+      <b className={styles.catchNoteB}>Profile Guard</b> caught unauthorized hours edit at{' '}
+      <b className={styles.catchNoteB}>North Mall</b> — auto-rejected.{' '}
+      <b className={styles.catchNoteB}>Downtown Branch</b> AI Score 78/100.
     </>
   ),
-  drift: (
+  reputation: (
     <>
-      <b className={styles.catchNoteB}>Profile Guard</b> caught the Saturday hours edit at{' '}
-      <b className={styles.catchNoteB}>Thane</b> 21 minutes ago — one click reverts it.
+      <b className={styles.catchNoteB}>AI-assisted replies</b> active across locations.{' '}
+      <b className={styles.catchNoteB}>Westside Clinic</b> has 3 unanswered reviews — sentiment needs attention.
     </>
   ),
-  escalations: (
+  advertising: (
     <>
-      3 unanswered reviews at <b className={styles.catchNoteB}>Vashi</b>, oldest 3 days — store
-      manager alerted on WhatsApp in 45s.
+      <b className={styles.catchNoteB}>Synapse Ads</b> — 14 leads routed this week.{' '}
+      <b className={styles.catchNoteB}>SPARK</b> readiness: Brand Intelligence → Audience Mapping → Product Catalogue → AI Ad Generation.
     </>
   ),
 }
 
-/* Travelling signal pulses (SMIL — the mock's .traveler) */
 const TRAVELERS = [
-  { path: PATHS.powai, dur: '2.4s', begin: '0s', fill: 'var(--brand-primary)' },
-  { path: PATHS.vashi, dur: '2.9s', begin: '0.6s', fill: 'var(--viz-1)' },
-  { path: PATHS.malad, dur: '2.4s', begin: '1.2s', fill: 'var(--viz-1)' },
-  { path: PATHS.thane, dur: '2.6s', begin: '0.9s', fill: 'var(--viz-1-soft)' },
+  { path: PATHS['loc-001'], dur: '2.4s', begin: '0s', fill: 'var(--brand-primary)' },
+  { path: PATHS['loc-002'], dur: '2.9s', begin: '0.6s', fill: 'var(--viz-1)' },
+  { path: PATHS['loc-010'], dur: '2.4s', begin: '1.2s', fill: 'var(--viz-1)' },
+  { path: PATHS['loc-003'], dur: '2.6s', begin: '0.9s', fill: 'var(--viz-1-soft)' },
 ] as const
 
 type NodeSpec = {
@@ -139,14 +132,14 @@ type Placement =
   | { at: 'leftTop' }
 
 const NODES: NodeSpec[] = [
-  { id: 'thane', name: 'Thane', meta: 'hours reverted ✓', tone: 'warn', label: { at: 'left' } },
-  { id: 'powai', name: 'Powai', meta: 'wait-time ▲', tone: 'warn', label: { at: 'right' } },
-  { id: 'vashi', name: 'Vashi', meta: '3 unanswered', tone: 'bad', label: { at: 'left' } },
-  { id: 'andheri', name: 'Andheri East', meta: '4.7★ · 46', tone: 'ok', label: { at: 'below' } },
-  { id: 'lowerparel', name: 'Lower Parel', meta: '4.9★', tone: 'ok', label: { at: 'right' } },
-  { id: 'colaba', name: 'Colaba', meta: 'Profile complete', tone: 'ok', label: { at: 'leftTop' } },
-  { id: 'malad', name: 'Malad', tone: 'ok', label: { at: 'right' } },
-  { id: 'ghatkopar', name: 'Ghatkopar', tone: 'ok', label: { at: 'left' } },
+  { id: 'loc-003', name: 'North Mall', meta: 'hours auto-rejected', tone: 'warn', label: { at: 'left' } },
+  { id: 'loc-001', name: 'Downtown Branch', meta: 'AI Score 78/100', tone: 'warn', label: { at: 'right' } },
+  { id: 'loc-002', name: 'Westside Clinic', meta: '3 unanswered', tone: 'bad', label: { at: 'left' } },
+  { id: 'loc-005', name: 'Eastside Centre', meta: '4.7★ · 46', tone: 'ok', label: { at: 'below' } },
+  { id: 'loc-006', name: 'Central Plaza', meta: '4.9★', tone: 'ok', label: { at: 'right' } },
+  { id: 'loc-007', name: 'Harbor View', meta: 'Profile complete', tone: 'ok', label: { at: 'leftTop' } },
+  { id: 'loc-010', name: 'Valley Outpost', tone: 'ok', label: { at: 'right' } },
+  { id: 'loc-009', name: 'Hilltop Location', tone: 'ok', label: { at: 'left' } },
 ]
 
 const TONE_CLS: Record<NodeSpec['tone'], string> = {
@@ -162,11 +155,10 @@ const TONE_VAR: Record<NodeSpec['tone'], string> = {
   hub: 'var(--brand-primary)',
 }
 
-/* Delay offsets for the expanding node rings */
 const RING_DELAYS: Record<string, string> = {
-  thane: '0.5s',
-  powai: '0.2s',
-  vashi: '0.7s',
+  'loc-003': '0.5s',
+  'loc-001': '0.2s',
+  'loc-002': '0.7s',
 }
 
 function nodeLabels(node: NodeSpec, loc: SampleLocation) {
@@ -238,13 +230,12 @@ function nodeLabels(node: NodeSpec, loc: SampleLocation) {
 export function HeroSignalMap() {
   const reduced = usePrefersReducedMotion()
   const uid = useId().replace(/:/g, '')
-  const [scenario, setScenario] = useState<Scenario>('overview')
+  const [scenario, setScenario] = useState<Scenario>('listings')
   const [hotIdx, setHotIdx] = useState(2)
   const [chipHead, setChipHead] = useState(0)
   const [latest, setLatest] = useState(0)
   const [popTick, setPopTick] = useState(0)
 
-  /* Locked-in counter (0 → received, easing steps like the mock) */
   useEffect(() => {
     if (reduced) {
       setLatest(RECEIVED)
@@ -259,24 +250,21 @@ export function HeroSignalMap() {
     return () => clearInterval(boot)
   }, [reduced])
 
-  /* Periodic pop once boot completes */
   useEffect(() => {
     if (reduced || latest < RECEIVED) return
     const pop = setInterval(() => setPopTick((t) => t + 1), 3600)
     return () => clearInterval(pop)
   }, [reduced, latest])
 
-  /* Cycled highlighted row (Overview) / pinned row (Drift, Escalations) */
   useEffect(() => {
     if (reduced) return
     const id = setInterval(() => {
-      if (scenario !== 'overview') return
+      if (scenario !== 'listings') return
       setHotIdx((h) => (h + 1) % ROWS.length)
     }, 2600)
     return () => clearInterval(id)
   }, [reduced, scenario])
 
-  /* Rotating catch chips */
   useEffect(() => {
     if (reduced) return
     const id = setInterval(() => setChipHead((c) => (c + 1) % CHIPS.length), 3400)
@@ -285,8 +273,8 @@ export function HeroSignalMap() {
 
   const pickScenario = (s: Scenario) => {
     setScenario(s)
-    if (s === 'drift') setHotIdx(0)
-    if (s === 'escalations') setHotIdx(2)
+    if (s === 'reputation') setHotIdx(0)
+    if (s === 'advertising') setHotIdx(2)
   }
 
   const chips = [CHIPS[chipHead], CHIPS[(chipHead + 1) % CHIPS.length]]
@@ -294,7 +282,7 @@ export function HeroSignalMap() {
 
   return (
     <div className={styles.montage}>
-      <div className={styles.scenarios} role="group" aria-label="Workspace experiences">
+      <div className={styles.scenarios} role="group" aria-label="Product areas">
         {SCENARIOS.map((s) => (
           <button
             key={s.id}
@@ -395,7 +383,7 @@ export function HeroSignalMap() {
 
             {/* Minor unlabeled dots */}
             {sampleLocations
-              .filter((l) => minorIds.has(l.id) && l.id !== 'colaba' && l.id !== 'malad' && l.id !== 'ghatkopar')
+              .filter((l) => minorIds.has(l.id) && l.id !== 'loc-007' && l.id !== 'loc-010' && l.id !== 'loc-009')
               .map((loc) => (
                 <circle
                   key={loc.id}
@@ -413,7 +401,7 @@ export function HeroSignalMap() {
               const { labelNode, metaNode } = nodeLabels(node, loc)
               return (
                 <g key={node.id}>
-                  {!reduced && node.id !== 'colaba' && (
+                  {!reduced && node.id !== 'loc-007' && (
                     <circle
                       className={styles.nodeRing}
                       cx={loc.x}
@@ -528,7 +516,7 @@ export function HeroSignalMap() {
                     <span className={cn(styles.hp, PILL_CLS[row.pill.tone])}>{row.pill.label}</span>
                   </div>
                   <div className={styles.locMeta}>
-                    {loc.area}, {CITY[loc.id] ?? 'Mumbai'}
+                    {loc.area}
                   </div>
                 </div>
                 <span className={cn(styles.monoId, 'font-mono')}>{loc.code}</span>

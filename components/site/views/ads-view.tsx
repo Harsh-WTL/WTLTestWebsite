@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 import { locationById, sampleCampaigns } from '@/lib/sample-data'
 import { LocationMap } from '../location-map'
 
-export function SynapseView() {
+export function AdsView() {
   const [selectedId, setSelectedId] = useState(sampleCampaigns[0].id)
   const [radii, setRadii] = useState<Record<string, number>>(() =>
     Object.fromEntries(sampleCampaigns.map((c) => [c.id, c.radiusKm])),
@@ -37,7 +37,7 @@ export function SynapseView() {
           </p>
           <div className="mt-2 flex items-center gap-3 border-t border-line/60 pt-2 text-[11px] text-ink-2">
             <span className="inline-flex items-center gap-1">
-              <Users className="size-3 text-brand" /> {estimatedHouseholds} homes
+              <Users className="size-3 text-brand" /> {estimatedHouseholds} households
             </span>
             <span className="inline-flex items-center gap-1">
               <Navigation className="size-3 text-success" /> ~{estimatedDailyFootfall} reach
@@ -122,9 +122,9 @@ export function SynapseView() {
               </span>
             </div>
             <p className="mt-1">
-              {campaign.type === 'Meta Lead Ads'
+              {campaign.type === 'Synapse Ads (Meta Lead Ads)'
                 ? `Leads within ${radius} km route straight to ${loc.name}'s sales counter. ${campaign.leads ? `${campaign.leads} routed this week.` : ''}`
-                : `PMax spend stays strictly inside the ${radius} km radius customers will actually travel from.`}
+                : `Synapse Ads spend stays strictly inside the ${radius} km radius customers will actually travel from.`}
             </p>
           </div>
         </div>

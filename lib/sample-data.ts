@@ -1,4 +1,4 @@
-export type LocationStatus = 'healthy' | 'attention' | 'critical'
+export type LocationStatus = 'healthy' | 'at-risk' | 'critical'
 
 export type SampleLocation = {
   id: string
@@ -18,24 +18,24 @@ export type SampleLocation = {
 
 export const sampleLocations: SampleLocation[] = [
   {
-    id: 'powai',
-    name: 'Powai',
-    area: 'Hiranandani Gardens',
-    code: 'LOC-014',
+    id: 'loc-001',
+    name: 'Downtown Branch',
+    area: 'City Center',
+    code: 'STORE-001',
     x: 392,
     y: 128,
-    status: 'attention',
+    status: 'at-risk',
     rating: 4.3,
     reviews: 41,
     pending: 2,
     profile: 'Verified',
-    note: 'Wait-time mentions rising this month',
+    note: 'AI Location Studio score: 78/100 — 13 fields incomplete',
   },
   {
-    id: 'vashi',
-    name: 'Vashi',
-    area: 'Sector 17',
-    code: 'LOC-021',
+    id: 'loc-002',
+    name: 'Westside Clinic',
+    area: 'Medical District',
+    code: 'STORE-002',
     x: 512,
     y: 252,
     status: 'critical',
@@ -43,27 +43,27 @@ export const sampleLocations: SampleLocation[] = [
     reviews: 27,
     pending: 3,
     profile: 'Verified',
-    note: '3 unanswered reviews · oldest 3 days',
+    note: '3 unanswered reviews · Sentiment needs attention',
   },
   {
-    id: 'thane',
-    name: 'Thane',
-    area: 'Ghodbunder Road',
-    code: 'LOC-009',
+    id: 'loc-003',
+    name: 'North Mall',
+    area: 'Shopping District',
+    code: 'STORE-003',
     x: 488,
     y: 58,
-    status: 'attention',
+    status: 'at-risk',
     rating: 4.6,
     reviews: 33,
     pending: 0,
     profile: 'Edit pending',
-    note: 'Google changed Saturday hours',
+    note: 'Profile Guard: Unauthorized edit to hours — Auto-rejected',
   },
   {
-    id: 'bandra',
-    name: 'Bandra West',
-    area: 'Hill Road',
-    code: 'LOC-002',
+    id: 'loc-004',
+    name: 'Riverside Office',
+    area: 'Riverside',
+    code: 'STORE-004',
     x: 204,
     y: 206,
     status: 'healthy',
@@ -71,13 +71,13 @@ export const sampleLocations: SampleLocation[] = [
     reviews: 58,
     pending: 0,
     profile: 'Verified',
-    note: '“Friendly staff” is the top theme',
+    note: 'Listings health: 98% · "Friendly staff" top LOVED theme',
   },
   {
-    id: 'andheri',
-    name: 'Andheri East',
-    area: 'Chakala',
-    code: 'LOC-005',
+    id: 'loc-005',
+    name: 'Eastside Centre',
+    area: 'Downtown',
+    code: 'STORE-005',
     x: 300,
     y: 150,
     status: 'healthy',
@@ -85,13 +85,13 @@ export const sampleLocations: SampleLocation[] = [
     reviews: 46,
     pending: 0,
     profile: 'Verified',
-    note: 'All reviews answered',
+    note: 'All reviews answered · AI Score 85/100',
   },
   {
-    id: 'lowerparel',
-    name: 'Lower Parel',
-    area: 'Senapati Bapat Marg',
-    code: 'LOC-007',
+    id: 'loc-006',
+    name: 'Central Plaza',
+    area: 'Uptown',
+    code: 'STORE-006',
     x: 236,
     y: 288,
     status: 'healthy',
@@ -99,13 +99,13 @@ export const sampleLocations: SampleLocation[] = [
     reviews: 39,
     pending: 0,
     profile: 'Verified',
-    note: 'Local post published yesterday',
+    note: 'Local post published yesterday · Profile complete',
   },
   {
-    id: 'colaba',
-    name: 'Colaba',
-    area: 'Causeway',
-    code: 'LOC-001',
+    id: 'loc-007',
+    name: 'Harbor View',
+    area: 'Harbor District',
+    code: 'STORE-007',
     x: 228,
     y: 352,
     status: 'healthy',
@@ -113,14 +113,14 @@ export const sampleLocations: SampleLocation[] = [
     reviews: 22,
     pending: 0,
     profile: 'Verified',
-    note: 'Profile complete',
+    note: 'Profile complete · Minor location',
     minor: true,
   },
   {
-    id: 'chembur',
-    name: 'Chembur',
-    area: 'Diamond Garden',
-    code: 'LOC-016',
+    id: 'loc-008',
+    name: 'Lakeside Facility',
+    area: 'Lakeside',
+    code: 'STORE-008',
     x: 400,
     y: 238,
     status: 'healthy',
@@ -128,14 +128,14 @@ export const sampleLocations: SampleLocation[] = [
     reviews: 30,
     pending: 0,
     profile: 'Verified',
-    note: 'All reviews answered',
+    note: 'All reviews answered · Minor location',
     minor: true,
   },
   {
-    id: 'ghatkopar',
-    name: 'Ghatkopar',
-    area: 'LBS Marg',
-    code: 'LOC-018',
+    id: 'loc-009',
+    name: 'Hilltop Location',
+    area: 'Hilltop',
+    code: 'STORE-009',
     x: 424,
     y: 184,
     status: 'healthy',
@@ -143,14 +143,14 @@ export const sampleLocations: SampleLocation[] = [
     reviews: 25,
     pending: 1,
     profile: 'Verified',
-    note: '1 reply drafted for approval',
+    note: '1 reply drafted for approval · Minor location',
     minor: true,
   },
   {
-    id: 'malad',
-    name: 'Malad',
-    area: 'Link Road',
-    code: 'LOC-011',
+    id: 'loc-010',
+    name: 'Valley Outpost',
+    area: 'Valley',
+    code: 'STORE-010',
     x: 262,
     y: 84,
     status: 'healthy',
@@ -158,14 +158,14 @@ export const sampleLocations: SampleLocation[] = [
     reviews: 35,
     pending: 0,
     profile: 'Verified',
-    note: 'Profile complete',
+    note: 'Profile complete · Minor location',
     minor: true,
   },
   {
-    id: 'borivali',
-    name: 'Borivali',
-    area: 'Shimpoli',
-    code: 'LOC-012',
+    id: 'loc-011',
+    name: 'Summit Site',
+    area: 'Summit',
+    code: 'STORE-011',
     x: 306,
     y: 30,
     status: 'healthy',
@@ -173,14 +173,14 @@ export const sampleLocations: SampleLocation[] = [
     reviews: 29,
     pending: 0,
     profile: 'Verified',
-    note: 'Profile complete',
+    note: 'Profile complete · Minor location',
     minor: true,
   },
   {
-    id: 'juhu',
-    name: 'Juhu',
-    area: 'Gulmohar Road',
-    code: 'LOC-004',
+    id: 'loc-012',
+    name: 'Parkside Unit',
+    area: 'Parkside',
+    code: 'STORE-012',
     x: 214,
     y: 142,
     status: 'healthy',
@@ -188,12 +188,14 @@ export const sampleLocations: SampleLocation[] = [
     reviews: 44,
     pending: 0,
     profile: 'Verified',
-    note: 'Local post scheduled for Friday',
+    note: 'Local post scheduled · Minor location',
     minor: true,
   },
 ]
 
-export const locationById = (id: string) => sampleLocations.find((l) => l.id === id) ?? sampleLocations[0]
+export const locationById = (id: string) =>
+  sampleLocations.find((l) => l.id === id || l.name.toLowerCase() === id.toLowerCase()) ??
+  sampleLocations[0]
 
 export const statusMeta: Record<
   LocationStatus,
@@ -207,8 +209,8 @@ export const statusMeta: Record<
     dot: 'bg-success',
     fill: 'var(--success-solid)',
   },
-  attention: {
-    label: 'Needs attention',
+  'at-risk': {
+    label: 'At risk',
     text: 'text-warning',
     bg: 'bg-warning-subtle',
     border: 'border-warning-border',
@@ -240,100 +242,158 @@ export type HeroScenario = {
 
 export const heroScenarios: HeroScenario[] = [
   {
-    locationId: 'powai',
-    source: 'Google review',
-    rating: 2,
-    author: 'Rhea S.',
-    time: '2m ago',
-    text: 'Waited almost 40 minutes past my appointment. Staff were kind, but nobody told us about the delay.',
-    sentiment: 'Negative',
-    topic: 'Wait time',
-    insight: 'Wait-time mentions at Powai are rising this month while other locations stay flat.',
-    action: 'Review draft reply',
-  },
-  {
-    locationId: 'bandra',
-    source: 'Google review',
+    locationId: 'loc-001',
+    source: 'AI Location Studio',
     rating: 5,
-    author: 'Kabir M.',
-    time: '6m ago',
-    text: 'In and out in twenty minutes. The front desk team were genuinely friendly and explained everything.',
+    author: 'Ahana',
+    time: 'Just now',
+    text: 'AI Score for Downtown Branch is 78/100. 13 fields incomplete including WhatsApp URL, Special Hours, Q&A.',
     sentiment: 'Positive',
-    topic: 'Staff',
-    insight: '“Friendly staff” is Bandra West’s strongest theme — a good angle for this week’s local post.',
-    action: 'Draft local post',
+    topic: 'AI Score',
+    insight: 'AI Location Studio nightly audit flagged 13 incomplete fields at Downtown Branch — fixing these could boost local visibility.',
+    action: 'Open AI Location Studio',
   },
   {
-    locationId: 'vashi',
-    source: 'Google review',
+    locationId: 'loc-004',
+    source: 'Profile Guard',
+    rating: 5,
+    author: 'Ahana',
+    time: '2m ago',
+    text: 'Profile Guard detected unauthorized edit to hours at Riverside Office — AI risk: HIGH — Auto-rejected in 1 click.',
+    sentiment: 'Positive',
+    topic: 'Profile Guard',
+    insight: 'Profile Guard caught an unauthorized hours change at Riverside Office. Auto-reject prevented listing drift.',
+    action: 'Review Profile Guard log',
+  },
+  {
+    locationId: 'loc-002',
+    source: 'Reviews',
     rating: 2,
     author: 'Anil P.',
     time: '11m ago',
     text: 'Called twice to reschedule and nobody picked up. Had to come in person to change the slot.',
     sentiment: 'Negative',
     topic: 'Phone access',
-    insight: 'Vashi now has 3 unanswered reviews, the oldest waiting 3 days. Replies are drafted for approval.',
-    action: 'Open Vashi queue',
+    insight: 'Westside Clinic has 3 unanswered reviews. AI-assisted replies active. Sentiment needs attention.',
+    action: 'Open Westside Clinic queue',
   },
 ]
 
 export type Conversation = {
   id: string
-  channel: 'Google review' | 'Instagram comment' | 'Play Store review'
+  channel: 'Google review' | 'Instagram comment' | 'Facebook Messenger' | 'Email' | 'Play Store review' | 'App Store review' | 'Ad comment'
   locationId: string | null
   author: string
   time: string
   rating?: number
   text: string
-  sentiment: 'Negative' | 'Neutral' | 'Mixed'
+  sentiment: 'Negative' | 'Neutral' | 'Mixed' | 'Positive'
   topics: string[]
   draft: string
+  sentimentTheme?: 'LOVED' | 'ASKED ABOUT' | 'NEEDS WORK'
 }
 
 export const sampleConversations: Conversation[] = [
   {
     id: 'c1',
     channel: 'Google review',
-    locationId: 'powai',
-    author: 'Rhea S.',
+    locationId: 'loc-002',
+    author: 'Anil P.',
     time: '09:42',
     rating: 2,
-    text: 'Waited almost 40 minutes past my appointment. Staff were kind, but nobody told us about the delay.',
+    text: 'Called twice to reschedule and nobody picked up. Had to come in person to change the slot.',
     sentiment: 'Negative',
-    topics: ['Wait time', 'Communication'],
+    topics: ['Phone access', 'Appointment'],
     draft:
-      'Hi Rhea, thank you for telling us — and we’re sorry about the wait at Powai. You should have been kept informed. We’ve shared this with the centre team, and we’d love the chance to make your next visit smoother.',
+      'Hi Anil, sorry about the phone wait — that\'s not the experience we want. We\'ve shared this with the Westside Clinic team and they\'ll call you back within the hour to reschedule.',
+    sentimentTheme: 'NEEDS WORK',
   },
   {
     id: 'c2',
     channel: 'Instagram comment',
-    locationId: 'bandra',
+    locationId: 'loc-004',
     author: '@meera.k',
     time: '09:15',
-    text: 'Do you take walk-ins on Sunday mornings at the Bandra centre?',
+    text: 'Do you take walk-ins on Sunday mornings at the Riverside Office?',
     sentiment: 'Neutral',
-    topics: ['Hours'],
+    topics: ['Hours', 'Walk-ins'],
     draft:
-      'Hi Meera! Bandra West is open Sunday mornings and walk-ins are welcome, though booking ahead keeps waits short. Send us a DM and we’ll help you pick a slot.',
+      'Hi Meera! Riverside Office is open Sunday mornings and walk-ins are welcome, though booking ahead keeps waits short. Send us a DM and we\'ll help you pick a slot.',
+    sentimentTheme: 'ASKED ABOUT',
   },
   {
     id: 'c3',
+    channel: 'Facebook Messenger',
+    locationId: 'loc-001',
+    author: 'Rhea S.',
+    time: '08:51',
+    text: 'Waited almost 40 minutes past my appointment. Staff were kind, but nobody told us about the delay.',
+    sentiment: 'Mixed',
+    topics: ['Wait time', 'Communication'],
+    draft:
+      'Hi Rhea, thank you for telling us — and we\'re sorry about the wait at Downtown Branch. You should have been kept informed. We\'ve shared this with the centre team, and we\'d love the chance to make your next visit smoother.',
+    sentimentTheme: 'NEEDS WORK',
+  },
+  {
+    id: 'c4',
+    channel: 'Email',
+    locationId: 'loc-005',
+    author: 'Kabir M.',
+    time: '08:30',
+    rating: 5,
+    text: 'In and out in twenty minutes. The front desk team were genuinely friendly and explained everything.',
+    sentiment: 'Positive',
+    topics: ['Staff', 'Speed'],
+    draft:
+      'Thank you Kabir! We\'re thrilled the Eastside Centre team made your visit smooth. We\'ll pass along the kind words about the front desk.',
+    sentimentTheme: 'LOVED',
+  },
+  {
+    id: 'c5',
     channel: 'Play Store review',
     locationId: null,
     author: 'Dev R.',
-    time: '08:51',
+    time: '08:10',
     rating: 4,
     text: 'Booking in the app is easy. Reminder notification arrived an hour after my slot, though.',
     sentiment: 'Mixed',
     topics: ['App', 'Reminders'],
     draft:
-      'Thanks Dev — glad booking feels easy. A late reminder isn’t the experience we want, so we’ve passed this to the app team to look into.',
+      'Thanks Dev — glad booking feels easy. A late reminder isn\'t the experience we want, so we\'ve passed this to the app team to look into.',
+    sentimentTheme: 'ASKED ABOUT',
+  },
+  {
+    id: 'c6',
+    channel: 'App Store review',
+    locationId: null,
+    author: 'Priya K.',
+    time: '07:55',
+    rating: 5,
+    text: 'Love the new microsite feature — found my local branch hours instantly without calling.',
+    sentiment: 'Positive',
+    topics: ['Microsite', 'Hours'],
+    draft:
+      'Thanks Priya! The microsite is built straight from your GBP data so it\'s always in sync. Glad it saved you a call.',
+    sentimentTheme: 'LOVED',
+  },
+  {
+    id: 'c7',
+    channel: 'Ad comment',
+    locationId: 'loc-006',
+    author: 'Arjun S.',
+    time: '07:40',
+    text: 'Saw your ad for Central Plaza — is the 3km radius accurate for catchment?',
+    sentiment: 'Neutral',
+    topics: ['Ads', 'Radius targeting'],
+    draft:
+      'Hi Arjun! Yes, Synapse Ads targets a 3km radius around Central Plaza. Leads route to the nearest branch automatically. Happy to share the catchment map.',
+    sentimentTheme: 'ASKED ABOUT',
   },
 ]
 
 export type Campaign = {
   id: string
-  type: 'Performance Max' | 'Meta Lead Ads'
+  type: 'Synapse Ads (Google Ads)' | 'Synapse Ads (Meta Lead Ads)' | 'AI Creative Studio' | 'SPARK'
   locationId: string
   radiusKm: number
   status: 'Active' | 'Draft'
@@ -342,8 +402,8 @@ export type Campaign = {
 }
 
 export const sampleCampaigns: Campaign[] = [
-  { id: 'p1', type: 'Performance Max', locationId: 'powai', radiusKm: 3, status: 'Active', pacing: 62, leads: null },
-  { id: 'p2', type: 'Meta Lead Ads', locationId: 'bandra', radiusKm: 3, status: 'Active', pacing: 48, leads: 14 },
-  { id: 'p3', type: 'Performance Max', locationId: 'andheri', radiusKm: 2, status: 'Active', pacing: 71, leads: null },
-  { id: 'p4', type: 'Meta Lead Ads', locationId: 'vashi', radiusKm: 3, status: 'Draft', pacing: 0, leads: null },
+  { id: 'p1', type: 'Synapse Ads (Google Ads)', locationId: 'loc-001', radiusKm: 3, status: 'Active', pacing: 62, leads: null },
+  { id: 'p2', type: 'Synapse Ads (Meta Lead Ads)', locationId: 'loc-004', radiusKm: 3, status: 'Active', pacing: 48, leads: 14 },
+  { id: 'p3', type: 'AI Creative Studio', locationId: 'loc-005', radiusKm: 2, status: 'Active', pacing: 71, leads: null },
+  { id: 'p4', type: 'SPARK', locationId: 'loc-002', radiusKm: 3, status: 'Draft', pacing: 0, leads: null },
 ]

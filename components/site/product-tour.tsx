@@ -8,42 +8,68 @@ import { SampleBadge } from './primitives'
 import { Reveal } from './reveal'
 import { LocationsView } from './views/locations-view'
 import { EngageView } from './views/engage-view'
-import { SynapseView } from './views/synapse-view'
+import { AdsView } from './views/ads-view'
 import styles from './product-tour.module.css'
 
 const products = [
   {
     id: 'locations',
     name: 'Locations',
-    mono: 'LD',
-    tagline: 'LOC-D // Listing & SEO Atlas',
-    title: 'Every storefront indexed, protected, and ranking #1.',
-    body: 'Monitor the health of every outlet on one map. 24/7 Profile Guard catches unauthorized edits to hours, numbers, and categories before customers encounter a closed door.',
-    points: ['24/7 Profile Guard against rogue user edits', 'Bulk sync to Google, Apple Maps & Bing Places', 'Per-city Geo-Grid keyword ranking & health scores'],
-    hint: 'Select Thane to inspect the detected Saturday hours change, then 1-click revert it.',
+    mono: 'LOC',
+    tagline: 'Google Business Profile Suite',
+    title: 'Manage your local presence at scale.',
+    body: 'Bring location information, reviews, profile changes and local publishing workflows into one organised workspace.',
+    points: [
+      'Location and listing management',
+      'Review management and sentiment analysis',
+      'AI-assisted review response workflows',
+      'Profile Guard and listing-change review',
+      'AI Location Studio',
+      'Google Business Profile post scheduling',
+      'QR code generation',
+      'Per-location microsite workflows',
+      'Location reports and data management',
+    ],
+    hint: 'Select North Mall to see Profile Guard edit detection, or open AI Location Studio for Downtown Branch score.',
     View: LocationsView,
   },
   {
     id: 'engage',
     name: 'Engage',
-    mono: 'RA',
-    tagline: 'REP-A // Reputation Core & Patrol',
-    title: 'One inbox for every review, comment, and message.',
-    body: 'Autonomous AI patrol across Google, Instagram, Facebook, and App Store reviews. AI drafts on-brand replies with approval guardrails, while 1-star complaints trigger instant WhatsApp alerts to store managers.',
-    points: ['Unified inbox across Google, Meta & App Stores', 'Instant WhatsApp escalations for 1★ reviews (< 45s)', 'Editable AI drafts with central or store approval'],
-    hint: 'Pick Rhea S., toggle "Store WhatsApp Alert" to see the manager notification, or approve the reply.',
+    mono: 'ENG',
+    tagline: 'Omnichannel Helpdesk',
+    title: 'Turn customer interactions into organised workflows.',
+    body: 'Bring customer conversations into a shared workflow where teams can review, assign, respond and understand customer interactions.',
+    points: [
+      'Social comments and messages',
+      'Email ticketing',
+      'Ad comments',
+      'App-store reviews',
+      'Agent Queue and ticket management',
+      'Team assignment and alerts',
+      'Customer and sentiment analytics',
+      'Response Studio and brand voice controls',
+      'AI-assisted response configuration',
+    ],
+    hint: 'Open Agent Queue to see pipeline, or Configure → Response Studio for AI auto-reply settings.',
     View: EngageView,
   },
   {
-    id: 'synapse',
-    name: 'Synapse',
-    mono: 'HΣ',
-    tagline: 'HYP-Σ // Hyperlocal Ad Network',
-    title: 'Spend where each store can actually serve.',
-    body: 'Run Performance Max and Meta Lead Ads per location, with a targeting radius around each store and leads routed directly to the nearest branch rep.',
-    points: ['Per-store targeting radius (1–6 km)', 'Live household & footfall catchment projection', 'Leads auto-routed to the nearest store sales rep'],
-    hint: 'Pick a campaign and drag the radius slider to project local reach.',
-    View: SynapseView,
+    id: 'ads',
+    name: 'Synapse Ads',
+    mono: 'ADS',
+    tagline: 'AI Advertising Engine',
+    title: 'Build more informed local advertising workflows.',
+    body: 'Explore advertising tools, AI-assisted creative preparation and a structured approach to getting campaigns ready.',
+    points: [
+      'Google Ads and Meta Lead Ads surfaces',
+      'AI Creative Studio: 5-step wizard (Business→Style→Message→Visuals→Size)',
+      'SPARK: 3 questions → Brand Intelligence → Audience Mapping → Product Catalogue → AI Ad Generation',
+      'Reports: Meta Lead Ads campaign table + scheduled delivery',
+      'Per-location radius targeting + lead routing to nearest branch',
+    ],
+    hint: 'Open AI Creative Studio to generate ad creative, or SPARK to scan your site for ad readiness.',
+    View: AdsView,
   },
 ] as const
 
@@ -165,7 +191,7 @@ export function ProductTour() {
                   <span className={styles.ptMonogram} aria-hidden="true">
                     {product.mono}
                   </span>
-                  {product.name} <i>· Mumbai region</i>
+                  {product.name} <i>· Sample region</i>
                 </p>
                 <SampleBadge />
               </div>

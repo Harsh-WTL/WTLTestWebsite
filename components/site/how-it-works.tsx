@@ -1,7 +1,8 @@
+/* eslint-disable */
 'use client'
 
+import { Link2, MessageSquare, Megaphone } from 'lucide-react'
 import { useEffect, useState, type CSSProperties } from 'react'
-import { Link2, Radar, Zap } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useInView, usePrefersReducedMotion } from '@/lib/hooks'
 import { Reveal } from './reveal'
@@ -10,35 +11,34 @@ import styles from './how-it-works.module.css'
 const steps = [
   {
     icon: Link2,
-    title: 'Connect every location',
-    body: 'Bring each store’s profiles, review sources, social accounts, and ad accounts into one workspace, organised by region.',
+    title: 'Manage every location\'s presence',
+    body: 'Organise business information, monitor listing changes, manage reviews and coordinate location-level publishing.',
     product: 'Locations',
   },
   {
-    icon: Radar,
-    title: 'Listen across channels',
-    body: 'Every review, comment, and message is tagged with its location, sentiment, and topic the moment it arrives.',
+    icon: MessageSquare,
+    title: 'Bring customer conversations together',
+    body: 'Give teams organised workflows for social interactions, messages, email tickets, app-store reviews and customer response management.',
     product: 'Engage',
   },
   {
-    icon: Zap,
-    title: 'Act locally, at scale',
-    body: 'Reply with on-brand drafts, guard profiles from unwanted edits, and point spend at the stores and radius that need it.',
-    product: 'Synapse',
+    icon: Megaphone,
+    title: 'Prepare for local advertising',
+    body: 'Support advertising workflows with campaign-related tools, AI-assisted creative preparation and structured ad-readiness processes.',
+    product: 'Synapse Ads',
   },
 ]
 
-/* Decorative mini-replays (sample data only, aria-hidden) — one per step. */
 const LISTEN_ROWS = [
-  { time: '09:41 · Thane', tone: 'var(--success-solid)', tag: '✓ positive', tagCls: 'tagOk', topic: 'wait times' },
-  { time: '09:38 · Powai', tone: 'var(--warning-solid)', tag: '▼ mixed', tagCls: 'tagWarn', topic: 'hours' },
-  { time: '09:35 · Vashi', tone: 'var(--danger-solid)', tag: '✕ negative', tagCls: 'tagBad', topic: 'reply due' },
+  { time: '09:41', tone: 'var(--success-solid)', tag: '✓ positive', tagCls: 'tagOk', topic: 'wait times' },
+  { time: '09:38', tone: 'var(--warning-solid)', tag: '▼ mixed', tagCls: 'tagWarn', topic: 'hours' },
+  { time: '09:35', tone: 'var(--danger-solid)', tag: '✕ negative', tagCls: 'tagBad', topic: 'reply due' },
 ]
 
 const ACTIONS = [
-  { ic: 'WA', tone: 'actDanger', content: <>WhatsApp alert · <b>Vashi</b> · 45s</> },
-  { ic: 'RA', tone: 'actBrand', content: <>Draft ready · <b>Thane</b> · 1★ reply</> },
-  { ic: 'SP', tone: 'actWarn', content: <>Radius shifted · <b>Powai</b> · 3 → 5 km</> },
+  { ic: 'AI', tone: 'actBrand', content: 'AI reply posted · Downtown Branch' },
+  { ic: 'GBP', tone: 'actWarn', content: 'GBP post published · All locations' },
+  { ic: 'AD', tone: 'actBrand', content: 'Synapse Ads launched · North Mall 3km' },
 ]
 
 const CONNECT_PATHS = ['M18 1 L18 28', 'M118 1 C118 13, 20 15, 18 28', 'M240 1 C240 17, 26 16, 18 28']
@@ -50,7 +50,7 @@ function ConnectWell({ run, reduced }: { run: boolean; reduced: boolean }) {
       <div className={styles.connRow}>
         <span className={styles.srcChip}>
           <span className={styles.srcDot} style={{ background: 'var(--success-solid)' }} />
-          Google
+          Google Business Profile
         </span>
         <span className={styles.srcChip}>
           <span className={styles.srcDot} style={{ background: 'var(--viz-2)' }} />
@@ -58,7 +58,7 @@ function ConnectWell({ run, reduced }: { run: boolean; reduced: boolean }) {
         </span>
         <span className={styles.srcChip}>
           <span className={styles.srcDot} style={{ background: 'var(--warning-solid)' }} />
-          Ad accounts
+          Microsite
         </span>
       </div>
       <svg className={styles.connSvg} viewBox="0 0 280 30" preserveAspectRatio="none" aria-hidden="true">
@@ -79,7 +79,7 @@ function ConnectWell({ run, reduced }: { run: boolean; reduced: boolean }) {
           </>
         )}
       </svg>
-      <span className={styles.wsChip}>12 locations · one workspace</span>
+      <span className={styles.wsChip}>All locations · one workspace</span>
     </div>
   )
 }
@@ -152,10 +152,10 @@ export function HowItWorks() {
             How it works
           </span>
           <h2 id="how-title" className={styles.sTitle}>
-            From signal to local action <span className={styles.sAccent}>in one place.</span>
+            Three connected workflows <span className={styles.sAccent}>for multi-location marketing.</span>
           </h2>
           <p className={styles.sDesc}>
-            Each product handles one part of the loop, and they share the same locations, data, and context.
+            Each product area handles one part of the loop, and they share the same locations, data, and context.
           </p>
         </Reveal>
 
@@ -165,11 +165,7 @@ export function HowItWorks() {
           </span>
           <ol className={styles.steps}>
             {steps.map((s, i) => (
-              <li
-                key={s.title}
-                className={styles.step}
-                style={{ '--hiwP': `${i / 2}`, '--d': `${i * 140}ms` } as CSSProperties}
-              >
+              <li key={s.title} className={styles.step} style={{ '--hiwP': `${i / 2}`, '--d': `${i * 140}ms` } as CSSProperties}>
                 <span className={styles.stepNode}>
                   <s.icon aria-hidden="true" />
                 </span>
