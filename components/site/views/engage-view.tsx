@@ -139,7 +139,7 @@ export function EngageView() {
               </label>
               {isApproved && (
                 <span className="flex items-center gap-1 text-xs font-semibold text-success">
-                  <Check className="size-3.5" /> Ready for live sync
+                  <Check className="size-3.5" /> Reviewed in this sample
                 </span>
               )}
             </div>
@@ -171,12 +171,12 @@ export function EngageView() {
               >
                 {isApproved ? (
                   <>
-                    <Check aria-hidden="true" className="size-4" /> Approved
+                    <Check aria-hidden="true" className="size-4" /> Reviewed
                   </>
                 ) : (
                   <>
-                    <Send aria-hidden="true" className="size-3.5" />
-                    Approve reply
+                    <Check aria-hidden="true" className="size-3.5" />
+                    Review draft
                   </>
                 )}
               </button>

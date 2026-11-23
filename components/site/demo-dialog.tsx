@@ -115,10 +115,10 @@ export function DemoProvider({ children }: { children: React.ReactNode }) {
           <div className="mb-6 flex items-start justify-between gap-4">
             <div>
               <h2 id={titleId} className="text-2xl font-semibold tracking-[-0.025em]">
-                Book a demo
+                Request a demo
               </h2>
               <p id={descId} className="mt-1.5 text-[15px] leading-relaxed text-ink-2">
-                Tell us about your locations and we&apos;ll tailor the walkthrough to Locations, Engage, or Synapse.
+                Tell us about your locations and we&apos;ll tailor the walkthrough to the product areas you want to explore.
               </p>
             </div>
             <button

@@ -61,10 +61,10 @@ const products = [
     title: 'Build more informed local advertising workflows.',
     body: 'Explore advertising tools, AI-assisted creative preparation and a structured approach to getting campaigns ready.',
     points: [
-      'Google Ads and Meta Lead Ads surfaces',
+      'Campaign-planning tools for multi-location teams',
       'AI Creative Studio for ad creative',
       'SPARK advertising-readiness workflow',
-      'Per-location radius targeting',
+      'Per-location targeting setup',
       'Campaign reports and scheduled delivery',
     ],
     hint: 'Open AI Creative Studio to prepare ad creative, or SPARK to review advertising readiness.',
@@ -203,6 +203,9 @@ export function ProductTour() {
                 className={cn(styles.pframeGlare, glare > 0 && styles.glareRun)}
               />
             </div>
+            <p className={styles.pframeCap} aria-hidden="true">
+              Illustrative sample data · product preview, not a live account.
+            </p>
           </Reveal>
         </div>
       </div>

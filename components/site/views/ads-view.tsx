@@ -6,6 +6,15 @@ import { cn } from '@/lib/utils'
 import { locationById, sampleCampaigns } from '@/lib/sample-data'
 import { LocationMap } from '../location-map'
 
+/* Customer-facing labels for the illustrative sample campaigns.
+   The underlying campaign types are internal module names. */
+const CAMPAIGN_LABEL: Record<string, string> = {
+  'Synapse Ads (Google Ads)': 'Local ads · Google',
+  'Synapse Ads (Meta Lead Ads)': 'Local ads · Meta',
+  'AI Creative Studio': 'Creative studio',
+  SPARK: 'Ad readiness',
+}
+
 export function AdsView() {
   const [selectedId, setSelectedId] = useState(sampleCampaigns[0].id)
   const [radii, setRadii] = useState<Record<string, number>>(() =>
@@ -31,7 +40,7 @@ export function AdsView() {
           showLabels
         />
         <div className="absolute left-3 top-3 rounded-ctl border border-line bg-card/95 p-3 shadow-card backdrop-blur-md">
-          <p className="text-[11px] font-mono text-ink-3">{campaign.type}</p>
+          <p className="text-[11px] font-mono text-ink-3">{CAMPAIGN_LABEL[campaign.type] ?? campaign.type}</p>
           <p className="text-[13px] font-semibold text-ink">
             {loc.name} · <span className="tnum text-brand">{radius} km</span> catchment
           </p>
@@ -123,8 +132,8 @@ export function AdsView() {
             </div>
             <p className="mt-1">
               {campaign.type === 'Synapse Ads (Meta Lead Ads)'
-                ? `Leads within ${radius} km can be routed to ${loc.name}'s sales counter.`
-                : `Synapse Ads spend can be focused inside the ${radius} km radius customers will actually travel from.`}
+                ? `Illustrative sample: leads inside the ${radius} km catchment around ${loc.name} could be routed to the nearest branch.`
+                : `Illustrative sample: Synapse Ads spend can be focused inside the ${radius} km radius customers will actually travel from.`}
             </p>
           </div>
         </div>

@@ -19,7 +19,7 @@ export function LocationsView() {
     () =>
       sampleLocations.map((l) =>
         l.id === 'loc-003' && guard !== 'pending'
-          ? { ...l, status: 'healthy', profile: 'Verified', note: guard === 'reverted' ? 'Hours restored' : 'New hours confirmed' }
+          ? { ...l, status: 'healthy', profile: 'Verified', note: guard === 'reverted' ? 'Change reviewed in this sample' : 'Change recorded in this sample' }
           : l,
       ),
     [guard],
@@ -135,7 +135,7 @@ function ProfileGuard({ state, onChange }: { state: GuardState; onChange: (s: Gu
       <div className="mt-3 flex items-center justify-between gap-2 rounded-ctl border border-success-border bg-success-subtle p-3 text-[13px]">
         <span className="flex items-center gap-1.5 font-semibold text-success">
           <Check aria-hidden="true" className="size-4" />
-          {state === 'reverted' ? 'Edit reverted' : 'Edit accepted'}
+          Change reviewed
         </span>
         <button type="button" onClick={() => onChange('pending')} className="text-[12px] font-semibold text-ink-2 hover:text-ink">
           Reset sample
@@ -152,6 +152,7 @@ function ProfileGuard({ state, onChange }: { state: GuardState; onChange: (s: Gu
       <p className="mt-1 text-[13px] text-ink-2">
         Hours on Google changed to <strong className="font-semibold text-ink">09:00 – 17:00</strong>. Your record says 09:00 – 19:00.
       </p>
+      <p className="mt-1.5 text-[12px] text-ink-3">Illustrative sample — review the change as your team would.</p>
       <div className="mt-2.5 flex gap-2">
         <button
           type="button"
@@ -159,7 +160,7 @@ function ProfileGuard({ state, onChange }: { state: GuardState; onChange: (s: Gu
           className="inline-flex h-8 items-center gap-1.5 rounded-full bg-brand-ink px-3 text-[12px] font-semibold text-ink-inverse transition-transform active:scale-[0.98]"
         >
           <Undo2 aria-hidden="true" className="size-3.5" />
-          Revert edit
+          Review change
         </button>
         <button
           type="button"

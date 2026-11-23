@@ -63,16 +63,16 @@ export function RoiCalculator() {
             <div className={styles.leadRow}>
               <div className={styles.leadStats}>
                 <div className={styles.sRow}>
-                  <span className={styles.sName}>Single source of truth</span>
-                  <span className={styles.sCap}>One location record feeds all three product areas</span>
+                  <span className={styles.sName}>Location-led organisation</span>
+                  <span className={styles.sCap}>One place to manage every location’s presence, reputation and local publishing.</span>
                 </div>
                 <div className={styles.sRow}>
-                  <span className={styles.sName}>AI throughout</span>
-                  <span className={styles.sCap}>AI-assisted replies, Profile Guard triage, creative generation, ad readiness</span>
+                  <span className={styles.sName}>AI-assisted workflows</span>
+                  <span className={styles.sCap}>AI helps prepare response drafts, review listing changes and create ad creative.</span>
                 </div>
                 <div className={styles.sRow}>
-                  <span className={styles.sName}>Team collaboration</span>
-                  <span className={styles.sCap}>Role-based access, zone-scoped permissions, round-robin assignment</span>
+                  <span className={styles.sName}>Team coordination</span>
+                  <span className={styles.sCap}>Shared workspaces let head office, regional and store teams stay on the same page.</span>
                 </div>
                 <div className={styles.sRow}>
                   <span className={styles.sName}>Channel flexibility</span>

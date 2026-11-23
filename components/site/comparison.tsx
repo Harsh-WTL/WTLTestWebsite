@@ -17,18 +17,17 @@ const locationsItems = [
 
 const engageItems = [
   'Unified inbox for customer conversations',
-  'Agent Queue with organised ticket workflows',
-  'Round-robin ticket assignment',
-  'Customer CRM with interaction history',
+  'Organised ticket workflows',
+  'Customer interaction history',
   'AI-assisted response reporting',
 ]
 
 const synapseItems = [
-  'Synapse Ads with Google Ads and Meta Lead Ads surfaces',
-  'AI Creative Studio for ad creative preparation',
+  'Campaign-planning and creative-preparation tools for multi-location teams',
+  'AI Creative Studio for ad creative',
   'SPARK advertising-readiness workflow',
-  'Per-location radius targeting',
-  'Lead routing to the nearest branch',
+  'Per-location targeting setup',
+  'Campaign reports and scheduled delivery',
 ]
 
 type Category = 'locations' | 'engage' | 'synapse'
@@ -37,21 +36,21 @@ const categories = [
   {
     key: 'locations',
     title: 'Location presence management',
-    desc: 'Centralise Google Business Profile listings across every location with health scoring and multi-region organisation.',
+    desc: 'Organise business information for every location, review listing changes and coordinate local publishing.',
     items: locationsItems,
     Icon: Building2,
   },
   {
     key: 'engage' as Category,
     title: 'Reviews and reputation workflows',
-    desc: 'Unified review inbox with AI-assisted replies, sentiment analysis and configurable response rules.',
+    desc: 'Bring customer conversations into organised workflows with AI-assisted response drafts and sentiment analysis.',
     items: engageItems,
     Icon: MessageSquare,
   },
   {
     key: 'synapse' as Category,
     title: 'Advertising and creative workflows',
-    desc: 'Synapse Ads with Google Ads and Meta Lead Ads, AI Creative Studio, SPARK readiness and radius targeting.',
+    desc: 'Explore campaign-planning and creative-preparation tools designed for multi-location teams.',
     items: synapseItems,
     Icon: Megaphone,
   },

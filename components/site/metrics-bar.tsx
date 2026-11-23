@@ -39,7 +39,7 @@ const capabilities = [
       'Campaign preparation tools',
       'AI Creative Studio',
       'SPARK ad-readiness',
-      'Per-location radius targeting',
+      'Per-location targeting setup',
     ],
   },
 ]

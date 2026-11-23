@@ -123,15 +123,15 @@ export function Hero() {
 
         {/* Trust ribbon */}
         <div className={cn('mt-6 font-mono sm:mt-7', styles.ribbon)}>
-          <span className={styles.ribbonKey}>INTEGRATIONS</span>
+          <span className={styles.ribbonKey}>WHAT YOU GET</span>
           <span aria-hidden="true" className={styles.ribbonSep}>
             ·
           </span>
-          <span>Google Business Profile &amp; Meta APIs</span>
+          <span>Locations · Engage · Synapse Ads</span>
           <span aria-hidden="true" className={styles.ribbonSep}>
             ·
           </span>
-          <span>Listings, Reviews, Posts, Profile Guard, AI Studio, Microsite, Reports</span>
+          <span>Illustrative sample data</span>
           <span aria-hidden="true" className={styles.ribbonSep}>
             ·
           </span>

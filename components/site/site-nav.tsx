@@ -111,7 +111,7 @@ export function SiteNav() {
           })}
         </ul>
 
-        {/* Right: Theme Toggle & Prominent High-Contrast Book a Demo CTA */}
+        {/* Right: Theme Toggle & Prominent High-Contrast Request a demo CTA */}
         <div className="flex items-center gap-2.5">
           <ThemeToggle />
           <DemoButton
@@ -124,7 +124,7 @@ export function SiteNav() {
                 : 'bg-brand-ink text-ink-inverse hover:shadow-raised hover:-translate-y-px active:scale-[0.98]',
             )}
           >
-            Book a Demo
+            Request a demo
           </DemoButton>
           <button
             type="button"
@@ -188,7 +188,7 @@ export function SiteNav() {
                 : 'bg-brand-ink text-ink-inverse hover:shadow-raised',
             )}
           >
-            Book a Demo
+            Request a demo
           </DemoButton>
         </div>
       </div>

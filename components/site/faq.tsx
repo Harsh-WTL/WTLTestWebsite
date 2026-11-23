@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: 'How is AI used in the platform?',
-    a: 'AI is used to assist the team, not to run the operation on its own. Across the platform it can help prepare response drafts, analyse customer sentiment, review listing changes and prepare advertising creative. Every AI suggestion is prepared for a person to review before anything is published or sent.',
+    a: 'AI is used to assist the team, not to run the operation on its own. Across the platform it can help prepare response drafts, analyse customer sentiment, review listing changes and prepare advertising creative. AI suggestions are prepared for a person to review, and what happens after that review depends on the product area and your setup.',
   },
   {
     q: 'Can teams manage multiple locations and users?',
@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     q: 'Which integrations are available?',
-    a: 'What The Local works with Google Business Profile and Meta, and supports email and app-store review channels. Availability of specific channels and features depends on connected and configured accounts.',
+    a: 'What The Local is designed to work with channels commonly used by multi-location businesses. Which channels and features are available depends on connected and configured accounts, and we recommend confirming current availability before you rely on a specific channel.',
   },
   {
     q: 'How can I request a demo?',

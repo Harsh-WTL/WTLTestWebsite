@@ -155,7 +155,7 @@ export function HowItWorks() {
             Three connected workflows <span className={styles.sAccent}>for multi-location marketing.</span>
           </h2>
           <p className={styles.sDesc}>
-            Each product area handles one part of the loop, and they share the same locations, data, and context.
+            Each product area supports a different part of local marketing, bringing the work around multiple locations into one platform.
           </p>
         </Reveal>
 

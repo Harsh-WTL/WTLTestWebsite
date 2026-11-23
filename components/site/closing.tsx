@@ -23,7 +23,7 @@ const demoSteps = [
   },
 ] as const
 
-const checks = ['Supported integrations include Google Business Profile and Meta'] as const
+const checks = ['Illustrative sample data throughout', 'Walkthroughs tailored to your product areas'] as const
 
 export function FinalCta() {
   const reduced = usePrefersReducedMotion()
@@ -169,17 +169,17 @@ export function SiteFooter() {
           <div>
             <Logo />
             <p className={styles.fdesc}>
-              The connected marketing, presence, and reputation operating system built for
-              multi-location brands. Run every store like your best one.
+              What The Local brings location management, customer engagement, and local advertising
+              workflows together for multi-location businesses.
             </p>
           </div>
 
           <div className={styles.fcol}>
             <h4>Platform</h4>
             <ul>
-              <li><a href="#products">Locations (Listings, Reviews, Posts, Profile Guard, AI Studio, Microsite, Reports)</a></li>
-              <li><a href="#products">Engage (Agent Queue, Inbox, Understand, Configure)</a></li>
-              <li><a href="#products">Ads (Synapse Ads, AI Creative Studio, SPARK)</a></li>
+              <li><a href="#products">Locations</a></li>
+              <li><a href="#products">Engage</a></li>
+              <li><a href="#products">Synapse Ads</a></li>
             </ul>
           </div>
 
@@ -199,8 +199,6 @@ export function SiteFooter() {
             <ul>
               <li><a href="#how-it-works">How it works</a></li>
               <li><a href="#products">Products</a></li>
-              <li><a href="#capability-summary">Capabilities</a></li>
-              <li><a href="#comparison">Capability Matrix</a></li>
               <li><a href="#use-cases">Use Cases</a></li>
               <li><a href="#faq">FAQs</a></li>
               <li><a href="#top">Back to top</a></li>

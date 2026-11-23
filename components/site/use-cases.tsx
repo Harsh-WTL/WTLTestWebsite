@@ -24,7 +24,7 @@ const cases = [
     body: 'Keep appointment hours accurate and answer patient reviews at every centre.',
     pv: [
       { label: 'Branch A — hours', value: 'Maps 9:30 · system 9:00' },
-      { label: 'Edited by', value: 'Google auto-update' },
+      { label: 'Detected by', value: 'Profile change detected · Sample' },
     ],
     pvBtn: 'Review edit',
   },
@@ -54,10 +54,10 @@ const cases = [
     icon: Car,
     tag: 'Synapse',
     name: 'Automotive dealers',
-    body: 'Route test-drive leads to the nearest showroom.',
+    body: 'Plan local campaigns around each showroom’s catchment.',
     pv: [
       { label: 'Test-drive form — Branch D', value: 'new lead' },
-      { label: 'Routed to', value: 'nearest showroom' },
+      { label: 'Status', value: 'Enquiry ready for team review' },
     ],
     pvBtn: 'Notify manager',
   },
@@ -68,7 +68,7 @@ const cases = [
     body: 'Guard branch details and track sentiment by region.',
     pv: [
       { label: 'Branch E — attributes', value: 'phone masked · 1 field' },
-      { label: 'Edited by', value: 'Google auto-update' },
+      { label: 'Detected by', value: 'Profile change detected · Sample' },
     ],
     pvBtn: 'Review edit',
   },
@@ -79,7 +79,7 @@ const cases = [
     body: 'Run local trial campaigns around each studio’s catchment.',
     pv: [
       { label: 'Trial-week promo — studio', value: 'catchment 4 km' },
-      { label: 'Lead routing', value: 'studio WhatsApp' },
+      { label: 'Creative', value: 'Review draft awaiting approval' },
     ],
     pvBtn: 'Pulse report',
   },
