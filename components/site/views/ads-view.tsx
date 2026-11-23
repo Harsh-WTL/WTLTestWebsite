@@ -118,13 +118,13 @@ export function AdsView() {
             <div className="flex items-center justify-between font-semibold text-ink">
               <span>Catchment Projection</span>
               <span className="inline-flex items-center gap-0.5 text-brand">
-                <TrendingUp className="size-3" /> Auto-routed
+                <TrendingUp className="size-3" /> Radius targeting
               </span>
             </div>
             <p className="mt-1">
               {campaign.type === 'Synapse Ads (Meta Lead Ads)'
-                ? `Leads within ${radius} km route straight to ${loc.name}'s sales counter. ${campaign.leads ? `${campaign.leads} routed this week.` : ''}`
-                : `Synapse Ads spend stays strictly inside the ${radius} km radius customers will actually travel from.`}
+                ? `Leads within ${radius} km can be routed to ${loc.name}'s sales counter.`
+                : `Synapse Ads spend can be focused inside the ${radius} km radius customers will actually travel from.`}
             </p>
           </div>
         </div>

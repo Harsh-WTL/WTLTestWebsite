@@ -9,39 +9,39 @@ import styles from './faq.module.css'
 const faqs = [
   {
     q: 'What is What The Local?',
-    a: 'What The Local is a multi-location marketing platform that brings location presence management, customer engagement, and local advertising workflows together for businesses with multiple locations.',
+    a: 'What The Local is a marketing platform built for businesses with multiple locations. It brings location presence, customer engagement and local advertising workflows together in one workspace.',
   },
   {
-    q: 'What are the three products within What The Local?',
-    a: 'The three products are: Locations (Google Business Profile listing management, reviews, Profile Guard, AI Location Studio, local publishing), Engage (omnichannel customer care helpdesk with unified inbox, Agent Queue, AI-assisted responses), and Synapse Ads (Google Ads and Meta Lead Ads campaign tools, AI Creative Studio, SPARK ad-readiness workflow).',
+    q: 'What are the three product families?',
+    a: 'The three products are Locations, Engage, and Synapse Ads. Each handles a different part of local marketing, and all three are built around the same set of locations.',
   },
   {
     q: 'How does Locations help multi-location businesses?',
-    a: 'Locations centralises Google Business Profile management across all your locations. It includes listing management, review monitoring with AI-assisted replies, Profile Guard for detecting unauthorized edits, AI Location Studio for completeness scoring, GBP post scheduling with per-location template variables, QR code generation, per-location microsite creation, and comprehensive reporting.',
+    a: 'Locations helps teams organise business information for every location, review listing changes, manage customer reviews and coordinate local publishing. It is designed for brands that need to see the whole portfolio, not one store at a time.',
   },
   {
-    q: 'What can teams manage through Engage?',
-    a: 'Engage provides a unified inbox for customer conversations across Google reviews, Facebook/Instagram comments and DMs, YouTube comments, Email tickets, Google Play & App Store reviews, and Ad comments. It includes Agent Queue with ticket pipeline (To do → WIP → ACR → Resolved → Closed), round-robin assignment, customer analytics with sentiment themes (LOVED/ASKED ABOUT/NEEDS WORK), and Response Studio for brand voice configuration and AI auto-reply rules. Channel availability depends on connected accounts.',
+    q: 'What can teams do with Engage?',
+    a: 'Engage brings customer conversations from reviews, messages, comments and email into one organised workflow. Teams can review, assign and track conversations, prepare response drafts with AI assistance, and understand customer sentiment over time. Which channels are available depends on connected accounts.',
   },
   {
     q: 'What is Synapse Ads?',
-    a: 'Synapse Ads is the advertising product area offering Google Ads and Meta Lead Ads campaign surfaces per location, AI Creative Studio for ad creative generation (5-step wizard: Business → Style → Message → Visuals → Size), and SPARK (Smart Personalised Ad Readiness Kit) which scans your website to build an ad-ready brand kit across Brand Intelligence, Audience Mapping, Product Catalogue, and AI Ad Generation. Per-location radius targeting (1–6 km) and lead routing to the nearest branch are supported.',
+    a: 'Synapse Ads supports local advertising workflows for multi-location teams. It includes campaign preparation tools, AI-assisted creative preparation and location-oriented advertising features. Campaign availability depends on connected advertising accounts.',
   },
   {
-    q: 'How does AI fit into the platform?',
-    a: 'AI is embedded across all three products: Locations uses AI for review reply generation (on-demand and auto-reply per star rating), Profile Guard edit risk triage, and AI Location Studio completeness scoring. Engage uses AI for auto-replies (configurable per star rating), brand voice controls, and sentiment theme extraction (LOVED/ASKED ABOUT/NEEDS WORK). Synapse Ads uses AI Creative Studio for image generation and SPARK for automated brand kit creation from website scan. AI never acts autonomously without human approval workflows.',
+    q: 'How is AI used in the platform?',
+    a: 'AI is used to assist the team, not to run the operation on its own. Across the platform it can help prepare response drafts, analyse customer sentiment, review listing changes and prepare advertising creative. Every AI suggestion is prepared for a person to review before anything is published or sent.',
   },
   {
-    q: 'Can teams control access by role and location?',
-    a: 'Yes. Role-based access control includes roles such as Owner, Regional Manager, Store Manager, Review Handler, Report Viewer, Content Creator, Engage Agent, Engage Lead, Engage Read-Only, and Custom. Permissions can be scoped by product area (Locations, Engage, Advertising) and by geography (All, by State, by City, by Pincode, by Zone, or Specific Locations).',
+    q: 'Can teams manage multiple locations and users?',
+    a: 'Yes. Teams can be organised by role and by the locations they are responsible for, so head office, regional and store teams each see the areas they manage.',
   },
   {
-    q: 'Which integrations and channels are supported?',
-    a: 'Google Business Profile (listings, reviews, posts, media, attributes, verification, performance, edit moderation), Meta/Facebook/Instagram (location pages, page posts, comments, DMs), YouTube (comments), Email (forward-rule ingestion), Google Play & App Store (reviews), Google Ads, and Meta Lead Ads. Channel availability in Engage and Ads depends on connected and configured accounts by an admin.',
+    q: 'Which integrations are available?',
+    a: 'What The Local works with Google Business Profile and Meta, and supports email and app-store review channels. Availability of specific channels and features depends on connected and configured accounts.',
   },
   {
-    q: 'How can we request a product demonstration?',
-    a: 'Click the "Request a demo" button in the navigation or any CTA on this page. Fill out the form with your name, work email, company, location count, and what you\'d like to see. Our team will tailor the walkthrough to your portfolio — covering Locations, Engage, Synapse Ads, or all three.',
+    q: 'How can I request a demo?',
+    a: 'Select the "Request a demo" button anywhere on the page and tell us about your locations. Our team will tailor the walkthrough to the product areas you want to explore.',
   },
 ] as const
 

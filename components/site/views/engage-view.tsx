@@ -59,7 +59,7 @@ export function EngageView() {
                 <p className="mt-1.5 line-clamp-2 text-[12px] leading-snug text-ink-2">{c.text}</p>
                 {approved[c.id] ? (
                   <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-success">
-                    <Check aria-hidden="true" className="size-3" /> Approved & Synced
+                    <Check aria-hidden="true" className="size-3" /> Approved in this sample
                   </span>
                 ) : null}
               </button>
@@ -155,7 +155,7 @@ export function EngageView() {
             />
             <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
               <p className="text-[12px] text-ink-3" aria-live="polite">
-                {isApproved ? 'Approved in this sample — queued for Google sync.' : 'Replies require central or store approval before posting.'}
+                {isApproved ? 'Approved in this sample. This is an illustrative interaction.' : 'Replies require central or store approval before posting.'}
               </p>
               <button
                 type="button"
@@ -207,9 +207,9 @@ export function EngageView() {
               <div className="mt-3 rounded-ctl border border-line bg-card/90 p-3 text-xs leading-relaxed text-ink shadow-sm">
                 <p className="font-bold text-brand">Response Studio Features</p>
                 <ul className="mt-2 list-disc space-y-1 pl-4 text-ink-2">
-                  <li>AI auto-replies master switch (per-star toggles)</li>
-                  <li>Brand voice: 1,000-char description + Professional/Friendly/Witty/Empathetic presets</li>
-                  <li>Contact email/phone shared by AI only when helpful</li>
+                  <li>AI reply configuration with per-star toggles</li>
+                  <li>Brand voice: description + Professional/Friendly/Witty/Empathetic presets</li>
+                  <li>Contact details shared by AI only when helpful</li>
                   <li>Saved Replies + Automated Rules builders</li>
                   <li>Full Brand Voice editor</li>
                 </ul>
@@ -218,9 +218,9 @@ export function EngageView() {
               <div className="mt-3 rounded-ctl border border-line bg-card/90 p-3 text-xs leading-relaxed text-ink shadow-sm">
                 <p className="font-bold text-brand">Agent Queue</p>
                 <ul className="mt-2 list-decimal space-y-1 pl-4 text-ink-2">
-                  <li>Pipeline: To do → WIP → ACR → Resolved → Closed</li>
+                  <li>Organised ticket workflow for customer conversations</li>
                   <li>Round-robin assignment (configurable)</li>
-                  <li>Search by Ticket #, order, AWB, email</li>
+                  <li>Search by ticket, order and email</li>
                 </ul>
               </div>
 

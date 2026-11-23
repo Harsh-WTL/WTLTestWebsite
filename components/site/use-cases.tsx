@@ -23,10 +23,10 @@ const cases = [
     name: 'Clinics & healthcare',
     body: 'Keep appointment hours accurate and answer patient reviews at every centre.',
     pv: [
-      { label: 'Andheri West — hours', value: 'Maps 9:30 · system 9:00' },
+      { label: 'Branch A — hours', value: 'Maps 9:30 · system 9:00' },
       { label: 'Edited by', value: 'Google auto-update' },
     ],
-    pvBtn: '1-click revert',
+    pvBtn: 'Review edit',
   },
   {
     icon: ShoppingBag,
@@ -34,7 +34,7 @@ const cases = [
     name: 'Retail chains',
     body: 'Spot which stores are slipping on service and spend where footfall is.',
     pv: [
-      { label: 'Khar store — rating', value: '4.8 → 4.2 · 30 days' },
+      { label: 'Branch B — rating', value: '4.8 → 4.2 · 30 days' },
       { label: 'Reply drafts', value: '2 waiting on manager' },
     ],
     pvBtn: 'Open review queue',
@@ -45,19 +45,19 @@ const cases = [
     name: 'Restaurants & QSR',
     body: 'Reply to every outlet’s reviews and keep menus and hours current.',
     pv: [
-      { label: 'Bandra outlet — 2-star review', value: 'AI draft ready' },
+      { label: 'Branch C — 2-star review', value: 'AI draft ready' },
       { label: 'Tone', value: 'brand voice · approval rule' },
     ],
-    pvBtn: 'Approve & post',
+    pvBtn: 'Review draft',
   },
   {
     icon: Car,
     tag: 'Synapse',
     name: 'Automotive dealers',
-    body: 'Route test-drive leads to the nearest showroom automatically.',
+    body: 'Route test-drive leads to the nearest showroom.',
     pv: [
-      { label: 'Test-drive form — A. East', value: 'new lead' },
-      { label: 'Routed to', value: 'nearest showroom · 3.4 km' },
+      { label: 'Test-drive form — Branch D', value: 'new lead' },
+      { label: 'Routed to', value: 'nearest showroom' },
     ],
     pvBtn: 'Notify manager',
   },
@@ -67,10 +67,10 @@ const cases = [
     name: 'Banks & branches',
     body: 'Guard branch details and track sentiment by region.',
     pv: [
-      { label: 'Powai branch — attributes', value: 'phone masked · 1 field' },
+      { label: 'Branch E — attributes', value: 'phone masked · 1 field' },
       { label: 'Edited by', value: 'Google auto-update' },
     ],
-    pvBtn: '1-click revert',
+    pvBtn: 'Review edit',
   },
   {
     icon: Dumbbell,

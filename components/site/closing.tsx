@@ -10,20 +10,20 @@ import styles from './closing.module.css'
 
 const demoSteps = [
   {
-    title: 'Portfolio Health Scan',
-    cap: 'AI Score, Profile Guard status, listing completeness across all locations.',
+    title: 'Portfolio overview',
+    cap: 'See how location information, profile-quality signals and review work are organised across all locations.',
   },
   {
-    title: 'Engage Demo',
-    cap: 'Agent Queue pipeline, AI auto-reply in Response Studio, sentiment themes (LOVED/ASKED ABOUT/NEEDS WORK).',
+    title: 'Engage walkthrough',
+    cap: 'Review the Agent Queue workflow, Response Studio configuration and how AI-assisted reply drafts are prepared.',
   },
   {
-    title: 'Ads Demo',
-    cap: 'SPARK site scan → AI Creative Studio generation → Synapse Ads per-location radius targeting.',
+    title: 'Ads walkthrough',
+    cap: 'Explore campaign preparation, AI Creative Studio and Synapse Ads location-oriented advertising tools.',
   },
 ] as const
 
-const checks = ['Official Meta & Google APIs'] as const
+const checks = ['Supported integrations include Google Business Profile and Meta'] as const
 
 export function FinalCta() {
   const reduced = usePrefersReducedMotion()

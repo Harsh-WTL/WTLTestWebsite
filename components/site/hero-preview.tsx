@@ -49,7 +49,7 @@ export function HeroPreview() {
           <span aria-hidden="true" className={styles.sampleDot} />
           Sample data
         </span>
-        <span className={styles.sync}>SYNCED 2M AGO</span>
+        <span className={styles.sync}>Sample workspace</span>
       </div>
 
       <div className={styles.body}>
@@ -131,7 +131,7 @@ export function HeroPreview() {
               ▲
             </span>
             <span className={styles.attnName}>{NORTH_MALL.name}</span>
-            <span className={styles.attnNote}>Profile Guard: hours edit auto-rejected</span>
+            <span className={styles.attnNote}>Profile Guard: hours edit flagged for review</span>
             <span className={styles.attnCode}>{NORTH_MALL.code}</span>
             <span className={styles.attnActionWarn}>Review →</span>
           </div>
@@ -141,7 +141,7 @@ export function HeroPreview() {
               ✕
             </span>
             <span className={styles.attnName}>{WESTSIDE_CLINIC.name}</span>
-            <span className={styles.attnNote}>3 unanswered · AI-assisted replies active</span>
+            <span className={styles.attnNote}>3 reviews awaiting team response</span>
             <span className={styles.attnCode}>{WESTSIDE_CLINIC.code}</span>
             <span className={styles.attnActionBad}>Reply →</span>
           </div>

@@ -33,7 +33,7 @@ export function RoiCalculator() {
                 </div>
                 <h3 className={styles.capabilityTitle}>Locations</h3>
                 <p className={styles.capabilityDesc}>
-                  Manage listings, reviews, Profile Guard, AI Studio, GBP posts, QR codes, microsites, and reports.
+                  Organise location information, reviews and profile-quality work in one workspace.
                 </p>
               </div>
               <div className={styles.capabilityItem}>
@@ -42,7 +42,7 @@ export function RoiCalculator() {
                 </div>
                 <h3 className={styles.capabilityTitle}>Engage</h3>
                 <p className={styles.capabilityDesc}>
-                  Unified inbox, Agent Queue, customer analytics, Response Studio, AI auto-replies, brand voice controls.
+                  Bring customer conversations into organised response workflows with AI-assisted drafts.
                 </p>
               </div>
               <div className={styles.capabilityItem}>
@@ -51,7 +51,7 @@ export function RoiCalculator() {
                 </div>
                 <h3 className={styles.capabilityTitle}>Synapse Ads</h3>
                 <p className={styles.capabilityDesc}>
-                  Google Ads & Meta Lead Ads, AI Creative Studio, SPARK ad-readiness, radius targeting, lead routing.
+                  Prepare local advertising campaigns and creative with location context.
                 </p>
               </div>
             </div>

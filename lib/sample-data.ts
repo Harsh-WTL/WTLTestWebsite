@@ -57,7 +57,7 @@ export const sampleLocations: SampleLocation[] = [
     reviews: 33,
     pending: 0,
     profile: 'Edit pending',
-    note: 'Profile Guard: Unauthorized edit to hours — Auto-rejected',
+    note: 'Profile Guard: hours edit flagged for review',
   },
   {
     id: 'loc-004',
@@ -259,10 +259,10 @@ export const heroScenarios: HeroScenario[] = [
     rating: 5,
     author: 'Ahana',
     time: '2m ago',
-    text: 'Profile Guard detected unauthorized edit to hours at Riverside Office — AI risk: HIGH — Auto-rejected in 1 click.',
+    text: 'Profile Guard flagged an edit to hours at Riverside Office for review.',
     sentiment: 'Positive',
     topic: 'Profile Guard',
-    insight: 'Profile Guard caught an unauthorized hours change at Riverside Office. Auto-reject prevented listing drift.',
+    insight: 'Profile Guard caught an hours change at Riverside Office and flagged it for team review.',
     action: 'Review Profile Guard log',
   },
   {

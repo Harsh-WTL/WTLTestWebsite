@@ -800,6 +800,30 @@
 
 /* Reduced motion: stop every CSS-driven animation (SMIL pulses are
    conditionally rendered out in the TSX under the same preference) */
+@media (max-width: 639px) {
+  .rail {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .marquee {
+    overflow: visible;
+    flex: 1 1 auto;
+    min-width: 0;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+  .track {
+    flex-wrap: wrap;
+    animation: none;
+    gap: 6px;
+    padding-right: 0;
+  }
+  .setName {
+    gap: 14px;
+    padding-right: 14px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .track,
   .conduit,

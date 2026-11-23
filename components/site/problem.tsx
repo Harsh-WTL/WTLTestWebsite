@@ -9,9 +9,9 @@ import { useInView, usePrefersReducedMotion } from '@/lib/hooks'
 type TitlePart = { text: string; delay: number; accent?: boolean }
 
 const TITLE_PARTS: TitlePart[] = [
-  { text: 'Twelve', delay: 0 },
+  { text: 'Many', delay: 0 },
   { text: 'stores.', delay: 70 },
-  { text: 'Seven', delay: 210 },
+  { text: 'Many', delay: 210 },
   { text: 'channels.', delay: 280 },
   { text: 'One small team.', delay: 520, accent: true },
 ]
@@ -95,7 +95,7 @@ function DriftVisual({ run, reduced }: { run: boolean; reduced: boolean }) {
       <div className={cn(styles.well, alarm && styles.wellAlarm)}>
         <div className={styles.drTop}>
           <div>
-            <p className={styles.drLabel}>Saturday hours · Thane</p>
+            <p className={styles.drLabel}>Saturday hours · Sample location</p>
             <div className={styles.drRow}>
               <span className={cn(styles.drOld, 'tnum')}>10:00 – 20:00</span>
               <span aria-hidden="true" className={styles.drArr}>→</span>
@@ -307,7 +307,7 @@ export function Problem() {
             className={styles.connective}
             data-in={conn.inView || reduced ? 'true' : 'false'}
           >
-            <b>No single store looks broken</b> — multiply by twelve and it compounds.
+            <b>No single store looks broken</b> — multiply by a few and it compounds.
           </span>
         </div>
       </div>

@@ -36,9 +36,9 @@ const LISTEN_ROWS = [
 ]
 
 const ACTIONS = [
-  { ic: 'AI', tone: 'actBrand', content: 'AI reply posted · Downtown Branch' },
-  { ic: 'GBP', tone: 'actWarn', content: 'GBP post published · All locations' },
-  { ic: 'AD', tone: 'actBrand', content: 'Synapse Ads launched · North Mall 3km' },
+  { ic: 'AI', tone: 'actBrand', content: 'AI reply drafted · sample location' },
+  { ic: 'GBP', tone: 'actWarn', content: 'Post scheduled for all locations' },
+  { ic: 'AD', tone: 'actBrand', content: 'Campaign prepared for sample radius' },
 ]
 
 const CONNECT_PATHS = ['M18 1 L18 28', 'M118 1 C118 13, 20 15, 18 28', 'M240 1 C240 17, 26 16, 18 28']

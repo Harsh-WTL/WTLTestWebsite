@@ -14,10 +14,9 @@ const capabilities = [
     subtitle: 'Manage location presence',
     items: [
       'Listing and review management',
-      'Profile Guard protection',
+      'Profile Guard change review',
       'AI Location Studio',
-      'GBP post scheduling',
-      'Microsite builder',
+      'Local publishing and scheduling',
     ],
   },
   {
@@ -25,11 +24,11 @@ const capabilities = [
     title: 'Engage',
     subtitle: 'Organise conversations',
     items: [
-      'Unified inbox (8 channels)',
+      'Unified inbox',
       'Agent queue and tickets',
       'Customer and sentiment analytics',
       'Response Studio and brand voice',
-      'AI-assisted replies',
+      'AI-assisted reply drafts',
     ],
   },
   {
@@ -37,11 +36,10 @@ const capabilities = [
     title: 'Synapse Ads',
     subtitle: 'Support local advertising',
     items: [
-      'Google Ads and Meta Lead Ads',
+      'Campaign preparation tools',
       'AI Creative Studio',
       'SPARK ad-readiness',
       'Per-location radius targeting',
-      'Lead routing to nearest branch',
     ],
   },
 ]

@@ -113,7 +113,7 @@ export function HeroNetwork() {
 
       <p className={styles.head} aria-hidden="true">
         <span className={styles.headTitle}>Location signal network</span>
-        <span className={styles.headMeta}>Mumbai metro</span>
+        <span className={styles.headMeta}>Sample network</span>
       </p>
 
       <div className={styles.driftChip}>
@@ -122,7 +122,7 @@ export function HeroNetwork() {
         </span>
         <span className={styles.driftCopy}>
           <b>Profile drift detected</b>
-          <span className={styles.driftMeta}>Thane · Saturday hours · caught 21m ago</span>
+          <span className={styles.driftMeta}>Sample location · Saturday hours</span>
         </span>
       </div>
 

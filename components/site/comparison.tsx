@@ -10,25 +10,25 @@ import styles from './comparison.module.css'
 // Data
 const locationsItems = [
   'Google Business Profile listing management',
-  'Bulk data import/export (CSV, XLSX)',
+  'Manage location data in bulk',
   'Location health scoring and monitoring',
   'Multi-account and multi-region organisation',
 ]
 
 const engageItems = [
-  'Unified inbox: Google, Facebook, Instagram, YouTube, Email, Play Store, App Store, Ad comments',
-  'Agent Queue with pipeline (To do → WIP → ACR → Resolved → Closed)',
+  'Unified inbox for customer conversations',
+  'Agent Queue with organised ticket workflows',
   'Round-robin ticket assignment',
   'Customer CRM with interaction history',
-  'AI vs Manual response reporting',
+  'AI-assisted response reporting',
 ]
 
 const synapseItems = [
-  'Synapse Ads: Google Ads + Meta Lead Ads per location',
-  'AI Creative Studio: 5-step wizard (Business → Style → Message → Visuals → Size)',
-  'SPARK: Brand Intelligence → Audience Mapping → Product Catalogue → AI Ad Generation',
-  'Per-location radius targeting (1–6 km)',
-  'Lead routing to nearest branch',
+  'Synapse Ads with Google Ads and Meta Lead Ads surfaces',
+  'AI Creative Studio for ad creative preparation',
+  'SPARK advertising-readiness workflow',
+  'Per-location radius targeting',
+  'Lead routing to the nearest branch',
 ]
 
 type Category = 'locations' | 'engage' | 'synapse'
@@ -44,14 +44,14 @@ const categories = [
   {
     key: 'engage' as Category,
     title: 'Reviews and reputation workflows',
-    desc: 'Unified review inbox with AI-assisted replies, sentiment analysis and configurable auto-reply rules.',
+    desc: 'Unified review inbox with AI-assisted replies, sentiment analysis and configurable response rules.',
     items: engageItems,
     Icon: MessageSquare,
   },
   {
     key: 'synapse' as Category,
     title: 'Advertising and creative workflows',
-    desc: 'Synapse Ads with Google Ads & Meta Lead Ads, AI Creative Studio wizard, SPARK readiness and radius targeting.',
+    desc: 'Synapse Ads with Google Ads and Meta Lead Ads, AI Creative Studio, SPARK readiness and radius targeting.',
     items: synapseItems,
     Icon: Megaphone,
   },
