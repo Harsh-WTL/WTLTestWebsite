@@ -118,7 +118,7 @@ function DriftVisual({ run, reduced }: { run: boolean; reduced: boolean }) {
           </div>
         </div>
         <div className={styles.drMeta}>
-          <span>Edited by a Google user · unreviewed</span>
+          <span>Profile change detected · Sample</span>
           <span>{alarm ? 'customer walks to a closed door' : `unnoticed for ${9 - day} more days`}</span>
         </div>
       </div>

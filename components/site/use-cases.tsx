@@ -76,9 +76,9 @@ const cases = [
     icon: Dumbbell,
     tag: 'Synapse',
     name: 'Fitness & wellness',
-    body: 'Run local trial campaigns around each studio’s catchment.',
+    body: 'Plan local campaigns around each studio’s area.',
     pv: [
-      { label: 'Trial-week promo — studio', value: 'catchment 4 km' },
+      { label: 'Trial-week promo — studio', value: 'Local campaign planning' },
       { label: 'Creative', value: 'Review draft awaiting approval' },
     ],
     pvBtn: 'Pulse report',

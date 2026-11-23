@@ -219,7 +219,7 @@ export function EngageView() {
                 <p className="font-bold text-brand">Agent Queue</p>
                 <ul className="mt-2 list-decimal space-y-1 pl-4 text-ink-2">
                   <li>Organised ticket workflow for customer conversations</li>
-                  <li>Round-robin assignment (configurable)</li>
+                  <li>Team members can be assigned to conversations</li>
                   <li>Search by ticket, order and email</li>
                 </ul>
               </div>

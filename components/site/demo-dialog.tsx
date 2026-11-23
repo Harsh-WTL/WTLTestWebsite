@@ -236,7 +236,7 @@ export function DemoProvider({ children }: { children: React.ReactNode }) {
 }
 
 export function DemoButton({
-  children = 'Book a Demo',
+  children = 'Request a demo',
   variant = 'primary',
   size = 'md',
   className,

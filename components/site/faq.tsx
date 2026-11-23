@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     q: 'What are the three product families?',
-    a: 'The three products are Locations, Engage, and Synapse Ads. Each handles a different part of local marketing, and all three are built around the same set of locations.',
+    a: 'The three products are Locations, Engage, and Synapse Ads. Each supports a different part of local marketing.',
   },
   {
     q: 'How does Locations help multi-location businesses?',
@@ -29,11 +29,11 @@ const faqs = [
   },
   {
     q: 'How is AI used in the platform?',
-    a: 'AI is used to assist the team, not to run the operation on its own. Across the platform it can help prepare response drafts, analyse customer sentiment, review listing changes and prepare advertising creative. AI suggestions are prepared for a person to review, and what happens after that review depends on the product area and your setup.',
+    a: 'AI can assist with preparing response drafts, analysing customer feedback and supporting creative workflows where these features are available. Teams can review suggestions before using them. Available capabilities depend on the product workflow.',
   },
   {
     q: 'Can teams manage multiple locations and users?',
-    a: 'Yes. Teams can be organised by role and by the locations they are responsible for, so head office, regional and store teams each see the areas they manage.',
+    a: 'Yes. Teams can be organised so that head office, regional and store teams each see the areas they manage.',
   },
   {
     q: 'Which integrations are available?',

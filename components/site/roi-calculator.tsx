@@ -68,15 +68,15 @@ export function RoiCalculator() {
                 </div>
                 <div className={styles.sRow}>
                   <span className={styles.sName}>AI-assisted workflows</span>
-                  <span className={styles.sCap}>AI helps prepare response drafts, review listing changes and create ad creative.</span>
+                  <span className={styles.sCap}>Help teams prepare responses and review information where AI features are available.</span>
                 </div>
                 <div className={styles.sRow}>
                   <span className={styles.sName}>Team coordination</span>
-                  <span className={styles.sCap}>Shared workspaces let head office, regional and store teams stay on the same page.</span>
+                  <span className={styles.sCap}>Give teams a clearer way to organise and track local marketing work.</span>
                 </div>
                 <div className={styles.sRow}>
-                  <span className={styles.sName}>Channel flexibility</span>
-                  <span className={styles.sCap}>Google, Meta, email, app stores, ads — configure what you need</span>
+                  <span className={styles.sName}>Flexible workflows</span>
+                  <span className={styles.sCap}>Support different local marketing activities across multiple locations.</span>
                 </div>
               </div>
             </div>
